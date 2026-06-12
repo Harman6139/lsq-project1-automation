@@ -52,6 +52,7 @@ jobs:
           APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
           APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          USE_SERVICE_ACCOUNT_DRIVE_UPLOAD: ${{ secrets.USE_SERVICE_ACCOUNT_DRIVE_UPLOAD }}
           GOOGLE_DRIVE_FOLDER_ID: 1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq
         run: |
           if [ -n "$APPS_SCRIPT_WEB_APP_URL" ] && [ -n "$APPS_SCRIPT_UPLOAD_SECRET" ]; then
@@ -59,7 +60,7 @@ jobs:
               --project-dir .
             exit 0
           fi
-          if [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
+          if [ "$USE_SERVICE_ACCOUNT_DRIVE_UPLOAD" != "true" ] || [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
             echo "No Drive upload method is configured. Skipping Drive upload."
             exit 0
           fi
