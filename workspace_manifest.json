@@ -1,78 +1,60 @@
 {
-  "generated_at": "2026-06-12T19:29:22.699502+00:00",
+  "generated_at": "2026-06-12T20:02:52.627689+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
   "artifacts": [
     {
       "local_path": "workspace_index.txt",
-      "drive_name": "Boyle_LSQ_Workspace_Index.txt",
-      "description": "Plain-language map of the Drive folder and LaTeX/code workspace.",
+      "drive_name": "README - Start Here.txt",
+      "description": "Plain-language map of the workspace and current files.",
       "group": "workspace",
-      "bytes": 1791,
-      "sha256": "b298ab8fc1322f3c62ab042ac8d6b98cea2bc440e8695f5c295b8b905fda9fd7"
-    },
-    {
-      "local_path": "workspace_manifest.json",
-      "drive_name": "Boyle_LSQ_Workspace_manifest.json",
-      "description": "Machine-readable list of published files with checksums.",
-      "group": "workspace",
-      "bytes": 0,
-      "sha256": "self-referential"
+      "folder_path": "",
+      "bytes": 1533,
+      "sha256": "3c66b564d1e813a4119cd97dbb878d54a48001c0f0d6875682e7f78beb025e5a"
     },
     {
       "local_path": "Project_1_May2026_Update.pdf",
-      "drive_name": "Project_1_LSQ_Monthly_Update.pdf",
+      "drive_name": "Project_1_May2026_Update.pdf",
       "description": "Viewer-ready current Project 1 monthly update PDF.",
       "group": "project1_monthly",
+      "folder_path": "01 Project 1 Monthly Update",
       "bytes": 233457,
       "sha256": "ed01155522ff2033ce40b0370f120fc9d559b3c527b25eac747fb266684cd321"
     },
     {
       "local_path": "Project_1_May2026_Update.xlsx",
-      "drive_name": "Project_1_LSQ_Monthly_Update.xlsx",
+      "drive_name": "Project_1_May2026_Update.xlsx",
       "description": "Current Project 1 monthly update Excel workbook.",
       "group": "project1_monthly",
+      "folder_path": "01 Project 1 Monthly Update",
       "bytes": 21946,
       "sha256": "789d3a760732c762d1b0f42ed352469b380d111351ccad65ea717f0905d57fd6"
     },
     {
       "local_path": "Project_1_May2026_Update.tex",
-      "drive_name": "Project_1_LSQ_Monthly_Update.tex",
+      "drive_name": "Project_1_May2026_Update.tex",
       "description": "Current Project 1 monthly update LaTeX source.",
       "group": "project1_monthly",
+      "folder_path": "01 Project 1 Monthly Update",
       "bytes": 6722,
       "sha256": "184693711e5c1f668373638839f0892b4f943797ee4d00deac731c32cc398a82"
     },
     {
-      "local_path": "manifest.json",
-      "drive_name": "Project_1_LSQ_Monthly_Update_manifest.json",
-      "description": "Project 1 monthly run manifest.",
-      "group": "project1_monthly",
-      "bytes": 692,
-      "sha256": "4d845b4e100cd452db8a1614d7e53b6a97133e8bda7264ec8bf5f8d6bc2e1673"
-    },
-    {
       "local_path": "data/market_return_verification.csv",
-      "drive_name": "Project_1_LSQ_Monthly_Update_data_validation.csv",
+      "drive_name": "May2026_market_return_validation.csv",
       "description": "NVIDIA and S&P 500 Total Return validation data.",
       "group": "project1_monthly",
+      "folder_path": "01 Project 1 Monthly Update",
       "bytes": 619,
       "sha256": "2d77ba2f5ceb623210e922b7a769749e52af6d7b24cc68758e6a79107971b224"
-    },
-    {
-      "local_path": "scripts/update_project1_monthly.py",
-      "drive_name": "Project_1_LSQ_Monthly_Update_script.py",
-      "description": "Automation script that rebuilds the monthly Project 1 outputs.",
-      "group": "project1_monthly",
-      "bytes": 56067,
-      "sha256": "2b5562c9efbbd670dffe057892992a9824805e32619cf320b07cdb6acd60b3a2"
     },
     {
       "local_path": "workspace/assignment_2/Assignment_2_Leveraged_SP500.pdf",
       "drive_name": "Assignment_2_Leveraged_SP500.pdf",
       "description": "Viewer-ready Assignment 2 PDF.",
       "group": "assignment2",
+      "folder_path": "02 Assignment 2",
       "bytes": 126790,
       "sha256": "00c26b3be21d069fca23073ee2af278e0dee949aab1ab071e34f2f054e0e5e7a"
     },
@@ -81,6 +63,7 @@
       "drive_name": "Assignment_2_Leveraged_SP500.tex",
       "description": "Assignment 2 LaTeX source.",
       "group": "assignment2",
+      "folder_path": "02 Assignment 2",
       "bytes": 4419,
       "sha256": "46f18d2b953d25937e0d2d5e6817c1c8c2563e7d92188742b105198a5ade5248"
     },
@@ -89,6 +72,7 @@
       "drive_name": "Assignment_2_SP500TR_monthly_returns.csv",
       "description": "Assignment 2 S&P 500 Total Return monthly data.",
       "group": "assignment2",
+      "folder_path": "02 Assignment 2",
       "bytes": 10147,
       "sha256": "41bb7c74f544de210d0e619d505ee9eecc6241b4f2325828320544a1a50a88c8"
     },
@@ -97,16 +81,18 @@
       "drive_name": "Assignment_2_compute_script.py",
       "description": "Assignment 2 calculation script.",
       "group": "assignment2",
+      "folder_path": "02 Assignment 2",
       "bytes": 10538,
       "sha256": "e7576384f025f303cc8c2746c15c1677bba04117deaf6079f2c50dae11ed73e6"
     },
     {
-      "local_path": "workspace/assignment_2/assignment2_manifest.json",
-      "drive_name": "Assignment_2_manifest.json",
-      "description": "Assignment 2 manifest.",
-      "group": "assignment2",
-      "bytes": 513,
-      "sha256": "5066f97b77ca296d336bec23a36125bcdb96a742c44a130933caee43a3ea82b0"
+      "local_path": "scripts/update_project1_monthly.py",
+      "drive_name": "update_project1_monthly.py",
+      "description": "Automation script that rebuilds the monthly Project 1 outputs.",
+      "group": "project1_monthly",
+      "folder_path": "03 Monthly Automation",
+      "bytes": 56067,
+      "sha256": "2b5562c9efbbd670dffe057892992a9824805e32619cf320b07cdb6acd60b3a2"
     }
   ]
 }

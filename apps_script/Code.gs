@@ -13,17 +13,21 @@ function doPost(e) {
     const files = payload.files || [];
     const deleteNames = payload.deleteNames || [];
 
-    deleteNames.forEach(function(name) {
-      trashByName(folder, name);
+    deleteNames.forEach(function(item) {
+      const deleteName = typeof item === 'string' ? item : item.name;
+      const deleteFolderPath = typeof item === 'string' ? '' : (item.folderPath || '');
+      const deleteFolder = getOrCreateFolderPath(folder, deleteFolderPath);
+      trashByName(deleteFolder, deleteName);
     });
 
     files.forEach(function(file) {
-      trashByName(folder, file.name);
+      const targetFolder = getOrCreateFolderPath(folder, file.folderPath || '');
+      trashByName(targetFolder, file.name);
 
       const bytes = Utilities.base64Decode(file.contentBase64);
       const blob = Utilities.newBlob(bytes, file.mimeType || 'application/octet-stream', file.name);
-      const created = folder.createFile(blob).setName(file.name);
-      results.push({ name: file.name, id: created.getId(), url: created.getUrl() });
+      const created = targetFolder.createFile(blob).setName(file.name);
+      results.push({ folderPath: file.folderPath || '', name: file.name, id: created.getId(), url: created.getUrl() });
     });
 
     return jsonResponse({ ok: true, results: results });
@@ -37,10 +41,33 @@ function doGet() {
 }
 
 function trashByName(folder, name) {
+  if (!name) {
+    return;
+  }
   const existing = folder.getFilesByName(name);
   while (existing.hasNext()) {
     existing.next().setTrashed(true);
   }
+}
+
+function getOrCreateFolderPath(rootFolder, folderPath) {
+  if (!folderPath) {
+    return rootFolder;
+  }
+
+  let current = rootFolder;
+  const parts = folderPath.split('/').map(function(part) {
+    return part.trim();
+  }).filter(function(part) {
+    return part.length > 0;
+  });
+
+  parts.forEach(function(part) {
+    const matches = current.getFoldersByName(part);
+    current = matches.hasNext() ? matches.next() : current.createFolder(part);
+  });
+
+  return current;
 }
 
 function jsonResponse(obj) {

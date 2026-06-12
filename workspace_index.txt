@@ -1,28 +1,33 @@
 Boyle LSQ Workspace
-Updated: 2026-06-12 19:29:22 UTC
+Updated: 2026-06-12 20:02:52 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
 Source repository: https://github.com/Harman6139/lsq-project1-automation
 
-Current files in this Drive folder:
-- Boyle_LSQ_Workspace_Index.txt: Plain-language map of the Drive folder and LaTeX/code workspace.
-- Boyle_LSQ_Workspace_manifest.json: Machine-readable list of published files with checksums.
-- Project_1_LSQ_Monthly_Update.pdf: Viewer-ready current Project 1 monthly update PDF.
-- Project_1_LSQ_Monthly_Update.xlsx: Current Project 1 monthly update Excel workbook.
-- Project_1_LSQ_Monthly_Update.tex: Current Project 1 monthly update LaTeX source.
-- Project_1_LSQ_Monthly_Update_manifest.json: Project 1 monthly run manifest.
-- Project_1_LSQ_Monthly_Update_data_validation.csv: NVIDIA and S&P 500 Total Return validation data.
-- Project_1_LSQ_Monthly_Update_script.py: Automation script that rebuilds the monthly Project 1 outputs.
+Workspace layout:
+
+Root:
+- README - Start Here.txt: Plain-language map of the workspace and current files.
+
+01 Project 1 Monthly Update:
+- Project_1_May2026_Update.pdf: Viewer-ready current Project 1 monthly update PDF.
+- Project_1_May2026_Update.xlsx: Current Project 1 monthly update Excel workbook.
+- Project_1_May2026_Update.tex: Current Project 1 monthly update LaTeX source.
+- May2026_market_return_validation.csv: NVIDIA and S&P 500 Total Return validation data.
+
+02 Assignment 2:
 - Assignment_2_Leveraged_SP500.pdf: Viewer-ready Assignment 2 PDF.
 - Assignment_2_Leveraged_SP500.tex: Assignment 2 LaTeX source.
 - Assignment_2_SP500TR_monthly_returns.csv: Assignment 2 S&P 500 Total Return monthly data.
 - Assignment_2_compute_script.py: Assignment 2 calculation script.
-- Assignment_2_manifest.json: Assignment 2 manifest.
+
+03 Monthly Automation:
+- update_project1_monthly.py: Automation script that rebuilds the monthly Project 1 outputs.
 
 Monthly automation:
 Project 1 runs automatically through GitHub Actions on the 10th of each month.
 It rebuilds the PDF, Excel file, LaTeX source, data files, and live LaTeX workspace.
 
 LaTeX workspace note:
-The live LaTeX workspace is Git-backed. When the Overleaf Git mirror is configured, the Overleaf project updates from the same automation.
+The editable LaTeX workspace is Git-backed and available through the GitHub workspace link.

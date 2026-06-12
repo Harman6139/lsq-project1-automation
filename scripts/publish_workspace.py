@@ -42,12 +42,14 @@ def artifact_paths(project_dir: Path, config: dict[str, object]) -> list[dict[st
         drive_name = str(artifact["drive_name"])
         description = str(artifact.get("description", ""))
         group = str(artifact.get("group", "workspace"))
+        folder_path = str(artifact.get("folder_path", ""))
         normalized.append(
             {
                 "local_path": local_path,
                 "drive_name": drive_name,
                 "description": description,
                 "group": group,
+                "folder_path": folder_path,
             }
         )
     return normalized
@@ -64,9 +66,16 @@ def write_index(project_dir: Path, config: dict[str, object], artifacts: list[di
         f"Live LaTeX workspace: {latex_workspace_url}",
         f"Source repository: {config.get('github_repo_url', '')}",
         "",
-        "Current files in this Drive folder:",
+        "Workspace layout:",
     ]
+    current_folder = None
     for artifact in artifacts:
+        folder_path = artifact.get("folder_path", "")
+        folder_label = folder_path if folder_path else "Root"
+        if folder_label != current_folder:
+            lines.append("")
+            lines.append(f"{folder_label}:")
+            current_folder = folder_label
         lines.append(f"- {artifact['drive_name']}: {artifact['description']}")
     lines.extend(
         [
@@ -76,7 +85,7 @@ def write_index(project_dir: Path, config: dict[str, object], artifacts: list[di
             "It rebuilds the PDF, Excel file, LaTeX source, data files, and live LaTeX workspace.",
             "",
             "LaTeX workspace note:",
-            "The live LaTeX workspace is Git-backed. When the Overleaf Git mirror is configured, the Overleaf project updates from the same automation.",
+            "The editable LaTeX workspace is Git-backed and available through the GitHub workspace link.",
         ]
     )
     (project_dir / INDEX_NAME).write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -126,6 +135,7 @@ def build_payload(project_dir: Path, secret: str, artifacts: list[dict[str, str]
         files.append(
             {
                 "name": drive_name,
+                "folderPath": artifact.get("folder_path", ""),
                 "mimeType": mime_type,
                 "contentBase64": base64.b64encode(local_path.read_bytes()).decode("ascii"),
             }
