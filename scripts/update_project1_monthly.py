@@ -1059,7 +1059,7 @@ def make_zip(out_dir: Path) -> Path:
     if zip_path.exists():
         zip_path.unlink()
     skip_suffixes = {".aux", ".log", ".out", ".pyc"}
-    skip_names = {"LSQ-Oct21-live.pdf"}
+    skip_names = {"LSQ-Oct21-live.pdf", "apps_script_upload_secret.txt", "Code_for_paste.gs"}
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         for file in out_dir.rglob("*"):
             if file.is_dir() or file == zip_path:
