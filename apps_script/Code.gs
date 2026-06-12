@@ -11,12 +11,14 @@ function doPost(e) {
     const folder = DriveApp.getFolderById(FOLDER_ID);
     const results = [];
     const files = payload.files || [];
+    const deleteNames = payload.deleteNames || [];
+
+    deleteNames.forEach(function(name) {
+      trashByName(folder, name);
+    });
 
     files.forEach(function(file) {
-      const existing = folder.getFilesByName(file.name);
-      while (existing.hasNext()) {
-        existing.next().setTrashed(true);
-      }
+      trashByName(folder, file.name);
 
       const bytes = Utilities.base64Decode(file.contentBase64);
       const blob = Utilities.newBlob(bytes, file.mimeType || 'application/octet-stream', file.name);
@@ -32,6 +34,13 @@ function doPost(e) {
 
 function doGet() {
   return jsonResponse({ ok: true, message: 'LSQ monthly upload endpoint is active.' });
+}
+
+function trashByName(folder, name) {
+  const existing = folder.getFilesByName(name);
+  while (existing.hasNext()) {
+    existing.next().setTrashed(true);
+  }
 }
 
 function jsonResponse(obj) {

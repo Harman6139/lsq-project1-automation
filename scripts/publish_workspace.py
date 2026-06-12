@@ -115,7 +115,7 @@ def write_manifest(project_dir: Path, config: dict[str, object], artifacts: list
     (project_dir / MANIFEST_NAME).write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
 
-def build_payload(project_dir: Path, secret: str, artifacts: list[dict[str, str]]) -> dict[str, object]:
+def build_payload(project_dir: Path, secret: str, artifacts: list[dict[str, str]], delete_names: list[str]) -> dict[str, object]:
     files = []
     for artifact in artifacts:
         local_path = project_dir / artifact["local_path"]
@@ -130,7 +130,7 @@ def build_payload(project_dir: Path, secret: str, artifacts: list[dict[str, str]
                 "contentBase64": base64.b64encode(local_path.read_bytes()).decode("ascii"),
             }
         )
-    return {"secret": secret, "files": files}
+    return {"secret": secret, "deleteNames": delete_names, "files": files}
 
 
 def main() -> None:
@@ -145,6 +145,9 @@ def main() -> None:
     project_dir = args.project_dir.resolve()
     config = load_config(project_dir / args.config)
     artifacts = artifact_paths(project_dir, config)
+    delete_names = config.get("delete_names", [])
+    if not isinstance(delete_names, list) or not all(isinstance(name, str) for name in delete_names):
+        raise SystemExit("delete_names must be a list of strings when provided.")
 
     write_index(project_dir, config, artifacts)
     write_manifest(project_dir, config, artifacts)
@@ -159,7 +162,7 @@ def main() -> None:
     if not args.secret:
         raise SystemExit("Missing upload secret. Set APPS_SCRIPT_UPLOAD_SECRET.")
 
-    body = json.dumps(build_payload(project_dir, args.secret, artifacts)).encode("utf-8")
+    body = json.dumps(build_payload(project_dir, args.secret, artifacts, delete_names)).encode("utf-8")
     request = urllib.request.Request(
         args.web_app_url,
         data=body,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:27:12.958140+00:00",
+  "generated_at": "2026-06-12T19:29:22.699502+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -9,8 +9,8 @@
       "drive_name": "Boyle_LSQ_Workspace_Index.txt",
       "description": "Plain-language map of the Drive folder and LaTeX/code workspace.",
       "group": "workspace",
-      "bytes": 1763,
-      "sha256": "e8fcdf73045960f093c163d9d5b21817d15e178d5de7f1dafc749a612390df57"
+      "bytes": 1791,
+      "sha256": "b298ab8fc1322f3c62ab042ac8d6b98cea2bc440e8695f5c295b8b905fda9fd7"
     },
     {
       "local_path": "workspace_manifest.json",
@@ -41,16 +41,16 @@
       "drive_name": "Project_1_LSQ_Monthly_Update.tex",
       "description": "Current Project 1 monthly update LaTeX source.",
       "group": "project1_monthly",
-      "bytes": 6560,
-      "sha256": "3f83cc5992fd3ed05b6142f9a8351361522b62be82b94ea48da5640a5ac97254"
+      "bytes": 6722,
+      "sha256": "184693711e5c1f668373638839f0892b4f943797ee4d00deac731c32cc398a82"
     },
     {
       "local_path": "manifest.json",
       "drive_name": "Project_1_LSQ_Monthly_Update_manifest.json",
       "description": "Project 1 monthly run manifest.",
       "group": "project1_monthly",
-      "bytes": 674,
-      "sha256": "69f0d464555a21cca6f135b809833551225b2477d9e15e9d52376328b1371730"
+      "bytes": 692,
+      "sha256": "4d845b4e100cd452db8a1614d7e53b6a97133e8bda7264ec8bf5f8d6bc2e1673"
     },
     {
       "local_path": "data/market_return_verification.csv",
@@ -81,16 +81,16 @@
       "drive_name": "Assignment_2_Leveraged_SP500.tex",
       "description": "Assignment 2 LaTeX source.",
       "group": "assignment2",
-      "bytes": 4303,
-      "sha256": "f9c479994fae054c5b1472a78958b574b1fe68817a39fed4f9972a37c0451ac7"
+      "bytes": 4419,
+      "sha256": "46f18d2b953d25937e0d2d5e6817c1c8c2563e7d92188742b105198a5ade5248"
     },
     {
       "local_path": "workspace/assignment_2/data/sp500tr_monthly_returns_2017_01_to_2026_05.csv",
       "drive_name": "Assignment_2_SP500TR_monthly_returns.csv",
       "description": "Assignment 2 S&P 500 Total Return monthly data.",
       "group": "assignment2",
-      "bytes": 10033,
-      "sha256": "a704c9303d44a2c41c9081bc76e9f9bb07594b046e6478e03fde4da3184fb58a"
+      "bytes": 10147,
+      "sha256": "41bb7c74f544de210d0e619d505ee9eecc6241b4f2325828320544a1a50a88c8"
     },
     {
       "local_path": "workspace/assignment_2/scripts/compute_assignment2_leveraged_sp500.py",
@@ -105,8 +105,8 @@
       "drive_name": "Assignment_2_manifest.json",
       "description": "Assignment 2 manifest.",
       "group": "assignment2",
-      "bytes": 494,
-      "sha256": "8560933edb654a1cc8a4f8ae902c75c732b662df21cd1420b0570bdcff85275a"
+      "bytes": 513,
+      "sha256": "5066f97b77ca296d336bec23a36125bcdb96a742c44a130933caee43a3ea82b0"
     }
   ]
 }
