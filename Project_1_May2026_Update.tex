@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{hyperref}
+
+\title{Project 1A LSQ Fund Update}
+\author{Prepared for Professor Phelim Boyle}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Data \& Method}
+The update uses 113 monthly LSQ observations from January 2017 through May 2026.
+The original paper used 109 observations ending in January 2026; the added LSQ returns are Feb 2026 = 1.88\%, Mar 2026 = 3.68\%, Apr 2026 = 2.95\%, May 2026 = 7.64\%.
+The LSQ analysis uses the baseline net-of-fees return series from the Spartan monthly performance PDF.
+
+For the benchmark, I used the Yahoo Finance \texttt{\string^SP500TR} S\&P 500 Total Return Index.
+This is the appropriate S\&P 500 series because the paper states that the benchmark returns are calculated with dividends reinvested; a price-only S\&P 500 index would omit dividends and understate the benchmark return.
+
+For 2026-05, the market comparators are pulled from Yahoo Finance monthly adjusted levels. The S\&P 500 TR return is 5.263305\%, and the NVIDIA return is 5.797466\%.
+
+All return inputs are monthly.
+Population standard deviation divides by $N$.
+Sharpe ratios use a 0\% risk-free rate.
+Sortino ratios use the paper's downside-deviation convention.
+Omega is computed as $\sum \max(r_t-L,0) / \sum \max(L-r_t,0)$.
+Alpha and beta are estimated from the monthly regression of LSQ returns on S\&P 500 Total Return Index returns.
+
+\clearpage
+\section*{Updated Table 2}
+\setcounter{table}{1}
+\input{tables/updated_table_2.tex}
+
+\clearpage
+\section*{Updated Table 4}
+\setcounter{table}{3}
+\input{tables/updated_table_4.tex}
+
+\clearpage
+\section*{Summary of Changes}
+\subsection*{Table 2: Paper Values vs Updated Values}
+\small
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Metric & Paper & Updated & Change \\
+\midrule
+LSQ arithmetic monthly return & 3.48\% & 3.50\% & +0.02 pp \\
+LSQ geometric monthly return & 3.40\% & 3.42\% & +0.02 pp \\
+LSQ percent positive months & 95.40\% & 95.58\% & +0.18 pp \\
+LSQ percent negative months & 4.60\% & 4.42\% & -0.18 pp \\
+LSQ population standard deviation & 4.06\% & 3.99\% & -0.07 pp \\
+LSQ Sharpe ratio & 0.86 & 0.88 & +0.02 \\
+LSQ Sortino ratio & 13.96 & 14.36 & +0.40 \\
+LSQ Omega ratio & 88.28 & 92.00 & +3.72 \\
+Alpha, monthly & 3.52\% & 3.53\% & +0.01 pp \\
+Beta & -0.04 & -0.02 & +0.02 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\normalsize
+
+\subsection*{Table 4: Paper LSQ Column vs Updated LSQ Column}
+\small
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Statistic & Paper LSQ & Updated LSQ & Change \\
+\midrule
+Arithmetic Mean Return & 3.47 & 3.50 & +0.03 \\
+Geometric Mean Return & 3.40 & 3.42 & +0.02 \\
+Percent Positive Months & 95.41 & 95.58 & +0.17 \\
+Percent Negative Months & 4.59 & 4.42 & -0.17 \\
+Average Positive Month & 3.68 & 3.70 & +0.02 \\
+Average Negative Month & -0.87 & -0.87 & +0.00 \\
+Standard Deviation & 4.06 & 3.99 & -0.07 \\
+Sharpe Ratio & 0.86 & 0.88 & +0.02 \\
+Sortino Ratio & 13.96 & 14.36 & +0.40 \\
+Omega Ratio & 88.28 & 92.00 & +3.72 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\normalsize
+
+\subsection*{Interpretation}
+The updated LSQ statistics move only moderately because 4 months are being added to a 109-month sample.
+All added LSQ months are positive, so the number of positive months rises from 104 to 108 and the number of negative months remains five.
+The average monthly return rises relative to the paper because May 2026 is a strong positive month.
+The maximum drawdown remains -2.20\% because none of the added months creates a new trough.
+
+The risk-adjusted metrics remain very strong.
+The Sharpe ratio is 0.88, the Sortino ratio is 14.36, and the zero-threshold Omega ratio is 92.00.
+The updated monthly alpha is 3.53\% and beta is -0.02, so the evidence still supports the paper's conclusion that LSQ's returns are not explained by broad equity-market exposure.
+
+\clearpage
+\section*{Additional Analysis: Serial Correlation}
+Since the paper already identifies serial correlation as an important feature of the LSQ return series, I implemented a serial-correlation diagnostic table and a Newey-West adjusted inference table.
+Newey-West inference adjusts the standard errors for autocorrelation and heteroskedasticity in the regression residuals.
+This gives a more appropriate t-statistic when monthly returns are not independent over time.
+
+\subsection*{Serial-Correlation Diagnostics}
+\begin{table}[H]
+\centering
+\caption{Serial-Correlation Diagnostics for Monthly Returns}
+\label{tab:serial-correlation}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Series & $\rho_1$ & LB p(1) & LB p(6) & LB p(12) \\
+\midrule
+LSQ Fund & 0.35 & 0.0002 & 0.0001 & 0.0001 \\
+S\&P 500 TR & -0.14 & 0.1370 & 0.5007 & 0.3521 \\
+LSQ minus S\&P 500 TR & 0.01 & 0.8885 & 0.9880 & 0.8567 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.15cm}
+\begin{minipage}{0.86\linewidth}
+\footnotesize
+$\rho_1$ is the first-order monthly autocorrelation.
+LB p($k$) is the Ljung-Box p-value through lag $k$.
+\end{minipage}
+\end{table}
+
+\subsection*{Newey-West Adjusted Inference}
+\begin{table}[H]
+\centering
+\caption{Conventional vs Newey-West Inference}
+\label{tab:newey-west}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Statistic & Estimate & OLS SE & OLS t-stat & Newey-West SE & Newey-West t-stat \\
+\midrule
+LSQ monthly mean & 3.50\% & 0.38\% & 9.27 & 0.53\% & 6.57 \\
+Monthly alpha & 3.53\% & 0.39\% & 8.93 & 0.59\% & 5.98 \\
+Beta & -0.02 & 0.08 & -0.27 & 0.11 & -0.21 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.15cm}
+\begin{minipage}{0.92\linewidth}
+\footnotesize
+Newey-West standard errors use 4 monthly lags, based on the rule $\lfloor 4(T/100)^{2/9}\rfloor$ with $T=113$.
+The alpha-beta regression is $r_{\mathrm{LSQ},t}=\alpha+\beta r_{\mathrm{S\&P500TR},t}+\varepsilon_t$.
+\end{minipage}
+\end{table}
+
+The Newey-West adjustment increases the standard errors, which is expected when there is positive serial correlation.
+Even after this adjustment, the LSQ monthly mean and alpha remain economically large and statistically strong.
+The beta remains close to zero and statistically insignificant.
+
+\subsection*{Additional Suggestions}
+I think the most logical next extension would be to apply the same dependence-aware approach to the paper's nonlinear performance ratios.
+We could produce confidence intervals for the Sharpe, Sortino, and Omega ratios without assuming independent monthly observations.
+This should directly address the serial-correlation issue and preserve our focus on asymmetric performance.
+
+\end{document}

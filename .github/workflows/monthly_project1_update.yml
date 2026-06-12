@@ -1,0 +1,73 @@
+name: Monthly Project 1 Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 10 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Generate Project 1 files
+        run: |
+          python scripts/update_project1_monthly.py \
+            --source spartan \
+            --output-dir . \
+            --no-compile
+
+      - name: Compile PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Project_1_May2026_Update.tex
+          working_directory: .
+
+      - name: Rebuild Overleaf zip after PDF compile
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, "scripts")
+          import update_project1_monthly as updater
+          updater.make_zip(Path("."))
+          PY
+
+      - name: Upload latest files to Google Drive
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_DRIVE_FOLDER_ID: 1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq
+        run: |
+          if [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "Google Drive service account secret is not configured. Skipping Drive upload."
+            exit 0
+          fi
+          python -m pip install -r cloud_upload_requirements.txt
+          python scripts/upload_to_google_drive.py \
+            --project-dir .
+
+      - name: Commit generated files
+        run: |
+          git config user.name "project1-update-bot"
+          git config user.email "project1-update-bot@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Update Project 1 monthly outputs"
+            git push
+          fi
