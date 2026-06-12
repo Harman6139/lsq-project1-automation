@@ -1072,12 +1072,22 @@ def make_zip(out_dir: Path) -> Path:
     if zip_path.exists():
         zip_path.unlink()
     skip_suffixes = {".aux", ".fdb_latexmk", ".fls", ".log", ".out", ".pyc"}
-    skip_names = {"LSQ-Oct21-live.pdf", "apps_script_upload_secret.txt", "Code_for_paste.gs"}
+    skip_dirs = {".git", ".github", "__pycache__", "apps_script", "workspace"}
+    skip_names = {
+        "LSQ-Oct21-live.pdf",
+        "apps_script_upload_secret.txt",
+        "Code_for_paste.gs",
+        "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
+        "WORKSPACE_README.md",
+        "workspace_artifacts.json",
+        "workspace_index.txt",
+        "workspace_manifest.json",
+    }
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         for file in out_dir.rglob("*"):
             if file.is_dir() or file == zip_path:
                 continue
-            if "__pycache__" in file.parts or ".git" in file.parts:
+            if any(part in skip_dirs for part in file.parts):
                 continue
             if file.suffix.lower() in skip_suffixes:
                 continue
