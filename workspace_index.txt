@@ -1,0 +1,30 @@
+Boyle LSQ Workspace
+Updated: 2026-06-12 18:56:35 UTC
+
+Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
+LaTeX/code workspace: https://github.com/Harman6139/lsq-project1-automation
+
+Current files in this Drive folder:
+- Boyle_LSQ_Workspace_Index.txt: Plain-language map of the Drive folder and LaTeX/code workspace.
+- Boyle_LSQ_Workspace_manifest.json: Machine-readable list of published files with checksums.
+- Boyle_LSQ_Workspace_Overleaf_Latest.zip: Current combined LaTeX workspace bundle for Overleaf import.
+- Project_1_LSQ_Monthly_Update.pdf: Viewer-ready current Project 1 monthly update PDF.
+- Project_1_LSQ_Monthly_Update.xlsx: Current Project 1 monthly update Excel workbook.
+- Project_1_LSQ_Monthly_Update.tex: Current Project 1 monthly update LaTeX source.
+- Harman_Boyle_Project1_Overleaf_Latest.zip: Project 1 only Overleaf import bundle.
+- Project_1_LSQ_Monthly_Update_manifest.json: Project 1 monthly run manifest.
+- Project_1_LSQ_Monthly_Update_data_validation.csv: NVIDIA and S&P 500 Total Return validation data.
+- Project_1_LSQ_Monthly_Update_script.py: Automation script that rebuilds the monthly Project 1 outputs.
+- Assignment_2_Leveraged_SP500.pdf: Viewer-ready Assignment 2 PDF.
+- Assignment_2_Leveraged_SP500.tex: Assignment 2 LaTeX source.
+- Assignment_2_SP500TR_monthly_returns.csv: Assignment 2 S&P 500 Total Return monthly data.
+- Assignment_2_compute_script.py: Assignment 2 calculation script.
+- Assignment_2_manifest.json: Assignment 2 manifest.
+
+Monthly automation:
+Project 1 runs automatically through GitHub Actions on the 10th of each month.
+It rebuilds the PDF, Excel file, LaTeX source, data files, and workspace zip.
+
+Overleaf note:
+The always-current LaTeX bundle is Boyle_LSQ_Workspace_Overleaf_Latest.zip.
+If an Overleaf project is needed, import or refresh it from that zip or from the GitHub repo.

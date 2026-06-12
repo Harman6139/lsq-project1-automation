@@ -1,0 +1,96 @@
+{
+  "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
+  "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
+  "artifacts": [
+    {
+      "group": "workspace",
+      "local_path": "workspace_index.txt",
+      "drive_name": "Boyle_LSQ_Workspace_Index.txt",
+      "description": "Plain-language map of the Drive folder and LaTeX/code workspace."
+    },
+    {
+      "group": "workspace",
+      "local_path": "workspace_manifest.json",
+      "drive_name": "Boyle_LSQ_Workspace_manifest.json",
+      "description": "Machine-readable list of published files with checksums."
+    },
+    {
+      "group": "workspace",
+      "local_path": "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
+      "drive_name": "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
+      "description": "Current combined LaTeX workspace bundle for Overleaf import."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "Project_1_May2026_Update.pdf",
+      "drive_name": "Project_1_LSQ_Monthly_Update.pdf",
+      "description": "Viewer-ready current Project 1 monthly update PDF."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "Project_1_May2026_Update.xlsx",
+      "drive_name": "Project_1_LSQ_Monthly_Update.xlsx",
+      "description": "Current Project 1 monthly update Excel workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "Project_1_May2026_Update.tex",
+      "drive_name": "Project_1_LSQ_Monthly_Update.tex",
+      "description": "Current Project 1 monthly update LaTeX source."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "Harman_Boyle_Project1_May2026_Overleaf_Update.zip",
+      "drive_name": "Harman_Boyle_Project1_Overleaf_Latest.zip",
+      "description": "Project 1 only Overleaf import bundle."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "manifest.json",
+      "drive_name": "Project_1_LSQ_Monthly_Update_manifest.json",
+      "description": "Project 1 monthly run manifest."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "data/market_return_verification.csv",
+      "drive_name": "Project_1_LSQ_Monthly_Update_data_validation.csv",
+      "description": "NVIDIA and S&P 500 Total Return validation data."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "scripts/update_project1_monthly.py",
+      "drive_name": "Project_1_LSQ_Monthly_Update_script.py",
+      "description": "Automation script that rebuilds the monthly Project 1 outputs."
+    },
+    {
+      "group": "assignment2",
+      "local_path": "workspace/assignment_2/Assignment_2_Leveraged_SP500.pdf",
+      "drive_name": "Assignment_2_Leveraged_SP500.pdf",
+      "description": "Viewer-ready Assignment 2 PDF."
+    },
+    {
+      "group": "assignment2",
+      "local_path": "workspace/assignment_2/Assignment_2_Leveraged_SP500.tex",
+      "drive_name": "Assignment_2_Leveraged_SP500.tex",
+      "description": "Assignment 2 LaTeX source."
+    },
+    {
+      "group": "assignment2",
+      "local_path": "workspace/assignment_2/data/sp500tr_monthly_returns_2017_01_to_2026_05.csv",
+      "drive_name": "Assignment_2_SP500TR_monthly_returns.csv",
+      "description": "Assignment 2 S&P 500 Total Return monthly data."
+    },
+    {
+      "group": "assignment2",
+      "local_path": "workspace/assignment_2/scripts/compute_assignment2_leveraged_sp500.py",
+      "drive_name": "Assignment_2_compute_script.py",
+      "description": "Assignment 2 calculation script."
+    },
+    {
+      "group": "assignment2",
+      "local_path": "workspace/assignment_2/assignment2_manifest.json",
+      "drive_name": "Assignment_2_manifest.json",
+      "description": "Assignment 2 manifest."
+    }
+  ]
+}

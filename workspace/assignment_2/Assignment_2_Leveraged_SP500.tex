@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+
+\title{Leveraged S\&P 500 Performance Analysis}
+\author{Prepared by Harman Singh for Professor Phelim Boyle}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Data and Sample}
+The analysis uses monthly S\&P 500 total return data from January 2017 to May 2026, for a total of 113 monthly observations.
+The data source is the Yahoo Finance S\&P 500 Total Return Index series, \texttt{\string^SP500TR}, which includes dividends and is therefore consistent with the paper's dividend-reinvestment convention.
+All statistics are reported monthly and are not annualised.
+
+\section*{Methodology}
+Let $r_t$ denote the S\&P 500 total return in month $t$, in percent, and let $r_f$ denote the constant monthly risk-free rate, also in percent.
+For each leverage level $\lambda$, the portfolio return is
+\[
+R_t(\lambda)=\lambda r_t-(\lambda-1)r_f=\lambda(r_t-r_f)+r_f.
+\]
+The analysis uses $\lambda \in \{0.5,1,2,3,4,5,6\}$ and $r_f \in \{0.00\%,0.25\%,0.50\%\}$.
+
+For each portfolio return series, the mean is
+\[
+\bar{R}=\frac{1}{n}\sum_{t=1}^n R_t,
+\]
+and the sample standard deviation is
+\[
+\sigma=\sqrt{\frac{1}{n-1}\sum_{t=1}^n (R_t-\bar{R})^2}.
+\]
+The Sharpe ratio is $\bar{R}/\sigma$.
+The Sortino ratio uses the zero-return threshold:
+\[
+\sigma_d=\sqrt{\frac{1}{n}\sum_{t=1}^n \min(R_t,0)^2},
+\qquad
+\mathrm{Sortino}=\frac{\bar{R}}{\sigma_d}.
+\]
+The Omega ratio is
+\[
+\Omega=\frac{\sum_{t:R_t>0} R_t}{\sum_{t:R_t<0} |R_t|}.
+\]
+
+\section*{Results}
+\begin{table}[H]
+\centering
+\caption{Leveraged S\&P 500 monthly statistics for $r_f=0.00\%$.}
+\label{tab:rf-00}
+\begin{tabular}{lrrrrr}
+\toprule
+$\lambda$ & $\bar{R}$ (\%) & $\sigma$ (\%) & Sharpe & Sortino & Omega \\
+\midrule
+0.5 & 0.6638 & 2.2719 & 0.2922 & 0.4734 & 2.0770 \\
+1 & 1.3275 & 4.5437 & 0.2922 & 0.4734 & 2.0770 \\
+2 & 2.6551 & 9.0875 & 0.2922 & 0.4734 & 2.0770 \\
+3 & 3.9826 & 13.6312 & 0.2922 & 0.4734 & 2.0770 \\
+4 & 5.3102 & 18.1750 & 0.2922 & 0.4734 & 2.0770 \\
+5 & 6.6377 & 22.7187 & 0.2922 & 0.4734 & 2.0770 \\
+6 & 7.9653 & 27.2624 & 0.2922 & 0.4734 & 2.0770 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Leveraged S\&P 500 monthly statistics for $r_f=0.25\%$.}
+\label{tab:rf-25}
+\begin{tabular}{lrrrrr}
+\toprule
+$\lambda$ & $\bar{R}$ (\%) & $\sigma$ (\%) & Sharpe & Sortino & Omega \\
+\midrule
+0.5 & 0.7888 & 2.2719 & 0.3472 & 0.5852 & 2.3582 \\
+1 & 1.3275 & 4.5437 & 0.2922 & 0.4734 & 2.0770 \\
+2 & 2.4051 & 9.0875 & 0.2647 & 0.4205 & 1.9470 \\
+3 & 3.4826 & 13.6312 & 0.2555 & 0.4033 & 1.9050 \\
+4 & 4.5602 & 18.1750 & 0.2509 & 0.3948 & 1.8843 \\
+5 & 5.6377 & 22.7187 & 0.2482 & 0.3897 & 1.8719 \\
+6 & 6.7153 & 27.2624 & 0.2463 & 0.3863 & 1.8637 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Leveraged S\&P 500 monthly statistics for $r_f=0.50\%$.}
+\label{tab:rf-50}
+\begin{tabular}{lrrrrr}
+\toprule
+$\lambda$ & $\bar{R}$ (\%) & $\sigma$ (\%) & Sharpe & Sortino & Omega \\
+\midrule
+0.5 & 0.9138 & 2.2719 & 0.4022 & 0.7058 & 2.6755 \\
+1 & 1.3275 & 4.5437 & 0.2922 & 0.4734 & 2.0770 \\
+2 & 2.1551 & 9.0875 & 0.2372 & 0.3696 & 1.8231 \\
+3 & 2.9826 & 13.6312 & 0.2188 & 0.3367 & 1.7438 \\
+4 & 3.8102 & 18.1750 & 0.2096 & 0.3205 & 1.7052 \\
+5 & 4.6377 & 22.7187 & 0.2041 & 0.3109 & 1.6824 \\
+6 & 5.4653 & 27.2624 & 0.2005 & 0.3045 & 1.6673 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Brief Discussion}
+When $r_f=0.00\%$, leverage scales both average return and volatility almost proportionally.
+Sharpe, Sortino, and Omega are unchanged across leverage levels because every portfolio return is a constant multiple of the same underlying S\&P 500 total return series.
+
+When $r_f=0.25\%$, borrowing costs reduce the return earned at higher leverage levels.
+The mean return still rises with $\lambda$, but Sharpe, Sortino, and Omega decline as leverage increases because the cost of financing lowers returns without reducing downside exposure.
+
+When $r_f=0.50\%$, the effect of borrowing costs is stronger.
+The higher-leverage portfolios still have larger mean returns, but the risk-adjusted ratios fall more sharply, showing that leverage is less attractive when the monthly financing cost is higher.
+
+\end{document}

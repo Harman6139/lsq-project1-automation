@@ -47,26 +47,14 @@ jobs:
           updater.make_zip(Path("."))
           PY
 
-      - name: Upload latest files to Google Drive
+      - name: Build workspace bundle
+        run: python scripts/build_workspace_bundle.py --project-dir .
+
+      - name: Publish workspace to Google Drive
         env:
           APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
           APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-          USE_SERVICE_ACCOUNT_DRIVE_UPLOAD: ${{ secrets.USE_SERVICE_ACCOUNT_DRIVE_UPLOAD }}
-          GOOGLE_DRIVE_FOLDER_ID: 1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq
-        run: |
-          if [ -n "$APPS_SCRIPT_WEB_APP_URL" ] && [ -n "$APPS_SCRIPT_UPLOAD_SECRET" ]; then
-            python scripts/upload_to_apps_script.py \
-              --project-dir .
-            exit 0
-          fi
-          if [ "$USE_SERVICE_ACCOUNT_DRIVE_UPLOAD" != "true" ] || [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "No Drive upload method is configured. Skipping Drive upload."
-            exit 0
-          fi
-          python -m pip install -r cloud_upload_requirements.txt
-          python scripts/upload_to_google_drive.py \
-            --project-dir .
+        run: python scripts/publish_workspace.py --project-dir .
 
       - name: Commit generated files
         run: |

@@ -1,0 +1,42 @@
+name: Publish Workspace
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "Project_1_May2026_Update.*"
+      - "Harman_Boyle_Project1_May2026_Overleaf_Update.zip"
+      - "manifest.json"
+      - "data/**"
+      - "tables/**"
+      - "scripts/**"
+      - "workspace/**"
+      - "workspace_artifacts.json"
+      - "WORKSPACE_README.md"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build workspace bundle
+        run: python scripts/build_workspace_bundle.py --project-dir .
+
+      - name: Publish workspace to Google Drive
+        env:
+          APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
+          APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
+        run: python scripts/publish_workspace.py --project-dir .
