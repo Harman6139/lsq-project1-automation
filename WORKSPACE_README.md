@@ -1,6 +1,6 @@
 # Boyle LSQ Workspace
 
-This repository is the live LaTeX and code workspace. Google Drive is the professor-facing delivery folder for PDFs, Excel files, data files, and scripts.
+This repository is the live editable LaTeX and code workspace. Google Drive is the professor-facing delivery folder for PDFs, Excel files, data files, and scripts.
 
 ## Current Links
 
@@ -19,4 +19,4 @@ This repository is the live LaTeX and code workspace. Google Drive is the profes
 
 ## Live LaTeX Workspace
 
-The reliable source of truth is Git-backed. If Professor Boyle wants an Overleaf link, the Overleaf project should be connected as a Git remote through GitHub Actions. Then the Overleaf project opens as a normal workspace and receives automatic updates after monthly runs and future project commits.
+The reliable source of truth is Git-backed. Professor Boyle can edit the source files directly in GitHub once added as a collaborator.
