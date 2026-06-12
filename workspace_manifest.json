@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T19:14:26.844322+00:00",
+  "generated_at": "2026-06-12T19:21:51.730153+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -9,8 +9,8 @@
       "drive_name": "Boyle_LSQ_Workspace_Index.txt",
       "description": "Plain-language map of the Drive folder and LaTeX/code workspace.",
       "group": "workspace",
-      "bytes": 1791,
-      "sha256": "97f0f17b705a757942e4c4fdb3d853df9a70e00fd17b2fa5170f363bbef3d32d"
+      "bytes": 1763,
+      "sha256": "d0a3ff7cef92e83aac6128bbd934b34f533bc7376e5f87ff59a47d95733bcb5b"
     },
     {
       "local_path": "workspace_manifest.json",
@@ -26,31 +26,31 @@
       "description": "Viewer-ready current Project 1 monthly update PDF.",
       "group": "project1_monthly",
       "bytes": 233457,
-      "sha256": "be04d378bd2b8857a8f637788b6443dc099e51e22ce9b377e30ab3d9fb55f62e"
+      "sha256": "7efd727cd044bd30838eb5befab78507dfe9ccadd5a7e19267cf4019a008530d"
     },
     {
       "local_path": "Project_1_May2026_Update.xlsx",
       "drive_name": "Project_1_LSQ_Monthly_Update.xlsx",
       "description": "Current Project 1 monthly update Excel workbook.",
       "group": "project1_monthly",
-      "bytes": 21954,
-      "sha256": "1f8bd444d0280474dc66f31bd1d12693c4069ee105b40d99173b260cbfb5063f"
+      "bytes": 21938,
+      "sha256": "5ee3763514da3c5b686206f038a769f7f11be99b31421759ddddd32578e87c3f"
     },
     {
       "local_path": "Project_1_May2026_Update.tex",
       "drive_name": "Project_1_LSQ_Monthly_Update.tex",
       "description": "Current Project 1 monthly update LaTeX source.",
       "group": "project1_monthly",
-      "bytes": 6722,
-      "sha256": "184693711e5c1f668373638839f0892b4f943797ee4d00deac731c32cc398a82"
+      "bytes": 6560,
+      "sha256": "3f83cc5992fd3ed05b6142f9a8351361522b62be82b94ea48da5640a5ac97254"
     },
     {
       "local_path": "manifest.json",
       "drive_name": "Project_1_LSQ_Monthly_Update_manifest.json",
       "description": "Project 1 monthly run manifest.",
       "group": "project1_monthly",
-      "bytes": 764,
-      "sha256": "9c6e155ccdf8fd406ba605016b93a00e707b3e6e58ae36aff5f578ca2f222061"
+      "bytes": 745,
+      "sha256": "c0f385be2a278a63ceeeb90d58c0e72b06cdd67cd84f935aaf54af82eba44e16"
     },
     {
       "local_path": "data/market_return_verification.csv",
@@ -65,8 +65,8 @@
       "drive_name": "Project_1_LSQ_Monthly_Update_script.py",
       "description": "Automation script that rebuilds the monthly Project 1 outputs.",
       "group": "project1_monthly",
-      "bytes": 56978,
-      "sha256": "6a827e32bec721b7665912d7855e5d89da0cab2b18f6904cc191a96ef384bcc7"
+      "bytes": 57324,
+      "sha256": "51b62f4ab4701abd8906c054f80e3a089876352eb87f3f0781cdd67b33718654"
     },
     {
       "local_path": "workspace/assignment_2/Assignment_2_Leveraged_SP500.pdf",
@@ -81,16 +81,16 @@
       "drive_name": "Assignment_2_Leveraged_SP500.tex",
       "description": "Assignment 2 LaTeX source.",
       "group": "assignment2",
-      "bytes": 4419,
-      "sha256": "46f18d2b953d25937e0d2d5e6817c1c8c2563e7d92188742b105198a5ade5248"
+      "bytes": 4303,
+      "sha256": "f9c479994fae054c5b1472a78958b574b1fe68817a39fed4f9972a37c0451ac7"
     },
     {
       "local_path": "workspace/assignment_2/data/sp500tr_monthly_returns_2017_01_to_2026_05.csv",
       "drive_name": "Assignment_2_SP500TR_monthly_returns.csv",
       "description": "Assignment 2 S&P 500 Total Return monthly data.",
       "group": "assignment2",
-      "bytes": 10147,
-      "sha256": "41bb7c74f544de210d0e619d505ee9eecc6241b4f2325828320544a1a50a88c8"
+      "bytes": 10033,
+      "sha256": "a704c9303d44a2c41c9081bc76e9f9bb07594b046e6478e03fde4da3184fb58a"
     },
     {
       "local_path": "workspace/assignment_2/scripts/compute_assignment2_leveraged_sp500.py",
@@ -105,8 +105,8 @@
       "drive_name": "Assignment_2_manifest.json",
       "description": "Assignment 2 manifest.",
       "group": "assignment2",
-      "bytes": 513,
-      "sha256": "5066f97b77ca296d336bec23a36125bcdb96a742c44a130933caee43a3ea82b0"
+      "bytes": 494,
+      "sha256": "8560933edb654a1cc8a4f8ae902c75c732b662df21cd1420b0570bdcff85275a"
     }
   ]
 }
