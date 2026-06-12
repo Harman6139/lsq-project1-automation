@@ -4,7 +4,9 @@
 *.log
 *.out
 *.pyc
+*.zip
 __pycache__/
+_latex_workspace/
 automation_last_run.log
 test_next_month/
 apps_script_upload_secret.txt

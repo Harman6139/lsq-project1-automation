@@ -1,6 +1,7 @@
 {
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
+  "overleaf_workspace_url": "",
   "artifacts": [
     {
       "group": "workspace",
@@ -13,12 +14,6 @@
       "local_path": "workspace_manifest.json",
       "drive_name": "Boyle_LSQ_Workspace_manifest.json",
       "description": "Machine-readable list of published files with checksums."
-    },
-    {
-      "group": "workspace",
-      "local_path": "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
-      "drive_name": "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
-      "description": "Current combined LaTeX workspace bundle for Overleaf import."
     },
     {
       "group": "project1_monthly",
@@ -37,12 +32,6 @@
       "local_path": "Project_1_May2026_Update.tex",
       "drive_name": "Project_1_LSQ_Monthly_Update.tex",
       "description": "Current Project 1 monthly update LaTeX source."
-    },
-    {
-      "group": "project1_monthly",
-      "local_path": "Harman_Boyle_Project1_May2026_Overleaf_Update.zip",
-      "drive_name": "Harman_Boyle_Project1_Overleaf_Latest.zip",
-      "description": "Project 1 only Overleaf import bundle."
     },
     {
       "group": "project1_monthly",

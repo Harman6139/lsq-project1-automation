@@ -47,8 +47,19 @@ jobs:
           updater.make_zip(Path("."))
           PY
 
-      - name: Build workspace bundle
-        run: python scripts/build_workspace_bundle.py --project-dir .
+      - name: Build live LaTeX workspace
+        run: python scripts/build_latex_workspace.py --project-dir . --output-dir _latex_workspace
+
+      - name: Push live LaTeX workspace to Overleaf
+        env:
+          OVERLEAF_GIT_URL: ${{ secrets.OVERLEAF_GIT_URL }}
+          OVERLEAF_GIT_TOKEN: ${{ secrets.OVERLEAF_GIT_TOKEN }}
+        run: |
+          if [ -z "$OVERLEAF_GIT_URL" ] || [ -z "$OVERLEAF_GIT_TOKEN" ]; then
+            echo "Overleaf Git secrets not configured. Skipping Overleaf mirror."
+            exit 0
+          fi
+          python scripts/push_to_overleaf.py --workspace-dir _latex_workspace
 
       - name: Publish workspace to Google Drive
         env:

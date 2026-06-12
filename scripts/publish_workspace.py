@@ -55,12 +55,14 @@ def artifact_paths(project_dir: Path, config: dict[str, object]) -> list[dict[st
 
 def write_index(project_dir: Path, config: dict[str, object], artifacts: list[dict[str, str]]) -> None:
     generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    latex_workspace_url = str(config.get("overleaf_workspace_url") or config.get("github_repo_url") or "")
     lines = [
         "Boyle LSQ Workspace",
         f"Updated: {generated_at}",
         "",
         f"Drive folder: {config.get('drive_folder_url', '')}",
-        f"LaTeX/code workspace: {config.get('github_repo_url', '')}",
+        f"Live LaTeX workspace: {latex_workspace_url}",
+        f"Source repository: {config.get('github_repo_url', '')}",
         "",
         "Current files in this Drive folder:",
     ]
@@ -71,11 +73,10 @@ def write_index(project_dir: Path, config: dict[str, object], artifacts: list[di
             "",
             "Monthly automation:",
             "Project 1 runs automatically through GitHub Actions on the 10th of each month.",
-            "It rebuilds the PDF, Excel file, LaTeX source, data files, and workspace zip.",
+            "It rebuilds the PDF, Excel file, LaTeX source, data files, and live LaTeX workspace.",
             "",
-            "Overleaf note:",
-            "The always-current LaTeX bundle is Boyle_LSQ_Workspace_Overleaf_Latest.zip.",
-            "If an Overleaf project is needed, import or refresh it from that zip or from the GitHub repo.",
+            "LaTeX workspace note:",
+            "The live LaTeX workspace is Git-backed. When the Overleaf Git mirror is configured, the Overleaf project updates from the same automation.",
         ]
     )
     (project_dir / INDEX_NAME).write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -108,6 +109,7 @@ def write_manifest(project_dir: Path, config: dict[str, object], artifacts: list
         "generated_at": generated_at,
         "drive_folder_url": config.get("drive_folder_url", ""),
         "github_repo_url": config.get("github_repo_url", ""),
+        "overleaf_workspace_url": config.get("overleaf_workspace_url", ""),
         "artifacts": rows,
     }
     (project_dir / MANIFEST_NAME).write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

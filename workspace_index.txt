@@ -1,17 +1,16 @@
 Boyle LSQ Workspace
-Updated: 2026-06-12 19:03:32 UTC
+Updated: 2026-06-12 19:14:26 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
-LaTeX/code workspace: https://github.com/Harman6139/lsq-project1-automation
+Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
+Source repository: https://github.com/Harman6139/lsq-project1-automation
 
 Current files in this Drive folder:
 - Boyle_LSQ_Workspace_Index.txt: Plain-language map of the Drive folder and LaTeX/code workspace.
 - Boyle_LSQ_Workspace_manifest.json: Machine-readable list of published files with checksums.
-- Boyle_LSQ_Workspace_Overleaf_Latest.zip: Current combined LaTeX workspace bundle for Overleaf import.
 - Project_1_LSQ_Monthly_Update.pdf: Viewer-ready current Project 1 monthly update PDF.
 - Project_1_LSQ_Monthly_Update.xlsx: Current Project 1 monthly update Excel workbook.
 - Project_1_LSQ_Monthly_Update.tex: Current Project 1 monthly update LaTeX source.
-- Harman_Boyle_Project1_Overleaf_Latest.zip: Project 1 only Overleaf import bundle.
 - Project_1_LSQ_Monthly_Update_manifest.json: Project 1 monthly run manifest.
 - Project_1_LSQ_Monthly_Update_data_validation.csv: NVIDIA and S&P 500 Total Return validation data.
 - Project_1_LSQ_Monthly_Update_script.py: Automation script that rebuilds the monthly Project 1 outputs.
@@ -23,8 +22,7 @@ Current files in this Drive folder:
 
 Monthly automation:
 Project 1 runs automatically through GitHub Actions on the 10th of each month.
-It rebuilds the PDF, Excel file, LaTeX source, data files, and workspace zip.
+It rebuilds the PDF, Excel file, LaTeX source, data files, and live LaTeX workspace.
 
-Overleaf note:
-The always-current LaTeX bundle is Boyle_LSQ_Workspace_Overleaf_Latest.zip.
-If an Overleaf project is needed, import or refresh it from that zip or from the GitHub repo.
+LaTeX workspace note:
+The live LaTeX workspace is Git-backed. When the Overleaf Git mirror is configured, the Overleaf project updates from the same automation.

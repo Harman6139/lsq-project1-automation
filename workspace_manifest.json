@@ -1,15 +1,16 @@
 {
-  "generated_at": "2026-06-12T19:03:32.310863+00:00",
+  "generated_at": "2026-06-12T19:14:26.844322+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
+  "overleaf_workspace_url": "",
   "artifacts": [
     {
       "local_path": "workspace_index.txt",
       "drive_name": "Boyle_LSQ_Workspace_Index.txt",
       "description": "Plain-language map of the Drive folder and LaTeX/code workspace.",
       "group": "workspace",
-      "bytes": 1925,
-      "sha256": "86105aafd9b3c101d191a551990a765e9b30ed8e7868816c83ad8acdd8aa0792"
+      "bytes": 1791,
+      "sha256": "97f0f17b705a757942e4c4fdb3d853df9a70e00fd17b2fa5170f363bbef3d32d"
     },
     {
       "local_path": "workspace_manifest.json",
@@ -18,14 +19,6 @@
       "group": "workspace",
       "bytes": 0,
       "sha256": "self-referential"
-    },
-    {
-      "local_path": "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
-      "drive_name": "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
-      "description": "Current combined LaTeX workspace bundle for Overleaf import.",
-      "group": "workspace",
-      "bytes": 407798,
-      "sha256": "88a0396ad664b1e50d7b499a49f786dd2bd06e4d538029e5fc6c77c6326592d1"
     },
     {
       "local_path": "Project_1_May2026_Update.pdf",
@@ -50,14 +43,6 @@
       "group": "project1_monthly",
       "bytes": 6722,
       "sha256": "184693711e5c1f668373638839f0892b4f943797ee4d00deac731c32cc398a82"
-    },
-    {
-      "local_path": "Harman_Boyle_Project1_May2026_Overleaf_Update.zip",
-      "drive_name": "Harman_Boyle_Project1_Overleaf_Latest.zip",
-      "description": "Project 1 only Overleaf import bundle.",
-      "group": "project1_monthly",
-      "bytes": 806473,
-      "sha256": "b33643e50a709018302239a427338c94cb6b319baa1fa98adab4cfa37ace8c4e"
     },
     {
       "local_path": "manifest.json",
