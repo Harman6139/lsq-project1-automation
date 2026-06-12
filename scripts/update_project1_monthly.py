@@ -7,6 +7,7 @@ import math
 import os
 import shutil
 import subprocess
+import time
 import urllib.parse
 import urllib.request
 import zipfile
@@ -192,7 +193,10 @@ def download_spartan_pdf(url: str, out_dir: Path) -> Path:
         },
     )
     with urllib.request.urlopen(request, timeout=60) as response:
-        pdf_path.write_bytes(response.read())
+        payload = response.read()
+    if not payload.startswith(b"%PDF"):
+        raise ValueError("Spartan download did not return a PDF.")
+    pdf_path.write_bytes(payload)
     return pdf_path
 
 
@@ -251,11 +255,20 @@ def market_rows_from_yahoo(symbol: str, latest: tuple[int, int], key: str) -> tu
 
 
 def read_spartan_source(url: str, out_dir: Path) -> tuple[list[dict[str, object]], list[dict[str, object]], list[dict[str, object]], tuple[int, int], Path]:
-    pdf_path = download_spartan_pdf(url, out_dir / "data")
-    lsq, latest = read_lsq_from_spartan_pdf(pdf_path)
-    sp, _ = market_rows_from_yahoo(SP500_SYMBOL, latest, "sp500tr_return")
-    nvda, _ = market_rows_from_yahoo(NVDA_SYMBOL, latest, "nvda_return")
-    return lsq, sp, nvda, latest, pdf_path
+    last_error: Exception | None = None
+    for attempt in range(1, 6):
+        try:
+            pdf_path = download_spartan_pdf(url, out_dir / "data")
+            lsq, latest = read_lsq_from_spartan_pdf(pdf_path)
+            sp, _ = market_rows_from_yahoo(SP500_SYMBOL, latest, "sp500tr_return")
+            nvda, _ = market_rows_from_yahoo(NVDA_SYMBOL, latest, "nvda_return")
+            return lsq, sp, nvda, latest, pdf_path
+        except Exception as exc:
+            last_error = exc
+            if attempt == 5:
+                break
+            time.sleep(3 * attempt)
+    raise RuntimeError(f"Could not fetch and parse the Spartan source after 5 attempts: {last_error}") from last_error
 
 
 def values(rows: list[dict[str, object]], key: str) -> list[float]:
