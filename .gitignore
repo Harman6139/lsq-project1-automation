@@ -5,3 +5,4 @@
 __pycache__/
 automation_last_run.log
 test_next_month/
+apps_script_upload_secret.txt
