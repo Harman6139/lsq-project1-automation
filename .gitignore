@@ -6,3 +6,4 @@ __pycache__/
 automation_last_run.log
 test_next_month/
 apps_script_upload_secret.txt
+apps_script/Code_for_paste.gs
