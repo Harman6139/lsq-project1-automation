@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T19:20:04",
+  "generated_at": "2026-06-12T15:23:44",
   "source": "spartan",
   "simulation": false,
-  "source_file": "data/LSQ_latest_spartan.pdf",
+  "source_file": "data\\LSQ_latest_spartan.pdf",
   "spartan_url": "https://spartanfunds.ca/wp-content/uploads/2021/11/LSQ-Oct21.pdf",
   "workbook": "",
   "sample_start": "2017-01",
@@ -15,6 +15,5 @@
   "lsq_omega": 92.0046082949309,
   "sp500tr_latest_percent": 5.263305489604209,
   "nvda_latest_percent": 5.797465881657349,
-  "compile_status": "Skipped PDF compilation.",
-  "overleaf_zip": "Harman_Boyle_Project1_May2026_Overleaf_Update.zip"
+  "compile_status": "Skipped PDF compilation."
 }

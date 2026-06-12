@@ -37,16 +37,6 @@ jobs:
           root_file: Project_1_May2026_Update.tex
           working_directory: .
 
-      - name: Rebuild Overleaf zip after PDF compile
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import sys
-          sys.path.insert(0, "scripts")
-          import update_project1_monthly as updater
-          updater.make_zip(Path("."))
-          PY
-
       - name: Build live LaTeX workspace
         run: python scripts/build_latex_workspace.py --project-dir . --output-dir _latex_workspace
 

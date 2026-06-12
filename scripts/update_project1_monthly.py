@@ -10,7 +10,6 @@ import subprocess
 import time
 import urllib.parse
 import urllib.request
-import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -1073,36 +1072,6 @@ def compile_pdf(out_dir: Path) -> str:
     return "Compiled Project_1_May2026_Update.pdf with pdflatex."
 
 
-def make_zip(out_dir: Path) -> Path:
-    zip_path = out_dir / "Harman_Boyle_Project1_May2026_Overleaf_Update.zip"
-    if zip_path.exists():
-        zip_path.unlink()
-    skip_suffixes = {".aux", ".fdb_latexmk", ".fls", ".log", ".out", ".pyc"}
-    skip_dirs = {".git", ".github", "__pycache__", "apps_script", "workspace"}
-    skip_names = {
-        "LSQ-Oct21-live.pdf",
-        "apps_script_upload_secret.txt",
-        "Code_for_paste.gs",
-        "Boyle_LSQ_Workspace_Overleaf_Latest.zip",
-        "WORKSPACE_README.md",
-        "workspace_artifacts.json",
-        "workspace_index.txt",
-        "workspace_manifest.json",
-    }
-    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-        for file in out_dir.rglob("*"):
-            if file.is_dir() or file == zip_path:
-                continue
-            if any(part in skip_dirs for part in file.parts):
-                continue
-            if file.suffix.lower() in skip_suffixes:
-                continue
-            if file.name in skip_names or file.name.startswith("LSQ_page_"):
-                continue
-            zf.write(file, file.relative_to(out_dir))
-    return zip_path
-
-
 def run(
     source: str,
     workbook: Path,
@@ -1226,7 +1195,6 @@ def run(
     )
 
     compile_status = "Skipped PDF compilation." if no_compile else compile_pdf(out_dir)
-    zip_path = make_zip(out_dir)
 
     manifest = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
@@ -1246,7 +1214,6 @@ def run(
         "sp500tr_latest_percent": checks[0]["source_return_percent"],
         "nvda_latest_percent": checks[1]["source_return_percent"],
         "compile_status": compile_status,
-        "overleaf_zip": str(zip_path),
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     (out_dir / "logs_or_notes" / "data_validation_notes.md").write_text(
