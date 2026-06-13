@@ -12,12 +12,19 @@ function doPost(e) {
     const results = [];
     const files = payload.files || [];
     const deleteNames = payload.deleteNames || [];
+    const deleteFolders = payload.deleteFolders || [];
 
     deleteNames.forEach(function(item) {
       const deleteName = typeof item === 'string' ? item : item.name;
       const deleteFolderPath = typeof item === 'string' ? '' : (item.folderPath || '');
-      const deleteFolder = getOrCreateFolderPath(folder, deleteFolderPath);
-      trashByName(deleteFolder, deleteName);
+      const deleteFolder = getFolderPath(folder, deleteFolderPath);
+      if (deleteFolder) {
+        trashByName(deleteFolder, deleteName);
+      }
+    });
+
+    deleteFolders.forEach(function(folderPath) {
+      trashFolderPath(folder, folderPath);
     });
 
     files.forEach(function(file) {
@@ -50,17 +57,56 @@ function trashByName(folder, name) {
   }
 }
 
+function trashFolderPath(rootFolder, folderPath) {
+  if (!folderPath) {
+    return;
+  }
+
+  const parts = cleanPathParts(folderPath);
+  if (parts.length === 0) {
+    return;
+  }
+
+  let parent = rootFolder;
+  for (let i = 0; i < parts.length - 1; i++) {
+    const matches = parent.getFoldersByName(parts[i]);
+    if (!matches.hasNext()) {
+      return;
+    }
+    parent = matches.next();
+  }
+
+  const targets = parent.getFoldersByName(parts[parts.length - 1]);
+  while (targets.hasNext()) {
+    targets.next().setTrashed(true);
+  }
+}
+
+function getFolderPath(rootFolder, folderPath) {
+  if (!folderPath) {
+    return rootFolder;
+  }
+
+  let current = rootFolder;
+  const parts = cleanPathParts(folderPath);
+  for (let i = 0; i < parts.length; i++) {
+    const matches = current.getFoldersByName(parts[i]);
+    if (!matches.hasNext()) {
+      return null;
+    }
+    current = matches.next();
+  }
+
+  return current;
+}
+
 function getOrCreateFolderPath(rootFolder, folderPath) {
   if (!folderPath) {
     return rootFolder;
   }
 
   let current = rootFolder;
-  const parts = folderPath.split('/').map(function(part) {
-    return part.trim();
-  }).filter(function(part) {
-    return part.length > 0;
-  });
+  const parts = cleanPathParts(folderPath);
 
   parts.forEach(function(part) {
     const matches = current.getFoldersByName(part);
@@ -68,6 +114,14 @@ function getOrCreateFolderPath(rootFolder, folderPath) {
   });
 
   return current;
+}
+
+function cleanPathParts(folderPath) {
+  return String(folderPath).split('/').map(function(part) {
+    return part.trim();
+  }).filter(function(part) {
+    return part.length > 0;
+  });
 }
 
 function jsonResponse(obj) {

@@ -124,7 +124,13 @@ def write_manifest(project_dir: Path, config: dict[str, object], artifacts: list
     (project_dir / MANIFEST_NAME).write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
 
-def build_payload(project_dir: Path, secret: str, artifacts: list[dict[str, str]], delete_names: list[str]) -> dict[str, object]:
+def build_payload(
+    project_dir: Path,
+    secret: str,
+    artifacts: list[dict[str, str]],
+    delete_names: list[object],
+    delete_folders: list[str],
+) -> dict[str, object]:
     files = []
     for artifact in artifacts:
         local_path = project_dir / artifact["local_path"]
@@ -140,7 +146,7 @@ def build_payload(project_dir: Path, secret: str, artifacts: list[dict[str, str]
                 "contentBase64": base64.b64encode(local_path.read_bytes()).decode("ascii"),
             }
         )
-    return {"secret": secret, "deleteNames": delete_names, "files": files}
+    return {"secret": secret, "deleteNames": delete_names, "deleteFolders": delete_folders, "files": files}
 
 
 def main() -> None:
@@ -156,15 +162,25 @@ def main() -> None:
     config = load_config(project_dir / args.config)
     artifacts = artifact_paths(project_dir, config)
     delete_names = config.get("delete_names", [])
-    if not isinstance(delete_names, list) or not all(isinstance(name, str) for name in delete_names):
-        raise SystemExit("delete_names must be a list of strings when provided.")
+    if not isinstance(delete_names, list):
+        raise SystemExit("delete_names must be a list when provided.")
+    for item in delete_names:
+        if isinstance(item, str):
+            continue
+        if isinstance(item, dict) and isinstance(item.get("name"), str):
+            continue
+        raise SystemExit("delete_names entries must be file names or objects with a name field.")
+    delete_folders = config.get("delete_folders", [])
+    if not isinstance(delete_folders, list) or not all(isinstance(name, str) for name in delete_folders):
+        raise SystemExit("delete_folders must be a list of folder paths when provided.")
 
     write_index(project_dir, config, artifacts)
     write_manifest(project_dir, config, artifacts)
 
     if args.dry_run:
         for artifact in artifacts:
-            print(f"DRY RUN: {project_dir / artifact['local_path']} -> {artifact['drive_name']}")
+            folder_path = artifact.get("folder_path", "") or "Root"
+            print(f"DRY RUN: {project_dir / artifact['local_path']} -> {folder_path}/{artifact['drive_name']}")
         return
 
     if not args.web_app_url:
@@ -172,7 +188,7 @@ def main() -> None:
     if not args.secret:
         raise SystemExit("Missing upload secret. Set APPS_SCRIPT_UPLOAD_SECRET.")
 
-    body = json.dumps(build_payload(project_dir, args.secret, artifacts, delete_names)).encode("utf-8")
+    body = json.dumps(build_payload(project_dir, args.secret, artifacts, delete_names, delete_folders)).encode("utf-8")
     request = urllib.request.Request(
         args.web_app_url,
         data=body,
