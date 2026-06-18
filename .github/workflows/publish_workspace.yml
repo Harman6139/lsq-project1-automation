@@ -10,6 +10,7 @@ on:
       - "Harman_Boyle_Project1_May2026_Overleaf_Update.zip"
       - "manifest.json"
       - "data/**"
+      - "isolated_excel/**"
       - "tables/**"
       - "scripts/**"
       - "workspace/**"

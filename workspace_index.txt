@@ -1,5 +1,5 @@
 Boyle LSQ Workspace
-Updated: 2026-06-13 03:31:50 UTC
+Updated: 2026-06-18 06:41:05 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
@@ -12,6 +12,23 @@ Project Monthly Update:
 - Project_1_May2026_Update.xlsx: Current Project 1 monthly update Excel workbook.
 - Project_1_May2026_Update.tex: Current Project 1 monthly update LaTeX source.
 - May2026_market_return_validation.csv: NVIDIA and S&P 500 Total Return validation data.
+
+Project Monthly Update/Excel Tables:
+- Table 2 - Current Update.xlsx: Isolated updated Table 2 workbook.
+- Table 4 - Current Update.xlsx: Isolated updated Table 4 workbook.
+- Table 2 - Paper vs Current.xlsx: Isolated Table 2 comparison workbook.
+- Table 4 - Paper vs Current.xlsx: Isolated Table 4 comparison workbook.
+- Regression - Alpha and Beta.xlsx: Isolated regression workbook.
+- Serial Correlation Diagnostics.xlsx: Isolated serial-correlation diagnostics workbook.
+- Newey-West Inference.xlsx: Isolated Newey-West inference workbook.
+
+Project Monthly Update/Return Series:
+- LSQ Returns - Current.xlsx: Current LSQ monthly return series.
+- S&P 500 Total Return - Current.xlsx: Current S&P 500 Total Return month-end adjusted-close series.
+- NVIDIA Returns - Current.xlsx: Current NVIDIA month-end adjusted-close return series.
+
+Project Monthly Update/Data Reconciliation:
+- Market Data Reconciliation - May 2026.xlsx: Month-by-month comparison of the professor sheet and verified Yahoo data.
 
 Assignment 2:
 - Assignment_2_Leveraged_SP500.pdf: Viewer-ready Assignment 2 PDF.

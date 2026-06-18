@@ -55,6 +55,83 @@
       "description": "NVIDIA and S&P 500 Total Return validation data."
     },
     {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Table 2 - Current Update.xlsx",
+      "drive_name": "Table 2 - Current Update.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated updated Table 2 workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Table 4 - Current Update.xlsx",
+      "drive_name": "Table 4 - Current Update.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated updated Table 4 workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Table 2 - Paper vs Current.xlsx",
+      "drive_name": "Table 2 - Paper vs Current.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated Table 2 comparison workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Table 4 - Paper vs Current.xlsx",
+      "drive_name": "Table 4 - Paper vs Current.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated Table 4 comparison workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Regression - Alpha and Beta.xlsx",
+      "drive_name": "Regression - Alpha and Beta.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated regression workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Serial Correlation Diagnostics.xlsx",
+      "drive_name": "Serial Correlation Diagnostics.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated serial-correlation diagnostics workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Newey-West Inference.xlsx",
+      "drive_name": "Newey-West Inference.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Isolated Newey-West inference workbook."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/LSQ Returns - Current.xlsx",
+      "drive_name": "LSQ Returns - Current.xlsx",
+      "folder_path": "Project Monthly Update/Return Series",
+      "description": "Current LSQ monthly return series."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/S&P 500 Total Return - Current.xlsx",
+      "drive_name": "S&P 500 Total Return - Current.xlsx",
+      "folder_path": "Project Monthly Update/Return Series",
+      "description": "Current S&P 500 Total Return month-end adjusted-close series."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/NVIDIA Returns - Current.xlsx",
+      "drive_name": "NVIDIA Returns - Current.xlsx",
+      "folder_path": "Project Monthly Update/Return Series",
+      "description": "Current NVIDIA month-end adjusted-close return series."
+    },
+    {
+      "group": "project1_monthly",
+      "local_path": "isolated_excel/Market Data Reconciliation - May 2026.xlsx",
+      "drive_name": "Market Data Reconciliation - May 2026.xlsx",
+      "folder_path": "Project Monthly Update/Data Reconciliation",
+      "description": "Month-by-month comparison of the professor sheet and verified Yahoo data."
+    },
+    {
       "group": "assignment2",
       "local_path": "workspace/assignment_2/Assignment_2_Leveraged_SP500.pdf",
       "drive_name": "Assignment_2_Leveraged_SP500.pdf",

@@ -21,10 +21,11 @@ The LSQ analysis uses the baseline net-of-fees return series from the Spartan mo
 For the benchmark, I used the Yahoo Finance \texttt{\string^SP500TR} S\&P 500 Total Return Index.
 This is the appropriate S\&P 500 series because the paper states that the benchmark returns are calculated with dividends reinvested; a price-only S\&P 500 index would omit dividends and understate the benchmark return.
 
-For 2026-05, the market comparators are pulled from Yahoo Finance monthly adjusted levels. The S\&P 500 TR return is 5.263305\%, and the NVIDIA return is 5.797466\%.
+For 2026-05, the market comparators are calculated from Yahoo Finance daily adjusted closes at each month-end. The S\&P 500 TR return is 5.263305\%, and the NVIDIA return is 5.797466\%.
 
 All return inputs are monthly.
-Population standard deviation divides by $N$.
+Sample standard deviation divides by $N-1$.
+Skewness and excess kurtosis use the adjusted sample formulas.
 Sharpe ratios use a 0\% risk-free rate.
 Sortino ratios use the paper's downside-deviation convention.
 Omega is computed as $\sum \max(r_t-L,0) / \sum \max(L-r_t,0)$.
@@ -53,8 +54,8 @@ LSQ arithmetic monthly return & 3.48\% & 3.50\% & +0.02 pp \\
 LSQ geometric monthly return & 3.40\% & 3.42\% & +0.02 pp \\
 LSQ percent positive months & 95.40\% & 95.58\% & +0.18 pp \\
 LSQ percent negative months & 4.60\% & 4.42\% & -0.18 pp \\
-LSQ population standard deviation & 4.06\% & 3.99\% & -0.07 pp \\
-LSQ Sharpe ratio & 0.86 & 0.88 & +0.02 \\
+LSQ sample standard deviation & 4.06\% & 4.01\% & -0.05 pp \\
+LSQ Sharpe ratio & 0.86 & 0.87 & +0.01 \\
 LSQ Sortino ratio & 13.96 & 14.36 & +0.40 \\
 LSQ Omega ratio & 88.28 & 92.00 & +3.72 \\
 Alpha, monthly & 3.52\% & 3.53\% & +0.01 pp \\
@@ -77,8 +78,8 @@ Percent Positive Months & 95.41 & 95.58 & +0.17 \\
 Percent Negative Months & 4.59 & 4.42 & -0.17 \\
 Average Positive Month & 3.68 & 3.70 & +0.02 \\
 Average Negative Month & -0.87 & -0.87 & +0.00 \\
-Standard Deviation & 4.06 & 3.99 & -0.07 \\
-Sharpe Ratio & 0.86 & 0.88 & +0.02 \\
+Standard Deviation & 4.06 & 4.01 & -0.05 \\
+Sharpe Ratio & 0.86 & 0.87 & +0.01 \\
 Sortino Ratio & 13.96 & 14.36 & +0.40 \\
 Omega Ratio & 88.28 & 92.00 & +3.72 \\
 \bottomrule
@@ -93,7 +94,7 @@ The average monthly return rises relative to the paper because May 2026 is a str
 The maximum drawdown remains -2.20\% because none of the added months creates a new trough.
 
 The risk-adjusted metrics remain very strong.
-The Sharpe ratio is 0.88, the Sortino ratio is 14.36, and the zero-threshold Omega ratio is 92.00.
+The Sharpe ratio is 0.87, the Sortino ratio is 14.36, and the zero-threshold Omega ratio is 92.00.
 The updated monthly alpha is 3.53\% and beta is -0.02, so the evidence still supports the paper's conclusion that LSQ's returns are not explained by broad equity-market exposure.
 
 \clearpage

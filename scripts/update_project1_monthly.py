@@ -15,6 +15,7 @@ from pathlib import Path
 
 try:
     from openpyxl import Workbook, load_workbook
+    from openpyxl.styles import Alignment, Font, PatternFill
 except ImportError as exc:
     raise SystemExit("This script only needs one package: openpyxl. Install it with: pip install openpyxl") from exc
 
@@ -244,12 +245,24 @@ def read_lsq_from_spartan_pdf(pdf_path: Path) -> tuple[list[dict[str, object]], 
 
 
 def market_rows_from_yahoo(symbol: str, latest: tuple[int, int], key: str) -> tuple[list[dict[str, object]], str]:
-    market, url = yahoo_returns(symbol, SAMPLE_START, latest)
+    market, url = yahoo_month_end_data(symbol, SAMPLE_START, latest)
     rows = []
     for date in month_range(SAMPLE_START, latest):
         if date not in market:
             raise ValueError(f"{symbol} is missing {month_label(date)} from Yahoo Finance.")
-        rows.append({"date": month_key(*date), "month": month_label(date), key: market[date]})
+        detail = market[date]
+        rows.append(
+            {
+                "date": month_key(*date),
+                "month": month_label(date),
+                "start_date": detail["start_date"],
+                "start_adjusted_close": detail["start_adjusted_close"],
+                "end_date": detail["end_date"],
+                "end_adjusted_close": detail["end_adjusted_close"],
+                key: detail["return"],
+                "source_url": url,
+            }
+        )
     return rows, url
 
 
@@ -295,14 +308,23 @@ def compute_sortino(r: list[float], threshold: float = 0.0) -> float:
 def compute_summary(r: list[float]) -> dict[str, float | int]:
     n = len(r)
     mean = sum(r) / n
-    variance = sum((x - mean) ** 2 for x in r) / n
+    variance = sum((x - mean) ** 2 for x in r) / (n - 1)
     std = math.sqrt(variance)
     product = math.prod(1.0 + x for x in r)
     geo = product ** (1.0 / n) - 1.0
     pos = [x for x in r if x > 0.0]
     neg = [x for x in r if x < 0.0]
-    skewness = sum((x - mean) ** 3 for x in r) / n / (std**3) if std else math.nan
-    excess_kurtosis = sum((x - mean) ** 4 for x in r) / n / (std**4) - 3.0 if std else math.nan
+    skewness = (
+        n / ((n - 1) * (n - 2)) * sum(((x - mean) / std) ** 3 for x in r)
+        if std and n > 2
+        else math.nan
+    )
+    excess_kurtosis = (
+        n * (n + 1) / ((n - 1) * (n - 2) * (n - 3)) * sum(((x - mean) / std) ** 4 for x in r)
+        - 3 * (n - 1) ** 2 / ((n - 2) * (n - 3))
+        if std and n > 3
+        else math.nan
+    )
     return {
         "n": n,
         "positive_count": len(pos),
@@ -522,7 +544,11 @@ def newey_west_table(lsq: list[float], sp: list[float]) -> tuple[list[dict[str, 
     return rows, lags
 
 
-def yahoo_returns(symbol: str, start: tuple[int, int], end: tuple[int, int]) -> tuple[dict[tuple[int, int], float], str]:
+def yahoo_month_end_data(
+    symbol: str,
+    start: tuple[int, int],
+    end: tuple[int, int],
+) -> tuple[dict[tuple[int, int], dict[str, object]], str]:
     fetch_start = add_month(*start, -1)
     period1 = int(datetime(fetch_start[0], fetch_start[1], 1, tzinfo=timezone.utc).timestamp())
     end_exclusive = add_month(*end, 1)
@@ -530,7 +556,7 @@ def yahoo_returns(symbol: str, start: tuple[int, int], end: tuple[int, int]) -> 
     encoded = urllib.parse.quote(symbol, safe="")
     url = (
         f"https://query2.finance.yahoo.com/v8/finance/chart/{encoded}"
-        f"?period1={period1}&period2={period2}&interval=1mo&events=history&includeAdjustedClose=true"
+        f"?period1={period1}&period2={period2}&interval=1d&events=history&includeAdjustedClose=true"
     )
     request = urllib.request.Request(
         url,
@@ -549,21 +575,34 @@ def yahoo_returns(symbol: str, start: tuple[int, int], end: tuple[int, int]) -> 
     result = payload["chart"]["result"][0]
     adj = result["indicators"].get("adjclose", [{}])[0].get("adjclose")
     close = result["indicators"]["quote"][0]["close"]
-    levels = []
+    month_end_levels: dict[tuple[int, int], tuple[str, float]] = {}
     for i, ts in enumerate(result["timestamp"]):
         level = adj[i] if adj else close[i]
         if level is None:
             continue
         dt = datetime.fromtimestamp(ts, timezone.utc)
-        levels.append(((dt.year, dt.month), float(level)))
-    levels.sort()
-    out: dict[tuple[int, int], float] = {}
-    for i in range(1, len(levels)):
-        date, level = levels[i]
-        previous = levels[i - 1][1]
-        if start <= date <= end:
-            out[date] = level / previous - 1.0
+        month_end_levels[(dt.year, dt.month)] = (dt.date().isoformat(), float(level))
+
+    out: dict[tuple[int, int], dict[str, object]] = {}
+    for date in month_range(start, end):
+        previous_date = add_month(*date, -1)
+        if previous_date not in month_end_levels or date not in month_end_levels:
+            continue
+        start_day, start_level = month_end_levels[previous_date]
+        end_day, end_level = month_end_levels[date]
+        out[date] = {
+            "start_date": start_day,
+            "start_adjusted_close": start_level,
+            "end_date": end_day,
+            "end_adjusted_close": end_level,
+            "return": end_level / start_level - 1.0,
+        }
     return out, url
+
+
+def yahoo_returns(symbol: str, start: tuple[int, int], end: tuple[int, int]) -> tuple[dict[tuple[int, int], float], str]:
+    details, url = yahoo_month_end_data(symbol, start, end)
+    return {date: float(row["return"]) for date, row in details.items()}, url
 
 
 def verify_market_returns(
@@ -609,7 +648,7 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -641,23 +680,23 @@ def table2_rows(lsq: dict[str, float | int], sp: dict[str, float | int], reg: li
 
 def table4_rows(lsq: dict[str, float | int], nvda: dict[str, float | int]) -> list[dict[str, object]]:
     data = [
-        ("Arithmetic Mean Return", lsq["arithmetic"] * 100.0, nvda["arithmetic"] * 100.0, FAIRFIELD["Arithmetic Mean Return"]),
-        ("Geometric Mean Return", lsq["geometric"] * 100.0, nvda["geometric"] * 100.0, FAIRFIELD["Geometric Mean Return"]),
-        ("Percent Positive Months", lsq["positive_pct"] * 100.0, nvda["positive_pct"] * 100.0, FAIRFIELD["Percent Positive Months"]),
-        ("Percent Negative Months", lsq["negative_pct"] * 100.0, nvda["negative_pct"] * 100.0, FAIRFIELD["Percent Negative Months"]),
-        ("Average Positive Month", lsq["average_positive"] * 100.0, nvda["average_positive"] * 100.0, FAIRFIELD["Average Positive Month"]),
-        ("Average Negative Month", lsq["average_negative"] * 100.0, nvda["average_negative"] * 100.0, FAIRFIELD["Average Negative Month"]),
-        ("Best Month", lsq["best"] * 100.0, nvda["best"] * 100.0, FAIRFIELD["Best Month"]),
-        ("Worst Month", lsq["worst"] * 100.0, nvda["worst"] * 100.0, FAIRFIELD["Worst Month"]),
-        ("Mean", lsq["mean"] * 100.0, nvda["mean"] * 100.0, FAIRFIELD["Mean"]),
-        ("Standard Deviation", lsq["std"] * 100.0, nvda["std"] * 100.0, FAIRFIELD["Standard Deviation"]),
-        ("Skewness", lsq["skewness"], nvda["skewness"], FAIRFIELD["Skewness"]),
-        ("Excess Kurtosis", lsq["excess_kurtosis"], nvda["excess_kurtosis"], FAIRFIELD["Excess Kurtosis"]),
-        ("Sharpe Ratio", lsq["sharpe"], nvda["sharpe"], FAIRFIELD["Sharpe Ratio"]),
-        ("Sortino Ratio", lsq["sortino"], nvda["sortino"], FAIRFIELD["Sortino Ratio"]),
-        ("Omega Ratio", lsq["omega"], nvda["omega"], FAIRFIELD["Omega Ratio"]),
+        ("Arithmetic Mean Return", lsq["arithmetic"] * 100.0, nvda["arithmetic"] * 100.0),
+        ("Geometric Mean Return", lsq["geometric"] * 100.0, nvda["geometric"] * 100.0),
+        ("Percent Positive Months", lsq["positive_pct"] * 100.0, nvda["positive_pct"] * 100.0),
+        ("Percent Negative Months", lsq["negative_pct"] * 100.0, nvda["negative_pct"] * 100.0),
+        ("Average Positive Month", lsq["average_positive"] * 100.0, nvda["average_positive"] * 100.0),
+        ("Average Negative Month", lsq["average_negative"] * 100.0, nvda["average_negative"] * 100.0),
+        ("Best Month", lsq["best"] * 100.0, nvda["best"] * 100.0),
+        ("Worst Month", lsq["worst"] * 100.0, nvda["worst"] * 100.0),
+        ("Mean", lsq["mean"] * 100.0, nvda["mean"] * 100.0),
+        ("Standard Deviation", lsq["std"] * 100.0, nvda["std"] * 100.0),
+        ("Skewness", lsq["skewness"], nvda["skewness"]),
+        ("Excess Kurtosis", lsq["excess_kurtosis"], nvda["excess_kurtosis"]),
+        ("Sharpe Ratio", lsq["sharpe"], nvda["sharpe"]),
+        ("Sortino Ratio", lsq["sortino"], nvda["sortino"]),
+        ("Omega Ratio", lsq["omega"], nvda["omega"]),
     ]
-    return [{"Statistic": a, "LSQ Fund": b, "NVIDIA": c, "Fairfield Sentry": d} for a, b, c, d in data]
+    return [{"Statistic": a, "LSQ Fund": b, "NVIDIA": c} for a, b, c in data]
 
 
 def write_table2_tex(path: Path, lsq: dict[str, float | int], sp: dict[str, float | int], reg: list[dict[str, float | str]]) -> None:
@@ -715,38 +754,38 @@ def write_table4_tex(path: Path, latest: tuple[int, int], lsq: dict[str, float |
     rows = [
         r"\begin{table}[H]",
         r"\centering",
-        r"\caption{Monthly Return Statistics: LSQ Fund, NVIDIA, and Fairfield Sentry}",
+        r"\caption{Monthly Return Statistics: LSQ Fund and NVIDIA}",
         r"\label{tab:updated-table-4}",
         r"\small",
-        r"\begin{tabular}{lccc}",
+        r"\begin{tabular}{lcc}",
         r"\toprule",
-        r"\textbf{Statistic} & \textbf{LSQ Fund} & \textbf{NVIDIA} & \textbf{Fairfield Sentry} \\",
-        f"& \\emph{{{label}}} & \\emph{{{label}}} & \\emph{{Dec 1990 to Oct 2008}} \\\\",
-        f"& \\emph{{(N = {lsq['n']})}} & \\emph{{(N = {nvda['n']})}} & \\emph{{(N = 215)}} \\\\",
+        r"\textbf{Statistic} & \textbf{LSQ Fund} & \textbf{NVIDIA} \\",
+        f"& \\emph{{{label}}} & \\emph{{{label}}} \\\\",
+        f"& \\emph{{(N = {lsq['n']})}} & \\emph{{(N = {nvda['n']})}} \\\\",
         r"\midrule",
-        r"\multicolumn{4}{l}{\emph{Panel A: Return Summary}} \\",
+        r"\multicolumn{3}{l}{\emph{Panel A: Return Summary}} \\",
         r"\midrule",
-        f"Arithmetic Mean Return & {tex_num(lsq['arithmetic'] * 100.0)} & {tex_num(nvda['arithmetic'] * 100.0)} & {FAIRFIELD['Arithmetic Mean Return']} \\\\",
-        f"Geometric Mean Return & {tex_num(lsq['geometric'] * 100.0)} & {tex_num(nvda['geometric'] * 100.0)} & {FAIRFIELD['Geometric Mean Return']} \\\\",
-        f"Percent Positive Months & {tex_num(lsq['positive_pct'] * 100.0)} & {tex_num(nvda['positive_pct'] * 100.0)} & {FAIRFIELD['Percent Positive Months']} \\\\",
-        f"Percent Negative Months & {tex_num(lsq['negative_pct'] * 100.0)} & {tex_num(nvda['negative_pct'] * 100.0)} & {FAIRFIELD['Percent Negative Months']} \\\\",
-        f"Average Positive Month & {tex_num(lsq['average_positive'] * 100.0)} & {tex_num(nvda['average_positive'] * 100.0)} & {FAIRFIELD['Average Positive Month']} \\\\",
-        f"Average Negative Month & {tex_num(lsq['average_negative'] * 100.0)} & {tex_num(nvda['average_negative'] * 100.0)} & {FAIRFIELD['Average Negative Month']} \\\\",
-        f"Best Month & {tex_num(lsq['best'] * 100.0)} & {tex_num(nvda['best'] * 100.0)} & {FAIRFIELD['Best Month']} \\\\",
-        f"Worst Month & {tex_num(lsq['worst'] * 100.0)} & {tex_num(nvda['worst'] * 100.0)} & {FAIRFIELD['Worst Month']} \\\\",
+        f"Arithmetic Mean Return & {tex_num(lsq['arithmetic'] * 100.0)} & {tex_num(nvda['arithmetic'] * 100.0)} \\\\",
+        f"Geometric Mean Return & {tex_num(lsq['geometric'] * 100.0)} & {tex_num(nvda['geometric'] * 100.0)} \\\\",
+        f"Percent Positive Months & {tex_num(lsq['positive_pct'] * 100.0)} & {tex_num(nvda['positive_pct'] * 100.0)} \\\\",
+        f"Percent Negative Months & {tex_num(lsq['negative_pct'] * 100.0)} & {tex_num(nvda['negative_pct'] * 100.0)} \\\\",
+        f"Average Positive Month & {tex_num(lsq['average_positive'] * 100.0)} & {tex_num(nvda['average_positive'] * 100.0)} \\\\",
+        f"Average Negative Month & {tex_num(lsq['average_negative'] * 100.0)} & {tex_num(nvda['average_negative'] * 100.0)} \\\\",
+        f"Best Month & {tex_num(lsq['best'] * 100.0)} & {tex_num(nvda['best'] * 100.0)} \\\\",
+        f"Worst Month & {tex_num(lsq['worst'] * 100.0)} & {tex_num(nvda['worst'] * 100.0)} \\\\",
         r"\midrule",
-        r"\multicolumn{4}{l}{\emph{Panel B: First Four Moments}} \\",
+        r"\multicolumn{3}{l}{\emph{Panel B: First Four Moments}} \\",
         r"\midrule",
-        f"Mean ($\\mu$) & {tex_num(lsq['mean'] * 100.0)} & {tex_num(nvda['mean'] * 100.0)} & {FAIRFIELD['Mean']} \\\\",
-        f"Standard Deviation ($\\sigma$) & {tex_num(lsq['std'] * 100.0)} & {tex_num(nvda['std'] * 100.0)} & {FAIRFIELD['Standard Deviation']} \\\\",
-        f"Skewness & {tex_num(lsq['skewness'])} & {tex_num(nvda['skewness'])} & {FAIRFIELD['Skewness']} \\\\",
-        f"Excess Kurtosis & {tex_num(lsq['excess_kurtosis'])} & {tex_num(nvda['excess_kurtosis'])} & {FAIRFIELD['Excess Kurtosis']} \\\\",
+        f"Mean ($\\mu$) & {tex_num(lsq['mean'] * 100.0)} & {tex_num(nvda['mean'] * 100.0)} \\\\",
+        f"Standard Deviation ($\\sigma$) & {tex_num(lsq['std'] * 100.0)} & {tex_num(nvda['std'] * 100.0)} \\\\",
+        f"Skewness & {tex_num(lsq['skewness'])} & {tex_num(nvda['skewness'])} \\\\",
+        f"Excess Kurtosis & {tex_num(lsq['excess_kurtosis'])} & {tex_num(nvda['excess_kurtosis'])} \\\\",
         r"\midrule",
-        r"\multicolumn{4}{l}{\emph{Panel C: Risk-Adjusted Ratios (Monthly, risk free rate = 0)}} \\",
+        r"\multicolumn{3}{l}{\emph{Panel C: Risk-Adjusted Ratios (Monthly, risk free rate = 0)}} \\",
         r"\midrule",
-        f"Sharpe Ratio & {tex_num(lsq['sharpe'])} & {tex_num(nvda['sharpe'])} & {FAIRFIELD['Sharpe Ratio']} \\\\",
-        f"Sortino Ratio & {tex_num(lsq['sortino'])} & {tex_num(nvda['sortino'])} & {FAIRFIELD['Sortino Ratio']} \\\\",
-        f"Omega Ratio & {tex_num(lsq['omega'])} & {tex_num(nvda['omega'])} & {FAIRFIELD['Omega Ratio']} \\\\",
+        f"Sharpe Ratio & {tex_num(lsq['sharpe'])} & {tex_num(nvda['sharpe'])} \\\\",
+        f"Sortino Ratio & {tex_num(lsq['sortino'])} & {tex_num(nvda['sortino'])} \\\\",
+        f"Omega Ratio & {tex_num(lsq['omega'])} & {tex_num(nvda['omega'])} \\\\",
         r"\bottomrule",
         r"\end{tabular}",
         "",
@@ -756,7 +795,6 @@ def write_table4_tex(path: Path, latest: tuple[int, int], lsq: dict[str, float |
         r"Sortino uses Estrada (1999) downside deviation:",
         r"$\sigma_d=\sqrt{\frac{1}{N}\sum_{r_t<0}r_t^2}$.",
         r"Omega $= \sum \max(r_t,0) / \sum \max(-r_t,0)$.",
-        r"Fairfield Sentry data: Bernard \& Boyle (2009), \emph{Journal of Derivatives}.",
         r"\end{minipage}",
         r"\end{table}",
     ]
@@ -776,7 +814,7 @@ def table2_summary_tex(lsq: dict[str, float | int], reg: list[dict[str, float | 
         f"LSQ geometric monthly return & {tex_pct(PAPER_TABLE2['geometric'])} & {tex_pct(lsq['geometric'])} & {pp_change(lsq['geometric'], PAPER_TABLE2['geometric'])} \\\\",
         f"LSQ percent positive months & {tex_pct(PAPER_TABLE2['positive_pct'])} & {tex_pct(lsq['positive_pct'])} & {pp_change(lsq['positive_pct'], PAPER_TABLE2['positive_pct'])} \\\\",
         f"LSQ percent negative months & {tex_pct(PAPER_TABLE2['negative_pct'])} & {tex_pct(lsq['negative_pct'])} & {pp_change(lsq['negative_pct'], PAPER_TABLE2['negative_pct'])} \\\\",
-        f"LSQ population standard deviation & {tex_pct(PAPER_TABLE2['std'])} & {tex_pct(lsq['std'])} & {pp_change(lsq['std'], PAPER_TABLE2['std'])} \\\\",
+        f"LSQ sample standard deviation & {tex_pct(PAPER_TABLE2['std'])} & {tex_pct(lsq['std'])} & {pp_change(lsq['std'], PAPER_TABLE2['std'])} \\\\",
         f"LSQ Sharpe ratio & {tex_num(PAPER_TABLE2['sharpe'])} & {tex_num(lsq['sharpe'])} & {plain_change(lsq['sharpe'], PAPER_TABLE2['sharpe'])} \\\\",
         f"LSQ Sortino ratio & {tex_num(PAPER_TABLE2['sortino'])} & {tex_num(lsq['sortino'])} & {plain_change(lsq['sortino'], PAPER_TABLE2['sortino'])} \\\\",
         f"LSQ Omega ratio & {tex_num(PAPER_TABLE2['omega'])} & {tex_num(lsq['omega'])} & {plain_change(lsq['omega'], PAPER_TABLE2['omega'])} \\\\",
@@ -901,7 +939,7 @@ def verification_sentence(checks: list[dict[str, object]], source_label: str, so
         )
     if source == "spartan":
         return (
-            f"For {sp['month']}, the market comparators are pulled from Yahoo Finance monthly adjusted levels. "
+            f"For {sp['month']}, the market comparators are calculated from Yahoo Finance daily adjusted closes at each month-end. "
             f"The S\\&P 500 TR return is {sp['source_return_percent']:.6f}\\%, and the NVIDIA return is {nvda['source_return_percent']:.6f}\\%."
         )
     if sp["yahoo_exact_return_percent"] == "" or nvda["yahoo_exact_return_percent"] == "":
@@ -913,7 +951,7 @@ def verification_sentence(checks: list[dict[str, object]], source_label: str, so
     base = (
         f"For {sp['month']}, the {source_label} gives S\\&P 500 TR = {sp['source_return_percent']:.6f}\\% "
         f"and NVIDIA = {nvda['source_return_percent']:.6f}\\%. "
-        f"Yahoo Finance monthly adjusted levels imply S\\&P 500 TR = {sp['yahoo_exact_return_percent']:.6f}\\% "
+        f"Yahoo Finance month-end adjusted closes imply S\\&P 500 TR = {sp['yahoo_exact_return_percent']:.6f}\\% "
         f"and NVIDIA = {nvda['yahoo_exact_return_percent']:.6f}\\%. "
     )
     nvda_diff = abs(float(nvda["difference_percentage_points"]))
@@ -966,7 +1004,8 @@ This is the appropriate S\&P 500 series because the paper states that the benchm
 {verification_sentence(checks, source_label, source, simulation)}
 
 All return inputs are monthly.
-Population standard deviation divides by $N$.
+Sample standard deviation divides by $N-1$.
+Skewness and excess kurtosis use the adjusted sample formulas.
 Sharpe ratios use a 0\% risk-free rate.
 Sortino ratios use the paper's downside-deviation convention.
 Omega is computed as $\sum \max(r_t-L,0) / \sum \max(L-r_t,0)$.
@@ -1031,7 +1070,10 @@ This should directly address the serial-correlation issue and preserve our focus
 
 
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, object]]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     wb = Workbook()
+    wb.properties.creator = "Harman Singh"
+    wb.properties.lastModifiedBy = "Harman Singh"
     first = True
     for name, rows in sheets.items():
         ws = wb.active if first else wb.create_sheet(name)
@@ -1043,10 +1085,278 @@ def write_workbook(path: Path, sheets: dict[str, list[dict[str, object]]]) -> No
             for row in rows:
                 ws.append([row.get(header, "") for header in headers])
             ws.freeze_panes = "A2"
+            ws.auto_filter.ref = ws.dimensions
+            for cell in ws[1]:
+                cell.fill = PatternFill("solid", fgColor="1F4E78")
+                cell.font = Font(color="FFFFFF", bold=True)
+                cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+            for row in ws.iter_rows(min_row=2):
+                for cell in row:
+                    cell.alignment = Alignment(vertical="top", wrap_text=True)
+                    if isinstance(cell.value, float):
+                        cell.number_format = "0.000000"
             for col in ws.columns:
                 width = max(len(str(cell.value)) if cell.value is not None else 0 for cell in col)
                 ws.column_dimensions[col[0].column_letter].width = min(max(width + 2, 10), 60)
     wb.save(path)
+
+
+def table2_comparison_rows(
+    lsq: dict[str, float | int],
+    reg: list[dict[str, float | str]],
+) -> list[dict[str, object]]:
+    alpha = next(row for row in reg if row["statistic"] == "Monthly alpha")["estimate"] / 100.0
+    beta = next(row for row in reg if row["statistic"] == "Beta")["estimate"]
+    data = [
+        ("LSQ arithmetic monthly return", PAPER_TABLE2["arithmetic"] * 100.0, lsq["arithmetic"] * 100.0, "percent"),
+        ("LSQ geometric monthly return", PAPER_TABLE2["geometric"] * 100.0, lsq["geometric"] * 100.0, "percent"),
+        ("LSQ percent positive months", PAPER_TABLE2["positive_pct"] * 100.0, lsq["positive_pct"] * 100.0, "percent"),
+        ("LSQ percent negative months", PAPER_TABLE2["negative_pct"] * 100.0, lsq["negative_pct"] * 100.0, "percent"),
+        ("LSQ sample standard deviation", PAPER_TABLE2["std"] * 100.0, lsq["std"] * 100.0, "percent"),
+        ("LSQ Sharpe ratio", PAPER_TABLE2["sharpe"], lsq["sharpe"], "ratio"),
+        ("LSQ Sortino ratio", PAPER_TABLE2["sortino"], lsq["sortino"], "ratio"),
+        ("LSQ Omega ratio", PAPER_TABLE2["omega"], lsq["omega"], "ratio"),
+        ("Alpha, monthly", PAPER_TABLE2["alpha"] * 100.0, alpha * 100.0, "percent"),
+        ("Beta", PAPER_TABLE2["beta"], beta, "coefficient"),
+    ]
+    return [
+        {"Metric": metric, "Paper": old, "Current": new, "Change": new - old, "Unit": unit}
+        for metric, old, new, unit in data
+    ]
+
+
+def table4_comparison_rows(lsq: dict[str, float | int]) -> list[dict[str, object]]:
+    updated = {
+        "Arithmetic Mean Return": lsq["arithmetic"] * 100.0,
+        "Geometric Mean Return": lsq["geometric"] * 100.0,
+        "Percent Positive Months": lsq["positive_pct"] * 100.0,
+        "Percent Negative Months": lsq["negative_pct"] * 100.0,
+        "Average Positive Month": lsq["average_positive"] * 100.0,
+        "Average Negative Month": lsq["average_negative"] * 100.0,
+        "Standard Deviation": lsq["std"] * 100.0,
+        "Sharpe Ratio": lsq["sharpe"],
+        "Sortino Ratio": lsq["sortino"],
+        "Omega Ratio": lsq["omega"],
+    }
+    rows = []
+    for metric, old in PAPER_TABLE4_LSQ.items():
+        new = updated[metric]
+        rows.append({"Statistic": metric, "Paper LSQ": old, "Current LSQ": new, "Change": new - old})
+    return rows
+
+
+def lsq_export_rows(rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    return [
+        {
+            "Date": row["date"],
+            "Month": row["month"],
+            "Monthly Return Decimal": float(row["lsq_return"]),
+            "Monthly Return Percent": float(row["lsq_return"]) * 100.0,
+            "One Plus Return": 1.0 + float(row["lsq_return"]),
+        }
+        for row in rows
+    ]
+
+
+def market_export_rows(rows: list[dict[str, object]], key: str) -> list[dict[str, object]]:
+    return [
+        {
+            "Date": row["date"],
+            "Month": row["month"],
+            "Start Date": row.get("start_date", ""),
+            "Start Adjusted Close": row.get("start_adjusted_close", ""),
+            "End Date": row.get("end_date", ""),
+            "End Adjusted Close": row.get("end_adjusted_close", ""),
+            "Monthly Return Decimal": float(row[key]),
+            "Monthly Return Percent": float(row[key]) * 100.0,
+        }
+        for row in rows
+    ]
+
+
+def method_rows(
+    latest: tuple[int, int],
+    observations: int,
+    source_label: str,
+    market_source: str = "",
+) -> list[dict[str, object]]:
+    rows = [
+        {"Field": "Prepared by", "Value": "Harman Singh"},
+        {"Field": "Sample", "Value": f"{sample_label(SAMPLE_START, latest)}; {observations} monthly observations"},
+        {"Field": "LSQ source", "Value": source_label},
+        {"Field": "Statistical convention", "Value": "Sample standard deviation (N-1), adjusted sample skewness and excess kurtosis"},
+        {"Field": "Sortino and Omega", "Value": "Estrada downside deviation and zero threshold, consistent with the paper"},
+    ]
+    if market_source:
+        rows.extend(
+            [
+                {"Field": "Market source", "Value": market_source},
+                {
+                    "Field": "Return calculation",
+                    "Value": "Last trading day adjusted close divided by the prior month-end adjusted close, minus one",
+                },
+            ]
+        )
+    return rows
+
+
+def write_isolated_workbooks(
+    out_dir: Path,
+    latest: tuple[int, int],
+    source_label: str,
+    lsq_rows: list[dict[str, object]],
+    sp_rows: list[dict[str, object]],
+    nvda_rows: list[dict[str, object]],
+    t2: list[dict[str, object]],
+    t4: list[dict[str, object]],
+    reg: list[dict[str, float | str]],
+    serial: list[dict[str, float | str]],
+    nw: list[dict[str, float | str]],
+    lsq: dict[str, float | int],
+) -> None:
+    target = out_dir / "isolated_excel"
+    common = method_rows(latest, int(lsq["n"]), source_label)
+    yahoo_method = method_rows(
+        latest,
+        int(lsq["n"]),
+        source_label,
+        "Yahoo Finance adjusted close: ^SP500TR and NVDA",
+    )
+    workbooks = [
+        ("Table 2 - Current Update.xlsx", {"Table 2": t2, "Source and Method": yahoo_method}),
+        ("Table 4 - Current Update.xlsx", {"Table 4": t4, "Source and Method": yahoo_method}),
+        (
+            "Table 2 - Paper vs Current.xlsx",
+            {"Comparison": table2_comparison_rows(lsq, reg), "Source and Method": yahoo_method},
+        ),
+        (
+            "Table 4 - Paper vs Current.xlsx",
+            {"Comparison": table4_comparison_rows(lsq), "Source and Method": yahoo_method},
+        ),
+        (
+            "Regression - Alpha and Beta.xlsx",
+            {"Regression": reg, "Source and Method": yahoo_method},
+        ),
+        (
+            "Serial Correlation Diagnostics.xlsx",
+            {"Diagnostics": serial, "Source and Method": common},
+        ),
+        (
+            "Newey-West Inference.xlsx",
+            {"Newey-West": nw, "Source and Method": yahoo_method},
+        ),
+        (
+            "LSQ Returns - Current.xlsx",
+            {"Returns": lsq_export_rows(lsq_rows), "Source and Method": common},
+        ),
+        (
+            "S&P 500 Total Return - Current.xlsx",
+            {"Returns": market_export_rows(sp_rows, "sp500tr_return"), "Source and Method": yahoo_method},
+        ),
+        (
+            "NVIDIA Returns - Current.xlsx",
+            {"Returns": market_export_rows(nvda_rows, "nvda_return"), "Source and Method": yahoo_method},
+        ),
+    ]
+    for filename, sheets in workbooks:
+        write_workbook(target / filename, sheets)
+
+
+def write_market_reconciliation(
+    path: Path,
+    reference_workbook: Path,
+    sp_rows: list[dict[str, object]],
+    nvda_rows: list[dict[str, object]],
+) -> None:
+    _, reference_sp, reference_nvda, latest = read_workbook(reference_workbook)
+    live_sp = {row["date"]: row for row in sp_rows}
+    live_nvda = {row["date"]: row for row in nvda_rows}
+
+    sp_comparison = []
+    for row in reference_sp:
+        live = live_sp[row["date"]]
+        professor_value = float(row["sp500tr_return"]) * 100.0
+        yahoo_value = float(live["sp500tr_return"]) * 100.0
+        difference = professor_value - yahoo_value
+        sp_comparison.append(
+            {
+                "Month": row["date"],
+                "Professor Sheet Return Percent": professor_value,
+                "Yahoo Same Month Return Percent": yahoo_value,
+                "Difference Percentage Points": difference,
+                "Status": "Match within rounding" if abs(difference) <= 0.01 else "Review",
+                "Start Date": live.get("start_date", ""),
+                "Start Adjusted Close": live.get("start_adjusted_close", ""),
+                "End Date": live.get("end_date", ""),
+                "End Adjusted Close": live.get("end_adjusted_close", ""),
+            }
+        )
+
+    nvda_comparison = []
+    for row in reference_nvda:
+        current = live_nvda[row["date"]]
+        year, month = map(int, str(row["date"]).split("-"))
+        next_key = month_key(*add_month(year, month, 1))
+        next_row = live_nvda.get(next_key)
+        professor_value = float(row["nvda_return"]) * 100.0
+        same_value = float(current["nvda_return"]) * 100.0
+        next_value = float(next_row["nvda_return"]) * 100.0 if next_row else ""
+        same_difference = professor_value - same_value
+        next_difference = professor_value - float(next_value) if next_value != "" else ""
+        if next_difference != "" and abs(float(next_difference)) < abs(same_difference):
+            alignment = "Closer to next calendar month"
+        else:
+            alignment = "Closer to same calendar month"
+        nvda_comparison.append(
+            {
+                "Month Label in Professor Sheet": row["date"],
+                "Professor Sheet Return Percent": professor_value,
+                "Yahoo Same Month Return Percent": same_value,
+                "Same Month Difference Points": same_difference,
+                "Yahoo Next Month": next_key if next_row else "",
+                "Yahoo Next Month Return Percent": next_value,
+                "Next Month Difference Points": next_difference,
+                "Alignment": alignment,
+            }
+        )
+
+    sp_matches = sum(abs(float(row["Difference Percentage Points"])) <= 0.01 for row in sp_comparison)
+    pre_2026 = [row for row in nvda_comparison if str(row["Month Label in Professor Sheet"]) < "2026-01"]
+    shifted = sum(row["Alignment"] == "Closer to next calendar month" for row in pre_2026)
+    summary = [
+        {"Finding": "S&P 500 Total Return source", "Result": "Yahoo Finance symbol ^SP500TR, daily adjusted closes sampled at month-end"},
+        {
+            "Finding": "S&P comparison",
+            "Result": f"{sp_matches} of {len(sp_comparison)} monthly returns match the professor sheet within 0.01 percentage points",
+        },
+        {
+            "Finding": "Largest S&P differences",
+            "Result": "December 2018 and January 2019 differ materially from current Yahoo month-end adjusted-close returns",
+        },
+        {
+            "Finding": "NVIDIA alignment",
+            "Result": f"{shifted} of {len(pre_2026)} pre-2026 values are closer to the following calendar month's Yahoo return",
+        },
+        {
+            "Finding": "NVIDIA interpretation",
+            "Result": "The reference sheet has a one-month label offset through December 2025, while the 2026 entries align to the same month",
+        },
+        {"Finding": "Recommended series", "Result": "Use same-month, month-end-to-month-end adjusted-close returns for both market series"},
+        {"Finding": "Sample end", "Result": month_label(latest)},
+    ]
+    sources = [
+        {"Series": "S&P 500 Total Return", "Symbol": "^SP500TR", "URL": "https://finance.yahoo.com/quote/%5ESP500TR/history/"},
+        {"Series": "NVIDIA", "Symbol": "NVDA", "URL": "https://finance.yahoo.com/quote/NVDA/history/"},
+    ]
+    write_workbook(
+        path,
+        {
+            "Summary": summary,
+            "SP500TR Comparison": sp_comparison,
+            "NVIDIA Comparison": nvda_comparison,
+            "Sources": sources,
+        },
+    )
 
 
 def compile_pdf(out_dir: Path) -> str:
@@ -1075,6 +1385,7 @@ def compile_pdf(out_dir: Path) -> str:
 def run(
     source: str,
     workbook: Path,
+    reference_workbook: Path | None,
     spartan_url: str,
     out_dir: Path,
     skip_yahoo: bool,
@@ -1085,7 +1396,7 @@ def run(
     test_nvda_return: float,
 ) -> dict[str, object]:
     out_dir.mkdir(parents=True, exist_ok=True)
-    for sub in ["tables", "data", "logs_or_notes", "scripts"]:
+    for sub in ["tables", "data", "logs_or_notes", "scripts", "isolated_excel"]:
         (out_dir / sub).mkdir(exist_ok=True)
 
     source_label = "revised workbook"
@@ -1144,12 +1455,14 @@ def run(
     )
 
     sheets = {
-        "README": [
+        "Source_and_Method": [
             {"Field": "Project", "Value": "Project 1 May 2026 update"},
             {"Field": "Data source", "Value": source_label},
             {"Field": "Source file", "Value": source_file},
             {"Field": "Generated", "Value": datetime.now().isoformat(timespec="seconds")},
             {"Field": "Dependencies", "Value": "openpyxl; pymupdf only when using Spartan PDF mode."},
+            {"Field": "Market return method", "Value": "Yahoo daily adjusted closes, sampled at each month-end."},
+            {"Field": "Moment convention", "Value": "Sample standard deviation, adjusted sample skewness, adjusted excess kurtosis."},
         ],
         "LSQ_Returns": lsq_rows,
         "SP500TR_Returns": sp_rows,
@@ -1162,6 +1475,27 @@ def run(
         "Newey_West": nw,
     }
     write_workbook(out_dir / "Project_1_May2026_Update.xlsx", sheets)
+    write_isolated_workbooks(
+        out_dir,
+        latest,
+        source_label,
+        lsq_rows,
+        sp_rows,
+        nvda_rows,
+        t2,
+        t4,
+        reg,
+        serial,
+        nw,
+        lsq,
+    )
+    if reference_workbook and reference_workbook.exists() and not simulate_next_month:
+        write_market_reconciliation(
+            out_dir / "isolated_excel" / "Market Data Reconciliation - May 2026.xlsx",
+            reference_workbook,
+            sp_rows,
+            nvda_rows,
+        )
 
     script_target = out_dir / "scripts" / "update_project1_monthly.py"
     current_script = Path(__file__).resolve()
@@ -1234,7 +1568,7 @@ def run(
                 f"- NVIDIA Yahoo exact return: {checks[1]['yahoo_exact_return_percent']}",
                 "",
                 "The S&P 500 TR benchmark uses ^SP500TR because the paper's benchmark return includes dividend reinvestment.",
-                "Small NVIDIA differences can occur when a source uses rounded adjusted closes.",
+                "Market returns use the last trading day's adjusted close for each calendar month.",
             ]
         ),
         encoding="utf-8",
@@ -1251,6 +1585,11 @@ def main() -> None:
         help="Use the live Spartan PDF or a professor-provided workbook.",
     )
     parser.add_argument("--workbook", type=Path, default=DEFAULT_WORKBOOK, help="Path to the professor's workbook.")
+    parser.add_argument(
+        "--reference-workbook",
+        type=Path,
+        help="Optional professor workbook used to create the market-data reconciliation file.",
+    )
     parser.add_argument("--spartan-url", default=SPARTAN_URL, help="Monthly Spartan LSQ performance PDF URL.")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR, help="Output folder.")
     parser.add_argument("--skip-yahoo", action="store_true", help="Skip Yahoo verification if offline.")
@@ -1263,6 +1602,7 @@ def main() -> None:
     manifest = run(
         args.source,
         args.workbook,
+        args.reference_workbook,
         args.spartan_url,
         args.output_dir,
         args.skip_yahoo,

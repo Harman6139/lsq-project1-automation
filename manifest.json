@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-12T19:25:40",
+  "generated_at": "2026-06-18T02:40:57",
   "source": "spartan",
   "simulation": false,
-  "source_file": "data/LSQ_latest_spartan.pdf",
+  "source_file": "data\\LSQ_latest_spartan.pdf",
   "spartan_url": "https://spartanfunds.ca/wp-content/uploads/2021/11/LSQ-Oct21.pdf",
   "workbook": "",
   "sample_start": "2017-01",
@@ -10,10 +10,10 @@
   "observations": 113,
   "lsq_arithmetic_monthly_percent": 3.495221238938055,
   "lsq_geometric_monthly_percent": 3.4228569667335673,
-  "lsq_sharpe": 0.8754864682719924,
+  "lsq_sharpe": 0.8716040257792284,
   "lsq_sortino": 14.357760783158858,
   "lsq_omega": 92.0046082949309,
   "sp500tr_latest_percent": 5.263305489604209,
   "nvda_latest_percent": 5.797465881657349,
-  "compile_status": "Skipped PDF compilation."
+  "compile_status": "Compiled Project_1_May2026_Update.pdf with pdflatex."
 }
