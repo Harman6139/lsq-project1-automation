@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T06:41:05.270594+00:00",
+  "generated_at": "2026-06-25T19:38:35.787131+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -174,6 +174,60 @@
       "folder_path": "Assignment 2",
       "bytes": 10538,
       "sha256": "e7576384f025f303cc8c2746c15c1677bba04117deaf6079f2c50dae11ed73e6"
+    },
+    {
+      "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.pdf",
+      "drive_name": "Assignment_3_Statistical_Integrity_Tests.pdf",
+      "description": "Viewer-ready Assignment 3 PDF.",
+      "group": "assignment3",
+      "folder_path": "Assignment 3",
+      "bytes": 112704,
+      "sha256": "ed4cd441c4066e16be8d0d6fde09cf6e0fea3feeb3b64afb6fb39fd606ddd96e"
+    },
+    {
+      "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.tex",
+      "drive_name": "Assignment_3_Statistical_Integrity_Tests.tex",
+      "description": "Assignment 3 LaTeX source.",
+      "group": "assignment3",
+      "folder_path": "Assignment 3",
+      "bytes": 5480,
+      "sha256": "f620271808023475c324dd7429323f2052b5c26964423a76152043970685e682"
+    },
+    {
+      "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.xlsx",
+      "drive_name": "Assignment_3_Statistical_Integrity_Tests.xlsx",
+      "description": "Assignment 3 calculation workbook.",
+      "group": "assignment3",
+      "folder_path": "Assignment 3",
+      "bytes": 13922,
+      "sha256": "7d7a962963681a222590bb74e96193805a7b1f16fc744215fecacc5c5d5508e4"
+    },
+    {
+      "local_path": "workspace/assignment_3/scripts/compute_assignment3_integrity_tests.py",
+      "drive_name": "Assignment_3_compute_script.py",
+      "description": "Assignment 3 reproducible calculation script.",
+      "group": "assignment3",
+      "folder_path": "Assignment 3",
+      "bytes": 27633,
+      "sha256": "5ab3136adeb0aa513b0fd31592bac8c97ae39e81d33a790e8c723051836d7b8a"
+    },
+    {
+      "local_path": "workspace/assignment_3/data/assignment3_fund_x_returns.csv",
+      "drive_name": "Assignment_3_Fund_X_returns.csv",
+      "description": "Assignment 3 Fund X return series.",
+      "group": "assignment3",
+      "folder_path": "Assignment 3",
+      "bytes": 4015,
+      "sha256": "d9504db455dc17a44e5f0515799857ed2aaba320f92bbfb4ff1c4c3d90549c9e"
+    },
+    {
+      "local_path": "workspace/assignment_3/data/assignment3_sp500tr_returns.csv",
+      "drive_name": "Assignment_3_SP500TR_returns.csv",
+      "description": "Assignment 3 S&P 500 Total Return series.",
+      "group": "assignment3",
+      "folder_path": "Assignment 3",
+      "bytes": 6449,
+      "sha256": "0e82e10c65544ba086658e3ec79f38c41432d22dc2426cb2749c8ca2e149aa6a"
     },
     {
       "local_path": "scripts/update_project1_monthly.py",

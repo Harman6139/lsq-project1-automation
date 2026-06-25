@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-06-25T15:37:52",
+  "sample": "January 2017 to May 2026",
+  "observations": 113,
+  "bootstrap_reps": 100000,
+  "bootstrap_seed": 20260625,
+  "compile_status": "Compiled PDF",
+  "outputs": {
+    "pdf": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_3\\Assignment_3_Statistical_Integrity_Tests.pdf",
+    "tex": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_3\\Assignment_3_Statistical_Integrity_Tests.tex",
+    "workbook": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_3\\Assignment_3_Statistical_Integrity_Tests.xlsx",
+    "script": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_3\\scripts\\compute_assignment3_integrity_tests.py"
+  },
+  "headline_results": {
+    "fund_mean_percent": 3.4952212389380533,
+    "fund_std_percent": 4.010102220229272,
+    "runs_observed": 11,
+    "bollen_pool_p_value": 4.638447418088703e-06,
+    "active_rho1": 0.013013739537906528,
+    "bias_ratio": 13.333333333333334,
+    "bias_bootstrap_percentile": 51.939
+  }
+}

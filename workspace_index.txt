@@ -1,5 +1,5 @@
 Boyle LSQ Workspace
-Updated: 2026-06-18 06:41:05 UTC
+Updated: 2026-06-25 19:38:35 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
@@ -35,6 +35,14 @@ Assignment 2:
 - Assignment_2_Leveraged_SP500.tex: Assignment 2 LaTeX source.
 - Assignment_2_SP500TR_monthly_returns.csv: Assignment 2 S&P 500 Total Return monthly data.
 - Assignment_2_compute_script.py: Assignment 2 calculation script.
+
+Assignment 3:
+- Assignment_3_Statistical_Integrity_Tests.pdf: Viewer-ready Assignment 3 PDF.
+- Assignment_3_Statistical_Integrity_Tests.tex: Assignment 3 LaTeX source.
+- Assignment_3_Statistical_Integrity_Tests.xlsx: Assignment 3 calculation workbook.
+- Assignment_3_compute_script.py: Assignment 3 reproducible calculation script.
+- Assignment_3_Fund_X_returns.csv: Assignment 3 Fund X return series.
+- Assignment_3_SP500TR_returns.csv: Assignment 3 S&P 500 Total Return series.
 
 Monthly Automation:
 - update_project1_monthly.py: Automation script that rebuilds the monthly Project 1 outputs.

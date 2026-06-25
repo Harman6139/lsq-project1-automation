@@ -160,6 +160,48 @@
       "description": "Assignment 2 calculation script."
     },
     {
+      "group": "assignment3",
+      "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.pdf",
+      "drive_name": "Assignment_3_Statistical_Integrity_Tests.pdf",
+      "folder_path": "Assignment 3",
+      "description": "Viewer-ready Assignment 3 PDF."
+    },
+    {
+      "group": "assignment3",
+      "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.tex",
+      "drive_name": "Assignment_3_Statistical_Integrity_Tests.tex",
+      "folder_path": "Assignment 3",
+      "description": "Assignment 3 LaTeX source."
+    },
+    {
+      "group": "assignment3",
+      "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.xlsx",
+      "drive_name": "Assignment_3_Statistical_Integrity_Tests.xlsx",
+      "folder_path": "Assignment 3",
+      "description": "Assignment 3 calculation workbook."
+    },
+    {
+      "group": "assignment3",
+      "local_path": "workspace/assignment_3/scripts/compute_assignment3_integrity_tests.py",
+      "drive_name": "Assignment_3_compute_script.py",
+      "folder_path": "Assignment 3",
+      "description": "Assignment 3 reproducible calculation script."
+    },
+    {
+      "group": "assignment3",
+      "local_path": "workspace/assignment_3/data/assignment3_fund_x_returns.csv",
+      "drive_name": "Assignment_3_Fund_X_returns.csv",
+      "folder_path": "Assignment 3",
+      "description": "Assignment 3 Fund X return series."
+    },
+    {
+      "group": "assignment3",
+      "local_path": "workspace/assignment_3/data/assignment3_sp500tr_returns.csv",
+      "drive_name": "Assignment_3_SP500TR_returns.csv",
+      "folder_path": "Assignment 3",
+      "description": "Assignment 3 S&P 500 Total Return series."
+    },
+    {
       "group": "project1_monthly",
       "local_path": "scripts/update_project1_monthly.py",
       "drive_name": "update_project1_monthly.py",

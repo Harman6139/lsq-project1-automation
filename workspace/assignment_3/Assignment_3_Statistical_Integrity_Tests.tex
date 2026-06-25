@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Project Three: Statistical Integrity Tests for Fund X}
+\author{Prepared by Harman Singh for Professor Phelim Boyle}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Data Box}
+The analysis uses 113 monthly observations from January 2017 through May 2026. Returns are measured in percent per month.
+
+\begin{table}[H]
+\centering
+\caption{Summary Statistics Used Across Tests}
+\begin{tabular}{lrr}
+\toprule
+Statistic & Fund X & S\&P 500 TR \\
+\midrule
+Sample mean (\%) & 3.50 & 1.33 \\
+Sample standard deviation (\%) & 4.01 & 4.54 \\
+Positive months & 108 & 80 \\
+Negative months & 5 & 33 \\
+Monthly Sharpe ratio & 0.87 & 0.29 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Test 1: Wald-Wolfowitz Runs Test}
+Fund X has 11 observed sign runs, with 108 positive months and 5 negative months.
+The expected number of runs under independent signs is 10.56, with variance 0.73.
+The maximum possible number of runs is $R_{max}=2n_-+1=11$, and Fund X reaches that maximum.
+
+For the smoothing alternative, the relevant one-sided concern is too few runs.
+The exact lower-tail probability $P(R\leq 11)$ is 1.000.
+The normal approximation gives $Z=0.52$ and a two-sided p-value of 0.605.
+The test does not flag Fund X. More importantly, the test has little discriminatory power here because only five months are negative; once those five losses are isolated, the run count cannot rise further.
+
+\section*{Test 2: Bollen-Pool Discontinuity Test}
+Assuming normal returns with Fund X's mean and standard deviation, the probability of a negative month is 0.192.
+This implies 21.66 expected negative months, compared with 5 observed negative months.
+The binomial lower-tail p-value is 4.64e-06.
+The S\&P 500 benchmark has $p_-=0.385$, 43.51 expected negative months, 33 observed negative months, and p-value 0.025.
+
+Fund X's near-zero count is 5 months in $(0\%,0.5\%)$ and 3 months in $(-0.5\%,0\%)$, for a near-zero ratio of 1.67.
+The five negative months are 2017-06 (-0.35\%); 2017-08 (-1.26\%); 2022-06 (-0.32\%); 2022-09 (-0.21\%); 2024-05 (-2.20\%).
+The normality and independence assumptions both make the formal p-value too severe for Fund X: positive skewness reduces the true left-tail probability, and positive serial correlation lowers the effective sample size.
+
+\section*{Test 3: Serial Autocorrelation Test}
+The first three raw autocorrelations for Fund X are $\rho_1=0.347$, $\rho_2=0.157$, and $\rho_3=0.222$.
+The first-order t-statistic is 3.90, with p-value 0.0002.
+The S\&P 500 first-order autocorrelation is -0.138.
+
+The active return series, Fund X minus S\&P 500 TR, has autocorrelations $\rho_1=0.013$, $\rho_2=-0.026$, and $\rho_3=0.080$.
+Its first-order t-statistic is 0.14, with p-value 0.891.
+The Ljung-Box p-value through 12 lags is 0.0001 for raw Fund X returns and 0.857 for active returns.
+
+This pattern supports level-persistence rather than return smoothing. The raw Fund X returns are serially correlated, but the active returns are not.
+The naive annualised Sharpe ratio is 3.02.
+Using Lo's 12-lag adjustment gives 1.76; using 6 lags gives 2.05.
+Both adjusted values remain economically exceptional.
+
+\section*{Test 4: Abdulali Bias Ratio}
+Using Fund X's sample standard deviation of 4.01\%, the upper interval $[0,\hat\sigma]$ contains 80 returns and the lower interval $[-\hat\sigma,0)$ contains 5 returns.
+The observed bias ratio is therefore 13.33.
+Under a normal distribution with Fund X's monthly Sharpe ratio, the expected bias ratio is approximately 2.11, already above Abdulali's usual warning thresholds for low-Sharpe hedge funds.
+
+The bootstrap calibration uses 100,000 resamples of the 113 observed Fund X returns.
+The bootstrap median is 13.17, the mean is 15.23, and the 90\% interval is [7.30, 28.67].
+The observed bias ratio is at the 51.9th percentile of the bootstrap distribution.
+The S\&P 500 bias ratio is 2.85.
+The high Fund X bias ratio is typical for its own return distribution and reflects genuine high positive-return frequency, not a small-positive bunching anomaly.
+
+\clearpage
+\section*{Overall Assessment}
+\begin{table}[H]
+\centering
+\caption{Summary of Statistical Integrity Tests}
+\begin{tabular}{L{0.19\linewidth}L{0.24\linewidth}L{0.25\linewidth}L{0.21\linewidth}}
+\toprule
+Test & Key statistic & Assessment & Caveat \\
+\midrule
+Runs test & $R=11$, $R_{max}=11$ & No evidence of too few runs & Few negative months limits test power \\
+Bollen-Pool & $n_-=5$ vs expected 21.66; p=4.64e-06 & Formal test is extreme & Normality and independence assumptions overstate significance \\
+Serial autocorrelation & Raw $\rho_1=0.347$; active $\rho_1=0.013$ & Supports level-persistence, not smoothing & Raw returns alone are misleading \\
+Bias ratio & BR=13.33; bootstrap percentile 51.9 & Typical for Fund X's own distribution & Abdulali thresholds are not calibrated to high-Sharpe funds \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Taken together, the tests do not provide statistical evidence of return smoothing or mechanical avoidance of losses.
+They cannot rule out every possible concern about Fund X, but they do not support the specific irregularities these tests were designed to detect.
+
+\end{document}
