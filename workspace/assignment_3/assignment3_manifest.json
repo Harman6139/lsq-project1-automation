@@ -1,9 +1,11 @@
 {
-  "generated_at": "2026-06-25T15:37:52",
+  "generated_at": "2026-07-04T21:19:36",
   "sample": "January 2017 to May 2026",
   "observations": 113,
   "bootstrap_reps": 100000,
   "bootstrap_seed": 20260625,
+  "bollen_bootstrap_seed": 20260626,
+  "bollen_block_length": 3,
   "compile_status": "Compiled PDF",
   "outputs": {
     "pdf": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_3\\Assignment_3_Statistical_Integrity_Tests.pdf",
@@ -15,7 +17,11 @@
     "fund_mean_percent": 3.4952212389380533,
     "fund_std_percent": 4.010102220229272,
     "runs_observed": 11,
+    "runs_exact_lower_tail_p": 1.0,
+    "runs_exact_upper_tail_p": 0.7573748473724117,
     "bollen_pool_p_value": 4.638447418088703e-06,
+    "local_zero_band_0_50_two_sided_p": 0.7265625,
+    "bollen_block_bootstrap_negative_count_lower_tail": 0.61498,
     "active_rho1": 0.013013739537906528,
     "bias_ratio": 13.333333333333334,
     "bias_bootstrap_percentile": 51.939

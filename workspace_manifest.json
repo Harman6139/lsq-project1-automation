@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T19:38:35.787131+00:00",
+  "generated_at": "2026-07-05T01:20:21.063104+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -181,8 +181,8 @@
       "description": "Viewer-ready Assignment 3 PDF.",
       "group": "assignment3",
       "folder_path": "Assignment 3",
-      "bytes": 112704,
-      "sha256": "ed4cd441c4066e16be8d0d6fde09cf6e0fea3feeb3b64afb6fb39fd606ddd96e"
+      "bytes": 114869,
+      "sha256": "3b2a6de8549358f04797f3bdd291cd52c9ec5c5f5741794411d3c46254008a11"
     },
     {
       "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.tex",
@@ -190,8 +190,8 @@
       "description": "Assignment 3 LaTeX source.",
       "group": "assignment3",
       "folder_path": "Assignment 3",
-      "bytes": 5480,
-      "sha256": "f620271808023475c324dd7429323f2052b5c26964423a76152043970685e682"
+      "bytes": 6678,
+      "sha256": "b3ef7630cc57807939cc48d05dece16151f8c20211bc3a044b10c9b2da88dff7"
     },
     {
       "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.xlsx",
@@ -199,8 +199,8 @@
       "description": "Assignment 3 calculation workbook.",
       "group": "assignment3",
       "folder_path": "Assignment 3",
-      "bytes": 13922,
-      "sha256": "7d7a962963681a222590bb74e96193805a7b1f16fc744215fecacc5c5d5508e4"
+      "bytes": 16947,
+      "sha256": "5c96f761bb73765625b5d26bcbe3002919d1b3ce34b9f3595b5ccc24b4262a13"
     },
     {
       "local_path": "workspace/assignment_3/scripts/compute_assignment3_integrity_tests.py",
@@ -208,8 +208,8 @@
       "description": "Assignment 3 reproducible calculation script.",
       "group": "assignment3",
       "folder_path": "Assignment 3",
-      "bytes": 27633,
-      "sha256": "5ab3136adeb0aa513b0fd31592bac8c97ae39e81d33a790e8c723051836d7b8a"
+      "bytes": 34955,
+      "sha256": "94fc468f5d09dd2c7a08caeae80dd3f16e11c925fea535552c89a00cf4355f98"
     },
     {
       "local_path": "workspace/assignment_3/data/assignment3_fund_x_returns.csv",

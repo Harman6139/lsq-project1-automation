@@ -25,6 +25,8 @@ Statistic & Fund X & S\&P 500 TR \\
 \midrule
 Sample mean (\%) & 3.50 & 1.33 \\
 Sample standard deviation (\%) & 4.01 & 4.54 \\
+Skewness & 2.65 & -0.45 \\
+Excess kurtosis & 8.52 & 0.52 \\
 Positive months & 108 & 80 \\
 Negative months & 5 & 33 \\
 Monthly Sharpe ratio & 0.87 & 0.29 \\
@@ -37,11 +39,15 @@ Fund X has 11 observed sign runs, with 108 positive months and 5 negative months
 The expected number of runs under independent signs is 10.56, with variance 0.73.
 The maximum possible number of runs is $R_{max}=2n_-+1=11$, and Fund X reaches that maximum.
 
-For the smoothing alternative, the relevant one-sided concern is too few runs.
-The exact lower-tail probability $P(R\leq 11)$ is 1.000.
-The normal approximation gives $Z=0.52$ and a two-sided p-value of 0.605.
-The test does not flag Fund X. More importantly, the test has little discriminatory power here because only five months are negative; once those five losses are isolated, the run count cannot rise further.
+Because $n_-=5$ is very small, the normal approximation is not the decision rule.
+The exact hypergeometric runs distribution has support $R\in\{2,\ldots,11\}$.
+For the smoothing alternative, the relevant one-sided concern is too few runs, so the exact p-value is $P(R\leq 11)=1.000$.
+The opposite upper-tail probability is $P(R\geq 11)=0.757$.
 
+The exact test does not flag Fund X. In fact, the five negative months are as separated as possible.
+The key nuance is power: once the analysis conditions on only five negative months, a runs test can judge whether losses cluster, but it cannot explain why the number of negative months is so small.
+
+\clearpage
 \section*{Test 2: Bollen-Pool Discontinuity Test}
 Assuming normal returns with Fund X's mean and standard deviation, the probability of a negative month is 0.192.
 This implies 21.66 expected negative months, compared with 5 observed negative months.
@@ -50,7 +56,13 @@ The S\&P 500 benchmark has $p_-=0.385$, 43.51 expected negative months, 33 obser
 
 Fund X's near-zero count is 5 months in $(0\%,0.5\%)$ and 3 months in $(-0.5\%,0\%)$, for a near-zero ratio of 1.67.
 The five negative months are 2017-06 (-0.35\%); 2017-08 (-1.26\%); 2022-06 (-0.32\%); 2022-09 (-0.21\%); 2024-05 (-2.20\%).
-The normality and independence assumptions both make the formal p-value too severe for Fund X: positive skewness reduces the true left-tail probability, and positive serial correlation lowers the effective sample size.
+Treating the near-zero window as the direct discontinuity check, there are 5 small positive months and 3 small negative months within $\pm 0.5\%$.
+The exact conditional p-value for too many small positives is 0.363, and the two-sided exact p-value is 0.727.
+
+The normal-count version is therefore best read as a stress diagnostic, not as final evidence of manipulation.
+Fund X has skewness 2.65 and excess kurtosis 8.52, so normality is a poor approximation.
+A 3-month circular block bootstrap, which preserves some dependence and the empirical skewed return shape, gives a median negative count of 5.00 and a 90\% interval of [2.00, 9.00].
+The observed count of 5 negative months is at empirical lower-tail probability 0.615 under this calibration.
 
 \section*{Test 3: Serial Autocorrelation Test}
 The first three raw autocorrelations for Fund X are $\rho_1=0.347$, $\rho_2=0.157$, and $\rho_3=0.222$.
@@ -61,6 +73,8 @@ The active return series, Fund X minus S\&P 500 TR, has autocorrelations $\rho_1
 Its first-order t-statistic is 0.14, with p-value 0.891.
 The Ljung-Box p-value through 12 lags is 0.0001 for raw Fund X returns and 0.857 for active returns.
 
+The single-lag t-test is an approximate test of $H_0:\rho_1=0$; a small p-value means the observed first-order autocorrelation would be unusual under no serial dependence.
+The Ljung-Box statistic is broader because it tests whether the first 12 autocorrelations are jointly zero.
 This pattern supports level-persistence rather than return smoothing. The raw Fund X returns are serially correlated, but the active returns are not.
 The naive annualised Sharpe ratio is 3.02.
 Using Lo's 12-lag adjustment gives 1.76; using 6 lags gives 2.05.
@@ -87,14 +101,14 @@ The high Fund X bias ratio is typical for its own return distribution and reflec
 Test & Key statistic & Assessment & Caveat \\
 \midrule
 Runs test & $R=11$, $R_{max}=11$ & No evidence of too few runs & Few negative months limits test power \\
-Bollen-Pool & $n_-=5$ vs expected 21.66; p=4.64e-06 & Formal test is extreme & Normality and independence assumptions overstate significance \\
-Serial autocorrelation & Raw $\rho_1=0.347$; active $\rho_1=0.013$ & Supports level-persistence, not smoothing & Raw returns alone are misleading \\
+Bollen-Pool & Normal count p=4.64e-06; local p=0.727 & No local discontinuity after exact near-zero check & Normal count test is assumption-sensitive \\
+Serial autocorrelation & Raw $\rho_1=0.347$; active $\rho_1=0.013$ & Supports level-persistence, not smoothing & p-values are approximate dependence diagnostics \\
 Bias ratio & BR=13.33; bootstrap percentile 51.9 & Typical for Fund X's own distribution & Abdulali thresholds are not calibrated to high-Sharpe funds \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Taken together, the tests do not provide statistical evidence of return smoothing or mechanical avoidance of losses.
-They cannot rule out every possible concern about Fund X, but they do not support the specific irregularities these tests were designed to detect.
+They cannot rule out every possible concern about Fund X, but the more assumption-aware versions of the tests do not support the specific irregularities these diagnostics were designed to detect.
 
 \end{document}

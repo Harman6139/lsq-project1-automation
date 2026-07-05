@@ -31,6 +31,8 @@ OUTPUT_XLSX = ASSIGNMENT_DIR / "Assignment_3_Statistical_Integrity_Tests.xlsx"
 OUTPUT_JSON = ASSIGNMENT_DIR / "assignment3_manifest.json"
 BOOTSTRAP_REPS = 100_000
 BOOTSTRAP_SEED = 20260625
+BOLLEN_BOOTSTRAP_SEED = 20260626
+BOLLEN_BLOCK_LENGTH = 3
 
 
 def read_returns(path: Path, key: str) -> list[dict[str, object]]:
@@ -86,6 +88,21 @@ def binom_cdf(k: int, n: int, p: float) -> float:
         prob *= (n - i + 1) / i * p / q
         total += prob
     return min(max(total, 0.0), 1.0)
+
+
+def binom_pmf(k: int, n: int, p: float) -> float:
+    if k < 0 or k > n:
+        return 0.0
+    return math.comb(n, k) * (p**k) * ((1.0 - p) ** (n - k))
+
+
+def binom_upper_tail(k: int, n: int, p: float) -> float:
+    return sum(binom_pmf(i, n, p) for i in range(k, n + 1))
+
+
+def binom_exact_two_sided(k: int, n: int, p: float) -> float:
+    observed = binom_pmf(k, n, p)
+    return min(sum(binom_pmf(i, n, p) for i in range(n + 1) if binom_pmf(i, n, p) <= observed + 1e-18), 1.0)
 
 
 def gammaincc(a: float, x: float) -> float:
@@ -147,10 +164,37 @@ def summary_stats(values: list[float]) -> dict[str, float | int]:
         "n": n,
         "mean": mean,
         "std": std,
+        "skewness": sample_skewness(values),
+        "excess_kurtosis": sample_excess_kurtosis(values),
         "positive": sum(x > 0.0 for x in values),
         "negative": sum(x < 0.0 for x in values),
         "sharpe": mean / std,
     }
+
+
+def sample_skewness(values: list[float]) -> float:
+    if scipy_stats is not None:
+        return float(scipy_stats.skew(values, bias=False))
+    n = len(values)
+    mean = sum(values) / n
+    m2 = sum((x - mean) ** 2 for x in values) / n
+    m3 = sum((x - mean) ** 3 for x in values) / n
+    if n < 3 or m2 == 0.0:
+        return 0.0
+    return math.sqrt(n * (n - 1)) / (n - 2) * m3 / (m2 ** 1.5)
+
+
+def sample_excess_kurtosis(values: list[float]) -> float:
+    if scipy_stats is not None:
+        return float(scipy_stats.kurtosis(values, bias=False))
+    n = len(values)
+    mean = sum(values) / n
+    m2 = sum((x - mean) ** 2 for x in values) / n
+    m4 = sum((x - mean) ** 4 for x in values) / n
+    if n < 4 or m2 == 0.0:
+        return 0.0
+    g2 = m4 / (m2 * m2) - 3.0
+    return ((n - 1.0) / ((n - 2.0) * (n - 3.0))) * ((n + 1.0) * g2 + 6.0)
 
 
 def signs(values: list[float]) -> list[int]:
@@ -213,6 +257,24 @@ def runs_test(values: list[float]) -> dict[str, float | int]:
     }
 
 
+def runs_distribution_rows(distribution: dict[int, float]) -> list[dict[str, float | int]]:
+    rows = []
+    cumulative = 0.0
+    total_tail = 1.0
+    for runs, probability in sorted(distribution.items()):
+        cumulative += probability
+        rows.append(
+            {
+                "runs": runs,
+                "probability": probability,
+                "lower_tail_probability": min(cumulative, 1.0),
+                "upper_tail_probability": min(total_tail, 1.0),
+            }
+        )
+        total_tail -= probability
+    return rows
+
+
 def bollen_pool(values: list[float], dates: list[str]) -> dict[str, object]:
     stats = summary_stats(values)
     p_minus = normal_cdf(-float(stats["mean"]) / float(stats["std"]))
@@ -236,6 +298,69 @@ def bollen_pool(values: list[float], dates: list[str]) -> dict[str, object]:
             for date, value in zip(dates, values)
             if value < 0.0
         ],
+    }
+
+
+def local_zero_band(values: list[float], band: float) -> dict[str, float | int | str]:
+    positive = sum(0.0 < value < band for value in values)
+    negative = sum(-band < value < 0.0 for value in values)
+    total = positive + negative
+    if total == 0:
+        return {
+            "band_percent": band,
+            "small_positive": positive,
+            "small_negative": negative,
+            "near_zero_total": total,
+            "positive_share": "",
+            "one_sided_p_too_many_positive": "",
+            "two_sided_exact_p": "",
+        }
+    return {
+        "band_percent": band,
+        "small_positive": positive,
+        "small_negative": negative,
+        "near_zero_total": total,
+        "positive_share": positive / total,
+        "one_sided_p_too_many_positive": binom_upper_tail(positive, total, 0.5),
+        "two_sided_exact_p": binom_exact_two_sided(positive, total, 0.5),
+    }
+
+
+def circular_block_bootstrap_negative_count(
+    values: list[float],
+    reps: int,
+    seed: int,
+    block_length: int,
+) -> dict[str, float | int]:
+    rng = random.Random(seed)
+    n = len(values)
+    observed = sum(value < 0.0 for value in values)
+    counts = []
+    for _ in range(reps):
+        sample = []
+        while len(sample) < n:
+            start = rng.randrange(n)
+            for offset in range(block_length):
+                sample.append(values[(start + offset) % n])
+                if len(sample) == n:
+                    break
+        counts.append(sum(value < 0.0 for value in sample))
+    counts.sort()
+    mean = sum(counts) / reps
+    median = (counts[reps // 2 - 1] + counts[reps // 2]) / 2.0
+    lower_tail = sum(count <= observed for count in counts) / reps
+    upper_tail = sum(count >= observed for count in counts) / reps
+    return {
+        "repetitions": reps,
+        "seed": seed,
+        "block_length": block_length,
+        "observed_negative_months": observed,
+        "mean_negative_months": mean,
+        "median_negative_months": median,
+        "p5_negative_months": counts[int(0.05 * reps)],
+        "p95_negative_months": counts[int(0.95 * reps) - 1],
+        "empirical_lower_tail_probability": lower_tail,
+        "empirical_upper_tail_probability": upper_tail,
     }
 
 
@@ -389,6 +514,8 @@ def write_report(path: Path, results: dict[str, object]) -> None:
     serial = results["serial"]
     bias = results["bias_ratio"]
     neg_months = bp["fund"]["negative_months"]
+    local_band = bp["local_bands"][1]
+    block_bootstrap = bp["block_bootstrap"]
 
     negative_text = "; ".join(f"{row['date']} ({row['return_percent']:.2f}\\%)" for row in neg_months)
     tex = rf"""\documentclass[11pt]{{article}}
@@ -418,6 +545,8 @@ Statistic & Fund X & S\&P 500 TR \\
 \midrule
 Sample mean (\%) & {fmt(summary['fund']['mean'])} & {fmt(summary['sp500']['mean'])} \\
 Sample standard deviation (\%) & {fmt(summary['fund']['std'])} & {fmt(summary['sp500']['std'])} \\
+Skewness & {fmt(summary['fund']['skewness'])} & {fmt(summary['sp500']['skewness'])} \\
+Excess kurtosis & {fmt(summary['fund']['excess_kurtosis'])} & {fmt(summary['sp500']['excess_kurtosis'])} \\
 Positive months & {summary['fund']['positive']} & {summary['sp500']['positive']} \\
 Negative months & {summary['fund']['negative']} & {summary['sp500']['negative']} \\
 Monthly Sharpe ratio & {fmt(summary['fund']['sharpe'])} & {fmt(summary['sp500']['sharpe'])} \\
@@ -430,11 +559,15 @@ Fund X has {runs['observed_runs']} observed sign runs, with {runs['n_positive']}
 The expected number of runs under independent signs is {fmt(runs['expected_runs'])}, with variance {fmt(runs['variance'])}.
 The maximum possible number of runs is $R_{{max}}=2n_-+1={runs['r_max']}$, and Fund X reaches that maximum.
 
-For the smoothing alternative, the relevant one-sided concern is too few runs.
-The exact lower-tail probability $P(R\leq {runs['observed_runs']})$ is {fmt(runs['exact_lower_tail_p'], 3)}.
-The normal approximation gives $Z={fmt(runs['z_stat'])}$ and a two-sided p-value of {fmt(runs['normal_two_sided_p'], 3)}.
-The test does not flag Fund X. More importantly, the test has little discriminatory power here because only five months are negative; once those five losses are isolated, the run count cannot rise further.
+Because $n_-=5$ is very small, the normal approximation is not the decision rule.
+The exact hypergeometric runs distribution has support $R\in\{{2,\ldots,11\}}$.
+For the smoothing alternative, the relevant one-sided concern is too few runs, so the exact p-value is $P(R\leq {runs['observed_runs']})={fmt(runs['exact_lower_tail_p'], 3)}$.
+The opposite upper-tail probability is $P(R\geq {runs['observed_runs']})={fmt(runs['exact_upper_tail_p'], 3)}$.
 
+The exact test does not flag Fund X. In fact, the five negative months are as separated as possible.
+The key nuance is power: once the analysis conditions on only five negative months, a runs test can judge whether losses cluster, but it cannot explain why the number of negative months is so small.
+
+\clearpage
 \section*{{Test 2: Bollen-Pool Discontinuity Test}}
 Assuming normal returns with Fund X's mean and standard deviation, the probability of a negative month is {fmt(bp['fund']['p_negative'], 3)}.
 This implies {fmt(bp['fund']['expected_negative'])} expected negative months, compared with {bp['fund']['observed_negative']} observed negative months.
@@ -443,7 +576,13 @@ The S\&P 500 benchmark has $p_-={fmt(bp['sp500']['p_negative'], 3)}$, {fmt(bp['s
 
 Fund X's near-zero count is {bp['fund']['near_positive_count']} months in $(0\%,0.5\%)$ and {bp['fund']['near_negative_count']} months in $(-0.5\%,0\%)$, for a near-zero ratio of {fmt(bp['fund']['near_zero_ratio'])}.
 The five negative months are {negative_text}.
-The normality and independence assumptions both make the formal p-value too severe for Fund X: positive skewness reduces the true left-tail probability, and positive serial correlation lowers the effective sample size.
+Treating the near-zero window as the direct discontinuity check, there are {local_band['small_positive']} small positive months and {local_band['small_negative']} small negative months within $\pm 0.5\%$.
+The exact conditional p-value for too many small positives is {fmt(local_band['one_sided_p_too_many_positive'], 3)}, and the two-sided exact p-value is {fmt(local_band['two_sided_exact_p'], 3)}.
+
+The normal-count version is therefore best read as a stress diagnostic, not as final evidence of manipulation.
+Fund X has skewness {fmt(summary['fund']['skewness'])} and excess kurtosis {fmt(summary['fund']['excess_kurtosis'])}, so normality is a poor approximation.
+A {block_bootstrap['block_length']}-month circular block bootstrap, which preserves some dependence and the empirical skewed return shape, gives a median negative count of {fmt(block_bootstrap['median_negative_months'])} and a 90\% interval of [{fmt(block_bootstrap['p5_negative_months'])}, {fmt(block_bootstrap['p95_negative_months'])}].
+The observed count of {block_bootstrap['observed_negative_months']} negative months is at empirical lower-tail probability {fmt(block_bootstrap['empirical_lower_tail_probability'], 3)} under this calibration.
 
 \section*{{Test 3: Serial Autocorrelation Test}}
 The first three raw autocorrelations for Fund X are $\rho_1={fmt(serial['fund_acf'][0]['autocorrelation'], 3)}$, $\rho_2={fmt(serial['fund_acf'][1]['autocorrelation'], 3)}$, and $\rho_3={fmt(serial['fund_acf'][2]['autocorrelation'], 3)}$.
@@ -454,6 +593,8 @@ The active return series, Fund X minus S\&P 500 TR, has autocorrelations $\rho_1
 Its first-order t-statistic is {fmt(serial['active_rho1']['t_stat'])}, with p-value {fmt(serial['active_rho1']['t_p_value'], 3)}.
 The Ljung-Box p-value through 12 lags is {fmt(serial['fund_ljung_box']['p_value'], 4)} for raw Fund X returns and {fmt(serial['active_ljung_box']['p_value'], 3)} for active returns.
 
+The single-lag t-test is an approximate test of $H_0:\rho_1=0$; a small p-value means the observed first-order autocorrelation would be unusual under no serial dependence.
+The Ljung-Box statistic is broader because it tests whether the first 12 autocorrelations are jointly zero.
 This pattern supports level-persistence rather than return smoothing. The raw Fund X returns are serially correlated, but the active returns are not.
 The naive annualised Sharpe ratio is {fmt(serial['lo_12']['naive_annual_sharpe'])}.
 Using Lo's 12-lag adjustment gives {fmt(serial['lo_12']['lo_adjusted_annual_sharpe'])}; using 6 lags gives {fmt(serial['lo_6']['lo_adjusted_annual_sharpe'])}.
@@ -480,15 +621,15 @@ The high Fund X bias ratio is typical for its own return distribution and reflec
 Test & Key statistic & Assessment & Caveat \\
 \midrule
 Runs test & $R={runs['observed_runs']}$, $R_{{max}}={runs['r_max']}$ & No evidence of too few runs & Few negative months limits test power \\
-Bollen-Pool & $n_-={bp['fund']['observed_negative']}$ vs expected {fmt(bp['fund']['expected_negative'])}; p={sci(bp['fund']['binomial_p_value'])} & Formal test is extreme & Normality and independence assumptions overstate significance \\
-Serial autocorrelation & Raw $\rho_1={fmt(serial['fund_rho1']['rho'], 3)}$; active $\rho_1={fmt(serial['active_rho1']['rho'], 3)}$ & Supports level-persistence, not smoothing & Raw returns alone are misleading \\
+Bollen-Pool & Normal count p={sci(bp['fund']['binomial_p_value'])}; local p={fmt(local_band['two_sided_exact_p'], 3)} & No local discontinuity after exact near-zero check & Normal count test is assumption-sensitive \\
+Serial autocorrelation & Raw $\rho_1={fmt(serial['fund_rho1']['rho'], 3)}$; active $\rho_1={fmt(serial['active_rho1']['rho'], 3)}$ & Supports level-persistence, not smoothing & p-values are approximate dependence diagnostics \\
 Bias ratio & BR={fmt(bias['fund']['bias_ratio'])}; bootstrap percentile {fmt(bias['bootstrap']['observed_percentile'], 1)} & Typical for Fund X's own distribution & Abdulali thresholds are not calibrated to high-Sharpe funds \\
 \bottomrule
 \end{{tabular}}
 \end{{table}}
 
 Taken together, the tests do not provide statistical evidence of return smoothing or mechanical avoidance of losses.
-They cannot rule out every possible concern about Fund X, but they do not support the specific irregularities these tests were designed to detect.
+They cannot rule out every possible concern about Fund X, but the more assumption-aware versions of the tests do not support the specific irregularities these diagnostics were designed to detect.
 
 \end{{document}}
 """
@@ -527,7 +668,18 @@ def main() -> None:
 
     summary = {"fund": summary_stats(fund), "sp500": summary_stats(sp500)}
     runs = runs_test(fund)
-    bp = {"fund": bollen_pool(fund, dates), "sp500": bollen_pool(sp500, dates)}
+    runs_dist = runs_distribution(int(runs["n_positive"]), int(runs["n_negative"]))
+    bp = {
+        "fund": bollen_pool(fund, dates),
+        "sp500": bollen_pool(sp500, dates),
+        "local_bands": [local_zero_band(fund, band) for band in [0.25, 0.50, 1.00]],
+        "block_bootstrap": circular_block_bootstrap_negative_count(
+            fund,
+            BOOTSTRAP_REPS,
+            BOLLEN_BOOTSTRAP_SEED,
+            BOLLEN_BLOCK_LENGTH,
+        ),
+    }
     serial = {
         "fund_acf": autocorr_table(fund, 12),
         "active_acf": autocorr_table(active, 12),
@@ -557,6 +709,7 @@ def main() -> None:
         {"Series": "S&P 500 TR", **summary["sp500"]},
     ]
     runs_rows = [{key: value for key, value in runs.items()}]
+    runs_distribution_sheet_rows = runs_distribution_rows(runs_dist)
     bollen_rows = [
         {key: value for key, value in bp["fund"].items() if key != "negative_months"} | {"Series": "Fund X"},
         {key: value for key, value in bp["sp500"].items() if key != "negative_months"} | {"Series": "S&P 500 TR"},
@@ -583,9 +736,9 @@ def main() -> None:
     bootstrap_rows = [{key: value for key, value in bias["bootstrap"].items()}]
     negative_rows = bp["fund"]["negative_months"]
     assessment_rows = [
-        {"Test": "Runs test", "Key statistic": f"R={runs['observed_runs']}, Rmax={runs['r_max']}", "Assessment": "No evidence of too few runs", "Caveat": "Few negative months limits test power"},
-        {"Test": "Bollen-Pool", "Key statistic": f"p={bp['fund']['binomial_p_value']:.2e}", "Assessment": "Formal result is extreme", "Caveat": "Assumptions overstate significance"},
-        {"Test": "Serial autocorrelation", "Key statistic": f"raw rho1={serial['fund_rho1']['rho']:.3f}; active rho1={serial['active_rho1']['rho']:.3f}", "Assessment": "Level-persistence, not smoothing", "Caveat": "Raw returns alone are misleading"},
+        {"Test": "Runs test", "Key statistic": f"R={runs['observed_runs']}, exact lower-tail p={runs['exact_lower_tail_p']:.3f}", "Assessment": "No evidence of too few runs", "Caveat": "Few negative months limits test power"},
+        {"Test": "Bollen-Pool", "Key statistic": f"normal p={bp['fund']['binomial_p_value']:.2e}; local exact p={bp['local_bands'][1]['two_sided_exact_p']:.3f}", "Assessment": "No local zero discontinuity", "Caveat": "Normal count test is assumption-sensitive"},
+        {"Test": "Serial autocorrelation", "Key statistic": f"raw rho1={serial['fund_rho1']['rho']:.3f}; active rho1={serial['active_rho1']['rho']:.3f}", "Assessment": "Level-persistence, not smoothing", "Caveat": "p-values are approximate diagnostics"},
         {"Test": "Bias ratio", "Key statistic": f"BR={bias['fund']['bias_ratio']:.2f}; percentile={bias['bootstrap']['observed_percentile']:.1f}", "Assessment": "Typical for Fund X distribution", "Caveat": "Abdulali thresholds do not fit high-Sharpe funds"},
     ]
 
@@ -594,7 +747,10 @@ def main() -> None:
         {
             "Data Box": summary_rows,
             "Runs Test": runs_rows,
+            "Runs Exact Dist": runs_distribution_sheet_rows,
             "Bollen Pool": bollen_rows,
+            "Local Zero Bands": bp["local_bands"],
+            "Bollen Bootstrap": [bp["block_bootstrap"]],
             "Negative Months": negative_rows,
             "Serial Tests": serial_rows,
             "Autocorrelations": acf_rows,
@@ -615,6 +771,8 @@ def main() -> None:
         "observations": len(fund),
         "bootstrap_reps": BOOTSTRAP_REPS,
         "bootstrap_seed": BOOTSTRAP_SEED,
+        "bollen_bootstrap_seed": BOLLEN_BOOTSTRAP_SEED,
+        "bollen_block_length": BOLLEN_BLOCK_LENGTH,
         "compile_status": compile_status,
         "outputs": {
             "pdf": str(OUTPUT_PDF),
@@ -626,7 +784,11 @@ def main() -> None:
             "fund_mean_percent": summary["fund"]["mean"],
             "fund_std_percent": summary["fund"]["std"],
             "runs_observed": runs["observed_runs"],
+            "runs_exact_lower_tail_p": runs["exact_lower_tail_p"],
+            "runs_exact_upper_tail_p": runs["exact_upper_tail_p"],
             "bollen_pool_p_value": bp["fund"]["binomial_p_value"],
+            "local_zero_band_0_50_two_sided_p": bp["local_bands"][1]["two_sided_exact_p"],
+            "bollen_block_bootstrap_negative_count_lower_tail": bp["block_bootstrap"]["empirical_lower_tail_probability"],
             "active_rho1": serial["active_rho1"]["rho"],
             "bias_ratio": bias["fund"]["bias_ratio"],
             "bias_bootstrap_percentile": bias["bootstrap"]["observed_percentile"],
