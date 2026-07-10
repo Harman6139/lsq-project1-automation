@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T01:20:21.063104+00:00",
+  "generated_at": "2026-07-10T15:33:06.395708+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -10,8 +10,8 @@
       "description": "Viewer-ready current Project 1 monthly update PDF.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
-      "bytes": 220812,
-      "sha256": "647a95d0f726c44f5f7b13c38b8e402bb7515735b7c52371e47dacbbf0acb70b"
+      "bytes": 221524,
+      "sha256": "55a735950d4d7652ed1535d83007f05161ebe24db389f3e1076754f58b90a9cd"
     },
     {
       "local_path": "Project_1_May2026_Update.xlsx",
@@ -19,8 +19,8 @@
       "description": "Current Project 1 monthly update Excel workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
-      "bytes": 30837,
-      "sha256": "206883dd1be5606c65485c876dd5545d815ee3d8e40f3c7ca89c0c8fed0c2869"
+      "bytes": 30802,
+      "sha256": "2c7e044ab1add133c2c593098d34336d6d8cf51b8f423c36f6d18b185fbecaee"
     },
     {
       "local_path": "Project_1_May2026_Update.tex",
@@ -28,8 +28,8 @@
       "description": "Current Project 1 monthly update LaTeX source.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
-      "bytes": 6800,
-      "sha256": "0df38160313e9728e62331913b5e5c10019f59a5cb19df7b69c6f825f92870d0"
+      "bytes": 6637,
+      "sha256": "1a22b30b6f033b0effeac5683f1b7122fc0574c13cee679cfa60835bdec903a6"
     },
     {
       "local_path": "data/market_return_verification.csv",
@@ -38,7 +38,7 @@
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
       "bytes": 614,
-      "sha256": "16d93bcba0d875fae64030c74f593d9c1adb8b081682a44f38a629109e8044e2"
+      "sha256": "8f33377c121481e5b5bf9e358a9eb9e6a6fffca150ba9004230253f073f2afa7"
     },
     {
       "local_path": "isolated_excel/Table 2 - Current Update.xlsx",
@@ -46,8 +46,8 @@
       "description": "Isolated updated Table 2 workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6893,
-      "sha256": "7c0c7eeda94e0748f189c60508d4a321cc87fc4f39a3e1ef49f4fd6c06edfbae"
+      "bytes": 6881,
+      "sha256": "a699a12406be202d2bde338a721a7c5f68cc70daeb584ff6d9a91eb95377d92b"
     },
     {
       "local_path": "isolated_excel/Table 4 - Current Update.xlsx",
@@ -55,8 +55,8 @@
       "description": "Isolated updated Table 4 workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6822,
-      "sha256": "f29de542c905b1741b99afb8176fce73e9f4336cb1afa06590e2f63c4d483ffb"
+      "bytes": 6814,
+      "sha256": "1a48b00caa5276ee93838698de0cbdd8080d32e5ee2428519f874a5b03cf7a09"
     },
     {
       "local_path": "isolated_excel/Table 2 - Paper vs Current.xlsx",
@@ -64,8 +64,8 @@
       "description": "Isolated Table 2 comparison workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6763,
-      "sha256": "2103b13b7c777d933b1ddfa9f652979c3e48d41783b6b42b7949256126e5a63c"
+      "bytes": 6753,
+      "sha256": "6e0060f563e1f6ba7a1060b6a9fdd14aa3c959ef9a17377165250dbe47cf9c51"
     },
     {
       "local_path": "isolated_excel/Table 4 - Paper vs Current.xlsx",
@@ -73,8 +73,8 @@
       "description": "Isolated Table 4 comparison workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6669,
-      "sha256": "0efb4c2b192e240c3c37fbb0979d5743f3159f4448d072a5ef65e147cdbb0c3d"
+      "bytes": 6657,
+      "sha256": "712343604087d4b1a2b4c1eb1d882dc4546595650ddf33d5db826c2e02fff1e7"
     },
     {
       "local_path": "isolated_excel/Regression - Alpha and Beta.xlsx",
@@ -82,8 +82,8 @@
       "description": "Isolated regression workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6327,
-      "sha256": "6ef0ffa481c307ecd9b802949ad7c17c1db622cc4a98ab99a7d61e420270bb4f"
+      "bytes": 6314,
+      "sha256": "c30ae9353d57ca892bfe8d3da1333347d9fde4696b9abb0f719bbc963e748e10"
     },
     {
       "local_path": "isolated_excel/Serial Correlation Diagnostics.xlsx",
@@ -91,8 +91,8 @@
       "description": "Isolated serial-correlation diagnostics workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6328,
-      "sha256": "cd4f6e7b29015472864e3826ce28503f21aa02b63e493b2be817564d5cba9751"
+      "bytes": 6319,
+      "sha256": "147018ede42833637c839ad230c586b2e5b9e0acb778cc7eee6f25c1f29d7efa"
     },
     {
       "local_path": "isolated_excel/Newey-West Inference.xlsx",
@@ -100,8 +100,8 @@
       "description": "Isolated Newey-West inference workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6519,
-      "sha256": "dbf001766bb4facb0eed81542790f1f14d7da8381b13e0f236432cf9c680ca89"
+      "bytes": 6508,
+      "sha256": "63a166f361a538a64bbc5bcd20e0dc50c1ad726e444b33735cf2f624a8b90412"
     },
     {
       "local_path": "isolated_excel/LSQ Returns - Current.xlsx",
@@ -109,8 +109,8 @@
       "description": "Current LSQ monthly return series.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Return Series",
-      "bytes": 9758,
-      "sha256": "3616b6ac1ade3c05796c0afa9fe0ca54a1c73431bb1369b924042c94e029fff9"
+      "bytes": 9747,
+      "sha256": "874e63c3249388c9ac5112593b3c18a170e20637f848b89496527e68f280e8c0"
     },
     {
       "local_path": "isolated_excel/S&P 500 Total Return - Current.xlsx",
@@ -118,8 +118,8 @@
       "description": "Current S&P 500 Total Return month-end adjusted-close series.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Return Series",
-      "bytes": 13325,
-      "sha256": "2093c5b3a31b8d5d62c914756758f7e3c2fecc3f749015e65aaf7564ec73cc27"
+      "bytes": 13312,
+      "sha256": "fbaa7de300f934ced5dec4af146a496079a7651f1f162920ac5b6bfa091b9c85"
     },
     {
       "local_path": "isolated_excel/NVIDIA Returns - Current.xlsx",
@@ -127,8 +127,8 @@
       "description": "Current NVIDIA month-end adjusted-close return series.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Return Series",
-      "bytes": 13988,
-      "sha256": "183636b10fe710d57539f7f34388264d8dfed78c2b49419cc2b0ee7c31b52d53"
+      "bytes": 13964,
+      "sha256": "4fe2c461859eb45e908f1f10ab52e8f10d31c763e1957051b22a5f497eb8db4d"
     },
     {
       "local_path": "isolated_excel/Market Data Reconciliation - May 2026.xlsx",
@@ -154,8 +154,8 @@
       "description": "Assignment 2 LaTeX source.",
       "group": "assignment2",
       "folder_path": "Assignment 2",
-      "bytes": 4419,
-      "sha256": "46f18d2b953d25937e0d2d5e6817c1c8c2563e7d92188742b105198a5ade5248"
+      "bytes": 4303,
+      "sha256": "f9c479994fae054c5b1472a78958b574b1fe68817a39fed4f9972a37c0451ac7"
     },
     {
       "local_path": "workspace/assignment_2/data/sp500tr_monthly_returns_2017_01_to_2026_05.csv",
@@ -163,8 +163,8 @@
       "description": "Assignment 2 S&P 500 Total Return monthly data.",
       "group": "assignment2",
       "folder_path": "Assignment 2",
-      "bytes": 10147,
-      "sha256": "41bb7c74f544de210d0e619d505ee9eecc6241b4f2325828320544a1a50a88c8"
+      "bytes": 10033,
+      "sha256": "a704c9303d44a2c41c9081bc76e9f9bb07594b046e6478e03fde4da3184fb58a"
     },
     {
       "local_path": "workspace/assignment_2/scripts/compute_assignment2_leveraged_sp500.py",
@@ -190,8 +190,8 @@
       "description": "Assignment 3 LaTeX source.",
       "group": "assignment3",
       "folder_path": "Assignment 3",
-      "bytes": 6678,
-      "sha256": "b3ef7630cc57807939cc48d05dece16151f8c20211bc3a044b10c9b2da88dff7"
+      "bytes": 6564,
+      "sha256": "90fae95f8e999886d60d89e9f87e9ab2dc093653413e7dec3d09311752dbf4c0"
     },
     {
       "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.xlsx",
