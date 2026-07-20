@@ -14,6 +14,10 @@
     "Project_1_LSQ_Monthly_Update_manifest.json",
     "Project_1_LSQ_Monthly_Update_data_validation.csv",
     "Project_1_LSQ_Monthly_Update_script.py",
+    "Project_1_May2026_Update.pdf",
+    "Project_1_May2026_Update.xlsx",
+    "Project_1_May2026_Update.tex",
+    "May2026_market_return_validation.csv",
     "Assignment_2_Leveraged_SP500.pdf",
     "Assignment_2_Leveraged_SP500.tex",
     "Assignment_2_SP500TR_monthly_returns.csv",
@@ -29,28 +33,28 @@
     {
       "group": "project1_monthly",
       "local_path": "Project_1_May2026_Update.pdf",
-      "drive_name": "Project_1_May2026_Update.pdf",
+      "drive_name": "Project_1_LSQ_Monthly_Update.pdf",
       "folder_path": "Project Monthly Update",
       "description": "Viewer-ready current Project 1 monthly update PDF."
     },
     {
       "group": "project1_monthly",
       "local_path": "Project_1_May2026_Update.xlsx",
-      "drive_name": "Project_1_May2026_Update.xlsx",
+      "drive_name": "Project_1_LSQ_Monthly_Update.xlsx",
       "folder_path": "Project Monthly Update",
       "description": "Current Project 1 monthly update Excel workbook."
     },
     {
       "group": "project1_monthly",
       "local_path": "Project_1_May2026_Update.tex",
-      "drive_name": "Project_1_May2026_Update.tex",
+      "drive_name": "Project_1_LSQ_Monthly_Update.tex",
       "folder_path": "Project Monthly Update",
       "description": "Current Project 1 monthly update LaTeX source."
     },
     {
       "group": "project1_monthly",
       "local_path": "data/market_return_verification.csv",
-      "drive_name": "May2026_market_return_validation.csv",
+      "drive_name": "Current_Market_Return_Validation.csv",
       "folder_path": "Project Monthly Update",
       "description": "NVIDIA and S&P 500 Total Return validation data."
     },
