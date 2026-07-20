@@ -13,7 +13,7 @@ Steps:
 3. Make sure GitHub Actions is enabled.
 4. Open the `Monthly Project 1 Update` workflow and click `Run workflow` once to test it.
 
-After that, it runs on the 10th of each month at 13:00 UTC. The workflow downloads Spartan's live LSQ PDF, parses the monthly returns, pulls S&P 500 TR and NVIDIA returns from Yahoo Finance, rebuilds the tables, compiles the PDF, updates the Overleaf zip, and uploads stable filenames to Google Drive if the Drive secrets are configured.
+After that, it runs on the 10th, 15th, 20th, and 25th of each month at 13:00 UTC. The retry dates allow for a late Spartan monthly release. The workflow downloads Spartan's live LSQ PDF, parses the monthly returns, pulls S&P 500 TR and NVIDIA returns from Yahoo Finance, rebuilds the tables, compiles the PDF, updates the LaTeX workspace, and uploads stable filenames to Google Drive if the Drive secrets are configured.
 
 For the Google Drive setup, see `GOOGLE_DRIVE_AUTOMATION.md`.
 

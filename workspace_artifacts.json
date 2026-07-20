@@ -105,6 +105,13 @@
     },
     {
       "group": "project1_monthly",
+      "local_path": "isolated_excel/MPPM Recalculation.xlsx",
+      "drive_name": "MPPM Recalculation.xlsx",
+      "folder_path": "Project Monthly Update/Excel Tables",
+      "description": "Reproducible MPPM recalculation for Fund X, S&P 500 Total Return, and NVIDIA."
+    },
+    {
+      "group": "project1_monthly",
       "local_path": "isolated_excel/LSQ Returns - Current.xlsx",
       "drive_name": "LSQ Returns - Current.xlsx",
       "folder_path": "Project Monthly Update/Return Series",

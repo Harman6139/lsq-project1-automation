@@ -81,7 +81,7 @@ def write_index(project_dir: Path, config: dict[str, object], artifacts: list[di
         [
             "",
             "Monthly automation:",
-            "Project 1 runs automatically through GitHub Actions on the 10th of each month.",
+            "Project 1 runs automatically through GitHub Actions on the 10th, 15th, 20th, and 25th of each month.",
             "It rebuilds the PDF, Excel file, LaTeX source, data files, and live LaTeX workspace.",
             "",
             "LaTeX workspace note:",

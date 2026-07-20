@@ -10,7 +10,7 @@ This repository is the live editable LaTeX and code workspace. Google Drive is t
 
 ## Workflow
 
-- Monthly Project 1 data updates run through GitHub Actions on the 10th of each month.
+- Monthly Project 1 data updates run through GitHub Actions on the 10th, 15th, 20th, and 25th of each month so delayed fund releases are still captured.
 - The workflow rebuilds the PDF, Excel workbook, LaTeX source, validation files, and live LaTeX workspace.
 - The workflow publishes the current files into Google Drive through the Apps Script upload endpoint.
 - If Overleaf Git is configured, the workflow also pushes the generated LaTeX workspace into the Overleaf project.

@@ -54,6 +54,14 @@ PAPER_TABLE4_LSQ = {
     "Omega Ratio": 88.28,
 }
 
+PAPER_MPPM = {
+    "Fund X": 35.16,
+    "S&P 500 TR": 8.37,
+    "NVIDIA": 21.19,
+}
+MPPM_RHO = 3.0
+MPPM_REFERENCE_OBSERVATIONS = 113
+
 FAIRFIELD = {
     "Arithmetic Mean Return": "0.84",
     "Geometric Mean Return": "0.84",
@@ -303,6 +311,102 @@ def compute_sortino(r: list[float], threshold: float = 0.0) -> float:
     downside = [min(x - threshold, 0.0) for x in r]
     downside_deviation = math.sqrt(sum(x * x for x in downside) / len(r))
     return math.inf if downside_deviation == 0 else (sum(x - threshold for x in r) / len(r)) / downside_deviation
+
+
+def compute_mppm(r: list[float], rho: float = MPPM_RHO) -> dict[str, float | int]:
+    if not r:
+        raise ValueError("MPPM requires at least one return.")
+    if any(1.0 + value <= 0.0 for value in r):
+        raise ValueError("MPPM requires every gross return, 1 + r, to be positive.")
+    if rho == 1.0:
+        monthly_log_ce = sum(math.log1p(value) for value in r) / len(r)
+    else:
+        transformed_mean = sum((1.0 + value) ** (1.0 - rho) for value in r) / len(r)
+        monthly_log_ce = math.log(transformed_mean) / (1.0 - rho)
+    annualized = (1.0 + monthly_log_ce) ** 12.0 - 1.0
+    return {
+        "observations": len(r),
+        "rho": rho,
+        "monthly_log_ce": monthly_log_ce,
+        "annualized": annualized,
+    }
+
+
+def mppm_summary_rows(
+    lsq_values: list[float],
+    sp_values: list[float],
+    nvda_values: list[float],
+    latest: tuple[int, int],
+    rho: float = MPPM_RHO,
+) -> list[dict[str, object]]:
+    rows = []
+    for series, series_values in [
+        ("Fund X", lsq_values),
+        ("S&P 500 TR", sp_values),
+        ("NVIDIA", nvda_values),
+    ]:
+        reference = compute_mppm(series_values[:MPPM_REFERENCE_OBSERVATIONS], rho)
+        current = compute_mppm(series_values, rho)
+        current_percent = float(current["annualized"]) * 100.0
+        rows.append(
+            {
+                "Series": series,
+                "Paper Reported MPPM Percent": PAPER_MPPM[series],
+                "Recomputed 113-Month MPPM Percent": float(reference["annualized"]) * 100.0,
+                "Current Observations": int(current["observations"]),
+                "Current Through": month_label(latest),
+                "Current Monthly Log CE Decimal": float(current["monthly_log_ce"]),
+                "Current Annualized MPPM Percent": current_percent,
+                "Current Minus Paper Percentage Points": current_percent - PAPER_MPPM[series],
+                "Rho": rho,
+            }
+        )
+    return rows
+
+
+def mppm_input_rows(
+    lsq_rows: list[dict[str, object]],
+    sp_rows: list[dict[str, object]],
+    nvda_rows: list[dict[str, object]],
+    rho: float = MPPM_RHO,
+) -> list[dict[str, object]]:
+    exponent = 1.0 - rho
+    rows = []
+    for lsq_row, sp_row, nvda_row in zip(lsq_rows, sp_rows, nvda_rows):
+        lsq_return = float(lsq_row["lsq_return"])
+        sp_return = float(sp_row["sp500tr_return"])
+        nvda_return = float(nvda_row["nvda_return"])
+        rows.append(
+            {
+                "Date": lsq_row["date"],
+                "Fund X Return Decimal": lsq_return,
+                "Fund X Power Term": (1.0 + lsq_return) ** exponent,
+                "S&P 500 TR Return Decimal": sp_return,
+                "S&P 500 TR Power Term": (1.0 + sp_return) ** exponent,
+                "NVIDIA Return Decimal": nvda_return,
+                "NVIDIA Power Term": (1.0 + nvda_return) ** exponent,
+            }
+        )
+    return rows
+
+
+def mppm_method_rows() -> list[dict[str, object]]:
+    return [
+        {"Field": "Risk-aversion parameter", "Value": "rho = 3"},
+        {
+            "Field": "Monthly MPPM",
+            "Value": "[1 / (1 - rho)] * ln(mean((1 + r_t)^(1 - rho)))",
+        },
+        {
+            "Field": "Annualization",
+            "Value": "(1 + monthly MPPM)^12 - 1, matching Professor Boyle's stated convention",
+        },
+        {"Field": "Risk-free return", "Value": "0 percent"},
+        {
+            "Field": "Data",
+            "Value": "Fund X from Spartan monthly performance; ^SP500TR and NVDA from Yahoo Finance adjusted closes",
+        },
+    ]
 
 
 def compute_summary(r: list[float]) -> dict[str, float | int]:
@@ -978,6 +1082,8 @@ def write_main_tex(
     beta = next(row for row in reg if row["statistic"] == "Beta")["estimate"]
     added_text = ", ".join(f"{row['month']} = {float(row['lsq_return']) * 100.0:.2f}\\%" for row in added_returns)
     direction = "rises" if lsq["arithmetic"] > PAPER_TABLE2["arithmetic"] else "falls"
+    added_positive = sum(float(row["lsq_return"]) > 0.0 for row in added_returns)
+    added_negative = sum(float(row["lsq_return"]) < 0.0 for row in added_returns)
     tex = rf"""\documentclass[11pt]{{article}}
 \usepackage[margin=0.85in]{{geometry}}
 \usepackage{{booktabs}}
@@ -988,7 +1094,7 @@ def write_main_tex(
 
 \title{{Project 1A LSQ Fund Update}}
 \author{{Prepared for Professor Phelim Boyle}}
-\date{{June 2026}}
+\date{{Updated through {month_label(latest)}}}
 
 \begin{{document}}
 \maketitle
@@ -1035,9 +1141,9 @@ Alpha and beta are estimated from the monthly regression of LSQ returns on S\&P 
 
 \subsection*{{Interpretation}}
 The updated LSQ statistics move only moderately because {len(added_returns)} months are being added to a 109-month sample.
-All added LSQ months are positive, so the number of positive months rises from 104 to {lsq['positive_count']} and the number of negative months remains five.
-The average monthly return {direction} relative to the paper because May 2026 is a strong positive month.
-The maximum drawdown remains -2.20\% because none of the added months creates a new trough.
+The added sample contains {added_positive} positive months and {added_negative} negative months, leaving {lsq['positive_count']} positive months and {lsq['negative_count']} negative months in total.
+The average monthly return {direction} relative to the paper after incorporating returns through {month_label(latest)}.
+The worst monthly return remains -2.20\% because none of the added months is lower.
 
 The risk-adjusted metrics remain very strong.
 The Sharpe ratio is {tex_num(lsq['sharpe'])}, the Sortino ratio is {tex_num(lsq['sortino'])}, and the zero-threshold Omega ratio is {tex_num(lsq['omega'])}.
@@ -1213,6 +1319,8 @@ def write_isolated_workbooks(
     serial: list[dict[str, float | str]],
     nw: list[dict[str, float | str]],
     lsq: dict[str, float | int],
+    mppm: list[dict[str, object]],
+    mppm_inputs: list[dict[str, object]],
 ) -> None:
     target = out_dir / "isolated_excel"
     common = method_rows(latest, int(lsq["n"]), source_label)
@@ -1244,6 +1352,14 @@ def write_isolated_workbooks(
         (
             "Newey-West Inference.xlsx",
             {"Newey-West": nw, "Source and Method": yahoo_method},
+        ),
+        (
+            "MPPM Recalculation.xlsx",
+            {
+                "MPPM Summary": mppm,
+                "Monthly Inputs": mppm_inputs,
+                "Source and Method": mppm_method_rows(),
+            },
         ),
         (
             "LSQ Returns - Current.xlsx",
@@ -1427,6 +1543,8 @@ def run(
     checks = verify_market_returns(sp_rows, nvda_rows, latest, True if simulate_next_month else skip_yahoo)
     t2 = table2_rows(lsq, sp, reg)
     t4 = table4_rows(lsq, nvda)
+    mppm = mppm_summary_rows(lsq_values, sp_values, nvda_values, latest)
+    mppm_inputs = mppm_input_rows(lsq_rows, sp_rows, nvda_rows)
 
     added_returns = [row for row in lsq_rows if row["date"] > "2026-01"]
 
@@ -1456,7 +1574,7 @@ def run(
 
     sheets = {
         "Source_and_Method": [
-            {"Field": "Project", "Value": "Project 1 May 2026 update"},
+            {"Field": "Project", "Value": f"Project 1 update through {month_label(latest)}"},
             {"Field": "Data source", "Value": source_label},
             {"Field": "Source file", "Value": source_file},
             {"Field": "Generated", "Value": datetime.now().isoformat(timespec="seconds")},
@@ -1473,6 +1591,7 @@ def run(
         "Regression": reg,
         "Serial_Correlation": serial,
         "Newey_West": nw,
+        "MPPM": mppm,
     }
     write_workbook(out_dir / "Project_1_May2026_Update.xlsx", sheets)
     write_isolated_workbooks(
@@ -1488,6 +1607,8 @@ def run(
         serial,
         nw,
         lsq,
+        mppm,
+        mppm_inputs,
     )
     if reference_workbook and reference_workbook.exists() and not simulate_next_month:
         write_market_reconciliation(
@@ -1506,7 +1627,7 @@ def run(
     (out_dir / "README.txt").write_text(
         "\n".join(
             [
-                "Project 1 May 2026 update",
+                f"Project 1 update through {month_label(latest)}",
                 "",
                 "Main file for Overleaf: Project_1_May2026_Update.tex",
                 "Automation script: scripts/update_project1_monthly.py",
@@ -1547,6 +1668,11 @@ def run(
         "lsq_omega": lsq["omega"],
         "sp500tr_latest_percent": checks[0]["source_return_percent"],
         "nvda_latest_percent": checks[1]["source_return_percent"],
+        "mppm_rho": MPPM_RHO,
+        "mppm_annualization": "(1 + monthly log certainty equivalent)^12 - 1",
+        "lsq_mppm_annual_percent": next(row for row in mppm if row["Series"] == "Fund X")["Current Annualized MPPM Percent"],
+        "sp500tr_mppm_annual_percent": next(row for row in mppm if row["Series"] == "S&P 500 TR")["Current Annualized MPPM Percent"],
+        "nvda_mppm_annual_percent": next(row for row in mppm if row["Series"] == "NVIDIA")["Current Annualized MPPM Percent"],
         "compile_status": compile_status,
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
@@ -1558,7 +1684,7 @@ def run(
                 f"Sample: {manifest['sample_start']} to {manifest['sample_end']}",
                 f"Observations: {manifest['observations']}",
                 "",
-                "May 2026 checks:",
+                f"{month_label(latest)} checks:",
                 f"- Data source: {source_label}",
                 f"- Source file: {source_file}",
                 f"- Simulation: {simulate_next_month}",

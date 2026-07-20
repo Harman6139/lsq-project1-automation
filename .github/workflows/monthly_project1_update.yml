@@ -3,7 +3,7 @@ name: Monthly Project 1 Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 13 10 * *"
+    - cron: "0 13 10,15,20,25 * *"
 
 permissions:
   contents: write

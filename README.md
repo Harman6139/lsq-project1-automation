@@ -18,7 +18,7 @@ This repository is the editable LaTeX and code workspace for the LSQ project upd
 
 ## Automation
 
-Project 1 is updated automatically through GitHub Actions on the 10th of each month. The workflow:
+Project 1 is updated automatically through GitHub Actions on the 10th, 15th, 20th, and 25th of each month. The later attempts catch delayed monthly fund releases. The workflow:
 
 1. pulls the latest LSQ monthly return source,
 2. updates S&P 500 Total Return and NVIDIA returns,

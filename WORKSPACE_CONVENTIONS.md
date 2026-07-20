@@ -43,7 +43,7 @@ Use:
 python scripts/publish_workspace.py --project-dir .
 ```
 
-The GitHub Actions workflow `Publish Workspace` republishes Drive artifacts when tracked project files change. The monthly Project 1 workflow runs on the 10th of each month and republishes the monthly update.
+The GitHub Actions workflow `Publish Workspace` republishes Drive artifacts when tracked project files change. The monthly Project 1 workflow runs on the 10th, 15th, 20th, and 25th of each month so it can capture a fund release that was not available on the first attempt.
 
 ## GitHub And LaTeX
 
