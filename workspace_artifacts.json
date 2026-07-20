@@ -14,10 +14,22 @@
     "Project_1_LSQ_Monthly_Update_manifest.json",
     "Project_1_LSQ_Monthly_Update_data_validation.csv",
     "Project_1_LSQ_Monthly_Update_script.py",
-    "Project_1_May2026_Update.pdf",
-    "Project_1_May2026_Update.xlsx",
-    "Project_1_May2026_Update.tex",
-    "May2026_market_return_validation.csv",
+    {
+      "name": "Project_1_May2026_Update.pdf",
+      "folderPath": "Project Monthly Update"
+    },
+    {
+      "name": "Project_1_May2026_Update.xlsx",
+      "folderPath": "Project Monthly Update"
+    },
+    {
+      "name": "Project_1_May2026_Update.tex",
+      "folderPath": "Project Monthly Update"
+    },
+    {
+      "name": "May2026_market_return_validation.csv",
+      "folderPath": "Project Monthly Update"
+    },
     "Assignment_2_Leveraged_SP500.pdf",
     "Assignment_2_Leveraged_SP500.tex",
     "Assignment_2_SP500TR_monthly_returns.csv",

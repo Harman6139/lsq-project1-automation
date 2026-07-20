@@ -1,5 +1,5 @@
 Boyle LSQ Workspace
-Updated: 2026-07-10 15:33:06 UTC
+Updated: 2026-07-20 16:54:17 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
@@ -8,10 +8,10 @@ Source repository: https://github.com/Harman6139/lsq-project1-automation
 Workspace layout:
 
 Project Monthly Update:
-- Project_1_May2026_Update.pdf: Viewer-ready current Project 1 monthly update PDF.
-- Project_1_May2026_Update.xlsx: Current Project 1 monthly update Excel workbook.
-- Project_1_May2026_Update.tex: Current Project 1 monthly update LaTeX source.
-- May2026_market_return_validation.csv: NVIDIA and S&P 500 Total Return validation data.
+- Project_1_LSQ_Monthly_Update.pdf: Viewer-ready current Project 1 monthly update PDF.
+- Project_1_LSQ_Monthly_Update.xlsx: Current Project 1 monthly update Excel workbook.
+- Project_1_LSQ_Monthly_Update.tex: Current Project 1 monthly update LaTeX source.
+- Current_Market_Return_Validation.csv: NVIDIA and S&P 500 Total Return validation data.
 
 Project Monthly Update/Excel Tables:
 - Table 2 - Current Update.xlsx: Isolated updated Table 2 workbook.
@@ -21,6 +21,7 @@ Project Monthly Update/Excel Tables:
 - Regression - Alpha and Beta.xlsx: Isolated regression workbook.
 - Serial Correlation Diagnostics.xlsx: Isolated serial-correlation diagnostics workbook.
 - Newey-West Inference.xlsx: Isolated Newey-West inference workbook.
+- MPPM Recalculation.xlsx: Reproducible MPPM recalculation for Fund X, S&P 500 Total Return, and NVIDIA.
 
 Project Monthly Update/Return Series:
 - LSQ Returns - Current.xlsx: Current LSQ monthly return series.
@@ -48,7 +49,7 @@ Monthly Automation:
 - update_project1_monthly.py: Automation script that rebuilds the monthly Project 1 outputs.
 
 Monthly automation:
-Project 1 runs automatically through GitHub Actions on the 10th of each month.
+Project 1 runs automatically through GitHub Actions on the 10th, 15th, 20th, and 25th of each month.
 It rebuilds the PDF, Excel file, LaTeX source, data files, and live LaTeX workspace.
 
 LaTeX workspace note:
