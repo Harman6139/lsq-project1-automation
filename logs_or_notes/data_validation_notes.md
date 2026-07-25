@@ -5,7 +5,7 @@ Observations: 114
 
 Jun 2026 checks:
 - Data source: Spartan monthly performance PDF
-- Source file: data\LSQ_latest_spartan.pdf
+- Source file: data/LSQ_latest_spartan.pdf
 - Simulation: False
 - S&P 500 TR source return: -0.952323%
 - S&P 500 TR Yahoo exact return: -0.9523233980697987
