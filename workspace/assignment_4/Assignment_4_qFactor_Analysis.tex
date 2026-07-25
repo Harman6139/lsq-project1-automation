@@ -1,0 +1,198 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}
+
+\title{Project Four: Fund X Factor Model Analysis}
+\author{Prepared by Harman Singh for Professor Phelim Boyle}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Data and Method}
+The analysis uses Fund X's net-of-fees monthly returns from January 2017 through
+December 2024 and the official monthly q5 factor file from
+\url{https://global-q.org/factors.html}. The 96 observations are merged by
+year and month. Every factor and return is measured in percent per month. The
+dependent variable is Fund X's excess return, $r_{X,t}-r_{f,t}$, where
+$r_{f,t}$ is the \texttt{R\_F} observation supplied in the q5 file.
+
+Three time-series regressions are estimated: the CAPM with $R_{MKT}$; the
+Hou--Xue--Zhang q-factor model with $R_{MKT}$, $R_{ME}$, $R_{IA}$, and
+$R_{ROE}$; and the augmented q5 model, which adds $R_{EG}$. Coefficients are
+ordinary least squares estimates. The reported $t$-statistics use Newey--West
+heteroskedasticity- and autocorrelation-consistent covariance estimates with
+the assignment-mandated Bartlett lag length $L=4$.
+
+\clearpage
+\section*{Table 1: Full Regression Results}
+\begin{table}[H]
+\centering
+\caption{Fund X Factor Regressions: CAPM, q-Factor, and q5}
+\label{tab:factor-regressions}
+\small
+\begin{tabular}{lccc}
+\toprule
+ & Model 1 & Model 2 & Model 3 \\
+ & CAPM & q-factor & q5 \\
+\midrule
+$\alpha$ (monthly, \%) &
+3.015*** & 3.041*** & 2.965*** \\
+ & [4.93] & [5.24] & [5.48] \\[3pt]
+$\beta_{MKT}$ &
+-0.056 & -0.022 & 0.010 \\
+ & [-0.50] & [-0.26] & [0.14] \\[3pt]
+$\beta_{ME}$ (size) &
+-- & -0.222 & -0.093 \\
+ & -- & [-1.29] & [-0.69] \\[3pt]
+$\beta_{IA}$ (investment) &
+-- & 0.122 & 0.273 \\
+ & -- & [1.12] & [1.39] \\[3pt]
+$\beta_{ROE}$ (profitability) &
+-- & -0.161 & -0.350 \\
+ & -- & [-1.26] & [-1.88] \\[3pt]
+$\beta_{EG}$ (expected growth) &
+-- & -- & 0.366 \\
+ & -- & -- & [1.07] \\
+\midrule
+$R^2$ & 0.006 & 0.040 & 0.069 \\
+Adjusted $R^2$ & -0.005 & -0.002 & 0.017 \\
+$N$ & 96 & 96 & 96 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.2cm}
+\begin{minipage}{0.96\linewidth}
+\footnotesize
+\textit{Note:} Sample: January 2017 -- December 2024 (N = 96 monthly observations).
+Dependent variable: Fund X monthly excess return ($r_X-r_f$). q5 factor returns
+($R_{MKT}$, $R_{ME}$, $R_{IA}$, $R_{ROE}$, $R_{EG}$) are from Hou, Mo,
+Xue and Zhang (2021) via global-q.org. Standard errors are Newey--West HAC with
+$L=4$ lags (Newey and West, 1987); $t$-statistics in brackets. No coefficient is
+asterisked unless its $|t|\geq1.96$. *** denotes $p<0.001$.
+\end{minipage}
+\end{table}
+
+\clearpage
+\section*{Table 2: Alpha Summary}
+\begin{table}[H]
+\centering
+\caption{Summary of Alpha Estimates Across Factor Models}
+\label{tab:alpha-summary}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Model & Monthly $\alpha$ & NW $t$-stat & Annual $\alpha$ & $R^2$ \\
+\midrule
+CAPM (1-factor) & 3.015*** & 4.93 & 42.82\% & 0.006 \\
+q-factor (4-factor) & 3.041*** & 5.24 & 43.27\% & 0.040 \\
+q5 (5-factor) & 2.965*** & 5.48 & 42.00\% & 0.069 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.2cm}
+\begin{minipage}{0.94\linewidth}
+\footnotesize
+\textit{Note:} *** $p<0.001$. Annual alpha computed as
+$(1+\text{monthly\_alpha}/100)^{12}-1$. Sample: January 2017 -- December 2024,
+$N=96$. NW $t$-statistics use $L=4$ lags.
+\end{minipage}
+\end{table}
+
+\section*{Results}
+Across all three specifications, Fund X retains a large positive intercept. The CAPM
+monthly alpha is 3.01\% with a Newey--West $t$-statistic of
+4.93. The q-factor estimate is 3.04\%
+($t=5.24$), and the q5 estimate is 2.97\%
+($t=5.48$). The full range across specifications is only
+7.6 basis points, while the change from CAPM to q5 is
+-5.0 basis points. The corresponding compounded annual alpha estimates
+range from 42.00\% to 43.27\%. All three
+intercepts have $p<0.001$. The $t$-statistic rises as factors are added, despite the
+slight decline in the q5 point estimate, because the HAC standard error becomes smaller.
+The additional factors therefore do not absorb Fund X's average excess return.
+
+The market loading is economically small and statistically insignificant in every
+model: it moves from -0.056 in the CAPM to
+0.010 in q5. In the q5 model, the size loading is
+-0.093 ($t=-0.69$), the investment
+loading is 0.273 ($t=1.39$), and the
+expected-growth loading is 0.366
+($t=1.07$). None is significant at the 5\% level. The
+profitability loading, -0.350 with
+$t=-1.88$, comes closest to conventional significance. If a
+negative loading were stable and statistically reliable, it would mean that Fund X
+tends to move against the high-minus-low ROE factor rather than earning its returns by
+harvesting the profitability premium. Here the evidence is suggestive, not conclusive.
+
+The CAPM explains only 0.6\% of monthly variation, compared with
+4.0\% for the q-factor model and 6.9\% for
+q5. Adjusted $R^2$ values are -0.005,
+-0.002, and 0.017, respectively. The
+negative adjusted values in the first two models are valid: after penalising additional
+parameters, those specifications do not improve on an intercept-only benchmark. These
+figures are far below the 85--95\% market-model $R^2$ often seen for diversified equity
+funds. The q factors therefore explain little of Fund X's month-to-month return
+variation. Low explanatory power is not itself proof of skill, but together with the
+large intercept it shows that these standard linear equity factors do not account for
+the reported performance.
+
+The main conclusion is that Fund X's alpha survives both the q-factor and q5 controls.
+Within this sample and model class, its excess return remains largely unexplained by
+known systematic equity-factor premia.
+
+\clearpage
+\section*{Assumption-Aware Diagnostic Assessment}
+The required $L=4$ estimates are the primary results. The literal bandwidth expression
+$4(T/100)^{2/9}$ equals 3.9639 at $T=96$ and
+would floor to 3, so $L=3$ is also checked.
+The q5 alpha $t$-statistic is 5.78 at $L=3$,
+5.48 at $L=4$, 5.07 at $L=6$, and
+4.34 at $L=12$. The conclusion is not driven by the lag choice.
+
+The q5 residuals remain serially dependent: the Ljung--Box statistic through 12 lags is
+51.38 with $p<0.001$. They are also strongly non-normal
+(Jarque--Bera $p<0.001$), and the Breusch--Pagan test is borderline
+($p=0.058$). These findings justify HAC
+inference and caution against relying on textbook iid OLS standard errors. A
+6-month circular block-pairs bootstrap, which preserves local
+dependence and the joint factor-return observations, gives a 95\% q5 alpha interval of
+[1.85\%, 4.10\%].
+
+March 2020 is the most influential observation (Cook's distance
+1.28). Excluding it leaves a q5 alpha of
+2.77\% with $t=5.57$.
+Across all 96 leave-one-out regressions, alpha ranges only from
+2.77\% to
+3.04\%.
+
+Parameter stability is the main qualification. A CUSUM test rejects a constant q5
+coefficient vector ($p=0.0002$). In an objective midpoint
+split, q5 alpha is 3.92\%
+($t=6.01$) in 2017--2020 and
+1.74\%
+($t=3.31$) in 2021--2024. The alpha remains positive,
+but its level is not stable. Newey--West inference cannot correct changing coefficients,
+omitted factors, nonlinear exposures, or a mismatch between a US equity factor model and
+the fund's underlying strategy. The result should therefore be stated as a large return
+unexplained by these models, not as proof that every possible risk exposure has been ruled out.
+
+\section*{References}
+\begin{description}
+\item Hou, K., Xue, C., and Zhang, L. (2015).
+Digesting anomalies: An investment approach.
+\textit{Review of Financial Studies}, 28(3), 650--705.
+\item Hou, K., Mo, H., Xue, C., and Zhang, L. (2021).
+An augmented q-factor model with expected growth.
+\textit{Review of Finance}, 25(1), 1--41.
+\item Newey, W. K. and West, K. D. (1987).
+A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix.
+\textit{Econometrica}, 55(3), 703--708.
+\end{description}
+
+\end{document}

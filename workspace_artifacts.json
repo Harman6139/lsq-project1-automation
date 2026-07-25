@@ -225,6 +225,55 @@
       "description": "Assignment 3 S&P 500 Total Return series."
     },
     {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.pdf",
+      "drive_name": "Assignment_4_qFactor_Analysis.pdf",
+      "folder_path": "Assignment 4",
+      "description": "Viewer-ready Assignment 4 q-factor analysis PDF."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.tex",
+      "drive_name": "Assignment_4_qFactor_Analysis.tex",
+      "folder_path": "Assignment 4",
+      "description": "Assignment 4 LaTeX source."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.xlsx",
+      "drive_name": "Assignment_4_qFactor_Analysis.xlsx",
+      "folder_path": "Assignment 4",
+      "description": "Assignment 4 calculation workbook with regression tables and diagnostics."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/scripts/compute_assignment4_qfactor.py",
+      "drive_name": "Assignment_4_compute_script.py",
+      "folder_path": "Assignment 4",
+      "description": "Assignment 4 reproducible factor-regression and robustness script."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/data/q5_factors_monthly_2024.csv",
+      "drive_name": "Assignment_4_q5_factors_monthly_2024.csv",
+      "folder_path": "Assignment 4",
+      "description": "Official Hou-Xue-Zhang q5 monthly factor data through 2024."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/data/assignment4_fund_x_returns_2017_2024.csv",
+      "drive_name": "Assignment_4_Fund_X_returns_2017_2024.csv",
+      "folder_path": "Assignment 4",
+      "description": "Fund X monthly returns used for Assignment 4."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/data/assignment4_aligned_monthly_data.csv",
+      "drive_name": "Assignment_4_aligned_monthly_data.csv",
+      "folder_path": "Assignment 4",
+      "description": "Date-aligned Fund X excess-return and q5 factor dataset used in the regressions."
+    },
+    {
       "group": "project1_monthly",
       "local_path": "scripts/update_project1_monthly.py",
       "drive_name": "update_project1_monthly.py",

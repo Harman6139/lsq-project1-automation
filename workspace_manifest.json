@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T16:54:17.804752+00:00",
+  "generated_at": "2026-07-25T04:13:52.719415+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -237,6 +237,69 @@
       "folder_path": "Assignment 3",
       "bytes": 6449,
       "sha256": "0e82e10c65544ba086658e3ec79f38c41432d22dc2426cb2749c8ca2e149aa6a"
+    },
+    {
+      "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.pdf",
+      "drive_name": "Assignment_4_qFactor_Analysis.pdf",
+      "description": "Viewer-ready Assignment 4 q-factor analysis PDF.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 220797,
+      "sha256": "7f16854ff089a3c1ed6f4d7886be18a026ffc4335630e161833ff5ba3d257376"
+    },
+    {
+      "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.tex",
+      "drive_name": "Assignment_4_qFactor_Analysis.tex",
+      "description": "Assignment 4 LaTeX source.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 8293,
+      "sha256": "e8954e79e6101467ad92253ae5fe2b0ad851ec9c2138191296b197fb11a5b191"
+    },
+    {
+      "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.xlsx",
+      "drive_name": "Assignment_4_qFactor_Analysis.xlsx",
+      "description": "Assignment 4 calculation workbook with regression tables and diagnostics.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 42720,
+      "sha256": "503a1c81d1615579c20af46128fe9076d74f6629e969bf4b45f4e07888d02f4d"
+    },
+    {
+      "local_path": "workspace/assignment_4/scripts/compute_assignment4_qfactor.py",
+      "drive_name": "Assignment_4_compute_script.py",
+      "description": "Assignment 4 reproducible factor-regression and robustness script.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 68230,
+      "sha256": "a5ccda9344d386fb951904801c7882f2d15c05943260bdda36811bf4158ffd7e"
+    },
+    {
+      "local_path": "workspace/assignment_4/data/q5_factors_monthly_2024.csv",
+      "drive_name": "Assignment_4_q5_factors_monthly_2024.csv",
+      "description": "Official Hou-Xue-Zhang q5 monthly factor data through 2024.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 36487,
+      "sha256": "d2ec0d2e22bc0e94d3e10f4daa6c748303914046fd3ff97b8eaeee825d9639d1"
+    },
+    {
+      "local_path": "workspace/assignment_4/data/assignment4_fund_x_returns_2017_2024.csv",
+      "drive_name": "Assignment_4_Fund_X_returns_2017_2024.csv",
+      "description": "Fund X monthly returns used for Assignment 4.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 8104,
+      "sha256": "f919adff50e0e244b87dec86f1889978abe94f314f5b5385453f1f2387286df0"
+    },
+    {
+      "local_path": "workspace/assignment_4/data/assignment4_aligned_monthly_data.csv",
+      "drive_name": "Assignment_4_aligned_monthly_data.csv",
+      "description": "Date-aligned Fund X excess-return and q5 factor dataset used in the regressions.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 11172,
+      "sha256": "eb39e9c7321af285f46cb98b8070e1cfdd1a0565f075c3ff8b87c9813ca3c841"
     },
     {
       "local_path": "scripts/update_project1_monthly.py",

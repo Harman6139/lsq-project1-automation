@@ -1,5 +1,5 @@
 Boyle LSQ Workspace
-Updated: 2026-07-20 16:54:17 UTC
+Updated: 2026-07-25 04:13:52 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
@@ -44,6 +44,15 @@ Assignment 3:
 - Assignment_3_compute_script.py: Assignment 3 reproducible calculation script.
 - Assignment_3_Fund_X_returns.csv: Assignment 3 Fund X return series.
 - Assignment_3_SP500TR_returns.csv: Assignment 3 S&P 500 Total Return series.
+
+Assignment 4:
+- Assignment_4_qFactor_Analysis.pdf: Viewer-ready Assignment 4 q-factor analysis PDF.
+- Assignment_4_qFactor_Analysis.tex: Assignment 4 LaTeX source.
+- Assignment_4_qFactor_Analysis.xlsx: Assignment 4 calculation workbook with regression tables and diagnostics.
+- Assignment_4_compute_script.py: Assignment 4 reproducible factor-regression and robustness script.
+- Assignment_4_q5_factors_monthly_2024.csv: Official Hou-Xue-Zhang q5 monthly factor data through 2024.
+- Assignment_4_Fund_X_returns_2017_2024.csv: Fund X monthly returns used for Assignment 4.
+- Assignment_4_aligned_monthly_data.csv: Date-aligned Fund X excess-return and q5 factor dataset used in the regressions.
 
 Monthly Automation:
 - update_project1_monthly.py: Automation script that rebuilds the monthly Project 1 outputs.

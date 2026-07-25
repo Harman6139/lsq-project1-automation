@@ -1,0 +1,258 @@
+{
+  "generated_at": "2026-07-25T00:13:17",
+  "assignment": "Project 4: Fund X Factor Model Analysis",
+  "sample": {
+    "start": "2017-01",
+    "end": "2024-12",
+    "observations": 96
+  },
+  "sources": {
+    "fund_x": "data/lsq_returns.csv",
+    "fund_x_sha256": "75f2e8c363f20e3f87926b2fc4ffe7b6a58ee801566166a1e70d55304e4a99b0",
+    "q5_url": "https://global-q.org/uploads/1/2/2/6/122679606/q5_factors_monthly_2024.csv",
+    "q5_sha256": "d2ec0d2e22bc0e94d3e10f4daa6c748303914046fd3ff97b8eaeee825d9639d1"
+  },
+  "method": {
+    "dependent_variable": "Fund X monthly return minus R_F, in percentage units",
+    "models": {
+      "CAPM": [
+        "R_MKT"
+      ],
+      "q-factor": [
+        "R_MKT",
+        "R_ME",
+        "R_IA",
+        "R_ROE"
+      ],
+      "q5": [
+        "R_MKT",
+        "R_ME",
+        "R_IA",
+        "R_ROE",
+        "R_EG"
+      ]
+    },
+    "newey_west_lags": 4,
+    "newey_west_kernel": "Bartlett",
+    "primary_hac_finite_sample_correction": false,
+    "annual_alpha": "(1 + monthly_alpha/100)^12 - 1"
+  },
+  "results": {
+    "CAPM": {
+      "alpha_monthly_percent": 3.01484254348939,
+      "alpha_annual_percent": 42.82283079934419,
+      "alpha_nw_t": 4.93329717453245,
+      "alpha_p_value": 3.4825528996131047e-06,
+      "r_squared": 0.005705158332540705,
+      "adjusted_r_squared": -0.004872446366049443,
+      "coefficients": {
+        "const": 3.01484254348939,
+        "R_MKT": -0.056471774483363504
+      },
+      "newey_west_t_statistics": {
+        "const": 4.93329717453245,
+        "R_MKT": -0.504926853765353
+      }
+    },
+    "q-factor": {
+      "alpha_monthly_percent": 3.0413870914077332,
+      "alpha_annual_percent": 43.26508299484699,
+      "alpha_nw_t": 5.240674129972456,
+      "alpha_p_value": 1.0289917896869242e-06,
+      "r_squared": 0.03986410494524495,
+      "adjusted_r_squared": -0.0023396706615574914,
+      "coefficients": {
+        "const": 3.0413870914077332,
+        "R_MKT": -0.02234458678698492,
+        "R_ME": -0.22159706424322842,
+        "R_IA": 0.12188113980080242,
+        "R_ROE": -0.16054169304420118
+      },
+      "newey_west_t_statistics": {
+        "const": 5.240674129972456,
+        "R_MKT": -0.26163791370414896,
+        "R_ME": -1.289866228739692,
+        "R_IA": 1.1217922229729573,
+        "R_ROE": -1.2556715187108065
+      }
+    },
+    "q5": {
+      "alpha_monthly_percent": 2.965217346361979,
+      "alpha_annual_percent": 41.99939265372947,
+      "alpha_nw_t": 5.47920460908555,
+      "alpha_p_value": 3.8510565045603304e-07,
+      "r_squared": 0.06893675279256606,
+      "adjusted_r_squared": 0.017211016836597537,
+      "coefficients": {
+        "const": 2.965217346361979,
+        "R_MKT": 0.009788608256523638,
+        "R_ME": -0.09322308830940343,
+        "R_IA": 0.27317478137633816,
+        "R_ROE": -0.350060927413266,
+        "R_EG": 0.3659132230753569
+      },
+      "newey_west_t_statistics": {
+        "const": 5.47920460908555,
+        "R_MKT": 0.1396402583250897,
+        "R_ME": -0.6911915693344725,
+        "R_IA": 1.3865572798610515,
+        "R_ROE": -1.881553448724764,
+        "R_EG": 1.0698183004842012
+      }
+    }
+  },
+  "diagnostics": {
+    "manual_vs_statsmodels_max_coefficient_difference": 1.3322676295501878e-15,
+    "manual_vs_statsmodels_max_nw_se_difference": 3.885780586188048e-16,
+    "ljung_box": [
+      {
+        "Lag": 1,
+        "Q_statistic": 15.075223541228562,
+        "p_value": 0.00010331041699616079
+      },
+      {
+        "Lag": 4,
+        "Q_statistic": 33.51003031735039,
+        "p_value": 9.390969278564865e-07
+      },
+      {
+        "Lag": 12,
+        "Q_statistic": 51.382639978307566,
+        "p_value": 7.97285108650203e-07
+      }
+    ],
+    "breusch_pagan": {
+      "LM_statistic": 10.663565353929876,
+      "LM_p_value": 0.05847395038287109,
+      "F_statistic": 2.2492640706964093,
+      "F_p_value": 0.05611503573845642
+    },
+    "jarque_bera": {
+      "statistic": 214.47989300179498,
+      "p_value": 2.668597009825978e-47,
+      "residual_skewness": 2.1777612708009353,
+      "residual_excess_kurtosis": 6.322738997985164
+    },
+    "factor_vif": {
+      "R_MKT": 1.3462110488370205,
+      "R_ME": 1.7118517265851279,
+      "R_IA": 1.6378672809890402,
+      "R_ROE": 2.0754847074770564,
+      "R_EG": 3.383450569092479
+    },
+    "standardized_condition_number": 3.60523849734586,
+    "lag_sensitivity": [
+      {
+        "Lags": 3,
+        "Alpha_Monthly_Pct": 2.965217346361979,
+        "NW_SE": 0.5131133464551002,
+        "NW_t": 5.778873940519201,
+        "p_value": 1.0665005598816057e-07,
+        "CI_95_Lower": 1.9458281244643196,
+        "CI_95_Upper": 3.9846065682596388
+      },
+      {
+        "Lags": 4,
+        "Alpha_Monthly_Pct": 2.965217346361979,
+        "NW_SE": 0.5411766046197822,
+        "NW_t": 5.47920460908555,
+        "p_value": 3.8510565045603304e-07,
+        "CI_95_Lower": 1.8900755639393487,
+        "CI_95_Upper": 4.040359128784609
+      },
+      {
+        "Lags": 6,
+        "Alpha_Monthly_Pct": 2.965217346361979,
+        "NW_SE": 0.5850439591154273,
+        "NW_t": 5.068366744347413,
+        "p_value": 2.1283573098346822e-06,
+        "CI_95_Lower": 1.8029254075948238,
+        "CI_95_Upper": 4.127509285129134
+      },
+      {
+        "Lags": 12,
+        "Alpha_Monthly_Pct": 2.965217346361979,
+        "NW_SE": 0.6838314713514235,
+        "NW_t": 4.336181457840718,
+        "p_value": 3.773400231202291e-05,
+        "CI_95_Lower": 1.606666772096108,
+        "CI_95_Upper": 4.32376792062785
+      }
+    ],
+    "finite_sample_corrected_nw4": {
+      "Alpha_Monthly_Pct": 2.965217346361979,
+      "NW_SE": 0.5589247938798646,
+      "NW_t": 5.305217050362814,
+      "p_value": 8.003826664968959e-07
+    },
+    "influence": {
+      "Most_Influential_Month": "2020-03",
+      "Max_Cooks_Distance": 1.282410229161587,
+      "Max_Leverage": 0.33958072869422606,
+      "Alpha_Excluding_Month": 2.772804313602464,
+      "NW_t_Excluding_Month": 5.5677668272298115,
+      "Leave_One_Out_Alpha_Min": 2.772804313602464,
+      "Leave_One_Out_Alpha_Max": 3.036063370611961,
+      "Leave_One_Out_t_Min": 5.287999377947689,
+      "Leave_One_Out_t_Max": 5.7190199062336164
+    },
+    "stability": {
+      "CUSUM_statistic": 2.1693189377848605,
+      "CUSUM_p_value": 0.00016349271468771122,
+      "Early_2017_2020_Alpha": 3.9219940123872634,
+      "Early_2017_2020_NW_t": 6.0100618301653785,
+      "Late_2021_2024_Alpha": 1.7393261169808094,
+      "Late_2021_2024_NW_t": 3.3069621094399118,
+      "Alpha_Shift": -2.1826678954064564,
+      "Alpha_Shift_NW_SE": 0.8060234054479611,
+      "Alpha_Shift_NW_t": -2.7079460480349224,
+      "Alpha_Shift_p_value": 0.008201423931947014
+    },
+    "block_pairs_bootstrap": {
+      "repetitions": 20000,
+      "block_length": 6,
+      "seed": 20260724,
+      "lower_95": 1.8484490152830784,
+      "median": 2.883487671916396,
+      "upper_95": 4.099960681059594,
+      "share_nonpositive": 0.0
+    },
+    "lag_rule": {
+      "formula_value": 3.963877872287311,
+      "literal_floor": 3,
+      "required_primary_lag": 4
+    }
+  },
+  "narrative_word_count": 404,
+  "compile_status": "Compiled PDF",
+  "workbook_verification": {
+    "sheet_count": 12,
+    "sheets": [
+      "Summary",
+      "Table 1",
+      "Table 2",
+      "Regression Details",
+      "Diagnostics",
+      "HAC Sensitivity",
+      "Factor Correlations",
+      "Fund X Raw",
+      "q5 Raw",
+      "Aligned Data",
+      "QA Checks",
+      "Sources"
+    ],
+    "formula_count": 195,
+    "formula_error_literals": []
+  },
+  "outputs": {
+    "pdf": "workspace/assignment_4/Assignment_4_qFactor_Analysis.pdf",
+    "tex": "workspace/assignment_4/Assignment_4_qFactor_Analysis.tex",
+    "xlsx": "workspace/assignment_4/Assignment_4_qFactor_Analysis.xlsx",
+    "table_1_csv": "workspace/assignment_4/tables/Table_1_Factor_Regressions.csv",
+    "table_2_csv": "workspace/assignment_4/tables/Table_2_Alpha_Summary.csv",
+    "fund_x_data": "workspace/assignment_4/data/assignment4_fund_x_returns_2017_2024.csv",
+    "q5_data": "workspace/assignment_4/data/q5_factors_monthly_2024.csv",
+    "aligned_data": "workspace/assignment_4/data/assignment4_aligned_monthly_data.csv",
+    "script": "workspace/assignment_4/scripts/compute_assignment4_qfactor.py"
+  }
+}
