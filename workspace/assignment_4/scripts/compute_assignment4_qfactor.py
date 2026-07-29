@@ -15,8 +15,13 @@ from typing import Iterable
 
 import numpy as np
 import pandas as pd
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 from openpyxl import Workbook, load_workbook
 from openpyxl.comments import Comment
+from openpyxl.drawing.image import Image as XLImage
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from scipy import stats
@@ -43,8 +48,12 @@ OUTPUT_XLSX = ASSIGNMENT_DIR / "Assignment_4_qFactor_Analysis.xlsx"
 OUTPUT_MANIFEST = ASSIGNMENT_DIR / "assignment4_manifest.json"
 TABLE_1_CSV = TABLES_DIR / "Table_1_Factor_Regressions.csv"
 TABLE_2_CSV = TABLES_DIR / "Table_2_Alpha_Summary.csv"
+TABLE_3_CSV = TABLES_DIR / "Table_3_Rolling_q5_Alpha.csv"
+FIGURES_DIR = ASSIGNMENT_DIR / "figures"
+ROLLING_ALPHA_CHART = FIGURES_DIR / "Rolling_q5_Alpha.png"
 
 PRIMARY_LAGS = 4
+ROLLING_WINDOW_MONTHS = 48
 BOOTSTRAP_REPS = 20_000
 BOOTSTRAP_BLOCK_LENGTH = 6
 BOOTSTRAP_SEED = 20_260_724
@@ -243,6 +252,91 @@ def run_regression(
 
 def annualize_alpha(monthly_alpha_pct: float) -> float:
     return ((1.0 + monthly_alpha_pct / 100.0) ** 12 - 1.0) * 100.0
+
+
+def rolling_q5_analysis(data: pd.DataFrame) -> list[dict[str, float | int | str]]:
+    results: list[dict[str, float | int | str]] = []
+    for start_year in range(2017, 2022):
+        end_year = start_year + 3
+        start_date = f"{start_year}-01"
+        end_date = f"{end_year}-12"
+        window = data.loc[
+            (data["date"] >= start_date) & (data["date"] <= end_date)
+        ].reset_index(drop=True)
+        if len(window) != ROLLING_WINDOW_MONTHS:
+            raise AssertionError(
+                f"Rolling window {start_year}-{end_year} has {len(window)} observations, "
+                f"not {ROLLING_WINDOW_MONTHS}."
+            )
+        regression = run_regression(
+            window,
+            f"q5 {start_year}-{end_year}",
+            MODEL_FACTORS["q5"],
+            lags=PRIMARY_LAGS,
+        )
+        results.append(
+            {
+                "Window": f"{start_year}-{end_year}",
+                "Start": start_date,
+                "End": end_date,
+                "N": regression.observations,
+                "Monthly_Alpha_Pct": regression.alpha,
+                "NW_t": regression.t_statistics["const"],
+                "p_value": regression.p_values["const"],
+                "R_squared": regression.r_squared,
+                "Adjusted_R_squared": regression.adjusted_r_squared,
+            }
+        )
+    return results
+
+
+def write_rolling_alpha_chart(
+    rolling_results: list[dict[str, float | int | str]],
+    path: Path,
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    labels = [str(item["Window"]) for item in rolling_results]
+    alphas = [float(item["Monthly_Alpha_Pct"]) for item in rolling_results]
+
+    fig, ax = plt.subplots(figsize=(8.0, 4.4), dpi=180)
+    fig.patch.set_facecolor("white")
+    ax.set_facecolor("white")
+    ax.plot(
+        labels,
+        alphas,
+        color="#1F4E78",
+        linewidth=2.4,
+        marker="o",
+        markersize=7,
+        markerfacecolor="#4472C4",
+        markeredgecolor="white",
+        markeredgewidth=1.2,
+    )
+    for index, alpha in enumerate(alphas):
+        ax.annotate(
+            f"{alpha:.2f}%",
+            (index, alpha),
+            xytext=(0, 10),
+            textcoords="offset points",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+            color="#1F1F1F",
+        )
+    ax.axhline(0.0, color="#808080", linewidth=0.8)
+    ax.set_ylim(0.0, max(alphas) + 1.0)
+    ax.set_ylabel("Monthly q5 alpha (%)", fontsize=10)
+    ax.set_xlabel("48-month estimation window", fontsize=10)
+    ax.set_title("Rolling q5 Alpha", fontsize=14, fontweight="bold", color="#1F4E78")
+    ax.grid(axis="y", color="#D9E1F2", linewidth=0.8)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#808080")
+    ax.spines["bottom"].set_color("#808080")
+    ax.tick_params(axis="both", labelsize=9)
+    fig.tight_layout()
+    fig.savefig(path, dpi=180, bbox_inches="tight")
+    plt.close(fig)
 
 
 def circular_block_indices(
@@ -523,10 +617,12 @@ def build_table_rows(models: dict[str, RegressionResult]) -> tuple[list[dict[str
 def write_table_csvs(
     table_1: list[dict[str, object]],
     table_2: list[dict[str, object]],
+    rolling_results: list[dict[str, float | int | str]],
 ) -> None:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(table_1).to_csv(TABLE_1_CSV, index=False)
     pd.DataFrame(table_2).to_csv(TABLE_2_CSV, index=False)
+    pd.DataFrame(rolling_results).to_csv(TABLE_3_CSV, index=False)
 
 
 THIN_GRAY = Side(style="thin", color="D9E1F2")
@@ -604,6 +700,8 @@ def write_workbook(
     diagnostics: dict[str, object],
     table_1: list[dict[str, object]],
     table_2: list[dict[str, object]],
+    rolling_results: list[dict[str, float | int | str]],
+    rolling_chart_path: Path,
 ) -> None:
     workbook = Workbook()
     workbook.remove(workbook.active)
@@ -667,7 +765,12 @@ def write_workbook(
     notes = [
         "Alpha is unexplained return relative to the specified linear factors; it is not proof that every relevant risk or strategy exposure has been measured.",
         "Newey-West corrects coefficient standard errors for heteroskedasticity and serial correlation; it does not repair omitted variables or changing coefficients.",
-        "Stability diagnostics indicate that the alpha is lower in 2021-2024 than in 2017-2020, although it remains positive in both halves.",
+        (
+            "Rolling 48-month q5 alpha peaks at "
+            f"{float(rolling_results[1]['Monthly_Alpha_Pct']):.2f}% in 2018-2021, then "
+            f"declines to {float(rolling_results[-1]['Monthly_Alpha_Pct']):.2f}% in "
+            "2021-2024 while remaining statistically significant."
+        ),
     ]
     for row_index, note in enumerate(notes, start=15):
         summary.cell(row_index, 1, note)
@@ -751,6 +854,54 @@ def write_workbook(
     table2_ws["A10"].font = Font(name="Aptos", size=9, italic=True)
     table2_ws["A10"].alignment = Alignment(wrap_text=True, vertical="top")
     set_widths(table2_ws, {"A": 25, "B": 20, "C": 15, "D": 20, "E": 15})
+
+    rolling_ws = workbook.create_sheet("Rolling q5 Alpha")
+    rolling_ws.sheet_view.showGridLines = False
+    set_title(
+        rolling_ws,
+        "Rolling q5 Alpha: 48-Month Windows",
+        "Overlapping q5 regressions with Newey-West HAC inference, Bartlett kernel, L = 4",
+        5,
+    )
+    rolling_headers = ["Window", "N", "Monthly alpha (%)", "NW t-stat", "R-squared"]
+    for column, header in enumerate(rolling_headers, start=1):
+        rolling_ws.cell(4, column, header)
+    style_header(rolling_ws, 4, 1, 5)
+    for row_index, item in enumerate(rolling_results, start=5):
+        values = [
+            item["Window"],
+            item["N"],
+            item["Monthly_Alpha_Pct"],
+            item["NW_t"],
+            item["R_squared"],
+        ]
+        for column, value in enumerate(values, start=1):
+            rolling_ws.cell(row_index, column, value)
+        rolling_ws.cell(row_index, 2).number_format = "0"
+        rolling_ws.cell(row_index, 3).number_format = "0.000"
+        rolling_ws.cell(row_index, 4).number_format = "0.00"
+        rolling_ws.cell(row_index, 5).number_format = "0.000"
+    style_data_range(rolling_ws, 5, 9, 1, 5)
+    rolling_ws.merge_cells("A11:E12")
+    rolling_ws["A11"] = (
+        "The windows overlap by 36 of 48 months, so adjacent estimates are highly "
+        "correlated and should not be treated as five independent tests. Alpha peaks at "
+        f"{float(rolling_results[1]['Monthly_Alpha_Pct']):.2f}% in 2018-2021 and then "
+        f"declines to {float(rolling_results[-1]['Monthly_Alpha_Pct']):.2f}% in 2021-2024. "
+        "This pattern is more consistent with progressive decay after an early peak than "
+        "with a single clean break."
+    )
+    rolling_ws["A11"].font = Font(name="Aptos", size=9, italic=True)
+    rolling_ws["A11"].alignment = Alignment(wrap_text=True, vertical="top")
+    rolling_ws.row_dimensions[11].height = 48
+    rolling_image = XLImage(rolling_chart_path)
+    rolling_image.width = 640
+    rolling_image.height = 352
+    rolling_ws.add_image(rolling_image, "A14")
+    set_widths(rolling_ws, {"A": 22, "B": 10, "C": 22, "D": 16, "E": 16})
+    rolling_ws.freeze_panes = "A5"
+    rolling_ws.sheet_properties.pageSetUpPr.fitToPage = True
+    rolling_ws.print_area = "A1:E35"
 
     details = workbook.create_sheet("Regression Details")
     details.sheet_view.showGridLines = False
@@ -1180,6 +1331,13 @@ def write_workbook(
             "No finite-sample multiplier in the primary table, matching the supplied code",
         ],
         [
+            "Rolling q5 alpha",
+            "Calculated",
+            "Five overlapping 48-month calendar windows from 2017-2020 through 2021-2024",
+            "Monthly alpha, Newey-West t-statistic, and R-squared",
+            "Each adjacent window shares 36 months; all use the q5 model and L = 4",
+        ],
+        [
             "Annual alpha",
             "Calculated",
             "(1 + monthly alpha / 100)^12 - 1",
@@ -1201,7 +1359,7 @@ def write_workbook(
         if isinstance(values[2], str) and values[2].startswith("https://"):
             sources.cell(row_index, 3).hyperlink = values[2]
             sources.cell(row_index, 3).font = Font(name="Aptos", color="FF0000", underline="single")
-    style_data_range(sources, 5, 10, 1, 5)
+    style_data_range(sources, 5, 11, 1, 5)
     set_widths(sources, {"A": 24, "B": 30, "C": 60, "D": 30, "E": 52})
     sources.freeze_panes = "A5"
 
@@ -1243,6 +1401,7 @@ def write_report(
     path: Path,
     models: dict[str, RegressionResult],
     diagnostics: dict[str, object],
+    rolling_results: list[dict[str, float | int | str]],
 ) -> int:
     capm = models["CAPM"]
     qfactor = models["q-factor"]
@@ -1303,6 +1462,17 @@ known systematic equity-factor premia.
     influence = diagnostics["influence"]
     bootstrap = diagnostics["block_pairs_bootstrap"]
     lag_lookup = {item["Lags"]: item for item in diagnostics["lag_sensitivity"]}
+    rolling_table_rows = "\n".join(
+        (
+            f"{item['Window']} & {int(item['N'])} & "
+            f"{float(item['Monthly_Alpha_Pct']):.3f}\\% & "
+            f"{float(item['NW_t']):.2f} & "
+            f"{float(item['R_squared']):.3f} \\\\"
+        )
+        for item in rolling_results
+    )
+    rolling_alphas = [float(item["Monthly_Alpha_Pct"]) for item in rolling_results]
+    rolling_r_squared = [float(item["R_squared"]) for item in rolling_results]
 
     def coefficient_cell(result: RegressionResult, label: str) -> str:
         return f"{result.coefficients[label]:.3f}{significance_stars(result, label)}"
@@ -1316,6 +1486,7 @@ known systematic equity-factor premia.
 \usepackage{{booktabs}}
 \usepackage{{array}}
 \usepackage{{float}}
+\usepackage{{graphicx}}
 \usepackage{{hyperref}}
 \hypersetup{{colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}}
 
@@ -1455,6 +1626,50 @@ omitted factors, nonlinear exposures, or a mismatch between a US equity factor m
 the fund's underlying strategy. The result should therefore be stated as a large return
 unexplained by these models, not as proof that every possible risk exposure has been ruled out.
 
+\clearpage
+\section*{{Rolling q5 Alpha: 48-Month Windows}}
+\begin{{table}}[H]
+\centering
+\caption{{Rolling 48-Month q5 Alpha Estimates}}
+\label{{tab:rolling-q5-alpha}}
+\small
+\begin{{tabular}}{{lrrrr}}
+\toprule
+Window & $N$ & Monthly $\alpha$ & NW $t$-stat & $R^2$ \\
+\midrule
+{rolling_table_rows}
+\bottomrule
+\end{{tabular}}
+
+\vspace{{0.15cm}}
+\begin{{minipage}}{{0.92\linewidth}}
+\footnotesize
+\textit{{Note:}} Each regression uses Fund X excess returns and all five q5 factors.
+Newey--West HAC inference uses a Bartlett kernel with $L=4$. Adjacent windows
+share 36 of 48 months, so the estimates are highly correlated and are not five
+independent tests.
+\end{{minipage}}
+\end{{table}}
+
+\begin{{figure}}[H]
+\centering
+\includegraphics[width=0.74\textwidth]{{figures/Rolling_q5_Alpha.png}}
+\caption{{Monthly q5 alpha across overlapping 48-month windows}}
+\label{{fig:rolling-q5-alpha}}
+\end{{figure}}
+
+The rolling sequence is {rolling_alphas[0]:.2f}\%, {rolling_alphas[1]:.2f}\%,
+{rolling_alphas[2]:.2f}\%, {rolling_alphas[3]:.2f}\%, and
+{rolling_alphas[4]:.2f}\%. Alpha first rises in the 2018--2021 window and then
+declines in each of the next three windows. This does not resemble a single clean
+shift from a stable 4\% level to a stable 2\% level. It is more consistent with
+progressive decay after an early peak. The estimates remain positive and statistically
+significant in every window. Rolling $R^2$ ranges from
+{min(rolling_r_squared):.3f} to {max(rolling_r_squared):.3f}, showing that the q5
+model's ability to explain monthly variation also changes materially over time.
+Because the windows overlap heavily, this exercise localises the instability
+descriptively; it is not a formal estimator of a unique break date.
+
 \section*{{References}}
 \begin{{description}}
 \item Hou, K., Xue, C., and Zhang, L. (2015).
@@ -1547,14 +1762,17 @@ def main() -> None:
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
     fund, q5_raw, aligned = load_and_align_data(refresh_q5=args.refresh_q5)
     models = {
         model_name: run_regression(aligned, model_name, factors, lags=PRIMARY_LAGS)
         for model_name, factors in MODEL_FACTORS.items()
     }
     diagnostics = regression_diagnostics(aligned, models)
+    rolling_results = rolling_q5_analysis(aligned)
+    write_rolling_alpha_chart(rolling_results, ROLLING_ALPHA_CHART)
     table_1, table_2 = build_table_rows(models)
-    write_table_csvs(table_1, table_2)
+    write_table_csvs(table_1, table_2, rolling_results)
     write_workbook(
         OUTPUT_XLSX,
         fund,
@@ -1564,8 +1782,15 @@ def main() -> None:
         diagnostics,
         table_1,
         table_2,
+        rolling_results,
+        ROLLING_ALPHA_CHART,
     )
-    narrative_word_count = write_report(OUTPUT_TEX, models, diagnostics)
+    narrative_word_count = write_report(
+        OUTPUT_TEX,
+        models,
+        diagnostics,
+        rolling_results,
+    )
     compile_status = compile_pdf(OUTPUT_TEX)
     workbook_verification = verify_workbook(
         OUTPUT_XLSX,
@@ -1573,6 +1798,7 @@ def main() -> None:
             "Summary",
             "Table 1",
             "Table 2",
+            "Rolling q5 Alpha",
             "Regression Details",
             "Diagnostics",
             "HAC Sensitivity",
@@ -1608,6 +1834,12 @@ def main() -> None:
             "newey_west_kernel": "Bartlett",
             "primary_hac_finite_sample_correction": False,
             "annual_alpha": "(1 + monthly_alpha/100)^12 - 1",
+            "rolling_q5": {
+                "window_months": ROLLING_WINDOW_MONTHS,
+                "step_months": 12,
+                "windows_overlap_months": 36,
+                "newey_west_lags": PRIMARY_LAGS,
+            },
         },
         "results": {
             model_name: {
@@ -1622,6 +1854,7 @@ def main() -> None:
             }
             for model_name, result in models.items()
         },
+        "rolling_q5_results": to_native(rolling_results),
         "diagnostics": to_native(
             {
                 key: value
@@ -1638,6 +1871,8 @@ def main() -> None:
             "xlsx": OUTPUT_XLSX.relative_to(PROJECT_DIR).as_posix(),
             "table_1_csv": TABLE_1_CSV.relative_to(PROJECT_DIR).as_posix(),
             "table_2_csv": TABLE_2_CSV.relative_to(PROJECT_DIR).as_posix(),
+            "table_3_csv": TABLE_3_CSV.relative_to(PROJECT_DIR).as_posix(),
+            "rolling_alpha_chart": ROLLING_ALPHA_CHART.relative_to(PROJECT_DIR).as_posix(),
             "fund_x_data": FUND_EXPORT_PATH.relative_to(PROJECT_DIR).as_posix(),
             "q5_data": Q5_PATH.relative_to(PROJECT_DIR).as_posix(),
             "aligned_data": ALIGNED_EXPORT_PATH.relative_to(PROJECT_DIR).as_posix(),

@@ -229,7 +229,7 @@
       "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.pdf",
       "drive_name": "Assignment_4_qFactor_Analysis.pdf",
       "folder_path": "Assignment 4",
-      "description": "Viewer-ready Assignment 4 q-factor analysis PDF."
+      "description": "Viewer-ready Assignment 4 q-factor analysis PDF with rolling 48-month alpha results."
     },
     {
       "group": "assignment4",
@@ -243,7 +243,7 @@
       "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.xlsx",
       "drive_name": "Assignment_4_qFactor_Analysis.xlsx",
       "folder_path": "Assignment 4",
-      "description": "Assignment 4 calculation workbook with regression tables and diagnostics."
+      "description": "Assignment 4 calculation workbook with regression tables, diagnostics, and rolling alpha chart."
     },
     {
       "group": "assignment4",
@@ -251,6 +251,13 @@
       "drive_name": "Assignment_4_compute_script.py",
       "folder_path": "Assignment 4",
       "description": "Assignment 4 reproducible factor-regression and robustness script."
+    },
+    {
+      "group": "assignment4",
+      "local_path": "workspace/assignment_4/figures/Rolling_q5_Alpha.png",
+      "drive_name": "Rolling_q5_Alpha.png",
+      "folder_path": "Assignment 4",
+      "description": "Rolling 48-month q5 monthly alpha chart used by the Assignment 4 LaTeX report."
     },
     {
       "group": "assignment4",

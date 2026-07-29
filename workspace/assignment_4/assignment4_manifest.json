@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T00:13:17",
+  "generated_at": "2026-07-29T16:44:15",
   "assignment": "Project 4: Fund X Factor Model Analysis",
   "sample": {
     "start": "2017-01",
@@ -35,7 +35,13 @@
     "newey_west_lags": 4,
     "newey_west_kernel": "Bartlett",
     "primary_hac_finite_sample_correction": false,
-    "annual_alpha": "(1 + monthly_alpha/100)^12 - 1"
+    "annual_alpha": "(1 + monthly_alpha/100)^12 - 1",
+    "rolling_q5": {
+      "window_months": 48,
+      "step_months": 12,
+      "windows_overlap_months": 36,
+      "newey_west_lags": 4
+    }
   },
   "results": {
     "CAPM": {
@@ -101,6 +107,63 @@
       }
     }
   },
+  "rolling_q5_results": [
+    {
+      "Window": "2017-2020",
+      "Start": "2017-01",
+      "End": "2020-12",
+      "N": 48,
+      "Monthly_Alpha_Pct": 3.9219940123872634,
+      "NW_t": 6.0100618301653785,
+      "p_value": 3.8417868800517865e-07,
+      "R_squared": 0.40366985863197635,
+      "Adjusted_R_squared": 0.332678175135783
+    },
+    {
+      "Window": "2018-2021",
+      "Start": "2018-01",
+      "End": "2021-12",
+      "N": 48,
+      "Monthly_Alpha_Pct": 4.375842950940179,
+      "NW_t": 5.959695145980462,
+      "p_value": 4.5392871539809907e-07,
+      "R_squared": 0.18074972340300566,
+      "Adjusted_R_squared": 0.08321992857003002
+    },
+    {
+      "Window": "2019-2022",
+      "Start": "2019-01",
+      "End": "2022-12",
+      "N": 48,
+      "Monthly_Alpha_Pct": 3.1031568209774028,
+      "NW_t": 4.126996376725937,
+      "p_value": 0.00017033549841307446,
+      "R_squared": 0.09068535153239154,
+      "Adjusted_R_squared": -0.017566392332799996
+    },
+    {
+      "Window": "2020-2023",
+      "Start": "2020-01",
+      "End": "2023-12",
+      "N": 48,
+      "Monthly_Alpha_Pct": 2.6470845595565224,
+      "NW_t": 3.302982360187922,
+      "p_value": 0.00196070118986178,
+      "R_squared": 0.09881345720105661,
+      "Adjusted_R_squared": -0.00847065503691291
+    },
+    {
+      "Window": "2021-2024",
+      "Start": "2021-01",
+      "End": "2024-12",
+      "N": 48,
+      "Monthly_Alpha_Pct": 1.7393261169808094,
+      "NW_t": 3.3069621094399118,
+      "p_value": 0.0019387860222676333,
+      "R_squared": 0.17915613806291353,
+      "Adjusted_R_squared": 0.08143663068945084
+    }
+  ],
   "diagnostics": {
     "manual_vs_statsmodels_max_coefficient_difference": 1.3322676295501878e-15,
     "manual_vs_statsmodels_max_nw_se_difference": 3.885780586188048e-16,
@@ -226,11 +289,12 @@
   "narrative_word_count": 404,
   "compile_status": "Compiled PDF",
   "workbook_verification": {
-    "sheet_count": 12,
+    "sheet_count": 13,
     "sheets": [
       "Summary",
       "Table 1",
       "Table 2",
+      "Rolling q5 Alpha",
       "Regression Details",
       "Diagnostics",
       "HAC Sensitivity",
@@ -250,6 +314,8 @@
     "xlsx": "workspace/assignment_4/Assignment_4_qFactor_Analysis.xlsx",
     "table_1_csv": "workspace/assignment_4/tables/Table_1_Factor_Regressions.csv",
     "table_2_csv": "workspace/assignment_4/tables/Table_2_Alpha_Summary.csv",
+    "table_3_csv": "workspace/assignment_4/tables/Table_3_Rolling_q5_Alpha.csv",
+    "rolling_alpha_chart": "workspace/assignment_4/figures/Rolling_q5_Alpha.png",
     "fund_x_data": "workspace/assignment_4/data/assignment4_fund_x_returns_2017_2024.csv",
     "q5_data": "workspace/assignment_4/data/q5_factors_monthly_2024.csv",
     "aligned_data": "workspace/assignment_4/data/assignment4_aligned_monthly_data.csv",

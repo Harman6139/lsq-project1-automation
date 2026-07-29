@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T14:29:21.270547+00:00",
+  "generated_at": "2026-07-29T20:47:14.459655+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -28,8 +28,8 @@
       "description": "Current Project 1 monthly update LaTeX source.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
-      "bytes": 6655,
-      "sha256": "db3a49aad5b237064706ec96df2fe5c0a55708a4ce2c8148f63e3783fc1a4f95"
+      "bytes": 6818,
+      "sha256": "85f67ebe5e91329948d900e95892332ffc517f1189339b550488e1137bcfabf8"
     },
     {
       "local_path": "data/market_return_verification.csv",
@@ -163,8 +163,8 @@
       "description": "Assignment 2 LaTeX source.",
       "group": "assignment2",
       "folder_path": "Assignment 2",
-      "bytes": 4303,
-      "sha256": "f9c479994fae054c5b1472a78958b574b1fe68817a39fed4f9972a37c0451ac7"
+      "bytes": 4419,
+      "sha256": "46f18d2b953d25937e0d2d5e6817c1c8c2563e7d92188742b105198a5ade5248"
     },
     {
       "local_path": "workspace/assignment_2/data/sp500tr_monthly_returns_2017_01_to_2026_05.csv",
@@ -172,8 +172,8 @@
       "description": "Assignment 2 S&P 500 Total Return monthly data.",
       "group": "assignment2",
       "folder_path": "Assignment 2",
-      "bytes": 10033,
-      "sha256": "a704c9303d44a2c41c9081bc76e9f9bb07594b046e6478e03fde4da3184fb58a"
+      "bytes": 10147,
+      "sha256": "41bb7c74f544de210d0e619d505ee9eecc6241b4f2325828320544a1a50a88c8"
     },
     {
       "local_path": "workspace/assignment_2/scripts/compute_assignment2_leveraged_sp500.py",
@@ -199,8 +199,8 @@
       "description": "Assignment 3 LaTeX source.",
       "group": "assignment3",
       "folder_path": "Assignment 3",
-      "bytes": 6564,
-      "sha256": "90fae95f8e999886d60d89e9f87e9ab2dc093653413e7dec3d09311752dbf4c0"
+      "bytes": 6678,
+      "sha256": "b3ef7630cc57807939cc48d05dece16151f8c20211bc3a044b10c9b2da88dff7"
     },
     {
       "local_path": "workspace/assignment_3/Assignment_3_Statistical_Integrity_Tests.xlsx",
@@ -241,11 +241,11 @@
     {
       "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.pdf",
       "drive_name": "Assignment_4_qFactor_Analysis.pdf",
-      "description": "Viewer-ready Assignment 4 q-factor analysis PDF.",
+      "description": "Viewer-ready Assignment 4 q-factor analysis PDF with rolling 48-month alpha results.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 220797,
-      "sha256": "7f16854ff089a3c1ed6f4d7886be18a026ffc4335630e161833ff5ba3d257376"
+      "bytes": 269362,
+      "sha256": "1bb93bd1374e353519b83f5c90d21b9a3ac13e46b6c83c45dd18837a50e580c7"
     },
     {
       "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.tex",
@@ -253,17 +253,17 @@
       "description": "Assignment 4 LaTeX source.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 8095,
-      "sha256": "f0c410cf7cb87318d726a374c2bdaf18e9e8d89733c9fa03f799c15864b4dcdc"
+      "bytes": 10111,
+      "sha256": "94f239fb8fbb6509fe3b19572a719142e00d3c56db2752c669b19191225b1d48"
     },
     {
       "local_path": "workspace/assignment_4/Assignment_4_qFactor_Analysis.xlsx",
       "drive_name": "Assignment_4_qFactor_Analysis.xlsx",
-      "description": "Assignment 4 calculation workbook with regression tables and diagnostics.",
+      "description": "Assignment 4 calculation workbook with regression tables, diagnostics, and rolling alpha chart.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 42720,
-      "sha256": "503a1c81d1615579c20af46128fe9076d74f6629e969bf4b45f4e07888d02f4d"
+      "bytes": 96359,
+      "sha256": "6c4484a462d8e09249686ac3cb2bdf19d32c64bea28852c30c87a925fb425cda"
     },
     {
       "local_path": "workspace/assignment_4/scripts/compute_assignment4_qfactor.py",
@@ -271,8 +271,17 @@
       "description": "Assignment 4 reproducible factor-regression and robustness script.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 68230,
-      "sha256": "a5ccda9344d386fb951904801c7882f2d15c05943260bdda36811bf4158ffd7e"
+      "bytes": 79467,
+      "sha256": "2957e84fe45679132fe5d19e79bcc0a67a3eec11c428d991512b386157c3870e"
+    },
+    {
+      "local_path": "workspace/assignment_4/figures/Rolling_q5_Alpha.png",
+      "drive_name": "Rolling_q5_Alpha.png",
+      "description": "Rolling 48-month q5 monthly alpha chart used by the Assignment 4 LaTeX report.",
+      "group": "assignment4",
+      "folder_path": "Assignment 4",
+      "bytes": 56951,
+      "sha256": "4ee19cc56e1f3e32e828f98db581884c8f38a9ea9d33fbadaa9c29ba68cd03d6"
     },
     {
       "local_path": "workspace/assignment_4/data/q5_factors_monthly_2024.csv",
@@ -280,8 +289,8 @@
       "description": "Official Hou-Xue-Zhang q5 monthly factor data through 2024.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 35790,
-      "sha256": "c6a0e07ef996778e6b5b0ba7a6f00936b2b54db7e73a7b450a7c77d6c0b57540"
+      "bytes": 36487,
+      "sha256": "d2ec0d2e22bc0e94d3e10f4daa6c748303914046fd3ff97b8eaeee825d9639d1"
     },
     {
       "local_path": "workspace/assignment_4/data/assignment4_fund_x_returns_2017_2024.csv",
@@ -289,8 +298,8 @@
       "description": "Fund X monthly returns used for Assignment 4.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 8007,
-      "sha256": "56d7753d7be1c14ee303ef69e095606b64f13c5ab5ae828e84b6c62a04ae992a"
+      "bytes": 8104,
+      "sha256": "f919adff50e0e244b87dec86f1889978abe94f314f5b5385453f1f2387286df0"
     },
     {
       "local_path": "workspace/assignment_4/data/assignment4_aligned_monthly_data.csv",
@@ -298,8 +307,8 @@
       "description": "Date-aligned Fund X excess-return and q5 factor dataset used in the regressions.",
       "group": "assignment4",
       "folder_path": "Assignment 4",
-      "bytes": 11075,
-      "sha256": "0f3e93d043e593cf8a334c911ea9aa3708264df356b8bca29754db5e8ce56377"
+      "bytes": 11172,
+      "sha256": "eb39e9c7321af285f46cb98b8070e1cfdd1a0565f075c3ff8b87c9813ca3c841"
     },
     {
       "local_path": "scripts/update_project1_monthly.py",

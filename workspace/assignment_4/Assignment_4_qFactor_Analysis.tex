@@ -4,6 +4,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{float}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}
 
@@ -181,6 +182,54 @@ but its level is not stable. Newey--West inference cannot correct changing coeff
 omitted factors, nonlinear exposures, or a mismatch between a US equity factor model and
 the fund's underlying strategy. The result should therefore be stated as a large return
 unexplained by these models, not as proof that every possible risk exposure has been ruled out.
+
+\clearpage
+\section*{Rolling q5 Alpha: 48-Month Windows}
+\begin{table}[H]
+\centering
+\caption{Rolling 48-Month q5 Alpha Estimates}
+\label{tab:rolling-q5-alpha}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Window & $N$ & Monthly $\alpha$ & NW $t$-stat & $R^2$ \\
+\midrule
+2017-2020 & 48 & 3.922\% & 6.01 & 0.404 \\
+2018-2021 & 48 & 4.376\% & 5.96 & 0.181 \\
+2019-2022 & 48 & 3.103\% & 4.13 & 0.091 \\
+2020-2023 & 48 & 2.647\% & 3.30 & 0.099 \\
+2021-2024 & 48 & 1.739\% & 3.31 & 0.179 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.15cm}
+\begin{minipage}{0.92\linewidth}
+\footnotesize
+\textit{Note:} Each regression uses Fund X excess returns and all five q5 factors.
+Newey--West HAC inference uses a Bartlett kernel with $L=4$. Adjacent windows
+share 36 of 48 months, so the estimates are highly correlated and are not five
+independent tests.
+\end{minipage}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.74\textwidth]{figures/Rolling_q5_Alpha.png}
+\caption{Monthly q5 alpha across overlapping 48-month windows}
+\label{fig:rolling-q5-alpha}
+\end{figure}
+
+The rolling sequence is 3.92\%, 4.38\%,
+3.10\%, 2.65\%, and
+1.74\%. Alpha first rises in the 2018--2021 window and then
+declines in each of the next three windows. This does not resemble a single clean
+shift from a stable 4\% level to a stable 2\% level. It is more consistent with
+progressive decay after an early peak. The estimates remain positive and statistically
+significant in every window. Rolling $R^2$ ranges from
+0.091 to 0.404, showing that the q5
+model's ability to explain monthly variation also changes materially over time.
+Because the windows overlap heavily, this exercise localises the instability
+descriptively; it is not a formal estimator of a unique break date.
 
 \section*{References}
 \begin{description}
