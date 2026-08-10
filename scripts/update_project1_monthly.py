@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import math
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -25,6 +27,13 @@ SAMPLE_START = (2017, 1)
 SP500_SYMBOL = "^SP500TR"
 NVDA_SYMBOL = "NVDA"
 SPARTAN_URL = "https://spartanfunds.ca/wp-content/uploads/2021/11/LSQ-Oct21.pdf"
+# Spartan tags provisional figures with a footnote letter, for example "+3.39%e" for an
+# estimated month. Those cells are real data and must be read, not skipped.
+PERCENT_CELL = re.compile(r"^[+-][\d,]+(?:\.\d+)?%[A-Za-z*]*$")
+PERCENT_MARKER = re.compile(r"[A-Za-z*]+$")
+# The monthly performance table always ends each year row with two summary columns,
+# the calendar-year return and the TSX benchmark.
+SUMMARY_COLUMNS = 2
 DEFAULT_WORKBOOK = Path(r"C:\Users\HP\Downloads\COMBined3a.xlsx")
 DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parents[1]
 
@@ -184,7 +193,8 @@ def read_workbook(path: Path) -> tuple[list[dict[str, object]], list[dict[str, o
 
 
 def parse_percent(text: str) -> float:
-    clean = text.replace("%", "").replace("+", "").replace(",", "").strip()
+    clean = PERCENT_MARKER.sub("", text.strip())
+    clean = clean.replace("%", "").replace("+", "").replace(",", "").strip()
     return float(clean) / 100.0
 
 
@@ -208,7 +218,7 @@ def download_spartan_pdf(url: str, out_dir: Path) -> Path:
     return pdf_path
 
 
-def read_lsq_from_spartan_pdf(pdf_path: Path) -> tuple[list[dict[str, object]], tuple[int, int]]:
+def read_lsq_from_spartan_pdf(pdf_path: Path) -> tuple[list[dict[str, object]], tuple[int, int], list[str]]:
     try:
         import fitz
     except ImportError as exc:
@@ -224,32 +234,42 @@ def read_lsq_from_spartan_pdf(pdf_path: Path) -> tuple[list[dict[str, object]], 
     section = text.split("Monthly Performance", 1)[1].split("Statistics", 1)[0]
     lines = [line.strip() for line in section.splitlines() if line.strip()]
     raw: dict[tuple[int, int], float] = {}
+    flagged: set[tuple[int, int]] = set()
     i = 0
     while i < len(lines):
         line = lines[i]
         if line.isdigit() and len(line) == 4 and 2000 <= int(line) <= 2100:
             year = int(line)
             pct_values = []
+            pct_flags = []
             j = i + 1
             while j < len(lines):
                 candidate = lines[j]
                 if candidate.isdigit() and len(candidate) == 4 and 2000 <= int(candidate) <= 2100:
                     break
-                if candidate.endswith("%") and (candidate.startswith("+") or candidate.startswith("-")):
+                if PERCENT_CELL.match(candidate):
                     pct_values.append(parse_percent(candidate))
+                    pct_flags.append(bool(PERCENT_MARKER.search(candidate)))
                 j += 1
-            if len(pct_values) < 3:
+            if len(pct_values) < SUMMARY_COLUMNS + 1:
                 raise ValueError(f"Could not parse enough percentage values for {year} in Spartan PDF.")
-            monthly = pct_values[:12] if len(pct_values) >= 14 else pct_values[:-2]
+            monthly = pct_values[:-SUMMARY_COLUMNS]
+            if not 1 <= len(monthly) <= 12:
+                raise ValueError(
+                    f"Parsed {len(monthly)} monthly values for {year} in Spartan PDF; expected 1 to 12."
+                )
             for month, value in enumerate(monthly, start=1):
                 raw[(year, month)] = value
+                if pct_flags[month - 1]:
+                    flagged.add((year, month))
             i = j
         else:
             i += 1
 
     latest = max(date for date in raw if date >= SAMPLE_START)
     rows = series_from_dict(raw, latest, "lsq_return")
-    return rows, latest
+    estimated = [month_key(*date) for date in sorted(flagged) if SAMPLE_START <= date <= latest]
+    return rows, latest, estimated
 
 
 def market_rows_from_yahoo(symbol: str, latest: tuple[int, int], key: str) -> tuple[list[dict[str, object]], str]:
@@ -274,27 +294,55 @@ def market_rows_from_yahoo(symbol: str, latest: tuple[int, int], key: str) -> tu
     return rows, url
 
 
-def read_spartan_source(url: str, out_dir: Path) -> tuple[list[dict[str, object]], list[dict[str, object]], list[dict[str, object]], tuple[int, int], Path]:
+def read_spartan_source(
+    url: str, out_dir: Path, allow_cached_source: bool = False
+) -> tuple[list[dict[str, object]], list[dict[str, object]], list[dict[str, object]], tuple[int, int], Path, dict[str, object]]:
     last_error: Exception | None = None
     pdf_path = out_dir / "data" / "LSQ_latest_spartan.pdf"
     for attempt in range(1, 6):
         try:
             pdf_path = download_spartan_pdf(url, out_dir / "data")
-            lsq, latest = read_lsq_from_spartan_pdf(pdf_path)
+            fetched_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            lsq, latest, estimated = read_lsq_from_spartan_pdf(pdf_path)
             sp, _ = market_rows_from_yahoo(SP500_SYMBOL, latest, "sp500tr_return")
             nvda, _ = market_rows_from_yahoo(NVDA_SYMBOL, latest, "nvda_return")
-            return lsq, sp, nvda, latest, pdf_path
+            return lsq, sp, nvda, latest, pdf_path, source_provenance(pdf_path, True, fetched_at, estimated, latest)
         except Exception as exc:
             last_error = exc
             if attempt == 5:
                 break
             time.sleep(3 * attempt)
+    # Falling back to the previously downloaded PDF silently republishes stale returns as
+    # though they were fresh, so it has to be asked for explicitly.
+    if not allow_cached_source:
+        raise RuntimeError(
+            f"Could not fetch and parse the Spartan source after 5 attempts: {last_error}. "
+            "Pass --allow-cached-source to fall back to the last downloaded PDF."
+        ) from last_error
     if pdf_path.exists():
-        lsq, latest = read_lsq_from_spartan_pdf(pdf_path)
+        lsq, latest, estimated = read_lsq_from_spartan_pdf(pdf_path)
         sp, _ = market_rows_from_yahoo(SP500_SYMBOL, latest, "sp500tr_return")
         nvda, _ = market_rows_from_yahoo(NVDA_SYMBOL, latest, "nvda_return")
-        return lsq, sp, nvda, latest, pdf_path
+        return lsq, sp, nvda, latest, pdf_path, source_provenance(pdf_path, False, None, estimated, latest)
     raise RuntimeError(f"Could not fetch and parse the Spartan source after 5 attempts: {last_error}") from last_error
+
+
+def source_provenance(
+    pdf_path: Path,
+    downloaded: bool,
+    fetched_at: str | None,
+    estimated: list[str],
+    latest: tuple[int, int],
+) -> dict[str, object]:
+    return {
+        "spartan_pdf_sha256": hashlib.sha256(pdf_path.read_bytes()).hexdigest(),
+        "spartan_pdf_downloaded_this_run": downloaded,
+        "spartan_pdf_fetched_at": fetched_at or "",
+        # Spartan marks provisional months with a footnote letter. These figures can be
+        # revised in a later release, so record which ones are not yet final.
+        "estimated_months": estimated,
+        "latest_month_is_estimate": month_key(*latest) in estimated,
+    }
 
 
 def values(rows: list[dict[str, object]], key: str) -> list[float]:
@@ -1498,6 +1546,32 @@ def compile_pdf(out_dir: Path) -> str:
     return "Compiled Project_1_May2026_Update.pdf with pdflatex."
 
 
+def check_sample_not_regressed(out_dir: Path, latest: tuple[int, int], allow_regression: bool) -> None:
+    """Refuse to shorten the published sample.
+
+    A parsing failure that drops the newest month looks exactly like a normal run, so
+    without this the automation would quietly republish a shorter series to Drive.
+    """
+    manifest_path = out_dir / "manifest.json"
+    if not manifest_path.exists():
+        return
+    try:
+        previous = json.loads(manifest_path.read_text(encoding="utf-8")).get("sample_end", "")
+        year, month = (int(part) for part in str(previous).split("-"))
+    except (ValueError, json.JSONDecodeError, OSError):
+        return
+    if latest >= (year, month):
+        return
+    message = (
+        f"Parsed sample ends at {month_key(*latest)} but the last run ended at {previous}. "
+        "This usually means the source table changed shape and the newest month was dropped. "
+        "Nothing was written. Pass --allow-sample-regression if the fund genuinely restated."
+    )
+    if not allow_regression:
+        raise RuntimeError(message)
+    print(f"WARNING: {message}")
+
+
 def run(
     source: str,
     workbook: Path,
@@ -1510,6 +1584,8 @@ def run(
     test_lsq_return: float,
     test_sp500tr_return: float,
     test_nvda_return: float,
+    allow_cached_source: bool = False,
+    allow_sample_regression: bool = False,
 ) -> dict[str, object]:
     out_dir.mkdir(parents=True, exist_ok=True)
     for sub in ["tables", "data", "logs_or_notes", "scripts", "isolated_excel"]:
@@ -1517,8 +1593,11 @@ def run(
 
     source_label = "revised workbook"
     source_file = str(workbook)
+    provenance: dict[str, object] = {}
     if source == "spartan":
-        lsq_rows, sp_rows, nvda_rows, latest, pdf_path = read_spartan_source(spartan_url, out_dir)
+        lsq_rows, sp_rows, nvda_rows, latest, pdf_path, provenance = read_spartan_source(
+            spartan_url, out_dir, allow_cached_source
+        )
         source_label = "Spartan monthly performance PDF"
         source_file = str(pdf_path)
     else:
@@ -1530,6 +1609,7 @@ def run(
         lsq_rows.append({"date": month_key(*latest), "month": month_label(latest), "lsq_return": test_lsq_return / 100.0})
         sp_rows.append({"date": month_key(*latest), "month": month_label(latest), "sp500tr_return": test_sp500tr_return / 100.0})
         nvda_rows.append({"date": month_key(*latest), "month": month_label(latest), "nvda_return": test_nvda_return / 100.0})
+    check_sample_not_regressed(out_dir, latest, allow_sample_regression)
     lsq_values = values(lsq_rows, "lsq_return")
     sp_values = values(sp_rows, "sp500tr_return")
     nvda_values = values(nvda_rows, "nvda_return")
@@ -1657,6 +1737,7 @@ def run(
         "simulation": simulate_next_month,
         "source_file": source_file,
         "spartan_url": spartan_url if source == "spartan" else "",
+        **provenance,
         "workbook": str(workbook) if source == "workbook" else "",
         "sample_start": month_key(*SAMPLE_START),
         "sample_end": month_key(*latest),
@@ -1688,6 +1769,7 @@ def run(
                 f"- Data source: {source_label}",
                 f"- Source file: {source_file}",
                 f"- Simulation: {simulate_next_month}",
+                f"- Source months still marked as estimates: {', '.join(provenance.get('estimated_months') or []) or 'none'}",
                 f"- S&P 500 TR source return: {checks[0]['source_return_percent']:.6f}%",
                 f"- S&P 500 TR Yahoo exact return: {checks[0]['yahoo_exact_return_percent']}",
                 f"- NVIDIA source return: {checks[1]['source_return_percent']:.6f}%",
@@ -1724,6 +1806,16 @@ def main() -> None:
     parser.add_argument("--test-lsq-return", type=float, default=1.00, help="Simulated next-month LSQ return in percent.")
     parser.add_argument("--test-sp500tr-return", type=float, default=1.00, help="Simulated next-month S&P 500 TR return in percent.")
     parser.add_argument("--test-nvda-return", type=float, default=1.00, help="Simulated next-month NVIDIA return in percent.")
+    parser.add_argument(
+        "--allow-cached-source",
+        action="store_true",
+        help="If the Spartan download fails, reuse the last downloaded PDF instead of failing.",
+    )
+    parser.add_argument(
+        "--allow-sample-regression",
+        action="store_true",
+        help="Permit a run whose sample ends earlier than the previous run.",
+    )
     args = parser.parse_args()
     manifest = run(
         args.source,
@@ -1737,6 +1829,8 @@ def main() -> None:
         args.test_lsq_return,
         args.test_sp500tr_return,
         args.test_nvda_return,
+        args.allow_cached_source,
+        args.allow_sample_regression,
     )
     print(json.dumps(manifest, indent=2))
 
