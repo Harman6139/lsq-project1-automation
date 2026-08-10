@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T14:28:06",
+  "generated_at": "2026-08-10T14:18:23",
   "source": "spartan",
   "simulation": false,
   "source_file": "data/LSQ_latest_spartan.pdf",
@@ -19,6 +19,6 @@
   "mppm_annualization": "(1 + monthly log certainty equivalent)^12 - 1",
   "lsq_mppm_annual_percent": 47.0023852738126,
   "sp500tr_mppm_annual_percent": 12.57120795593889,
-  "nvda_mppm_annual_percent": 26.78749981121109,
+  "nvda_mppm_annual_percent": 26.787506438193276,
   "compile_status": "Skipped PDF compilation."
 }
