@@ -1,5 +1,5 @@
 Boyle LSQ Workspace
-Updated: 2026-08-10 14:19:40 UTC
+Updated: 2026-08-20 13:44:01 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation

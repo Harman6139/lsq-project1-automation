@@ -5,9 +5,9 @@ Observations: 115
 
 Jul 2026 checks:
 - Data source: Spartan monthly performance PDF
-- Source file: data\LSQ_latest_spartan.pdf
+- Source file: data/LSQ_latest_spartan.pdf
 - Simulation: False
-- Source months still marked as estimates: 2026-07
+- Source months still marked as estimates: none
 - S&P 500 TR source return: -0.063493%
 - S&P 500 TR Yahoo exact return: -0.06349317981017011
 - NVIDIA source return: 0.329853%
