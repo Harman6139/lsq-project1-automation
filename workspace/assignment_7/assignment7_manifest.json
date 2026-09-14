@@ -1,0 +1,77 @@
+{
+  "assignment": 7,
+  "title": "Fund X two-regime model review",
+  "sample": {
+    "n": 115,
+    "negative_count": 5,
+    "zero_count": 0,
+    "mean": 0.03519478260869564,
+    "sd": 0.039839438371204836,
+    "start": "2017-01",
+    "end": "2026-07",
+    "ties": 9,
+    "july_is_estimate": true
+  },
+  "linkage": "Extends Assignment 3; verifies and qualifies supplied regime-switching note.",
+  "source": {
+    "source_url": "https://spartanfunds.ca/wp-content/uploads/2021/11/LSQ-Oct21.pdf",
+    "snapshot_label": "July 2026",
+    "downloaded_at": "2026-08-10T22:30:46+00:00",
+    "snapshot_sha256": "108fb21438486519bfea362ca1f5e6148d6d457e84690a7d84e813aac59158eb",
+    "return_units": "decimal monthly net of management and performance fees for I series",
+    "estimated_months": [
+      "2026-07"
+    ],
+    "reconciliation": "115 of 115 observations match source PDF to 1e-14",
+    "requested_workbook": "COMBined3b.xlsx not found; all note aggregate data checks match canonical Fund X data",
+    "source_docx_sha256": "7987e307d611759ca946ff57d48354e4caa2028ef752cc5c805818aa2cad789d"
+  },
+  "results": "assignment7_results.json",
+  "reproducibility": {
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.1.3",
+      "pandas": "2.2.3",
+      "scipy": "1.15.2",
+      "statsmodels": "0.14.4",
+      "matplotlib": "3.10.1",
+      "pypdf": "6.16.1",
+      "openpyxl": "3.1.5"
+    },
+    "numba": "0.67.0",
+    "llvmlite": "0.49.0",
+    "seed": 20260914,
+    "primary_starts": 300,
+    "permutations": 499,
+    "refitted_bootstrap": 199,
+    "floor_log_sd": 0.001
+  },
+  "headline": "Two distributions fit well, but note optimization and duration interpretation do not survive refitting; timing evidence is real, predictive advantage is mixed, and rare losses remain underexplained.",
+  "outputs": [
+    "Assignment_7_Fund_X_Two_Regime_Review.pdf",
+    "Assignment_7_Fund_X_Two_Regime_Review.tex",
+    "Assignment_7_Fund_X_Two_Regime_Review.xlsx"
+  ],
+  "scripts": [
+    "scripts/compute_assignment7_regimes.py",
+    "scripts/build_assignment7_report.py",
+    "scripts/build_assignment7_workbook.mjs",
+    "scripts/verify_assignment7.py"
+  ],
+  "checks": {
+    "115_source_values_match": true,
+    "independent_likelihood_absolute_difference": 1.1300471669528633e-10,
+    "source_document_preserved": true,
+    "source_docx_read": "All OOXML text and embedded figures inspected. Bundled DOCX renderer unavailable because bundled LibreOffice is absent.",
+    "independent_source_pdf_reconciliation": 115,
+    "brute_force_64_path_likelihood_and_missing_month_check": true,
+    "viterbi_brute_force_check": true,
+    "markov_loss_count_matches_iid_binomial_special_case": true,
+    "monte_carlo_counts_verified": true,
+    "xlsx_all_returns_formulas_and_cached_results_verified": true,
+    "xlsx_formula_errors": 0,
+    "pdf_pages": 3,
+    "pdf_all_pages_visually_verified": true,
+    "xlsx_all_sheets_visually_verified": true
+  }
+}

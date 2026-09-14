@@ -1,0 +1,170 @@
+PART word/document.xml
+A Two-Regime Lognormal Model for Fund X Monthly Returns
+Working note — regime-switching analysis, September 2026
+1. Data
+The series consists of 115 monthly returns for Fund X (LSQ), January 2017 to July 2026, taken from the COMBined3b.xlsx workbook (Sheet1). Only 5 of the 115 months are negative (4.3%). The unconditional sample mean is 3.52% per month with a standard deviation of 3.98%, consistent with the strong positive skew and excess kurtosis reported previously for this series (Boyle and Peng, working paper).
+2. Model
+Let r_t denote the monthly return and y_t = ln(1+r_t) the corresponding log return. A two-state Markov regime-switching lognormal model (Hamilton, 1989; Hardy, 2001) assumes that, conditional on an unobserved state S_t in {1,2}:
+y_t | S_t = i  ~  Normal(mu_i, sigma_i^2),
+with S_t following a first-order Markov chain with transition matrix P = [p_ij], p_ij = Pr(S_t = j | S_t-1 = i). This is the RSLN-2 specification used by Hardy (2001) for long-term equity returns; it is applied here to Fund X's own return history rather than an equity index.
+Parameters (mu_1, sigma_1, mu_2, sigma_2, P) were estimated by maximum likelihood via the Baum-Welch (EM) algorithm, using 300 random initialisations to guard against local optima. The reported fit converged (log-likelihood 255.75) and was the best of all initialisations tried.
+3. Fitted parameters
+Parameter
+Regime 1 (normal)
+Regime 2 (high)
+Notes
+mu_i (log scale)
+0.0237
+0.0895
+mean of ln(1+r)
+sigma_i (log scale)
+0.0211
+0.0606
+s.d. of ln(1+r)
+Implied mean return
+2.42% / month
+9.57% / month
+exp(mu+sigma^2/2)-1
+Implied s.d. of return
+2.16% / month
+6.64% / month
+
+p_ii (stay probability)
+0.9119
+0.5289
+diagonal of P
+Expected duration
+11.3 months
+2.1 months
+1/(1-p_ii)
+Stationary probability
+0.842
+0.158
+long-run time share
+
+Regimes are labelled by mean: regime 1 is the prevailing, lower-return state (84.2% of the time, expected duration 11.3 months); regime 2 is a shorter-lived, high-return state (15.8% of the time, expected duration 2.1 months). Both regimes have a positive mean and there is no separate crash/loss regime, which fits the near-absence of negative months in the raw data.
+3.1 Transition matrix
+From \ To
+Regime 1
+Regime 2
+Regime 1
+0.9119
+0.0881
+Regime 2
+0.4711
+0.5289
+4. Model comparison
+A one-regime lognormal fit (a single Normal distribution for y_t) is nested inside the two-regime model when the two components coincide. The table below compares the two.
+
+Log-likelihood
+AIC
+BIC
+One-regime lognormal
+217.17
+-430.34
+-424.85
+Two-regime lognormal
+255.75
+-499.50
+-483.03
+
+The two-regime model raises the log-likelihood by 38.6 and both AIC and BIC favour it by a wide margin. The likelihood-ratio statistic is 77.2 on 3 extra parameters; this is not chi-square under standard regularity conditions because the mixing weights sit on a boundary under the null (Hartigan, 1985), but a difference of this size, together with the AIC/BIC gap, is strong evidence for regime switching in this series.
+5. Regime classification
+Using the Viterbi algorithm to assign the single most likely path, 12 of 115 months (10.4%) fall in the high regime: August-October 2018, March-July 2020, January-February 2021, and September-October 2025. These correspond to the largest positive outliers in the series (21.46%, 21.97%, 18.18%, 16.44%, 13.90%, 11.38%, and similar), which the single-regime model could only accommodate through heavy right skew and excess kurtosis rather than a distinct state.
+
+Figure 1. Monthly returns coloured by fitted regime (top) and smoothed probability of the high regime (bottom).
+
+Figure 2. Empirical distribution of monthly returns against the fitted two-component lognormal mixture density.
+6. Autocorrelation function
+The sample ACF of the raw returns shows significant positive autocorrelation at short lags, most notably lag 1 (0.352), consistent with a Ljung-Box test (Q(1) = 14.6, p < 0.001; Q(12) = 40.3, p < 0.001).
+Lag
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+ACF(r)
+0.352
+0.155
+0.222
+0.205
+0.059
+0.048
+0.167
+0.170
+0.066
+0.091
+0.129
+0.043
+ACF(resid.)
+0.157
+0.108
+0.183
+0.179
+0.135
+0.092
+0.218
+-
+-
+-
+-
+-
+
+
+Figure 3. Sample ACF of Fund X monthly returns, lags 1-24, with 95% band.
+Demeaning each observation by its Viterbi-classified regime mean (i.e. computing the ACF of y_t - mu_hat(S_t)) reduces the lag-1 autocorrelation from 0.352 to 0.157 and the lag-1 Ljung-Box test is no longer significant at 5% (p = 0.087). This indicates that persistence within the high-return regime (average duration 2.1 months) accounts for a substantial part of the raw autocorrelation. Some autocorrelation remains at lags 3-4 and 6-8 after regime-demeaning (Ljung-Box Q(6) p = 0.017, Q(12) p < 0.001), so regime switching alone does not fully explain the dependence structure; a next step would be to allow within-regime AR(1) dynamics or regime-dependent autocorrelation.
+7. Summary
+A two-regime lognormal (RSLN-2 style) model fits Fund X's monthly returns markedly better than a single lognormal, by both AIC and BIC.
+Regime 1 (84% of months): mean 2.4% per month, s.d. 2.2%, average duration 11.3 months.
+Regime 2 (16% of months): mean 9.6% per month, s.d. 6.6%, average duration 2.1 months.
+The high regime contains the large positive outliers that drive the series' skewness and kurtosis; there is no separate loss regime, unlike typical equity-index applications of RSLN-2.
+Regime switching explains part, but not all, of the positive autocorrelation in raw returns; residual dependence remains at several lags.
+Appendix A. Intuition and formulae for the two-regime lognormal model
+A.1 Intuition
+A single lognormal distribution has one mean and one variance. Fund X's returns are almost always modest and positive, but occasionally jump to 15-22% in a month, then revert. A single lognormal can only fit this by stretching its variance and skewness parameters to cover both the ordinary months and the rare jumps at once; the fitted curve then sits too low over the bulk of the data and too flat over the tail, as in Figure 2's implicit one-regime alternative.
+A two-regime model instead allows two separate lognormal distributions, a quiet one and a fast one, and lets the data decide, month by month, which one was probably in force. This alone is just a mixture. The Markov switching adds memory: the state is not redrawn independently each month but tends to persist, because the fast regime has its own probability of continuing (p_22 = 0.529) versus reverting to the quiet regime (p_21 = 0.471, via the row-sum-to-one constraint). This is what lets the model reproduce the observed clustering of big months, for example August-October 2018 or March-July 2020, rather than treating each outlier as an isolated, independent draw.
+The two-regime lognormal used here is the RSLN-2 specification introduced by Hardy (2001) for actuarial applications (segregated fund and variable annuity guarantee valuation), building on the general Markov-switching framework of Hamilton (1989). Hardy's application to equity indices typically finds a low-volatility bull regime and a high-volatility bear regime with a negative mean. The fitted model for Fund X differs in one respect: both regimes have a positive mean, and the second regime is a high-return rather than a loss regime, reflecting that only 5 of 115 months in this series are negative.
+A.2 State space and observation equation
+Let R_t be the return in month t and Y_t = ln(1+R_t) the log return. Let S_t in {1,2} be an unobserved (latent) state, evolving as a first-order, time-homogeneous Markov chain:
+Pr(S_t = j | S_1,...,S_t-1) = Pr(S_t = j | S_t-1) = p_{S_t-1, j}.
+Conditional on the state, the log return is Normal and independent of the past given S_t:
+Y_t | S_t = i  ~  N(mu_i, sigma_i^2),   i = 1, 2,
+equivalently 1 + R_t = exp(mu_i + sigma_i Z_t) with Z_t ~ N(0,1) i.i.d., so 1+R_t is lognormal within each regime, which is the sense in which the model is a “two-regime lognormal” model. The full parameter vector is theta = (mu_1, sigma_1, mu_2, sigma_2, p_11, p_22), since each row of the 2x2 transition matrix P sums to one (p_12 = 1-p_11, p_21 = 1-p_22).
+A.3 Likelihood via the forward algorithm
+Direct evaluation of the likelihood would require summing over all 2^T possible state paths. The forward algorithm avoids this by recursion. Let phi(y; mu, sigma) denote the Normal density and pi_i the initial-state probability. Define the forward variable
+alpha_t(i) = Pr(Y_1=y_1,...,Y_t=y_t, S_t=i).
+Then, with alpha_1(i) = pi_i * phi(y_1; mu_i, sigma_i), the recursion for t = 2,...,T is
+alpha_t(j) = [ sum_i alpha_t-1(i) p_ij ] * phi(y_t; mu_j, sigma_j),
+and the sample log-likelihood is ln L(theta) = ln[ sum_i alpha_T(i) ]. This is the quantity maximised numerically to obtain the fitted parameters in Section 3 (log-likelihood 255.75 at the optimum).
+A.4 Estimation by the EM (Baum-Welch) algorithm
+Because the states are unobserved, direct maximisation is replaced by the EM algorithm, whose use here goes by the name Baum-Welch. Given current parameter values, the E-step uses the forward variable together with an analogous backward variable beta_t(i) = Pr(Y_t+1,...,Y_T | S_t=i) to compute, for every t, the smoothed state probability
+gamma_t(i) = Pr(S_t=i | Y_1,...,Y_T) = alpha_t(i) beta_t(i) / sum_k alpha_t(k) beta_t(k),
+and the smoothed transition probability xi_t(i,j) = Pr(S_t=i, S_t+1=j | Y_1,...,Y_T), obtained similarly from alpha_t(i), p_ij, phi(y_t+1; mu_j,sigma_j) and beta_t+1(j). The M-step then updates each parameter in closed form as a gamma-weighted average:
+mu_i = [ sum_t gamma_t(i) y_t ] / [ sum_t gamma_t(i) ],
+sigma_i^2 = [ sum_t gamma_t(i) (y_t - mu_i)^2 ] / [ sum_t gamma_t(i) ],
+p_ij = [ sum_t=1^T-1 xi_t(i,j) ] / [ sum_t=1^T-1 gamma_t(i) ].
+E- and M-steps alternate until the log-likelihood stops increasing; the fit reported here converged after 10 iterations from the best of 300 random starting points, chosen because this class of mixture likelihood is known to have multiple local optima.
+A.5 Stationary distribution, regime duration and implied moments
+The long-run (stationary) probability of each state solves pi P = pi with pi_1+pi_2=1, which for a 2-state chain gives the closed form
+pi_1 = p_21 / (p_12 + p_21),   pi_2 = p_12 / (p_12 + p_21).
+Because the chain tends to stay in whichever state it is in, the expected number of consecutive months in state i, once entered, is a geometric mean duration:
+E[duration in state i] = 1 / (1 - p_ii).
+Finally, since 1+R_t is lognormal within a regime, the regime-conditional mean and variance of the arithmetic return follow the standard lognormal moment formulae:
+E[1+R_t | S_t=i] = exp(mu_i + sigma_i^2/2),   Var(1+R_t | S_t=i) = [exp(sigma_i^2) - 1] * exp(2 mu_i + sigma_i^2).
+These are the formulae used to convert the fitted log-scale parameters (mu_i, sigma_i) into the implied monthly arithmetic mean and standard deviation reported in the parameter table of Section 3.
+A.6 Most likely regime path (Viterbi)
+The regime classification in Section 5 (Figure 1) uses the Viterbi algorithm, which replaces the sum in the forward recursion with a maximum to find the single most probable state sequence given the whole sample, rather than the smoothed marginal probability gamma_t(i) at each t taken in isolation:
+delta_t(j) = max_i [ delta_t-1(i) p_ij ] * phi(y_t; mu_j, sigma_j),
+with the maximising state stored at each step and the full path recovered by backtracking from arg max_i delta_T(i). This is the path plotted in the top panel of Figure 1; the bottom panel instead shows the smoothed probability gamma_t(2) from Section A.4, which is why a given month can show, for example, a 60% posterior probability of the high regime without being classified into it by Viterbi.
+References
+Hamilton, J. D. (1989). A new approach to the economic analysis of nonstationary time series and the business cycle. Econometrica, 57(2), 357-384.
+Hardy, M. R. (2001). A regime-switching model of long-term stock returns. North American Actuarial Journal, 5(2), 41-53.
+Hartigan, J. A. (1985). A failure of likelihood asymptotics for normal mixtures. In Proceedings of the Berkeley Conference in Honor of Jerzy Neyman and Jack Kiefer, Vol. 2, 807-810.
+Boyle, P. and Peng, Z. (Judy). High Returns, Low Risk: The Case of Fund X. Working paper.

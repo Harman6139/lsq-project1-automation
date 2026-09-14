@@ -12,3 +12,5 @@ test_next_month/
 apps_script_upload_secret.txt
 apps_script/Code_for_paste.gs
 credentials_*.md
+/.qa_assignment7/
+/workspace/assignment_7/scripts/node_modules/

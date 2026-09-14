@@ -54,6 +54,13 @@ Do not update or publish from an archive when a corresponding file exists in thi
 - Purpose: estimate q and q5 factor regressions for Fund X excess returns, with Newey-West inference, bootstrap and influence checks, parameter-stability tests, and 48-month rolling q5 alpha.
 - Primary script: `scripts/compute_assignment4_qfactor.py`.
 
+### Assignment 7: Fund X Two-Regime Model Review
+
+- Location: `workspace/assignment_7` (Assignments 5 and 6 already exist locally).
+- Purpose: independently review the September 2026 two-regime note against the fixed January 2017 to July 2026 Fund X sample, compare an independent mixture with Markov switching, check timing, predictive calibration, forecasts, and sensitivity.
+- Primary script: `workspace/assignment_7/scripts/compute_assignment7_regimes.py`.
+- Preserve the supplied note under `source/`. The refitted regimes differ materially from the note; neither fit explains the scarcity of losses completely.
+
 ## Efficient Linkage Check
 
 For a new document or professor concern, do not reread every prior PDF.

@@ -286,6 +286,20 @@
       "drive_name": "update_project1_monthly.py",
       "folder_path": "Monthly Automation",
       "description": "Automation script that rebuilds the monthly Project 1 outputs."
+    },
+    {
+      "group": "assignment7",
+      "local_path": "workspace/assignment_7/Assignment_7_Fund_X_Two_Regime_Review.pdf",
+      "drive_name": "Assignment_7_Fund_X_Two_Regime_Review.pdf",
+      "folder_path": "Assignment 7",
+      "description": "Fund X two-regime review with independent refitting, timing tests, predictive checks, and sensitivity."
+    },
+    {
+      "group": "assignment7",
+      "local_path": "workspace/assignment_7/Assignment_7_Fund_X_Two_Regime_Review.xlsx",
+      "drive_name": "Assignment_7_Fund_X_Two_Regime_Review.xlsx",
+      "folder_path": "Assignment 7",
+      "description": "Fund X two-regime review with independent refitting, timing tests, predictive checks, and sensitivity."
     }
   ]
 }

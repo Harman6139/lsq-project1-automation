@@ -1,0 +1,13 @@
+{
+  "source_url": "https://spartanfunds.ca/wp-content/uploads/2021/11/LSQ-Oct21.pdf",
+  "snapshot_label": "July 2026",
+  "downloaded_at": "2026-08-10T22:30:46+00:00",
+  "snapshot_sha256": "108fb21438486519bfea362ca1f5e6148d6d457e84690a7d84e813aac59158eb",
+  "return_units": "decimal monthly net of management and performance fees for I series",
+  "estimated_months": [
+    "2026-07"
+  ],
+  "reconciliation": "115 of 115 observations match source PDF to 1e-14",
+  "requested_workbook": "COMBined3b.xlsx not found; all note aggregate data checks match canonical Fund X data",
+  "source_docx_sha256": "7987e307d611759ca946ff57d48354e4caa2028ef752cc5c805818aa2cad789d"
+}
