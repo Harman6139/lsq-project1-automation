@@ -8,20 +8,20 @@
 
 \title{Project 1A LSQ Fund Update}
 \author{Prepared for Professor Phelim Boyle}
-\date{Updated through Aug 2026}
+\date{Updated through Sept 2026}
 
 \begin{document}
 \maketitle
 
 \section*{Data \& Method}
-The update uses 116 monthly LSQ observations from January 2017 through Aug 2026.
-The original paper used 109 observations ending in January 2026; the added LSQ returns are Feb 2026 = 1.88\%, Mar 2026 = 3.68\%, Apr 2026 = 2.95\%, May 2026 = 7.64\%, Jun 2026 = 6.39\%, Jul 2026 = 3.39\%, Aug 2026 = 1.23\%.
+The update uses 117 monthly LSQ observations from January 2017 through Sept 2026.
+The original paper used 109 observations ending in January 2026; the added LSQ returns are Feb 2026 = 1.88\%, Mar 2026 = 3.68\%, Apr 2026 = 2.95\%, May 2026 = 7.64\%, Jun 2026 = 6.39\%, Jul 2026 = 3.39\%, Aug 2026 = 1.23\%, Sept 2026 = 1.09\%.
 The LSQ analysis uses the baseline net-of-fees return series from the Spartan monthly performance PDF.
 
 For the benchmark, I used the Yahoo Finance \texttt{\string^SP500TR} S\&P 500 Total Return Index.
 This is the appropriate S\&P 500 series because the paper states that the benchmark returns are calculated with dividends reinvested; a price-only S\&P 500 index would omit dividends and understate the benchmark return.
 
-For 2026-08, the market comparators are calculated from Yahoo Finance daily adjusted closes at each month-end. The S\&P 500 TR return is 2.723308\%, and the NVIDIA return is 9.977585\%.
+For 2026-09, the market comparators are calculated from Yahoo Finance daily adjusted closes at each month-end. The S\&P 500 TR return is -0.345700\%, and the NVIDIA return is 3.558090\%.
 
 All return inputs are monthly.
 Sample standard deviation divides by $N-1$.
@@ -50,16 +50,16 @@ Alpha and beta are estimated from the monthly regression of LSQ returns on S\&P 
 \toprule
 Metric & Paper & Updated & Change \\
 \midrule
-LSQ arithmetic monthly return & 3.48\% & 3.50\% & +0.02 pp \\
-LSQ geometric monthly return & 3.40\% & 3.43\% & +0.03 pp \\
-LSQ percent positive months & 95.40\% & 95.69\% & +0.29 pp \\
-LSQ percent negative months & 4.60\% & 4.31\% & -0.29 pp \\
-LSQ sample standard deviation & 4.06\% & 3.97\% & -0.09 pp \\
+LSQ arithmetic monthly return & 3.48\% & 3.48\% & -0.00 pp \\
+LSQ geometric monthly return & 3.40\% & 3.41\% & +0.01 pp \\
+LSQ percent positive months & 95.40\% & 95.73\% & +0.33 pp \\
+LSQ percent negative months & 4.60\% & 4.27\% & -0.33 pp \\
+LSQ sample standard deviation & 4.06\% & 3.96\% & -0.10 pp \\
 LSQ Sharpe ratio & 0.86 & 0.88 & +0.02 \\
-LSQ Sortino ratio & 13.96 & 14.57 & +0.61 \\
-LSQ Omega ratio & 88.28 & 94.54 & +6.26 \\
-Alpha, monthly & 3.52\% & 3.53\% & +0.01 pp \\
-Beta & -0.04 & -0.03 & +0.01 \\
+LSQ Sortino ratio & 13.96 & 14.54 & +0.58 \\
+LSQ Omega ratio & 88.28 & 94.79 & +6.51 \\
+Alpha, monthly & 3.52\% & 3.51\% & -0.01 pp \\
+Beta & -0.04 & -0.02 & +0.02 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -72,30 +72,30 @@ Beta & -0.04 & -0.03 & +0.01 \\
 \toprule
 Statistic & Paper LSQ & Updated LSQ & Change \\
 \midrule
-Arithmetic Mean Return & 3.47 & 3.50 & +0.03 \\
-Geometric Mean Return & 3.40 & 3.43 & +0.03 \\
-Percent Positive Months & 95.41 & 95.69 & +0.28 \\
-Percent Negative Months & 4.59 & 4.31 & -0.28 \\
-Average Positive Month & 3.68 & 3.70 & +0.02 \\
+Arithmetic Mean Return & 3.47 & 3.48 & +0.01 \\
+Geometric Mean Return & 3.40 & 3.41 & +0.01 \\
+Percent Positive Months & 95.41 & 95.73 & +0.32 \\
+Percent Negative Months & 4.59 & 4.27 & -0.32 \\
+Average Positive Month & 3.68 & 3.67 & -0.01 \\
 Average Negative Month & -0.87 & -0.87 & +0.00 \\
-Standard Deviation & 4.06 & 3.97 & -0.09 \\
+Standard Deviation & 4.06 & 3.96 & -0.10 \\
 Sharpe Ratio & 0.86 & 0.88 & +0.02 \\
-Sortino Ratio & 13.96 & 14.57 & +0.61 \\
-Omega Ratio & 88.28 & 94.54 & +6.26 \\
+Sortino Ratio & 13.96 & 14.54 & +0.58 \\
+Omega Ratio & 88.28 & 94.79 & +6.51 \\
 \bottomrule
 \end{tabular}
 \end{center}
 \normalsize
 
 \subsection*{Interpretation}
-The updated LSQ statistics move only moderately because 7 months are being added to a 109-month sample.
-The added sample contains 7 positive months and 0 negative months, leaving 111 positive months and 5 negative months in total.
-The average monthly return rises relative to the paper after incorporating returns through Aug 2026.
+The updated LSQ statistics move only moderately because 8 months are being added to a 109-month sample.
+The added sample contains 8 positive months and 0 negative months, leaving 112 positive months and 5 negative months in total.
+The average monthly return falls relative to the paper after incorporating returns through Sept 2026.
 The worst monthly return remains -2.20\% because none of the added months is lower.
 
 The risk-adjusted metrics remain very strong.
-The Sharpe ratio is 0.88, the Sortino ratio is 14.57, and the zero-threshold Omega ratio is 94.54.
-The updated monthly alpha is 3.53\% and beta is -0.03, so the evidence still supports the paper's conclusion that LSQ's returns are not explained by broad equity-market exposure.
+The Sharpe ratio is 0.88, the Sortino ratio is 14.54, and the zero-threshold Omega ratio is 94.79.
+The updated monthly alpha is 3.51\% and beta is -0.02, so the evidence still supports the paper's conclusion that LSQ's returns are not explained by broad equity-market exposure.
 
 \clearpage
 \section*{Additional Analysis: Serial Correlation}
@@ -113,9 +113,9 @@ This gives a more appropriate t-statistic when monthly returns are not independe
 \toprule
 Series & $\rho_1$ & LB p(1) & LB p(6) & LB p(12) \\
 \midrule
-LSQ Fund & 0.35 & 0.0001 & 0.0001 & 0.0001 \\
-S\&P 500 TR & -0.14 & 0.1242 & 0.4275 & 0.2921 \\
-LSQ minus S\&P 500 TR & 0.01 & 0.8825 & 0.9765 & 0.9043 \\
+LSQ Fund & 0.35 & 0.0001 & 0.0001 & 0.0002 \\
+S\&P 500 TR & -0.14 & 0.1204 & 0.4242 & 0.2866 \\
+LSQ minus S\&P 500 TR & 0.01 & 0.8763 & 0.9764 & 0.9051 \\
 \bottomrule
 \end{tabular}
 
@@ -137,16 +137,16 @@ LB p($k$) is the Ljung-Box p-value through lag $k$.
 \toprule
 Statistic & Estimate & OLS SE & OLS t-stat & Newey-West SE & Newey-West t-stat \\
 \midrule
-LSQ monthly mean & 3.50\% & 0.37\% & 9.49 & 0.52\% & 6.74 \\
-Monthly alpha & 3.53\% & 0.39\% & 9.16 & 0.58\% & 6.15 \\
-Beta & -0.03 & 0.08 & -0.32 & 0.11 & -0.25 \\
+LSQ monthly mean & 3.48\% & 0.37\% & 9.50 & 0.51\% & 6.76 \\
+Monthly alpha & 3.51\% & 0.38\% & 9.17 & 0.57\% & 6.16 \\
+Beta & -0.02 & 0.08 & -0.30 & 0.11 & -0.24 \\
 \bottomrule
 \end{tabular}
 
 \vspace{0.15cm}
 \begin{minipage}{0.92\linewidth}
 \footnotesize
-Newey-West standard errors use 4 monthly lags, based on the rule $\lfloor 4(T/100)^{2/9}\rfloor$ with $T=116$.
+Newey-West standard errors use 4 monthly lags, based on the rule $\lfloor 4(T/100)^{2/9}\rfloor$ with $T=117$.
 The alpha-beta regression is $r_{\mathrm{LSQ},t}=\alpha+\beta r_{\mathrm{S\&P500TR},t}+\varepsilon_t$.
 \end{minipage}
 \end{table}

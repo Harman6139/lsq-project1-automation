@@ -1,4 +1,4 @@
-Project 1 update through Aug 2026
+Project 1 update through Sept 2026
 
 Main file for Overleaf: Project_1_May2026_Update.tex
 Automation script: scripts/update_project1_monthly.py
