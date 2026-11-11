@@ -300,6 +300,20 @@
       "drive_name": "Assignment_7_Fund_X_Two_Regime_Review.xlsx",
       "folder_path": "Assignment 7",
       "description": "Fund X two-regime review with independent refitting, timing tests, predictive checks, and sensitivity."
+    },
+    {
+      "group": "assignment9",
+      "local_path": "workspace/assignment_9/Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "drive_name": "Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "folder_path": "Assignment 9",
+      "description": "Chen-Zimmermann strategy returns, selection and controlled reporting-change experiments."
+    },
+    {
+      "group": "assignment9",
+      "local_path": "workspace/assignment_9/Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "drive_name": "Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "folder_path": "Assignment 9",
+      "description": "Supporting counts, statistics, selection probabilities and reporting-policy sensitivities."
     }
   ]
 }

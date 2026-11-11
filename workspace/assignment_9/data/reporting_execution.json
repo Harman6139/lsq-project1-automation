@@ -1,0 +1,96 @@
+{
+  "status": "complete",
+  "dependencies": {
+    "tables\\cutoffs_original.csv": "33cba9bde7f2e5ecdb6e8feb891c9c1815d44130b3cd730e1bc2aace57789ae9",
+    "data\\maps\\original_spread_108.npz": "f8d85ff3c6680156bd1a36dece89f8ab2d1aabffb1ef05bd019bde653b718162",
+    "data\\maps\\original_funded_108.npz": "c0d77d8bb384748beca6632f63e04759c9eb9e7e147d5fd266e0862065abcf8e",
+    "data\\maps\\original_spread_60.npz": "cbb8bf1991f34517a261bdd539eb25ae04bfb9ff93da198905b3c42809226e11",
+    "data\\maps\\original_funded_60.npz": "5c987f0ab917adb7aff683d07c398d7abab2be5333f9a84e4536c0bdf357ed8e",
+    "tables\\cutoffs_value_weighted.csv": "bf5485accb9cff1910b876ad9517405b0d84036e61e990d6f1ef50510e59ef83",
+    "data\\maps\\value_weighted_spread_108.npz": "a2c3c45602a9c0ae20fff2c94cf1031253580d8d9d332af6332258e2c0ae50c6",
+    "data\\maps\\value_weighted_funded_108.npz": "741cbbd0232e381b902801673eed1169ff95e5bd94b951ee49c1bfa2fb2f5cbd",
+    "data\\maps\\value_weighted_spread_60.npz": "868efeabc8d6593c61967d0760f111df5a7d9ec3c0c9342d3597e558b1c73c0f",
+    "data\\maps\\value_weighted_funded_60.npz": "b1c31b9f639201eb572e195323443c46aae3602ceeba9ffb295cfdf2d3b9a156",
+    "data\\frozen_design.json": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+    "scripts\\a9_reporting.py": "28b27fa582a5bbe7577f88627f66fe12815631084d58b9a4702ea049c6fe9066",
+    "scripts\\a9_metrics.py": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+    "scripts\\a9_data.py": "f2e1e36109a5ec62fdf4a227198d11c924526c8c4cce777ffa3d45c96f40959c",
+    "scripts\\run_benchmarks.py": "91b2bc27ba7ef52bc02bccde8273a9a8e2d72a41f23fa98a7696b936cc770da0",
+    "scripts\\run_reporting_analysis.py": "1ec8019e2e19450e4f3e8de8c15a53e99bbc80c5f8d32466f4a69c7785767390"
+  },
+  "seed": 20261111,
+  "seed_stages": {
+    "fixed_point": 1,
+    "half_hiding": 2,
+    "uniform_target": 3,
+    "calendar_bootstrap": 4
+  },
+  "stage_prefix": 9,
+  "observed_window": [
+    "2017-01",
+    "2025-12"
+  ],
+  "actual_warmup": [
+    "2016-07",
+    "2016-12"
+  ],
+  "supplied_economic_tail_months": 0,
+  "future_recognition_audit": "Scheduled repayments exhaust the closing gap; no future economic months are supplied.",
+  "cohorts": {
+    "original": 194,
+    "value_weighted": 194
+  },
+  "observed_60_month_window": [
+    "2021-01",
+    "2025-12"
+  ],
+  "policy_sensitivity_draws": 100,
+  "joint_calendar_draws": 500,
+  "selection_combinatorics_exhaustively_checked": true,
+  "interpretation": "Alerts on reconstructed and deliberately altered payoffs; real-fund fraud labels are unavailable.",
+  "seconds": 87.48400000005495,
+  "maximum_point_ledger_error": 1.1102230246251565e-16,
+  "maximum_scheduled_settlement_error": 0.0,
+  "outputs": {
+    "tables/reporting_point.csv": "8b3bb6e2ee1c7903ad93a9868582ae5a9fefc04aee36e081f92ce911cef112b1",
+    "tables/reporting_selection.csv": "326193bb8414b498450b03246da49b21b8da032df22b71a7dccddf7c5d0459ca",
+    "tables/smoothing_sensitivity.csv": "63fdbca66dadff8d89507f4934264532272046a3cd0c77c6111b4e82bbab8cf5",
+    "tables/reporting_sensitivity.csv": "10f00c8c63db9a9311eda6e9bffa68aba79582fabaa60d87a565ba18a301eb31",
+    "tables/reporting_bootstrap_ranges.csv": "e166a10d46c8d186a1f84dacc7c2f19780f8cc2b9a176c9edfce6b510410b48a"
+  },
+  "output_rows": {
+    "reporting_point.csv": 960,
+    "reporting_selection.csv": 240,
+    "smoothing_sensitivity.csv": 120,
+    "reporting_sensitivity.csv": 480,
+    "reporting_bootstrap_ranges.csv": 80
+  },
+  "verified_resume_dependencies": {
+    "tables\\cutoffs_original.csv": "33cba9bde7f2e5ecdb6e8feb891c9c1815d44130b3cd730e1bc2aace57789ae9",
+    "data\\maps\\original_spread_108.npz": "f8d85ff3c6680156bd1a36dece89f8ab2d1aabffb1ef05bd019bde653b718162",
+    "data\\maps\\original_funded_108.npz": "c0d77d8bb384748beca6632f63e04759c9eb9e7e147d5fd266e0862065abcf8e",
+    "data\\maps\\original_spread_60.npz": "cbb8bf1991f34517a261bdd539eb25ae04bfb9ff93da198905b3c42809226e11",
+    "data\\maps\\original_funded_60.npz": "5c987f0ab917adb7aff683d07c398d7abab2be5333f9a84e4536c0bdf357ed8e",
+    "tables\\cutoffs_value_weighted.csv": "bf5485accb9cff1910b876ad9517405b0d84036e61e990d6f1ef50510e59ef83",
+    "data\\maps\\value_weighted_spread_108.npz": "a2c3c45602a9c0ae20fff2c94cf1031253580d8d9d332af6332258e2c0ae50c6",
+    "data\\maps\\value_weighted_funded_108.npz": "741cbbd0232e381b902801673eed1169ff95e5bd94b951ee49c1bfa2fb2f5cbd",
+    "data\\maps\\value_weighted_spread_60.npz": "868efeabc8d6593c61967d0760f111df5a7d9ec3c0c9342d3597e558b1c73c0f",
+    "data\\maps\\value_weighted_funded_60.npz": "b1c31b9f639201eb572e195323443c46aae3602ceeba9ffb295cfdf2d3b9a156",
+    "data\\frozen_design.json": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+    "scripts\\a9_reporting.py": "28b27fa582a5bbe7577f88627f66fe12815631084d58b9a4702ea049c6fe9066",
+    "scripts\\a9_metrics.py": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+    "scripts\\a9_data.py": "f2e1e36109a5ec62fdf4a227198d11c924526c8c4cce777ffa3d45c96f40959c",
+    "scripts\\run_benchmarks.py": "f194b9154b5317d65c0f220c6de37eb39f819af18d344f13f37db7b96cb550ec",
+    "scripts\\run_reporting_analysis.py": "53fabf4be3667cea5e733e4871d9659637be85cb5ea210749f74c54a9f55dd1b"
+  },
+  "resume_compatibility_audit": {
+    "utc": "2026-11-11T06:22:27.732626+00:00",
+    "reason": "Cache provenance guard upgrade only; computation helpers unchanged",
+    "original_reporting_code": "data/code_history/run_reporting_analysis_initial.py",
+    "original_benchmark_code": "data/code_history/run_benchmarks_initial.py",
+    "all_reporting_computation_function_ASTs_identical": true,
+    "all_imported_benchmark_function_ASTs_identical": true,
+    "independent_point_rows_verified": 960,
+    "independent_selected_rows_verified": 240
+  }
+}

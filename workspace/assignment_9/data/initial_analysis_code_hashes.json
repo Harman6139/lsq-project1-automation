@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-11T06:01:07.210285+00:00",
+  "before_first_score_execution": true,
+  "design_sha256": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+  "scripts": {
+    "a9_data.py": "f2e1e36109a5ec62fdf4a227198d11c924526c8c4cce777ffa3d45c96f40959c",
+    "a9_metrics.py": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+    "a9_reporting.py": "28b27fa582a5bbe7577f88627f66fe12815631084d58b9a4702ea049c6fe9066",
+    "run_benchmarks.py": "91b2bc27ba7ef52bc02bccde8273a9a8e2d72a41f23fa98a7696b936cc770da0",
+    "freeze_design.py": "468545c085684ddb0a65af073b7d382533dd67fae1ecebc0668e893c4ece7100"
+  }
+}

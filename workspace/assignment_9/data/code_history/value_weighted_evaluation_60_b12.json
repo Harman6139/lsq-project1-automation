@@ -1,0 +1,14 @@
+{
+  "weighting": "value_weighted",
+  "phase": "evaluation",
+  "length": 60,
+  "block": 12,
+  "draws": 1000,
+  "dependencies": {
+    "frozen_design.json": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+    "a9_data.py": "f2e1e36109a5ec62fdf4a227198d11c924526c8c4cce777ffa3d45c96f40959c",
+    "a9_metrics.py": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+    "value_weighted_spread_60.npz": "868efeabc8d6593c61967d0760f111df5a7d9ec3c0c9342d3597e558b1c73c0f",
+    "value_weighted_funded_60.npz": "b1c31b9f639201eb572e195323443c46aae3602ceeba9ffb295cfdf2d3b9a156"
+  }
+}

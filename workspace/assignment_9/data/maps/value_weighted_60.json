@@ -1,0 +1,102 @@
+{
+  "weighting": "value_weighted",
+  "months": 60,
+  "metrics_sha256": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+  "records": 3920,
+  "unique_strategies": 193,
+  "endpoints": [
+    {
+      "end": "1984-12",
+      "strategies": 174
+    },
+    {
+      "end": "1985-12",
+      "strategies": 176
+    },
+    {
+      "end": "1986-12",
+      "strategies": 179
+    },
+    {
+      "end": "1987-12",
+      "strategies": 180
+    },
+    {
+      "end": "1988-12",
+      "strategies": 181
+    },
+    {
+      "end": "1989-12",
+      "strategies": 183
+    },
+    {
+      "end": "1990-12",
+      "strategies": 183
+    },
+    {
+      "end": "1991-12",
+      "strategies": 186
+    },
+    {
+      "end": "1992-12",
+      "strategies": 187
+    },
+    {
+      "end": "1993-12",
+      "strategies": 188
+    },
+    {
+      "end": "1994-12",
+      "strategies": 188
+    },
+    {
+      "end": "1995-12",
+      "strategies": 188
+    },
+    {
+      "end": "1996-12",
+      "strategies": 188
+    },
+    {
+      "end": "1997-12",
+      "strategies": 188
+    },
+    {
+      "end": "1998-12",
+      "strategies": 193
+    },
+    {
+      "end": "1999-12",
+      "strategies": 193
+    },
+    {
+      "end": "2000-12",
+      "strategies": 193
+    },
+    {
+      "end": "2001-12",
+      "strategies": 193
+    },
+    {
+      "end": "2002-12",
+      "strategies": 193
+    },
+    {
+      "end": "2003-12",
+      "strategies": 193
+    },
+    {
+      "end": "2004-12",
+      "strategies": 193
+    }
+  ],
+  "dependencies": {
+    "data/frozen_design.json": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+    "data/source_provenance.json": "e0b46bf52f3fb073f64599fb3a84b84f2af378092952d3388929cf112901fb1a",
+    "data/raw/PredictorVWforce.parquet": "e64df0fc189f1a4f4ce3ba39fdbba2ee83dfce871c6bf60f5660cbc9222158db",
+    "data/raw/F-F_Research_Data_Factors.csv": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb",
+    "scripts/a9_data.py": "f2e1e36109a5ec62fdf4a227198d11c924526c8c4cce777ffa3d45c96f40959c",
+    "scripts/a9_metrics.py": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+    "scripts/run_benchmarks.py": "f194b9154b5317d65c0f220c6de37eb39f819af18d344f13f37db7b96cb550ec"
+  }
+}

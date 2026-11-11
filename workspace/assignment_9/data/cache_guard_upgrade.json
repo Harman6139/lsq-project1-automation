@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-11T06:15:30.867857+00:00",
+  "reason": "Complete cache provenance guard after independently verified initial runs; arrays and cutoffs unchanged",
+  "prior_runner": "data/code_history/run_benchmarks_initial.py",
+  "prior_metadata_folder": "data/code_history",
+  "updated_metadata": [
+    "original_calibration_108_b12.json",
+    "original_calibration_108_b6.json",
+    "original_calibration_60_b12.json",
+    "original_calibration_60_b6.json",
+    "original_evaluation_108_b12.json",
+    "original_evaluation_108_b6.json",
+    "original_evaluation_60_b12.json",
+    "original_evaluation_60_b6.json",
+    "value_weighted_calibration_108_b12.json",
+    "value_weighted_calibration_108_b6.json",
+    "value_weighted_calibration_60_b12.json",
+    "value_weighted_calibration_60_b6.json",
+    "value_weighted_evaluation_108_b12.json",
+    "value_weighted_evaluation_108_b6.json",
+    "value_weighted_evaluation_60_b12.json",
+    "value_weighted_evaluation_60_b6.json"
+  ]
+}

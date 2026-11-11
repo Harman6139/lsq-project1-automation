@@ -1,0 +1,77 @@
+{
+  "completed_utc": "2026-11-11T06:10:06.064608+00:00",
+  "descriptive_signals": 195,
+  "common_months": 108,
+  "descriptive_rows": 782,
+  "return_units": "decimal",
+  "performance_sharpe": "LS mean/sample SD; funded excess over RF equals LS; Fund X uses its return minus RF",
+  "zero_h": "mean of the actual diagnostic series divided by its sample SD",
+  "factor_regression": "FF3 US; dependent LS directly, funded minus RF=LS, Fund X minus RF",
+  "hac": {
+    "lags": 4,
+    "kernel": "Bartlett",
+    "finite_sample_correction": "n/(n-4)"
+  },
+  "primary_quintiles": "Original spread series sorted by common-history excess Sharpe, Q1 low/Q5 high,39 each; alphabetical exact tie break",
+  "quintile_intervals": "Point frequencies only; strategies share stocks and calendar observations",
+  "ridge_logit": {
+    "outcome": "either conventional screen",
+    "features": [
+      "zero_h",
+      "skew",
+      "kurtosis",
+      "acf1"
+    ],
+    "standardization": "Cross-strategy mean and sample SD recomputed in each fit",
+    "objective": "mean Bernoulli negative log likelihood +0.01*sum(slope^2)/2+1e-6*intercept^2/2",
+    "uncertainty": "Joint circular calendar-block bootstrap; same calendar indices for all195 strategies, representations, weightings and RF",
+    "seed_sequence": [
+      20261111,
+      9,
+      30
+    ],
+    "draws": 300,
+    "block_months": 12,
+    "interpretation": "Descriptive same-history association, not a causal or independent cross-sectional model",
+    "percentile_range": "Conditional calendar-block refit range; rare threshold events can put the point estimate outside the percentile range",
+    "cohort_event_counts": [
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "events": 1,
+        "strategies": 195
+      },
+      {
+        "weighting": "original",
+        "representation": "funded",
+        "events": 4,
+        "strategies": 195
+      },
+      {
+        "weighting": "value_weighted",
+        "representation": "spread",
+        "events": 0,
+        "strategies": 195
+      },
+      {
+        "weighting": "value_weighted",
+        "representation": "funded",
+        "events": 0,
+        "strategies": 195
+      }
+    ]
+  },
+  "independent_checks": {
+    "hac4_matches_statsmodels_cases": 3,
+    "separated_logit_finite": true
+  },
+  "primary_highest_h": {
+    "signal": "MomVol",
+    "h": 0.4059416182833671
+  },
+  "fund_x_common_h": 0.8470241188076472,
+  "primary_series_reaching_fund_x_h": 0,
+  "elapsed_seconds": 5.313000000081956,
+  "code_sha256": "e1cf281c60900eedb661d2bc344a9a7f65ff3b3f4f327d73304fcab193063eed",
+  "design_sha256": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6"
+}

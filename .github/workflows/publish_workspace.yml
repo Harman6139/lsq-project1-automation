@@ -2,6 +2,15 @@ name: Publish Workspace
 
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        description: "Publish the full workspace or only Assignment 9"
+        required: true
+        default: workspace
+        type: choice
+        options:
+          - workspace
+          - assignment9
   push:
     branches:
       - main
@@ -35,9 +44,11 @@ jobs:
           python-version: "3.11"
 
       - name: Build live LaTeX workspace
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope != 'assignment9' }}
         run: python scripts/build_latex_workspace.py --project-dir . --output-dir _latex_workspace
 
       - name: Push live LaTeX workspace to Overleaf
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope != 'assignment9' }}
         env:
           OVERLEAF_GIT_URL: ${{ secrets.OVERLEAF_GIT_URL }}
           OVERLEAF_GIT_TOKEN: ${{ secrets.OVERLEAF_GIT_TOKEN }}
@@ -49,7 +60,15 @@ jobs:
           python scripts/push_to_overleaf.py --workspace-dir _latex_workspace
 
       - name: Publish workspace to Google Drive
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope != 'assignment9' }}
         env:
           APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
           APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
         run: python scripts/publish_workspace.py --project-dir .
+
+      - name: Publish Assignment 9 to Google Drive
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.scope == 'assignment9' }}
+        env:
+          APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
+          APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
+        run: python scripts/publish_workspace.py --project-dir . --config workspace_artifacts_assignment9.json

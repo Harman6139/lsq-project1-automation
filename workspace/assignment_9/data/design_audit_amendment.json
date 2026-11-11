@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-11T05:57:02.647592+00:00",
+  "reason": "Include every reported pool size in selection-reference calibration; no screening outcomes inspected before this change.",
+  "old_sha256": "531da8f2bcf6fb7c8aa015976da5deeadbfb72196f55b85f2fac566409a76bca",
+  "new_sha256": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6"
+}

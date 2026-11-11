@@ -1,0 +1,13 @@
+{
+  "font": "Times New Roman",
+  "colors": "black and grey",
+  "figures": [
+    "performance_support.png",
+    "reporting_tradeoff.png",
+    "selection_curves.png"
+  ],
+  "support_cohort": 195,
+  "selection_and_reporting_cohort": 194,
+  "selection_curve": "Exact conditional subset probabilities for each integer K; no strategy-independence assumption",
+  "reporting": "Fixed0.05% replacement gain, all underlying losses of at most1% in magnitude; actual108-month histories"
+}

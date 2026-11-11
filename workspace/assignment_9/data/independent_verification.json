@@ -1,0 +1,119 @@
+{
+  "frozen_design_sha256": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+  "metadata": {
+    "source_hashes_match": true,
+    "wide_and_long_LS_exactly_match": true,
+    "complete_signals": {
+      "original": {
+        "development": 179,
+        "calibration": 206,
+        "evaluation": 195
+      },
+      "value_weighted": {
+        "development": 179,
+        "calibration": 206,
+        "evaluation": 195
+      }
+    },
+    "development_windows": {
+      "original": {
+        "108": {
+          "eligible_strategy_windows": 3148,
+          "year_endpoints": 17,
+          "strategies": 193,
+          "core_without_development_window": [
+            "DelDRC"
+          ]
+        },
+        "60": {
+          "eligible_strategy_windows": 3920,
+          "year_endpoints": 21,
+          "strategies": 193,
+          "core_without_development_window": [
+            "DelDRC"
+          ]
+        }
+      },
+      "value_weighted": {
+        "108": {
+          "eligible_strategy_windows": 3148,
+          "year_endpoints": 17,
+          "strategies": 193,
+          "core_without_development_window": [
+            "DelDRC"
+          ]
+        },
+        "60": {
+          "eligible_strategy_windows": 3920,
+          "year_endpoints": 21,
+          "strategies": 193,
+          "core_without_development_window": [
+            "DelDRC"
+          ]
+        }
+      }
+    },
+    "funded_positive_NAV_support": true,
+    "all_candidate_K_values_in_calibration": true
+  },
+  "maps": {
+    "development_maps_checked": 8,
+    "independent_scalar_maps_match": true
+  },
+  "caches": {
+    "score_caches_checked": 16,
+    "independent_scalar_history_cases": 192,
+    "complete_cache_dependency_hashes_checked": 144,
+    "initial_runner_preserved_sha256": "91b2bc27ba7ef52bc02bccde8273a9a8e2d72a41f23fa98a7696b936cc770da0",
+    "joint_calendar_and_cash_broadcast_match": true,
+    "bootstrap_interpretation": "conditional historical resampling ranges; no exact coverage claim"
+  },
+  "cutoffs": {
+    "calibration_quantiles_checked": 96,
+    "strict_calibration_tail_at_most_five_percent": true,
+    "cutoff_csv_reader_precision": "round_trip",
+    "ties_and_combinatorial_weights_checked": true,
+    "floating_boundary_cases": []
+  },
+  "observed": {
+    "observed_rate_rows_checked": 720,
+    "observed_count_is_full_194_strategy_pool": true,
+    "selected_rate_is_exact_subset_winner_probability": true
+  },
+  "locked_cutoffs": {
+    "rule_groups_checked": 16,
+    "per_pool_values_checked": 96,
+    "JSON_matches_round_trip_CSV_exact_binary64_values": true,
+    "locked_cutoffs_sha256": "840057f470380cfc5d3ba4d3a07743fbb7f772bc7df45f256b4e012ce5dc8797"
+  },
+  "workbook": {
+    "xlsx_sha256": "0669e91fe8644527875a40efc50a001a306455eab448b255e100a776b0fdbc49",
+    "sheets": [
+      "Results",
+      "Strategies",
+      "Selection",
+      "Reporting",
+      "Sensitivities",
+      "Sources"
+    ],
+    "exported_table_cells_checked": 84228,
+    "formula_cells_checked": 7368,
+    "populated_cells_Times_New_Roman_black": 83949,
+    "all_96_cutoff_rows_match_locked_JSON_binary64": true,
+    "all_reporting_rate_denominators_checked": true,
+    "headline_counts_match_independent_CSV_reads": true,
+    "input_perturbation_recalculated_and_restored": true,
+    "formula_errors": 0,
+    "rendered_regions": 18,
+    "visual_review": "Every tab and all rendered important regions inspected; affected cramped labels corrected.",
+    "local_render_files_checked_in_this_run": true,
+    "engine_limit": "Artifact-tool calculation and read-only OOXML audit; not opened in native Excel."
+  },
+  "independent_reporting": {
+    "point_rows_recomputed": 960,
+    "selected_policy_rows_recomputed": 240,
+    "maximum_direct_ledger_error": 1.0408340855860843e-16,
+    "independent_of_reporting_module": true,
+    "actual_point_denominator": 194
+  }
+}

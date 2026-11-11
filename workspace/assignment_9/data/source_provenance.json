@@ -1,0 +1,45 @@
+{
+  "downloaded_utc": "2026-11-11T05:48:57.177670+00:00",
+  "release": "2026.10",
+  "dataset_commit": "dd1054254c4501776432caa6d7ce5ecd9586f6a9",
+  "license": "CC BY 4.0 for CZ published portfolio data",
+  "creator": "Andrew Y. Chen and Tom Zimmermann",
+  "paper": "Open Source Cross-Sectional Asset Pricing (2022), Critical Finance Review 11(2),207\u2013264",
+  "sources": [
+    {
+      "file": "data/raw/PredictorLSretWide.parquet",
+      "source_url": "https://huggingface.co/datasets/OpenSourceAP/CrossSection/resolve/dd1054254c4501776432caa6d7ce5ecd9586f6a9/Portfolios/Full%20Sets%20OP/PredictorLSretWide.parquet",
+      "sha256": "fc01df25d4383153cb3ae9e0dd730cc34b6d15a5207abeff09f34beda45bca58",
+      "bytes": 1439671
+    },
+    {
+      "file": "data/raw/PredictorPortsFull.parquet",
+      "source_url": "https://huggingface.co/datasets/OpenSourceAP/CrossSection/resolve/dd1054254c4501776432caa6d7ce5ecd9586f6a9/Portfolios/Full%20Sets%20OP/PredictorPortsFull.parquet",
+      "sha256": "76599d94beab94cc8973d8a126e8efbed98ee79f677738c55b2389f17387ba96",
+      "bytes": 18651119
+    },
+    {
+      "file": "data/raw/PredictorVWforce.parquet",
+      "source_url": "https://huggingface.co/datasets/OpenSourceAP/CrossSection/resolve/dd1054254c4501776432caa6d7ce5ecd9586f6a9/Portfolios/Full%20Sets%20Alt/PredictorAltPorts_LiqScreen_VWforce.parquet",
+      "sha256": "e64df0fc189f1a4f4ce3ba39fdbba2ee83dfce871c6bf60f5660cbc9222158db",
+      "bytes": 19003921
+    },
+    {
+      "file": "data/raw/SignalDoc.csv",
+      "source_url": "https://huggingface.co/datasets/OpenSourceAP/CrossSection/resolve/dd1054254c4501776432caa6d7ce5ecd9586f6a9/SignalDoc.csv",
+      "sha256": "0ceb11020c2138c2477b732948beaac2e67ccaad8428753e3a79af2bb5ea0178",
+      "bytes": 183100
+    },
+    {
+      "file": "data/raw/F-F_Research_Data_Factors_CSV.zip",
+      "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+      "sha256": "b03d39e4bb253dda0f14893db3b78e64b40b8d6549a0fc0fd4111dae84c98618",
+      "bytes": 13078
+    },
+    {
+      "file": "data/raw/fund_x_2017_01_to_2026_09.csv",
+      "source": "Assignment 8 frozen published I-series net USD returns, independently matched to current paper",
+      "sha256": "d869d0f0721d63c4e9c89336b82415c2b283f6a8701b7e71838e8432b7e2bc45"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "weighting": "original",
+  "phase": "calibration",
+  "length": 108,
+  "block": 6,
+  "draws": 3000,
+  "dependencies": {
+    "frozen_design.json": "d1e01d118e107a1e4748213414fdecc95e152c4eff35915a79ed743bb48e05b6",
+    "a9_data.py": "f2e1e36109a5ec62fdf4a227198d11c924526c8c4cce777ffa3d45c96f40959c",
+    "a9_metrics.py": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+    "original_spread_108.npz": "f8d85ff3c6680156bd1a36dece89f8ab2d1aabffb1ef05bd019bde653b718162",
+    "original_funded_108.npz": "c0d77d8bb384748beca6632f63e04759c9eb9e7e147d5fd266e0862065abcf8e"
+  }
+}

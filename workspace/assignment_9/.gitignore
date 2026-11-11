@@ -1,0 +1,12 @@
+/data/score_cache/
+/source/
+__pycache__/
+.qa*
+*.inspect.ndjson
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc

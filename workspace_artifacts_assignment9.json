@@ -1,0 +1,23 @@
+{
+  "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
+  "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
+  "overleaf_workspace_url": "",
+  "delete_names": [],
+  "delete_folders": [],
+  "artifacts": [
+    {
+      "group": "assignment9",
+      "local_path": "workspace/assignment_9/Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "drive_name": "Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "folder_path": "Assignment 9",
+      "description": "Chen-Zimmermann strategy returns, selection and controlled reporting-change experiments."
+    },
+    {
+      "group": "assignment9",
+      "local_path": "workspace/assignment_9/Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "drive_name": "Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "folder_path": "Assignment 9",
+      "description": "Supporting counts, statistics, selection probabilities and reporting-policy sensitivities."
+    }
+  ]
+}

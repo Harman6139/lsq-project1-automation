@@ -61,6 +61,14 @@ Do not update or publish from an archive when a corresponding file exists in thi
 - Primary script: `workspace/assignment_7/scripts/compute_assignment7_regimes.py`.
 - Preserve the supplied note under `source/`. The refitted regimes differ materially from the note; neither fit explains the scarcity of losses completely.
 
+### Assignment 9: Chen–Zimmermann Portfolio Screening
+
+- Location: `workspace/assignment_9`.
+- Purpose: evaluate the paper's screening rules on official published factor-portfolio returns, historical-winner selection, historical calibration and paired loss-recognition changes, using a post-publication January 2017–December 2025 common window.
+- These are reconstructed stock-strategy portfolios, not additional live hedge-fund NAVs or labelled fraud cases. Distinguish raw long–short spreads from the explicit cash-funded sensitivity and Fund X's reported net returns.
+- The October 2026 data release ends in December 2025. The descriptive cohort has 195 complete strategies; the calibration/evaluation core has 194. Exploratory fixed-weight combinations are separately declared and do not share individual-factor calibration cutoffs.
+- Entry points: `workspace/assignment_9/README.md` and `assignment9_manifest.json`. Preserve pinned source data, frozen designs, full-precision cutoffs and execution history. Read cutoff CSVs with round-trip float precision; score ties use strict exceedance.
+
 ## Efficient Linkage Check
 
 For a new document or professor concern, do not reread every prior PDF.

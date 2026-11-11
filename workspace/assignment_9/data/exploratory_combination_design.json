@@ -1,0 +1,23 @@
+{
+  "frozen_utc": "2026-11-11T06:11:40.801888+00:00",
+  "status": "exploratory addition after individual-strategy descriptive results, before any combination returns evaluated",
+  "reason": "Individual common-period factor histories do not reach Fund X performance range; test fixed diversification rules without shifting underlying returns",
+  "base_signals": "same194 core strategies; publication year<=2016",
+  "weight_estimation": [
+    "2005-01",
+    "2016-12"
+  ],
+  "evaluation": [
+    "2017-01",
+    "2025-12"
+  ],
+  "rules": [
+    "equal notional",
+    "inverse calibration volatility",
+    "maximum calibration Sharpe with long-only factor weights summingto1, cap.05 and covariance .5*sample+.5*diagonal"
+  ],
+  "cash_return": "RF+weightedLS, gross stock notional at most2 under stated self-financing convention",
+  "fees": "source gross of trading, borrowing and management costs",
+  "outcomes": "raw scores and conventional flags only; no retuning selection-calibration cutoffs",
+  "interpretation": "retrospective implementation with fixed pre2017 estimated weights; updated data vintages and literature selection remain"
+}

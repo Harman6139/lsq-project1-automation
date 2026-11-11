@@ -1,0 +1,77 @@
+{
+  "weighting": "original",
+  "months": 108,
+  "metrics_sha256": "93c0460069de39fc3340f9df05df7b6411ab8a85d104b34bf82a09e0d6f4294d",
+  "records": 3148,
+  "unique_strategies": 193,
+  "endpoints": [
+    {
+      "end": "1988-12",
+      "strategies": 174
+    },
+    {
+      "end": "1989-12",
+      "strategies": 176
+    },
+    {
+      "end": "1990-12",
+      "strategies": 179
+    },
+    {
+      "end": "1991-12",
+      "strategies": 180
+    },
+    {
+      "end": "1992-12",
+      "strategies": 181
+    },
+    {
+      "end": "1993-12",
+      "strategies": 183
+    },
+    {
+      "end": "1994-12",
+      "strategies": 183
+    },
+    {
+      "end": "1995-12",
+      "strategies": 186
+    },
+    {
+      "end": "1996-12",
+      "strategies": 187
+    },
+    {
+      "end": "1997-12",
+      "strategies": 188
+    },
+    {
+      "end": "1998-12",
+      "strategies": 188
+    },
+    {
+      "end": "1999-12",
+      "strategies": 188
+    },
+    {
+      "end": "2000-12",
+      "strategies": 188
+    },
+    {
+      "end": "2001-12",
+      "strategies": 188
+    },
+    {
+      "end": "2002-12",
+      "strategies": 193
+    },
+    {
+      "end": "2003-12",
+      "strategies": 193
+    },
+    {
+      "end": "2004-12",
+      "strategies": 193
+    }
+  ]
+}
