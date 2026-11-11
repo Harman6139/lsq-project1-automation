@@ -1,0 +1,24 @@
+{
+  "analysis_commit": "e4894d8c233ee75b9b35d1f3bf9d5d415e5dea96",
+  "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/42976120178",
+  "workflow_success": true,
+  "scope": "assignment9",
+  "global_publisher_skipped": true,
+  "overleaf_skipped": true,
+  "files": [
+    {
+      "name": "Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "drive_id": "1Kq8Wg1kj2iman7yu9rtmL5SlmQhL6GiO",
+      "size": 301643,
+      "sha256": "9e1fad1457ef33ea7297fa0c5d5830ad1f6fda7f46424a203a7c7fbec2235138",
+      "raw_readback_matches_local_bytes": true
+    },
+    {
+      "name": "Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "drive_id": "1hvxfCVavjPjNwkfCCzGWu2rKgEX-fEYS",
+      "size": 657015,
+      "sha256": "0669e91fe8644527875a40efc50a001a306455eab448b255e100a776b0fdbc49",
+      "raw_readback_matches_local_bytes": true
+    }
+  ]
+}

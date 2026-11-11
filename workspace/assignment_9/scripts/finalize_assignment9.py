@@ -68,6 +68,10 @@ def main():
         path = ROOT / name
         included.append(dict(file=name, bytes=path.stat().st_size, sha256=digest(path)))
     versions = {name: importlib.metadata.version(name) for name in ['numpy', 'pandas', 'scipy', 'statsmodels', 'pyarrow', 'matplotlib', 'requests', 'PyMuPDF']}
+    publication = dict(status='prepared local release; no remote publication claimed until separately verified')
+    if (ROOT / 'data/publication_readback.json').exists():
+        publication = dict(status='published and raw Drive readback verified',
+                           **json.loads((ROOT / 'data/publication_readback.json').read_text()))
     manifest = dict(
         assignment=9, release_date='2026-11-11', finalized_utc=datetime.now(timezone.utc).isoformat(),
         scope='Chen–Zimmermann portfolios; historical selection, calibration, paired reporting changes and exploratory fixed-weight combinations',
@@ -97,7 +101,7 @@ def main():
         numerical_execution=dict(location='local Windows CPU', principal_runs_seconds=[66.2,71.9,87.5],
                                  cpu26_used=False, reason='Each numerical job completed well below ten minutes'),
         environment=versions, university_copies=outputs,
-        publication=dict(status='prepared local release; no remote publication claimed until separately verified'),
+        publication=publication,
         files=included,
     )
     target = ROOT / 'assignment9_manifest.json'

@@ -4,6 +4,12 @@ The professor-facing files are `Assignment_9_Chen_Zimmermann_Screening.pdf` and
 `Assignment_9_Chen_Zimmermann_Screening.xlsx`. The matching report source is the
 `.tex` file. This release is dated 11 November 2026.
 
+The PDF and workbook are published in the established Drive workspace's
+Assignment 9 folder. Both uploaded raw files were downloaded again and matched
+byte for byte. The analysis release is pinned at GitHub commit
+`e4894d8c233ee75b9b35d1f3bf9d5d415e5dea96`; publication evidence is in
+`data/publication_readback.json`. Only the dedicated Assignment 9 publisher ran.
+
 ## Findings
 
 The 2017–2025 common window has 195 complete individual factor records. One

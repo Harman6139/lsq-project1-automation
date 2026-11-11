@@ -1,7 +1,7 @@
 {
   "assignment": 9,
   "release_date": "2026-11-11",
-  "finalized_utc": "2026-11-11T06:57:17.339782+00:00",
+  "finalized_utc": "2026-11-11T07:06:39.825234+00:00",
   "scope": "Chen–Zimmermann portfolios; historical selection, calibration, paired reporting changes and exploratory fixed-weight combinations",
   "paper_input": "Outer main.tex in supplied Curious_CaseX(5).zip; nested older paper retained only as historical input",
   "private_original_inputs": "Preserved locally under source/ and excluded from the public GitHub repository",
@@ -227,7 +227,29 @@
     }
   ],
   "publication": {
-    "status": "prepared local release; no remote publication claimed until separately verified"
+    "status": "published and raw Drive readback verified",
+    "analysis_commit": "e4894d8c233ee75b9b35d1f3bf9d5d415e5dea96",
+    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/42976120178",
+    "workflow_success": true,
+    "scope": "assignment9",
+    "global_publisher_skipped": true,
+    "overleaf_skipped": true,
+    "files": [
+      {
+        "name": "Assignment_9_Chen_Zimmermann_Screening.pdf",
+        "drive_id": "1Kq8Wg1kj2iman7yu9rtmL5SlmQhL6GiO",
+        "size": 301643,
+        "sha256": "9e1fad1457ef33ea7297fa0c5d5830ad1f6fda7f46424a203a7c7fbec2235138",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "name": "Assignment_9_Chen_Zimmermann_Screening.xlsx",
+        "drive_id": "1hvxfCVavjPjNwkfCCzGWu2rKgEX-fEYS",
+        "size": 657015,
+        "sha256": "0669e91fe8644527875a40efc50a001a306455eab448b255e100a776b0fdbc49",
+        "raw_readback_matches_local_bytes": true
+      }
+    ]
   },
   "files": [
     {
@@ -262,8 +284,8 @@
     },
     {
       "file": "scripts/finalize_assignment9.py",
-      "bytes": 7318,
-      "sha256": "8ac3ca710278302ea3c9ea49335627a45d1350a3a843378af6291c28cedeee39"
+      "bytes": 7582,
+      "sha256": "adfa9b56c031320ee5fa4ad3aeac7c13bbf2800b6da6ab1c98d315593f3ae9b4"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -651,6 +673,11 @@
       "sha256": "85643941f1b63c63722d002516751bbdd16644303528c504b9a0f7bbefc07048"
     },
     {
+      "file": "data/publication_readback.json",
+      "bytes": 890,
+      "sha256": "5ddf993c18817cde62901e3e6ce4855efb0a4c24b023590969e8b784a662c4f0"
+    },
+    {
       "file": "data/raw/F-F_Research_Data_Factors.csv",
       "bytes": 52533,
       "sha256": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb"
@@ -722,8 +749,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 9013,
-      "sha256": "ebd62f9e4ccca44dba1bce91be757430cc3e20f3f1a2c31fe124ad4481c4e543"
+      "bytes": 9380,
+      "sha256": "88c7582dd60f862c5660995332a76ec458087a1f59444f4497c7c330ea1d021f"
     },
     {
       "file": ".gitignore",
