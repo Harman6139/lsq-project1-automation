@@ -1,0 +1,19 @@
+{
+  "source": "tables/frontier_curves_original.csv",
+  "source_sha256": "2ce2cbae3cd4016e57dab3528a1de2bb89105942a1063ec2a65eab5bf4cdd197",
+  "group": "all194",
+  "window": "2017-01 to2025-12",
+  "configuration_choice": "count-specific choices selected using old calibration data at5%; B+D is the prespecified comparator; IDs held fixed while alpha varies0..1 in.01 steps",
+  "plotted": "actual later unchanged-warning rate versus total altered-warning rate",
+  "vertical_moves": "all cutoffs retained in alpha order; no duplicate-x upper-bound collapse",
+  "files": [
+    {
+      "file": "figures/report_loss_delay.png",
+      "sha256": "fe0d4928d03389f31c52fcd82841f7c732505ab9b9effc4c5b2d50b747182fe6"
+    },
+    {
+      "file": "figures/report_smoothing.png",
+      "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-19T07:25:22.002751+00:00",
+  "finalized_utc": "2026-11-19T16:25:12.204307+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -1393,9 +1393,11 @@
   },
   "full_table_arithmetic_rows_checked": 108072,
   "cache_settings_and_budget_checks": 24,
+  "presentation_revision": "Expanded to three pages with exact main-method formulas and two frozen-results graphs; no numerical experiment changed",
   "pdf_checks": {
-    "pages": 1,
-    "words": 150,
+    "pages": 3,
+    "words": 1199,
+    "graphs": 2,
     "every_page_rendered_and_visually_inspected": true,
     "overfull_boxes": 0,
     "cold_read_complete": true
@@ -1414,16 +1416,24 @@
   },
   "university_copies": [
     {
-      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-      "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06"
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.pdf",
+      "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744"
     },
     {
-      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.tex",
-      "sha256": "6dd4fea6c960a09ddab5e656b80c787bcd707ad260b7e28da8633359a445d39c"
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.tex",
+      "sha256": "8f0a5e328fc653619ccd89eab370ed092768071638024850c9383bda2030f210"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
       "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\report_loss_delay.png",
+      "sha256": "fe0d4928d03389f31c52fcd82841f7c732505ab9b9effc4c5b2d50b747182fe6"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\report_smoothing.png",
+      "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
@@ -1431,29 +1441,7 @@
     }
   ],
   "publication": {
-    "status": "published with byte-for-byte Drive readback",
-    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
-    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44479083475",
-    "workflow_success": true,
-    "scope": "assignment10",
-    "global_publisher_skipped": true,
-    "overleaf_skipped": true,
-    "files": [
-      {
-        "name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-        "drive_id": "1BwwuGzM7ifh_eP9qnLdw4RuaacQ82-zq",
-        "size": 74027,
-        "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_id": "1aLJz2tNEIY1blaV0PuC8NKMUa6YPfaO0",
-        "size": 177709,
-        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
-        "raw_readback_matches_local_bytes": true
-      }
-    ]
+    "status": "prepared local release; remote publication not yet claimed"
   },
   "files": [
     {
@@ -1467,9 +1455,14 @@
       "sha256": "78ccf7d154d27cfd77bfdfa64eba2c231745f98ee852adf738703deb3d1d8954"
     },
     {
+      "file": "scripts/build_methods_report.py",
+      "bytes": 4275,
+      "sha256": "61f69f8ce760ce8612b7bcc7fdf957b5338aaa874c9741e9bd7c8451a922bb60"
+    },
+    {
       "file": "scripts/finalize_assignment10.py",
-      "bytes": 7371,
-      "sha256": "6e408711a18fcff4855e565a88f1eab08a17631253ff5c91c1d546a9a4aa4181"
+      "bytes": 8143,
+      "sha256": "87c5907b5bd29285bae7b91a092b849db09c33f420e5388a79af528449d2bce0"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -1485,6 +1478,11 @@
       "file": "scripts/frontier_metrics.py",
       "bytes": 5587,
       "sha256": "17cb1cf22fb6b34448ed39e5e5f8f725d4bf59877498e338321b221b9c58d071"
+    },
+    {
+      "file": "scripts/methods_note_body.tex",
+      "bytes": 8795,
+      "sha256": "433555b7cc6a3a1bd3dfe196f4526d5e33501c927925ee16b3acca2f6d7d7808"
     },
     {
       "file": "scripts/plot_frontiers.py",
@@ -1580,6 +1578,11 @@
       "file": "data/independent_verification.json",
       "bytes": 27022,
       "sha256": "16b46317befff54c29de4b3888bbda2857eb055e740dea63a2b4cbac08799648"
+    },
+    {
+      "file": "data/methods_graph_metadata.json",
+      "bytes": 878,
+      "sha256": "b326ef4186f8c0881ec8639ca9dbb2de299026ed363dbba9e835663fbb9960cc"
     },
     {
       "file": "data/publication_readback.json",
@@ -1782,6 +1785,16 @@
       "sha256": "0a33f1487dc2118d963c178af60ab029bf1d37c56d85ba0d98d342974f51c774"
     },
     {
+      "file": "figures/report_loss_delay.png",
+      "bytes": 55521,
+      "sha256": "fe0d4928d03389f31c52fcd82841f7c732505ab9b9effc4c5b2d50b747182fe6"
+    },
+    {
+      "file": "figures/report_smoothing.png",
+      "bytes": 56469,
+      "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
+    },
+    {
       "file": "research/data_search.json",
       "bytes": 6764,
       "sha256": "4d540139109a5d6455c90e4ebc09acff84171dd075e794858725d68e79c99c81"
@@ -1842,14 +1855,39 @@
       "sha256": "aac0c0a571d0d4aefbfb1cc3e0621b00a366fdd7e8f07f6ebe23aca7e562945f"
     },
     {
-      "file": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "file": "History/20261119_One_Page_Handoff/assignment10_manifest.json",
+      "bytes": 58930,
+      "sha256": "c19940189afec141115dad74cddcf2b4d2e72956c86d46f2f0b90f06d98296cc"
+    },
+    {
+      "file": "History/20261119_One_Page_Handoff/Assignment_10_Return_Screening_Frontier_Handoff.pdf",
       "bytes": 74027,
       "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06"
     },
     {
-      "file": "Assignment_10_Return_Screening_Frontier_Handoff.tex",
+      "file": "History/20261119_One_Page_Handoff/Assignment_10_Return_Screening_Frontier_Handoff.tex",
       "bytes": 1812,
       "sha256": "6dd4fea6c960a09ddab5e656b80c787bcd707ad260b7e28da8633359a445d39c"
+    },
+    {
+      "file": "History/20261119_One_Page_Handoff/original_paths.json",
+      "bytes": 1917,
+      "sha256": "c68c42d8c343c64ea191d30f375ad3d6feb864e5371ba829e8aacf9b73a1c3ec"
+    },
+    {
+      "file": "History/20261119_One_Page_Handoff/publication_readback.json",
+      "bytes": 908,
+      "sha256": "2b4e23397c8b4a6004fef267e8beedbb304381acd74191bbeb8c321a0b18765c"
+    },
+    {
+      "file": "Return_Screening_Frontier.pdf",
+      "bytes": 209915,
+      "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744"
+    },
+    {
+      "file": "Return_Screening_Frontier.tex",
+      "bytes": 9159,
+      "sha256": "8f0a5e328fc653619ccd89eab370ed092768071638024850c9383bda2030f210"
     },
     {
       "file": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
@@ -1858,8 +1896,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 11089,
-      "sha256": "d8152826b45c69873cf3d0ba2eab031cc41070c59a8e80ae20fa693eb864c25f"
+      "bytes": 11601,
+      "sha256": "a4004616be8232818db5a1136b95bbb0d4f9e15ea8d468549f7e0fd1a890be81"
     },
     {
       "file": ".gitignore",

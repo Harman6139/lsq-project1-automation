@@ -12,7 +12,8 @@ import pandas as pd
 from frontier_engine import dependency_hashes
 
 ROOT=Path(__file__).resolve().parents[1]
-STEM='Assignment_10_Return_Screening_Frontier_Handoff'
+STEM='Return_Screening_Frontier'
+BOOK_STEM='Assignment_10_Return_Screening_Frontier_Handoff'
 UNIVERSITY=Path('C:/Users/HP/Desktop/University/Working Manuscripts/Active Papers/Fund X Paper Review/Research/Assignment 10')
 
 
@@ -34,18 +35,18 @@ def copy_checked(source,destination):
 
 def main():
     document=fitz.open(ROOT/f'{STEM}.pdf')
-    assert len(document)==1
-    words=len(document[0].get_text().split());assert words<=150,words
+    assert 2<=len(document)<=3
+    words=sum(len(page.get_text().split()) for page in document)
     log=(ROOT/f'{STEM}.log').read_text()
     assert 'Overfull' not in log and 'Missing character' not in log
-    assert (ROOT/'.qa_assignment10/report/page_1.png').exists()
+    assert all((ROOT/f'.qa_assignment10/methods/page_{n}.png').exists() for n in range(1,len(document)+1))
     email=ROOT/'Email_to_Professor_Boyle_Frontier_Handoff.txt'
     assert len(email.read_text().split())<=150
     verification=json.loads((ROOT/'data/independent_verification.json').read_text())
     assert verification['scalar_checks']['status']=='passed'
     bookcheck=json.loads((ROOT/'data/workbook_verification.json').read_text())
     assert bookcheck['status']=='passed' and bookcheck['formula_errors']==0
-    assert digest(ROOT/f'{STEM}.xlsx')==bookcheck['sha256']
+    assert digest(ROOT/f'{BOOK_STEM}.xlsx')==bookcheck['sha256']
     checked_rows=0
     for name in ['point_rates_original','point_rates_value_weighted','external_rates']:
         data=pd.read_csv(ROOT/f'tables/{name}.csv',float_precision='round_trip')
@@ -71,26 +72,31 @@ def main():
             assert np.all(saved['calibration_rates']<=np.linspace(0,1,101)[None,:]+1e-12)
         cache_checks+=1
     copies=[]
-    for ext in ['pdf','tex','xlsx']:
+    for ext in ['pdf','tex']:
         copies.append(copy_checked(ROOT/f'{STEM}.{ext}',UNIVERSITY/f'{STEM}.{ext}'))
         copy_checked(ROOT/f'{STEM}.{ext}',ROOT.parents[1]/'outputs/assignment10_handoff_20261119'/f'{STEM}.{ext}')
+    copies.append(copy_checked(ROOT/f'{BOOK_STEM}.xlsx',UNIVERSITY/f'{BOOK_STEM}.xlsx'))
+    for figure in ['report_loss_delay.png','report_smoothing.png']:
+        copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
     copies.append(copy_checked(email,UNIVERSITY/email.name))
     (UNIVERSITY/'Current_version.txt').write_text(
-        'Assignment 10 handoff, 19 November 2026.\nOne-page PDF plus supporting workbook. The email text is a draft and was not sent.\n'
+        'Return screening: methods and results, 19 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and two figure files. Supporting workbook and unsent email draft are unchanged.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff.\n'
         'Sources and reproduction: C:/Users/HP/Prof Boyle/codex_project1a_context/project1_may2026_deliverables/workspace/assignment_10/README.md\n',encoding='utf-8')
     files=[]
-    for folder in ['scripts','data','tables','figures','research']:
+    for folder in ['scripts','data','tables','figures','research','History']:
         for path in sorted((ROOT/folder).rglob('*')):
             if not path.is_file(): continue
             rel=path.relative_to(ROOT)
             if any(p in ['cache','external','__pycache__'] for p in rel.parts):continue
             if path.name in ['download_inventory.json','build_email_draft.py'] or '.private.' in path.name:continue
             files.append(dict(file=rel.as_posix(),bytes=path.stat().st_size,sha256=digest(path)))
-    for name in [f'{STEM}.pdf',f'{STEM}.tex',f'{STEM}.xlsx','README.md','.gitignore','.gitattributes']:
+    for name in [f'{STEM}.pdf',f'{STEM}.tex',f'{BOOK_STEM}.xlsx','README.md','.gitignore','.gitattributes']:
         path=ROOT/name;files.append(dict(file=name,bytes=path.stat().st_size,sha256=digest(path)))
     publication=dict(status='prepared local release; remote publication not yet claimed')
     if (ROOT/'data/publication_readback.json').exists():
-        publication=dict(status='published with byte-for-byte Drive readback',**json.loads((ROOT/'data/publication_readback.json').read_text()))
+        readback=json.loads((ROOT/'data/publication_readback.json').read_text())
+        if digest(ROOT/f'{STEM}.pdf') in json.dumps(readback):
+            publication=dict(status='published with byte-for-byte Drive readback',**readback)
     summary=json.loads((ROOT/'data/results_summary.json').read_text())
     manifest=dict(assignment=10,release_date='2026-11-19',finalized_utc=datetime.now(timezone.utc).isoformat(),
         objective='Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories',
@@ -100,7 +106,8 @@ def main():
         private_email=dict(file=email.name,sha256=digest(email),words=len(email.read_text().split()),sent=False),
         key_results=summary,verification=verification,workbook_checks=bookcheck,
         full_table_arithmetic_rows_checked=checked_rows,cache_settings_and_budget_checks=cache_checks,
-        pdf_checks=dict(pages=1,words=words,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
+        presentation_revision='Expanded to three pages with exact main-method formulas and two frozen-results graphs; no numerical experiment changed',
+        pdf_checks=dict(pages=len(document),words=words,graphs=2,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
         numerical_execution=dict(seconds_by_job={k:v['seconds'] for k,v in executions.items()},
             total_seconds=sum(v['seconds'] for v in executions.values()),cpu26_used=False),
         university_copies=copies,publication=publication,files=files)

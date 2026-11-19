@@ -1,15 +1,18 @@
 # Assignment 10: return-screening frontiers
 
-The professor-facing handoff is the one-page
-`Assignment_10_Return_Screening_Frontier_Handoff.pdf`, with matching `.tex` source
-and supporting `.xlsx`. The draft email is
-`Email_to_Professor_Boyle_Frontier_Handoff.txt`. No email was sent.
-The correspondence draft and local Downloads inventory are excluded from Git.
-The checked PDF and workbook are published in the existing Drive workspace's
-Assignment 10 folder. Raw download readback matches the local files byte for byte.
-The analysis release is pinned at commit
-`ffbc7598df5feb6fc9de40e200521727db2c89e0`; evidence is in
-`data/publication_readback.json`. Only the scoped Assignment 10 publisher ran.
+The current professor-facing note is `Return_Screening_Frontier.pdf`: three pages
+with exact main-method formulas, two graphs and the economic findings. Its matching
+LaTeX source and graphs are alongside the existing supporting workbook,
+`Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft is
+unchanged. The old one-page note is preserved with path/hash inventories under
+`History/20261119_One_Page_Handoff`, both here and in the stable University folder.
+The presentation revision does not change the numerical experiments or workbook.
+Correspondence, personal download inventories and restricted originals stay local.
+
+The original analysis release is pinned at
+`ffbc7598df5feb6fc9de40e200521727db2c89e0`. The current PDF replaces the existing
+Drive report in place through the scoped publisher. Publication evidence is in
+`data/publication_readback.json`; archived evidence describes the one-page release.
 
 ## Economic question and findings
 
@@ -33,7 +36,7 @@ altered records; newly triggered alerts are stored separately.
 
 The best two- and three-family choices on older calibration data perform similarly
 on ordinary later factor histories. However, in the first published-test block
-of the author-released Chen–Pelger–Zhu portfolio, the local/serial pair misses a
+of the author-released Chenâ€“Pelgerâ€“Zhu portfolio, the local/serial pair misses a
 four-loss reporting change that adding the bias check catches. The original
 bias/loss-count pair also catches that example: a third check is not universally
 required. This is a particular counterexample to that pair's universal usefulness,
@@ -52,7 +55,7 @@ The earlier runtime pilot discarded all score outcomes. Performance summaries
 were used to judge whether candidate external sources cover Fund X's range.
 The external input hashes were locked separately before screening those sources.
 
-- Primary development: 1980–2004; calibration: 2005–2016; evaluation: 2017–2025.
+- Primary development: 1980â€“2004; calibration: 2005â€“2016; evaluation: 2017â€“2025.
 - Cohort: 194 complete CZ factors; 108 months primary, 60-month rolling December
   endpoints as sensitivity; original and forced-value stock weights; spread and
   explicitly cash-funded versions.
@@ -67,11 +70,11 @@ The external input hashes were locked separately before screening those sources.
   weights define a reference objective, not an estimated fraud prevalence.
 - Five strategy folds hold complete economic categories together. All maps,
   PCA loadings, cutoffs and selection are fitted excluding the held-out categories.
-- A9 had already examined 2017–2025 descriptions and two-score results. This is
+- A9 had already examined 2017â€“2025 descriptions and two-score results. This is
   a new frozen comparison, not a claim that the historical test period was virgin.
 
-External CPZ reference maps use 1926–1979 and calibration uses 1980–1991, before
-the whole author-designated 1992–2016 test. We evaluate the first two disjoint
+External CPZ reference maps use 1926â€“1979 and calibration uses 1980â€“1991, before
+the whole author-designated 1992â€“2016 test. We evaluate the first two disjoint
 108-month blocks, the final overlapping 108-month block, and all 300 test months.
 The 300-month bootstrap reference resamples only 144 observed calibration months;
 it is a conditional historical extrapolation, not 300 additional observed months.
@@ -81,9 +84,9 @@ Same-date CZ reference records show the older calibration's later drift.
 
 The local score cancels a smooth linear density slope. With b=.25 sample SD,
 let L2 count [-2b,-b), L1 [-b,0), G1 (0,b], G2 (b,2b]. The score is
-`[3(G1−L1)−(G2−L2)] / sqrt[9(G1+L1)+G2+L2]`, zero if its denominator is zero.
+`[3(G1âˆ’L1)âˆ’(G2âˆ’L2)] / sqrt[9(G1+L1)+G2+L2]`, zero if its denominator is zero.
 Exact zeros are counted separately. It is empirically calibrated, not an exact
-normal test or the original pooled Bollen–Pool procedure. Bandwidth .5 SD is a
+normal test or the original pooled Bollenâ€“Pool procedure. Bandwidth .5 SD is a
 prespecified sensitivity.
 
 The main loss policy replaces losses within .25 of each path's sample SD with
@@ -139,9 +142,9 @@ actual fraud prevalence or monetary investigation benefits were obtained.
 ## Closest work and significance
 
 `research/literature_review.json` compares 18 studies and records primary URLs,
-inspection coverage and version gaps. Bollen–Pool already combines return flags
-and compares warning budgets; Joenväärä–Kosowski aggregates statistics; González
-and colleagues study strong performers; Beneish–Vorst compares investigation costs.
+inspection coverage and version gaps. Bollenâ€“Pool already combines return flags
+and compares warning budgets; JoenvÃ¤Ã¤rÃ¤â€“Kosowski aggregates statistics; GonzÃ¡lez
+and colleagues study strong performers; Beneishâ€“Vorst compares investigation costs.
 The score combination, frontier, and basic detection-versus-warning tradeoff are
 not new methods. The possible increment is new, consequential evidence about
 where fixed screening choices transfer or fail. A substantial advance for Risk
@@ -161,9 +164,12 @@ python scripts/run_external_validation.py
 python scripts/run_sensitivity.py
 python scripts/summarize_results.py
 python scripts/plot_frontiers.py
-python scripts/build_handoff.py
-xelatex -interaction=nonstopmode -halt-on-error Assignment_10_Return_Screening_Frontier_Handoff.tex
+python scripts/build_methods_report.py
+xelatex -interaction=nonstopmode -halt-on-error Return_Screening_Frontier.tex
 ```
+
+The report builder reads `scripts/methods_note_body.tex` and frozen CSVs; it does
+not rerun the backtest. `build_handoff.py` reproduces the archived short note.
 
 Retain the frozen design rather than rerunning `freeze_design.py`. Fetch external
 inputs from the recorded URLs and match hashes before external validation. The

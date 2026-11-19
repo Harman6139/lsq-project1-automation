@@ -1,0 +1,1875 @@
+{
+  "assignment": 10,
+  "release_date": "2026-11-19",
+  "finalized_utc": "2026-11-19T07:25:22.002751+00:00",
+  "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
+  "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
+  "policies": {
+    "primary": 26,
+    "total": 38
+  },
+  "primary_cohort": 194,
+  "external_world_cohort": 153,
+  "score_families": [
+    "bias ratio",
+    "fitted-normal loss deficit",
+    "positive serial dependence",
+    "local four-bin zero contrast"
+  ],
+  "data_rights": "External originals/restricted PDFs, personal Downloads inventory and correspondence stay local and excluded from public Git",
+  "private_email": {
+    "file": "Email_to_Professor_Boyle_Frontier_Handoff.txt",
+    "sha256": "9c32a40303a674b00b754efeabd6cdf93799c361825f7f9745fc33d6a31f026f",
+    "words": 128,
+    "sent": false
+  },
+  "key_results": {
+    "initial_unmodified_count": 195,
+    "initial_unmodified_alerts": 1,
+    "initial_cutoff_comparison": [
+      {
+        "approach": "Original conventional rules",
+        "n": 194,
+        "unchanged_warnings": 1,
+        "altered_warnings": 120,
+        "new_warnings": 119
+      },
+      {
+        "approach": "Ordinary historical cutoff",
+        "n": 194,
+        "unchanged_warnings": 1,
+        "altered_warnings": 111,
+        "new_warnings": 110
+      },
+      {
+        "approach": "Higher selection cutoff",
+        "n": 194,
+        "unchanged_warnings": 0,
+        "altered_warnings": 66,
+        "new_warnings": 66
+      }
+    ],
+    "frontier_comparison": [
+      {
+        "source": "US factor portfolios",
+        "case": "Unchanged records",
+        "mechanism": "unmodified",
+        "n": 194,
+        "old_pair_warnings": 1,
+        "local_serial_pair_warnings": 3,
+        "old_pair_baseline": 1,
+        "local_serial_pair_baseline": 3,
+        "old_pair_new": 0,
+        "local_serial_pair_new": 0,
+        "reference_budget": 0.05
+      },
+      {
+        "source": "US factor portfolios",
+        "case": "Small losses recognised 3 months later",
+        "mechanism": "relative_delay3",
+        "n": 194,
+        "old_pair_warnings": 104,
+        "local_serial_pair_warnings": 192,
+        "old_pair_baseline": 1,
+        "local_serial_pair_baseline": 3,
+        "old_pair_new": 103,
+        "local_serial_pair_new": 189,
+        "reference_budget": 0.05
+      },
+      {
+        "source": "US factor portfolios",
+        "case": "Returns averaged across adjacent months",
+        "mechanism": "smooth50",
+        "n": 194,
+        "old_pair_warnings": 3,
+        "local_serial_pair_warnings": 189,
+        "old_pair_baseline": 1,
+        "local_serial_pair_baseline": 3,
+        "old_pair_new": 3,
+        "local_serial_pair_new": 186,
+        "reference_budget": 0.05
+      },
+      {
+        "source": "World factor portfolios",
+        "case": "Unchanged records",
+        "mechanism": "unmodified",
+        "n": 153,
+        "old_pair_warnings": 6,
+        "local_serial_pair_warnings": 3,
+        "old_pair_baseline": 6,
+        "local_serial_pair_baseline": 3,
+        "old_pair_new": 0,
+        "local_serial_pair_new": 0,
+        "reference_budget": 0.05
+      },
+      {
+        "source": "World factor portfolios",
+        "case": "Small losses recognised 3 months later",
+        "mechanism": "relative_delay3",
+        "n": 153,
+        "old_pair_warnings": 79,
+        "local_serial_pair_warnings": 152,
+        "old_pair_baseline": 6,
+        "local_serial_pair_baseline": 3,
+        "old_pair_new": 73,
+        "local_serial_pair_new": 149,
+        "reference_budget": 0.05
+      },
+      {
+        "source": "World factor portfolios",
+        "case": "Returns averaged across adjacent months",
+        "mechanism": "smooth50",
+        "n": 153,
+        "old_pair_warnings": 5,
+        "local_serial_pair_warnings": 153,
+        "old_pair_baseline": 6,
+        "local_serial_pair_baseline": 3,
+        "old_pair_new": 2,
+        "local_serial_pair_new": 150,
+        "reference_budget": 0.05
+      }
+    ],
+    "selected_choices": [
+      {
+        "scope": "all",
+        "policy": "OR:B+A+Z",
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "scope": "primary",
+        "policy": "OR:B+A+Z",
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "scope": "1",
+        "policy": "Z",
+        "families": 1,
+        "training_new_warning_rate": 0.6331658075601357
+      },
+      {
+        "scope": "2",
+        "policy": "OR:A+Z",
+        "families": 2,
+        "training_new_warning_rate": 0.913848797250858
+      },
+      {
+        "scope": "3",
+        "policy": "OR:B+A+Z",
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "scope": "4",
+        "policy": "OR:B+D+A+Z",
+        "families": 4,
+        "training_new_warning_rate": 0.9085481099656345
+      }
+    ],
+    "exceptional_history": [
+      {
+        "sample": "first108",
+        "start": "1992-01",
+        "end": "2000-12",
+        "n": 108,
+        "mean": 0.01193350560035333,
+        "sd": 0.007824034115656834,
+        "excess_sharpe": 1.525236907706339,
+        "losing_months": 9,
+        "small_losses_eligible": 4,
+        "old_pair_original": 0,
+        "old_pair_delay3": 1,
+        "old_pair_smoothed": 0,
+        "local_serial_pair_original": 0,
+        "local_serial_pair_delay3": 0,
+        "local_serial_pair_smoothed": 1,
+        "three_rules_original": 0,
+        "three_rules_delay3": 1,
+        "three_rules_smoothed": 1
+      },
+      {
+        "sample": "second108",
+        "start": "2001-01",
+        "end": "2009-12",
+        "n": 108,
+        "mean": 0.006220377385432553,
+        "sd": 0.0130990508462064,
+        "excess_sharpe": 0.47487237498845414,
+        "losing_months": 23,
+        "small_losses_eligible": 12,
+        "old_pair_original": 1,
+        "old_pair_delay3": 1,
+        "old_pair_smoothed": 1,
+        "local_serial_pair_original": 0,
+        "local_serial_pair_delay3": 1,
+        "local_serial_pair_smoothed": 1,
+        "three_rules_original": 0,
+        "three_rules_delay3": 1,
+        "three_rules_smoothed": 1
+      },
+      {
+        "sample": "final108_overlap",
+        "start": "2008-01",
+        "end": "2016-12",
+        "n": 108,
+        "mean": 0.003982711348542856,
+        "sd": 0.010470848843917777,
+        "excess_sharpe": 0.3803618415193054,
+        "losing_months": 30,
+        "small_losses_eligible": 16,
+        "old_pair_original": 0,
+        "old_pair_delay3": 1,
+        "old_pair_smoothed": 1,
+        "local_serial_pair_original": 0,
+        "local_serial_pair_delay3": 1,
+        "local_serial_pair_smoothed": 1,
+        "three_rules_original": 0,
+        "three_rules_delay3": 1,
+        "three_rules_smoothed": 1
+      },
+      {
+        "sample": "published_test300",
+        "start": "1992-01",
+        "end": "2016-12",
+        "n": 300,
+        "mean": 0.007808261577848402,
+        "sd": 0.010429521563431418,
+        "excess_sharpe": 0.748669201205372,
+        "losing_months": 53,
+        "small_losses_eligible": 27,
+        "old_pair_original": 1,
+        "old_pair_delay3": 1,
+        "old_pair_smoothed": 1,
+        "local_serial_pair_original": 0,
+        "local_serial_pair_delay3": 1,
+        "local_serial_pair_smoothed": 1,
+        "three_rules_original": 0,
+        "three_rules_delay3": 1,
+        "three_rules_smoothed": 1
+      }
+    ],
+    "interpretive_takeaways": [
+      "The initial experiment showed sparse unchanged warnings and the familiar cost of a higher cutoff.",
+      "The frontier exercise compares different types and quantities, not only thresholds.",
+      "A local zero-bin score and positive serial dependence cover different imposed reporting changes.",
+      "Adding third/fourth checks gave little extra coverage on the later factor panel, but the high-Sharpe first GAN test block needed the bias check for its imposed loss delay.",
+      "Same older-reference warning budget; actual later investigation counts are shown separately.",
+      "Highest reported GAN Sharpe is an author-backtest segment, not a live fund NAV; later performance weakened.",
+      "Existing papers already combine alerts and compare costs; no new frontier method is claimed."
+    ],
+    "execution_seconds": {
+      "execution_external": 44.03099999999995,
+      "execution_folds": 17.65599999999995,
+      "execution_original": 108.63999999999987,
+      "execution_sensitivity": 17.265000000000327,
+      "execution_uncertainty": 7.985000000000127,
+      "execution_value_weighted": 119.42099999999982
+    }
+  },
+  "verification": {
+    "scalar_checks": {
+      "status": "passed",
+      "dependencies": {
+        "scripts\\frontier_metrics.py": "17cb1cf22fb6b34448ed39e5e5f8f725d4bf59877498e338321b221b9c58d071",
+        "scripts\\frontier_engine.py": "c9b8ae3f709b5ce618a98376442cf0b3cc2a4e5c30e9345991eac08e63e3d187",
+        "data\\frozen_design.json": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e"
+      },
+      "metrics": {
+        "scalar_metric_paths": 24,
+        "scalar_detail_counts_match": true,
+        "local_band_endpoints_match": true,
+        "zero_and_empty_band_conventions_match": true,
+        "positive_scale_invariance": true,
+        "invalid_metric_inputs_rejected": true
+      },
+      "combinations": {
+        "total_policies": 38,
+        "primary_policies": 26,
+        "boolean_vote_comparisons": 81250,
+        "or_and_strict_majority_equivalence": true
+      },
+      "reporting": {
+        "policy_batch_cases": 40,
+        "scalar_scheduler_matches": true,
+        "relative_and_fixed_eligibility_match": true,
+        "probability_half_matches": true,
+        "additive_and_funded_log_ledgers_match": true,
+        "supplied_tail_settlement_matches": true,
+        "relative_payoff_policy_scale_invariance": true,
+        "funded_nav_support_guard_matches": true,
+        "pending_after_window_balances_match": true,
+        "supplied_future_payoffs_do_not_change_observed_window": true,
+        "maximum_ledger_identity_error": 6.938893903907228e-17
+      },
+      "maps_pca_cutoffs": {
+        "scalar_percentile_ties_match": true,
+        "pca_matches_independent_svd": true,
+        "mean_rank_comparators_match": true,
+        "weighted_budget_cases": 36,
+        "strict_warning_budgets_respected": true,
+        "budget_boundary_and_all_tie_cases_match": true
+      },
+      "calendar_indices": {
+        "circular_blocks_match_scalar_indices": true,
+        "actual_six_month_pre_history_indexing_matches": true
+      }
+    },
+    "primary_output_checks": {
+      "status": "passed",
+      "scope": "Original spread,108 actual months January2017 throughDecember2025;strict5percent old-reference budget",
+      "rows_independently_recomputed": 570,
+      "paths": 194,
+      "all_policy_count": 38,
+      "primary_policy_count": 26,
+      "fixed_subgroups": {
+        "all": 194,
+        "top_quintile": 39,
+        "remaining": 155
+      },
+      "all_count_fields_rates_and_metadata_match": true,
+      "scalar_metrics_and_scalar_reporting_only": true,
+      "strict_cutoffs_read_from_binary_npz": true,
+      "decision_mask_hashes": {
+        "unmodified": {
+          "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+          "after": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+          "changed": "5c08fc84db4979cd21082805804057992dbf14f586880ce86270ad51d9195626"
+        },
+        "relative_permanent": {
+          "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+          "after": "cb52fe780bb5bb6deb2337af79ea5a18bea9b35be3800e74a40d2fc695ba587f",
+          "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+        },
+        "relative_delay3": {
+          "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+          "after": "9ceba33d66c6367b686f23ddb11646fb87eeef82957e147c6d9c2b0af779a961",
+          "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+        },
+        "smooth50": {
+          "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+          "after": "375d2b0b24a4bbec487d7ab3f2ce1cdbd96da028fcb0f22f18be401b0f0c3948",
+          "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+        },
+        "fixed_delay3": {
+          "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+          "after": "355ea581c84b605a1a5e0c8ab298454918fadc322e6b2b4591034a98c905a60d",
+          "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+        }
+      },
+      "top_quintile_names": [
+        "MomVol",
+        "EarningsStreak",
+        "OrderBacklogChg",
+        "XFIN",
+        "Coskewness",
+        "Mom6m",
+        "Mom12mOffSeason",
+        "roaq",
+        "ShareIss5Y",
+        "ShareIss1Y",
+        "Mom12m",
+        "VolumeTrend",
+        "GP",
+        "RDIPO",
+        "IO_ShortInterest",
+        "ShortInterest",
+        "AnnouncementReturn",
+        "EarnSupBig",
+        "FirmAgeMom",
+        "ChTax",
+        "REV6",
+        "EarningsConsistency",
+        "IndRetBig",
+        "BetaTailRisk",
+        "cfp",
+        "NetEquityFinance",
+        "Mom6mJunk",
+        "RIO_Volatility",
+        "OScore",
+        "NetPayoutYield",
+        "DelBreadth",
+        "RevenueSurprise",
+        "ShareRepurchase",
+        "ChNWC",
+        "PctTotAcc",
+        "ExchSwitch",
+        "ChEQ",
+        "ResidualMomentum",
+        "NumEarnIncrease"
+      ],
+      "calibration_dates": [
+        "2005-01",
+        "2016-12"
+      ],
+      "choice_scope_and_family_counts_match": true,
+      "choice_calibration_only_dataflow_source_audited": true,
+      "choice_optimality_numerically_recomputed": false,
+      "choice_at_5percent": [
+        {
+          "weighting": "original",
+          "representation": "spread",
+          "months": 108,
+          "scope": "all",
+          "left_out": "none",
+          "budget": 0.05,
+          "policy": "OR:B+A+Z",
+          "policy_index": 28,
+          "families": 3,
+          "training_new_warning_rate": 0.9141237113402051
+        },
+        {
+          "weighting": "original",
+          "representation": "spread",
+          "months": 108,
+          "scope": "primary",
+          "left_out": "none",
+          "budget": 0.05,
+          "policy": "OR:B+A+Z",
+          "policy_index": 28,
+          "families": 3,
+          "training_new_warning_rate": 0.9141237113402051
+        },
+        {
+          "weighting": "original",
+          "representation": "spread",
+          "months": 108,
+          "scope": "1",
+          "left_out": "none",
+          "budget": 0.05,
+          "policy": "Z",
+          "policy_index": 3,
+          "families": 1,
+          "training_new_warning_rate": 0.6331658075601357
+        },
+        {
+          "weighting": "original",
+          "representation": "spread",
+          "months": 108,
+          "scope": "2",
+          "left_out": "none",
+          "budget": 0.05,
+          "policy": "OR:A+Z",
+          "policy_index": 19,
+          "families": 2,
+          "training_new_warning_rate": 0.913848797250858
+        },
+        {
+          "weighting": "original",
+          "representation": "spread",
+          "months": 108,
+          "scope": "3",
+          "left_out": "none",
+          "budget": 0.05,
+          "policy": "OR:B+A+Z",
+          "policy_index": 28,
+          "families": 3,
+          "training_new_warning_rate": 0.9141237113402051
+        },
+        {
+          "weighting": "original",
+          "representation": "spread",
+          "months": 108,
+          "scope": "4",
+          "left_out": "none",
+          "budget": 0.05,
+          "policy": "OR:B+D+A+Z",
+          "policy_index": 34,
+          "families": 4,
+          "training_new_warning_rate": 0.9085481099656345
+        }
+      ],
+      "selected_rule_counts": [
+        {
+          "mechanism": "unmodified",
+          "policy": "B",
+          "n": 194,
+          "changed": 0,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "D",
+          "n": 194,
+          "changed": 0,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "A",
+          "n": 194,
+          "changed": 0,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "Z",
+          "n": 194,
+          "changed": 0,
+          "baseline": 3,
+          "altered": 3,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "OR:B+D",
+          "n": 194,
+          "changed": 0,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "OR:A+Z",
+          "n": 194,
+          "changed": 0,
+          "baseline": 3,
+          "altered": 3,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "OR:B+A+Z",
+          "n": 194,
+          "changed": 0,
+          "baseline": 3,
+          "altered": 3,
+          "new": 0,
+          "cleared": 0,
+          "families": 3
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "B",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 85,
+          "new": 84,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 138,
+          "new": 137,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "A",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 194,
+          "new": 191,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "OR:B+D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 134,
+          "new": 133,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "OR:A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 194,
+          "new": 191,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "OR:B+A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 194,
+          "new": 191,
+          "cleared": 0,
+          "families": 3
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "B",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 59,
+          "new": 58,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 106,
+          "new": 105,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "A",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 192,
+          "new": 189,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 104,
+          "new": 103,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "OR:A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 192,
+          "new": 189,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 192,
+          "new": 189,
+          "cleared": 0,
+          "families": 3
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "B",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 4,
+          "new": 3,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 3,
+          "new": 3,
+          "cleared": 1,
+          "families": 1
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "A",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 193,
+          "new": 192,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 5,
+          "new": 5,
+          "cleared": 3,
+          "families": 1
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "OR:B+D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 3,
+          "new": 3,
+          "cleared": 1,
+          "families": 2
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "OR:A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 189,
+          "new": 186,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "OR:B+A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 189,
+          "new": 186,
+          "cleared": 0,
+          "families": 3
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "B",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 80,
+          "new": 79,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 117,
+          "new": 116,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "A",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 177,
+          "new": 174,
+          "cleared": 0,
+          "families": 1
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "OR:B+D",
+          "n": 194,
+          "changed": 194,
+          "baseline": 1,
+          "altered": 111,
+          "new": 110,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "OR:A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 164,
+          "new": 162,
+          "cleared": 1,
+          "families": 2
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "OR:B+A+Z",
+          "n": 194,
+          "changed": 194,
+          "baseline": 3,
+          "altered": 164,
+          "new": 162,
+          "cleared": 1,
+          "families": 3
+        }
+      ],
+      "calibration_warning_rates_at_5percent": {
+        "B": 0.04779896907216495,
+        "D": 0.049923711340206185,
+        "A": 0.04998041237113402,
+        "Z": 0.049035051546391754,
+        "OR:B+D": 0.04978865979381443,
+        "MAJ:B+D": 0.049858762886597935,
+        "MEAN:B+D": 0.04995051546391752,
+        "OR:B+A": 0.049889690721649484,
+        "MAJ:B+A": 0.04985670103092783,
+        "MEAN:B+A": 0.049939175257731956,
+        "OR:B+Z": 0.049908247422680414,
+        "MAJ:B+Z": 0.049983505154639174,
+        "MEAN:B+Z": 0.049984536082474225,
+        "OR:D+A": 0.048423711340206184,
+        "MAJ:D+A": 0.04996701030927835,
+        "MEAN:D+A": 0.04999587628865979,
+        "OR:D+Z": 0.049583505154639176,
+        "MAJ:D+Z": 0.049843298969072164,
+        "MEAN:D+Z": 0.049922680412371134,
+        "OR:A+Z": 0.04968659793814433,
+        "MAJ:A+Z": 0.049890721649484535,
+        "MEAN:A+Z": 0.04998144329896907,
+        "OR:B+D+A": 0.049811340206185564,
+        "MAJ:B+D+A": 0.049955670103092785,
+        "MEAN:B+D+A": 0.04997628865979382,
+        "OR:B+D+Z": 0.04955773195876289,
+        "MAJ:B+D+Z": 0.04987113402061856,
+        "MEAN:B+D+Z": 0.049983505154639174,
+        "OR:B+A+Z": 0.049783505154639175,
+        "MAJ:B+A+Z": 0.049997938144329894,
+        "MEAN:B+A+Z": 0.04999381443298969,
+        "OR:D+A+Z": 0.04988247422680413,
+        "MAJ:D+A+Z": 0.04992164948453608,
+        "MEAN:D+A+Z": 0.049997938144329894,
+        "OR:B+D+A+Z": 0.04773092783505155,
+        "MAJ:B+D+A+Z": 0.049956701030927836,
+        "MEAN:B+D+A+Z": 0.05,
+        "PCA:B+D+A+Z": 0.05
+      },
+      "dependencies": {
+        "scripts\\run_frontier.py": "e8b270d4faeeb6ef1214cf03c1c915a22b79eddeae1ec143e86cc39a18096185",
+        "data\\cache\\original_spread_108_b12.npz": "b6d58bd3e309480a8f7036dabfd4958d9c309e739a890365da2f0dfda68bfd72",
+        "tables\\point_rates_original.csv": "306e538d492bb3b94782fdd40c0a4f7a5e9db5f8623f7908f0c54b4897db7e99",
+        "tables\\policy_choices_original.csv": "1f9245fa4722db868c645afd0a575d93e510322ce1c43f4712390627851bbb46"
+      }
+    },
+    "external_source_audit": {
+      "status": "source_review_complete_no_external_outcomes_interpreted",
+      "source_sha256": "eb99764385a917025e9ab5851a8fd590116d2a07599e89592b0e13315f4aa842",
+      "fund_x_uses_actual108_months_with_warmup0_and_no_artificial_distortions": true,
+      "fund_x_authenticity_not_assumed_and_omitted_from_unmodified_reference_population": true,
+      "cpz_old_development_ends1979_and_calibration_ends1991_before_all_1992plus_test_months": true,
+      "cpz_first_column_verified_SDF": true,
+      "cpz300_month_calibration_draws_reuse144_actual_months_caveat_saved": true,
+      "cpz_final108_months_overlap_second108_months_not_independent_replications": true,
+      "public_nav_uses_funded_reference_with_actual_six_month_prehistory": true,
+      "jkp_world_uses_frozen_cz_spread_reference_without_recalibration": true,
+      "limits": [
+        "JKP is a separate data source with global coverage, but stock universes and factor definitions can overlap CZ.",
+        "The three NAV records were chosen for history and performance support, not as a random sample for a population false-warning estimate.",
+        "The 300-month CPZ reference is a conditional historical block-resampling extrapolation, not a 300-month observed calibration record.",
+        "Unmodified published records do not establish authenticity labels.",
+        "Old historical CZ backdrop warnings diagnose reference drift but are not a fully independent economic-universe control."
+      ]
+    },
+    "external_output_checks": {
+      "status": "passed",
+      "independent_external_rows": 12,
+      "scalar_metrics_and_scalar_ledger": true,
+      "thresholds_read_from_binary_cached_reference": true,
+      "rows": [
+        {
+          "source": "JKP_world",
+          "sample": "2017_2025",
+          "mechanism": "unmodified",
+          "policy": "OR:B+D",
+          "n": 153,
+          "changed": 0,
+          "baseline": 6,
+          "altered": 6,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "JKP_world",
+          "sample": "2017_2025",
+          "mechanism": "unmodified",
+          "policy": "OR:A+Z",
+          "n": 153,
+          "changed": 0,
+          "baseline": 3,
+          "altered": 3,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "JKP_world",
+          "sample": "2017_2025",
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+D",
+          "n": 153,
+          "changed": 153,
+          "baseline": 6,
+          "altered": 79,
+          "new": 73,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "JKP_world",
+          "sample": "2017_2025",
+          "mechanism": "relative_delay3",
+          "policy": "OR:A+Z",
+          "n": 153,
+          "changed": 153,
+          "baseline": 3,
+          "altered": 152,
+          "new": 149,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "JKP_world",
+          "sample": "2017_2025",
+          "mechanism": "smooth50",
+          "policy": "OR:B+D",
+          "n": 153,
+          "changed": 153,
+          "baseline": 6,
+          "altered": 5,
+          "new": 2,
+          "cleared": 3,
+          "families": 2
+        },
+        {
+          "source": "JKP_world",
+          "sample": "2017_2025",
+          "mechanism": "smooth50",
+          "policy": "OR:A+Z",
+          "n": 153,
+          "changed": 153,
+          "baseline": 3,
+          "altered": 153,
+          "new": 150,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "CPZ_author",
+          "sample": "first108",
+          "mechanism": "unmodified",
+          "policy": "OR:B+D",
+          "n": 1,
+          "changed": 0,
+          "baseline": 0,
+          "altered": 0,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "CPZ_author",
+          "sample": "first108",
+          "mechanism": "unmodified",
+          "policy": "OR:A+Z",
+          "n": 1,
+          "changed": 0,
+          "baseline": 0,
+          "altered": 0,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "CPZ_author",
+          "sample": "first108",
+          "mechanism": "unmodified",
+          "policy": "OR:B+A+Z",
+          "n": 1,
+          "changed": 0,
+          "baseline": 0,
+          "altered": 0,
+          "new": 0,
+          "cleared": 0,
+          "families": 3
+        },
+        {
+          "source": "CPZ_author",
+          "sample": "first108",
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+D",
+          "n": 1,
+          "changed": 1,
+          "baseline": 0,
+          "altered": 1,
+          "new": 1,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "CPZ_author",
+          "sample": "first108",
+          "mechanism": "relative_delay3",
+          "policy": "OR:A+Z",
+          "n": 1,
+          "changed": 1,
+          "baseline": 0,
+          "altered": 0,
+          "new": 0,
+          "cleared": 0,
+          "families": 2
+        },
+        {
+          "source": "CPZ_author",
+          "sample": "first108",
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+A+Z",
+          "n": 1,
+          "changed": 1,
+          "baseline": 0,
+          "altered": 1,
+          "new": 1,
+          "cleared": 0,
+          "families": 3
+        }
+      ],
+      "cpz_eligible_observed_loss_count": 4,
+      "cpz_eligible_observed_months": [
+        "1996-03",
+        "1996-04",
+        "2000-04",
+        "2000-05"
+      ],
+      "cpz_all38_baseline_flags": [],
+      "cpz_all38_delay3_flags": [
+        "B",
+        "OR:B+D",
+        "OR:B+A",
+        "OR:B+Z",
+        "MAJ:B+Z",
+        "MEAN:B+Z",
+        "OR:B+D+A",
+        "OR:B+D+Z",
+        "MAJ:B+D+Z",
+        "OR:B+A+Z",
+        "MAJ:B+A+Z",
+        "OR:B+D+A+Z"
+      ],
+      "main_2_3_4_families_choices_at5percent": [
+        {
+          "scope": "2",
+          "policy": "OR:A+Z",
+          "families": 2,
+          "training_new_warning_rate": 0.913848797250858
+        },
+        {
+          "scope": "3",
+          "policy": "OR:B+A+Z",
+          "families": 3,
+          "training_new_warning_rate": 0.9141237113402051
+        },
+        {
+          "scope": "4",
+          "policy": "OR:B+D+A+Z",
+          "families": 4,
+          "training_new_warning_rate": 0.9085481099656345
+        }
+      ],
+      "main_2_3_4_families_point_rows_already_scalar_verified": [
+        {
+          "mechanism": "unmodified",
+          "policy": "OR:A+Z",
+          "baseline": 3,
+          "altered": 3,
+          "new": 0,
+          "cleared": 0
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "OR:B+A+Z",
+          "baseline": 3,
+          "altered": 3,
+          "new": 0,
+          "cleared": 0
+        },
+        {
+          "mechanism": "unmodified",
+          "policy": "OR:B+D+A+Z",
+          "baseline": 1,
+          "altered": 1,
+          "new": 0,
+          "cleared": 0
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "OR:A+Z",
+          "baseline": 3,
+          "altered": 194,
+          "new": 191,
+          "cleared": 0
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "OR:B+A+Z",
+          "baseline": 3,
+          "altered": 194,
+          "new": 191,
+          "cleared": 0
+        },
+        {
+          "mechanism": "relative_permanent",
+          "policy": "OR:B+D+A+Z",
+          "baseline": 1,
+          "altered": 194,
+          "new": 193,
+          "cleared": 0
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "OR:A+Z",
+          "baseline": 3,
+          "altered": 192,
+          "new": 189,
+          "cleared": 0
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+A+Z",
+          "baseline": 3,
+          "altered": 192,
+          "new": 189,
+          "cleared": 0
+        },
+        {
+          "mechanism": "relative_delay3",
+          "policy": "OR:B+D+A+Z",
+          "baseline": 1,
+          "altered": 191,
+          "new": 190,
+          "cleared": 0
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "OR:A+Z",
+          "baseline": 3,
+          "altered": 164,
+          "new": 162,
+          "cleared": 1
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "OR:B+A+Z",
+          "baseline": 3,
+          "altered": 164,
+          "new": 162,
+          "cleared": 1
+        },
+        {
+          "mechanism": "fixed_delay3",
+          "policy": "OR:B+D+A+Z",
+          "baseline": 1,
+          "altered": 163,
+          "new": 162,
+          "cleared": 0
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "OR:A+Z",
+          "baseline": 3,
+          "altered": 189,
+          "new": 186,
+          "cleared": 0
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "OR:B+A+Z",
+          "baseline": 3,
+          "altered": 189,
+          "new": 186,
+          "cleared": 0
+        },
+        {
+          "mechanism": "smooth50",
+          "policy": "OR:B+D+A+Z",
+          "baseline": 1,
+          "altered": 188,
+          "new": 187,
+          "cleared": 0
+        }
+      ],
+      "dependencies": {
+        "tables\\external_rates.csv": "54d13c5038a7b52a581370cad86ade42362ff10d86bcaffa52daa9cd46651af9",
+        "data\\cache\\external_old_spread_108.npz": "752947d9002e976a0d135df46f057728a9f41398899bd4cc9ee806951d457612"
+      }
+    }
+  },
+  "workbook_checks": {
+    "status": "passed",
+    "file": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+    "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+    "worksheets": [
+      "Comparison",
+      "Frontiers",
+      "Other histories",
+      "Sources"
+    ],
+    "mapped_saved_cells": 9531,
+    "source_count_cells": 4906,
+    "independently_recalculated_ratios": 1965,
+    "formula_errors": 0,
+    "scientific_figure": {
+      "path": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_10\\figures\\frontier_types_and_quantity.png",
+      "sha256": "0a33f1487dc2118d963c178af60ab029bf1d37c56d85ba0d98d342974f51c774",
+      "embedded_path": "xl/media/image.png",
+      "embedded_bytes_match": true
+    },
+    "all_used_cell_fonts": "Times New Roman, black",
+    "selected_external_rows": 164,
+    "zero_changed_altered_cases_retained": 0,
+    "count_perturbation_and_restoration": [
+      {
+        "sheet": "Comparison",
+        "input": "D15",
+        "output": "E15",
+        "original_count": 1,
+        "perturbed_count": 2,
+        "denominator": 194,
+        "perturbed_rate": 0.010309278350515464,
+        "restored_rate": 0.005154639175257732
+      }
+    ],
+    "renders": [
+      [
+        "Comparison",
+        "A1:K24",
+        "comparison_main"
+      ],
+      [
+        "Comparison",
+        "A26:J43",
+        "comparison_quantity"
+      ],
+      [
+        "Comparison",
+        "A44:J57",
+        "comparison_quantity_tail"
+      ],
+      [
+        "Comparison",
+        "A60:G76",
+        "comparison_folds"
+      ],
+      [
+        "Frontiers",
+        "A1:K30",
+        "frontiers_charts"
+      ],
+      [
+        "Frontiers",
+        "A31:J44",
+        "frontiers_data"
+      ],
+      [
+        "Frontiers",
+        "A696:J704",
+        "frontiers_tail"
+      ],
+      [
+        "Other histories",
+        "A1:K30",
+        "other_performance"
+      ],
+      [
+        "Other histories",
+        "A32:L48",
+        "other_screening"
+      ],
+      [
+        "Other histories",
+        "A188:L200",
+        "other_tail"
+      ],
+      [
+        "Sources",
+        "A1:B24",
+        "sources_definitions"
+      ],
+      [
+        "Sources",
+        "A26:B33",
+        "sources_primitives"
+      ],
+      [
+        "Sources",
+        "A35:E53",
+        "sources_candidates"
+      ],
+      [
+        "Sources",
+        "A54:E74",
+        "sources_candidates_tail"
+      ],
+      [
+        "Sources",
+        "A77:C86",
+        "sources_data"
+      ],
+      [
+        "Sources",
+        "A88:C97",
+        "sources_literature"
+      ]
+    ],
+    "authoring_event": {
+      "operation": "create",
+      "count": 1,
+      "format": "xlsx",
+      "marker_script": "Not present in installed 26.1118.11504 package; this single local event records the authoring start."
+    },
+    "rendering_review": "All 16 regions inspected; revised labels, alignment and return-basis column rechecked.",
+    "limitation": "Native Excel application was not opened. Recalculation was checked in the bundled engine and saved OOXML was independently reconciled. The approved fixed scientific figure is embedded because both documented native-scatter routes exported empty point sources in this runtime. All 672 frontier rows remain in the visible formula-backed table."
+  },
+  "full_table_arithmetic_rows_checked": 108072,
+  "cache_settings_and_budget_checks": 24,
+  "pdf_checks": {
+    "pages": 1,
+    "words": 150,
+    "every_page_rendered_and_visually_inspected": true,
+    "overfull_boxes": 0,
+    "cold_read_complete": true
+  },
+  "numerical_execution": {
+    "seconds_by_job": {
+      "execution_external": 44.03099999999995,
+      "execution_folds": 17.65599999999995,
+      "execution_original": 108.63999999999987,
+      "execution_sensitivity": 17.265000000000327,
+      "execution_uncertainty": 7.985000000000127,
+      "execution_value_weighted": 119.42099999999982
+    },
+    "total_seconds": 314.99800000000005,
+    "cpu26_used": false
+  },
+  "university_copies": [
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.tex",
+      "sha256": "6dd4fea6c960a09ddab5e656b80c787bcd707ad260b7e28da8633359a445d39c"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
+      "sha256": "9c32a40303a674b00b754efeabd6cdf93799c361825f7f9745fc33d6a31f026f"
+    }
+  ],
+  "publication": {
+    "status": "published with byte-for-byte Drive readback",
+    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
+    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44479083475",
+    "workflow_success": true,
+    "scope": "assignment10",
+    "global_publisher_skipped": true,
+    "overleaf_skipped": true,
+    "files": [
+      {
+        "name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+        "drive_id": "1BwwuGzM7ifh_eP9qnLdw4RuaacQ82-zq",
+        "size": 74027,
+        "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_id": "1aLJz2tNEIY1blaV0PuC8NKMUa6YPfaO0",
+        "size": 177709,
+        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+        "raw_readback_matches_local_bytes": true
+      }
+    ]
+  },
+  "files": [
+    {
+      "file": "scripts/build_handoff.py",
+      "bytes": 3378,
+      "sha256": "5ec8d9265d7fecba0d54c862fbbb2de5cfbb2738675b08ecdbffde221852968f"
+    },
+    {
+      "file": "scripts/build_handoff_workbook.mjs",
+      "bytes": 27689,
+      "sha256": "78ccf7d154d27cfd77bfdfa64eba2c231745f98ee852adf738703deb3d1d8954"
+    },
+    {
+      "file": "scripts/finalize_assignment10.py",
+      "bytes": 7371,
+      "sha256": "6e408711a18fcff4855e565a88f1eab08a17631253ff5c91c1d546a9a4aa4181"
+    },
+    {
+      "file": "scripts/freeze_design.py",
+      "bytes": 8149,
+      "sha256": "45e6e89b4fed63512e44705a37e1825f5bdb410e96c6b9c00cea6c3f590fd427"
+    },
+    {
+      "file": "scripts/frontier_engine.py",
+      "bytes": 12087,
+      "sha256": "c9b8ae3f709b5ce618a98376442cf0b3cc2a4e5c30e9345991eac08e63e3d187"
+    },
+    {
+      "file": "scripts/frontier_metrics.py",
+      "bytes": 5587,
+      "sha256": "17cb1cf22fb6b34448ed39e5e5f8f725d4bf59877498e338321b221b9c58d071"
+    },
+    {
+      "file": "scripts/plot_frontiers.py",
+      "bytes": 2412,
+      "sha256": "030bca983ae63d9b8798098cf54eda12f826f55054413e3091ddd168111d0cd1"
+    },
+    {
+      "file": "scripts/run_external_validation.py",
+      "bytes": 10233,
+      "sha256": "eb99764385a917025e9ab5851a8fd590116d2a07599e89592b0e13315f4aa842"
+    },
+    {
+      "file": "scripts/run_frontier.py",
+      "bytes": 14222,
+      "sha256": "e8b270d4faeeb6ef1214cf03c1c915a22b79eddeae1ec143e86cc39a18096185"
+    },
+    {
+      "file": "scripts/run_sensitivity.py",
+      "bytes": 2247,
+      "sha256": "b896d139fdb4e7ab64075afab868b39af659a53db1004e4d00b479b973ebc5ea"
+    },
+    {
+      "file": "scripts/runtime_pilot.py",
+      "bytes": 2808,
+      "sha256": "568e43a3533f44c467ad5e6385188af882f092df98a9493c0904dffe2dafc1ab"
+    },
+    {
+      "file": "scripts/summarize_results.py",
+      "bytes": 6753,
+      "sha256": "eabb80f20112f1e186fb9dc96943f48824bed4abf198268bd2e3010f2a745e5c"
+    },
+    {
+      "file": "scripts/verify_frontier_independent.py",
+      "bytes": 16545,
+      "sha256": "2c1ec84436f550009cc431515db35b83238007da55b2de92561dda08fb6d6ea9"
+    },
+    {
+      "file": "scripts/verify_handoff_workbook.py",
+      "bytes": 9497,
+      "sha256": "701afa0d9ffce1682f7c165fafcd86971adbba89f942ec9363f4e6c761b251f6"
+    },
+    {
+      "file": "data/execution_external.json",
+      "bytes": 1737,
+      "sha256": "863d1e38a321bedfeb17c3034e55f65e59bbf774f701052395b5505b005b5e3e"
+    },
+    {
+      "file": "data/execution_folds.json",
+      "bytes": 832,
+      "sha256": "fad1f9d5a06b304fe9f4fbb1da1391c993a994f5b3620d308ccd4bb2a4b61294"
+    },
+    {
+      "file": "data/execution_original.json",
+      "bytes": 908,
+      "sha256": "ba91d5f779f1147bd58d05b3912504a119099a71d4f16d0817e464261abae1fb"
+    },
+    {
+      "file": "data/execution_sensitivity.json",
+      "bytes": 833,
+      "sha256": "5bea1e9df7e2737e92fd0750ae57cce0d7bb7515abd609fc052686c1406a8a4e"
+    },
+    {
+      "file": "data/execution_uncertainty.json",
+      "bytes": 832,
+      "sha256": "e4170183289f3c1192e93a6eb808cf5f27e40d04e63cee047f8a3e5d1702c41d"
+    },
+    {
+      "file": "data/execution_value_weighted.json",
+      "bytes": 910,
+      "sha256": "f8cf68878fdab9541ac9b1746acae725617d5650b96e9147d85474e1b5d05b3a"
+    },
+    {
+      "file": "data/external_reference_metadata.json",
+      "bytes": 6787,
+      "sha256": "d84b3a2ab2d69cb2db4b2394a047724fab70191463bb81955ee4e20d7324434b"
+    },
+    {
+      "file": "data/external_validation_inputs.json",
+      "bytes": 850,
+      "sha256": "5fff9ee8bedc69aa4894e621abfa514491af1356ddfbcce262ae98c11eda07d0"
+    },
+    {
+      "file": "data/frozen_design.json",
+      "bytes": 28652,
+      "sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e"
+    },
+    {
+      "file": "data/handoff_metadata.json",
+      "bytes": 725,
+      "sha256": "d9a563e5a1a0daa5eaa9a99fd789003a732d8b44218686084a262083444a590c"
+    },
+    {
+      "file": "data/independent_verification.json",
+      "bytes": 27022,
+      "sha256": "16b46317befff54c29de4b3888bbda2857eb055e740dea63a2b4cbac08799648"
+    },
+    {
+      "file": "data/publication_readback.json",
+      "bytes": 908,
+      "sha256": "2b4e23397c8b4a6004fef267e8beedbb304381acd74191bbeb8c321a0b18765c"
+    },
+    {
+      "file": "data/raw/F-F_Research_Data_Factors.csv",
+      "bytes": 52533,
+      "sha256": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb"
+    },
+    {
+      "file": "data/raw/F-F_Research_Data_Factors_CSV.zip",
+      "bytes": 13078,
+      "sha256": "b03d39e4bb253dda0f14893db3b78e64b40b8d6549a0fc0fd4111dae84c98618"
+    },
+    {
+      "file": "data/raw/fund_x_2017_01_to_2026_09.csv",
+      "bytes": 3308,
+      "sha256": "d869d0f0721d63c4e9c89336b82415c2b283f6a8701b7e71838e8432b7e2bc45"
+    },
+    {
+      "file": "data/raw/PredictorLSretWide.parquet",
+      "bytes": 1439671,
+      "sha256": "fc01df25d4383153cb3ae9e0dd730cc34b6d15a5207abeff09f34beda45bca58"
+    },
+    {
+      "file": "data/raw/PredictorVWforce.parquet",
+      "bytes": 19003921,
+      "sha256": "e64df0fc189f1a4f4ce3ba39fdbba2ee83dfce871c6bf60f5660cbc9222158db"
+    },
+    {
+      "file": "data/raw/SignalDoc.csv",
+      "bytes": 183100,
+      "sha256": "0ceb11020c2138c2477b732948beaac2e67ccaad8428753e3a79af2bb5ea0178"
+    },
+    {
+      "file": "data/results_summary.json",
+      "bytes": 7538,
+      "sha256": "59f63cd9768d22248c4d75daa6bb6d368d6409e16cf7ec81f45151ce857a389b"
+    },
+    {
+      "file": "data/runtime_pilot.json",
+      "bytes": 447,
+      "sha256": "a50475e58751488570313f74a16b2e87974f73ade455d2d611f65dd087a26f6b"
+    },
+    {
+      "file": "data/source_provenance.json",
+      "bytes": 3669,
+      "sha256": "c63af3b6bf38bf919a468227362e02448a2393c2b32a85e1351f5cb95f2e26c3"
+    },
+    {
+      "file": "data/workbook_verification.json",
+      "bytes": 3329,
+      "sha256": "d969cc2fb65c4b72793831de90cf557eb8a17d2b031b0f06287b7ed5c98f6ffb"
+    },
+    {
+      "file": "tables/block_bandwidth_sensitivity.csv",
+      "bytes": 623207,
+      "sha256": "1dd8d6c23219bac0951d651883b546b1dd5d1c11d8582fb14a4d2a4d24580643"
+    },
+    {
+      "file": "tables/cutoffs_original.csv",
+      "bytes": 2535835,
+      "sha256": "bfd64680787f0a3d955953282c5554b4247b988123f5d7b73494fec476320ebd"
+    },
+    {
+      "file": "tables/cutoffs_value_weighted.csv",
+      "bytes": 2719585,
+      "sha256": "dbb4cf71fc2df6d1564393f60be9cc85207c548e3e5054fb140de04b5575d901"
+    },
+    {
+      "file": "tables/exceptional_history_summary.csv",
+      "bytes": 742,
+      "sha256": "e9ae189d0a55a31034817b9bc167df51d0b06fd65403256cfa28de64be643519"
+    },
+    {
+      "file": "tables/external_policy_choices.csv",
+      "bytes": 8250,
+      "sha256": "c7140e677b76ea885c12b8552dc9e72dbb7f43ef98e4c4f356e26559342a2266"
+    },
+    {
+      "file": "tables/external_primitive_scores.csv",
+      "bytes": 189271,
+      "sha256": "609e840fde91e451691e5878f7978fb3956ad706de603315691bd290700cfd87"
+    },
+    {
+      "file": "tables/external_rates.csv",
+      "bytes": 3813639,
+      "sha256": "54d13c5038a7b52a581370cad86ade42362ff10d86bcaffa52daa9cd46651af9"
+    },
+    {
+      "file": "tables/external_reporting_ledger.csv",
+      "bytes": 7466,
+      "sha256": "de67ecbd4b3da14ab881df6521b8999b563a82d5a6316d826c23b9f5752fc4bd"
+    },
+    {
+      "file": "tables/external_support.csv",
+      "bytes": 176499,
+      "sha256": "03473d5ae0ec5411694977324c7eae6a57431c88ff06d391982203c1bddafdd8"
+    },
+    {
+      "file": "tables/frontier_curves_original.csv",
+      "bytes": 6350349,
+      "sha256": "2ce2cbae3cd4016e57dab3528a1de2bb89105942a1063ec2a65eab5bf4cdd197"
+    },
+    {
+      "file": "tables/handoff_comparison.csv",
+      "bytes": 722,
+      "sha256": "4df614bb7b58905ed25d204215b3e23a980be84cc0b0e58ccc9a18baab099123"
+    },
+    {
+      "file": "tables/naive_results.csv",
+      "bytes": 183,
+      "sha256": "31dab7ecf48d62939928c5fe243f5a536859338180f01496e65360e2cbec0864"
+    },
+    {
+      "file": "tables/paired_bootstrap.csv",
+      "bytes": 292746,
+      "sha256": "e711378a7caaad73785118ae8c85e9db2bd34dd4d19e5c684317c59b6c3d55f4"
+    },
+    {
+      "file": "tables/performance_support_original.csv",
+      "bytes": 1190,
+      "sha256": "f47c6d426fe3dbfd48cf43509568fdb2665ced6f778f14a44e7410e764dccd5a"
+    },
+    {
+      "file": "tables/performance_support_value_weighted.csv",
+      "bytes": 1266,
+      "sha256": "16c408493d7e93d3974bfa50d3a238cddd4952443ad26a1abebd6a3ac718ebb9"
+    },
+    {
+      "file": "tables/point_rates_original.csv",
+      "bytes": 7805810,
+      "sha256": "306e538d492bb3b94782fdd40c0a4f7a5e9db5f8623f7908f0c54b4897db7e99"
+    },
+    {
+      "file": "tables/point_rates_value_weighted.csv",
+      "bytes": 8156097,
+      "sha256": "a688b91e4dfe31967a0c46ad7fe34aed3a5a2ae2c044a2025eee875ea450802e"
+    },
+    {
+      "file": "tables/policy_choices_original.csv",
+      "bytes": 20807,
+      "sha256": "1f9245fa4722db868c645afd0a575d93e510322ce1c43f4712390627851bbb46"
+    },
+    {
+      "file": "tables/policy_choices_value_weighted.csv",
+      "bytes": 22445,
+      "sha256": "6be9cb08ad03af64b7d3ccc53970bcc10ccb86e381a11f08e41ea96125fe741e"
+    },
+    {
+      "file": "tables/quantity_comparison.csv",
+      "bytes": 2735,
+      "sha256": "6c30b859a29985704741205e16700409125cc5b13a1d744a4ffb2d4f5538a429"
+    },
+    {
+      "file": "tables/reporting_ledger_original.csv",
+      "bytes": 10761,
+      "sha256": "b93d29d447328e9e5db9c37694e0918761f01ec77f10b56b07a6cbab301556de"
+    },
+    {
+      "file": "tables/reporting_ledger_value_weighted.csv",
+      "bytes": 11573,
+      "sha256": "b1d84ee76d9dd09fe531cae5e671711fb95b20214205cac90ee284b808b1c8f6"
+    },
+    {
+      "file": "tables/selection_sensitivity_original.csv",
+      "bytes": 580382,
+      "sha256": "6239fea4dc57ef2e7e8ac9eee025a2161269e07483c18d238c49346f7a4edf95"
+    },
+    {
+      "file": "tables/selection_sensitivity_value_weighted.csv",
+      "bytes": 634522,
+      "sha256": "159ce5aad92e5c2edc870f2bbd4219faea413a8a81734967b6069f9e26584802"
+    },
+    {
+      "file": "tables/strategy_fold_choices.csv",
+      "bytes": 22173,
+      "sha256": "0d2d96ca6584c03eb4eea3eb8c62b0cdc100ab315d933162af68cc4c9e8f181b"
+    },
+    {
+      "file": "tables/strategy_fold_ledger.csv",
+      "bytes": 2907,
+      "sha256": "0ca6c22158b80e41e8d7f06d79307e886f2540cd6516919a201cf895804a840a"
+    },
+    {
+      "file": "tables/strategy_fold_rates.csv",
+      "bytes": 68564,
+      "sha256": "96f987292e5857fcb9e783a4c74aae6b9e7d4398aa4be9f8e70bd97233614eea"
+    },
+    {
+      "file": "tables/strategy_fold_summary.csv",
+      "bytes": 2374,
+      "sha256": "83659ab6fe387f2e93014afa02c6e790d81c570d6e2a057065b1114b4432fa79"
+    },
+    {
+      "file": "figures/frontier_types_and_quantity.png",
+      "bytes": 103481,
+      "sha256": "0a33f1487dc2118d963c178af60ab029bf1d37c56d85ba0d98d342974f51c774"
+    },
+    {
+      "file": "research/data_search.json",
+      "bytes": 6764,
+      "sha256": "4d540139109a5d6455c90e4ebc09acff84171dd075e794858725d68e79c99c81"
+    },
+    {
+      "file": "research/data_search.txt",
+      "bytes": 3375,
+      "sha256": "036295e50310156ba86379c21d8cfc51cb95f6a412efdabcd98908ab4aa568a6"
+    },
+    {
+      "file": "research/design_review.json",
+      "bytes": 9725,
+      "sha256": "24578e202b02510633bbbfd87dde15b1496ef9585c65018deacb210a9ad23246"
+    },
+    {
+      "file": "research/design_review.txt",
+      "bytes": 4591,
+      "sha256": "2f799bbf6a0a24a8e5761e38b5b45cb0e928a62ad9a3276c15bef2e861b71328"
+    },
+    {
+      "file": "research/external_provenance.json",
+      "bytes": 21212,
+      "sha256": "389b85ad5bd903ebc869ea014abb726c25f747fffb6106fb95a8af22893a8475"
+    },
+    {
+      "file": "research/external_support_summary.json",
+      "bytes": 10500,
+      "sha256": "88e80461f8ea214bcf2409656c2164ff67f2e8c265095d988ecb88c33f0a0665"
+    },
+    {
+      "file": "research/extract_external_returns.py",
+      "bytes": 10104,
+      "sha256": "b64355ab8663bf5fe5cf00144aee1412ca00c5bfc967d56086912e5073835a99"
+    },
+    {
+      "file": "research/jkp_world_support_summary.json",
+      "bytes": 341,
+      "sha256": "73943c3ac6b7af659ffa8eab201f1b9a06e612f2bb36c4ecdbf8964886a9927d"
+    },
+    {
+      "file": "research/literature_downloads.json",
+      "bytes": 7610,
+      "sha256": "28770135d64f56e7015d81636cf227b189e037f2800c07be92b76152468b5122"
+    },
+    {
+      "file": "research/literature_review.json",
+      "bytes": 41875,
+      "sha256": "cf36eb7858d0a32050e1abc5a93626bd5fad61918b1dc5c7b0158ae82988eb86"
+    },
+    {
+      "file": "research/literature_review.txt",
+      "bytes": 3745,
+      "sha256": "64082ccace4ed40178b1d81eaaba057db519c68568f5016dd2b1dd5bcb77c765"
+    },
+    {
+      "file": "research/provenance_inventory.json",
+      "bytes": 6377,
+      "sha256": "aac0c0a571d0d4aefbfb1cc3e0621b00a366fdd7e8f07f6ebe23aca7e562945f"
+    },
+    {
+      "file": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "bytes": 74027,
+      "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06"
+    },
+    {
+      "file": "Assignment_10_Return_Screening_Frontier_Handoff.tex",
+      "bytes": 1812,
+      "sha256": "6dd4fea6c960a09ddab5e656b80c787bcd707ad260b7e28da8633359a445d39c"
+    },
+    {
+      "file": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "bytes": 177709,
+      "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d"
+    },
+    {
+      "file": "README.md",
+      "bytes": 11089,
+      "sha256": "d8152826b45c69873cf3d0ba2eab031cc41070c59a8e80ae20fa693eb864c25f"
+    },
+    {
+      "file": ".gitignore",
+      "bytes": 251,
+      "sha256": "8b55842d038bd65711c9eddd89372ab811fa13f23902e93a258e93d6403fcba4"
+    },
+    {
+      "file": ".gitattributes",
+      "bytes": 72,
+      "sha256": "ed750d4e47d88fd96fe7fc202b1063cccdb3ce08a26f7d0dd9a482563b038895"
+    }
+  ]
+}
