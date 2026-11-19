@@ -1,5 +1,5 @@
 {
-  "report_title": "Which return checks justify an investigation?",
+  "report_title": "Return-screening frontier: handoff",
   "email_words": 128,
   "numeric_basis": "data/results_summary.json; tables/handoff_comparison.csv",
   "initial_counts": [

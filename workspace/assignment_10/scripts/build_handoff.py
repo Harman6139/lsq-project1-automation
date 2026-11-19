@@ -60,7 +60,7 @@ Records & Original pair & Local + serial \\
     email_path=ROOT/'Email_to_Professor_Boyle_Frontier_Handoff.txt'
     email=email_path.read_text(encoding='utf-8') if email_path.exists() else ''
     (ROOT/'data/handoff_metadata.json').write_text(json.dumps(dict(
-        report_title='Which return checks justify an investigation?',
+        report_title='Return-screening frontier: handoff',
         email_words=len(email.split()),numeric_basis='data/results_summary.json; tables/handoff_comparison.csv',
         initial_counts=summary['initial_cutoff_comparison'],table_rows=len(comparison)),indent=2)+'\n')
     print(json.dumps(dict(tex=str(ROOT/f'{STEM}.tex'),email_words=len(email.split()),table_rows=len(comparison)),indent=2))

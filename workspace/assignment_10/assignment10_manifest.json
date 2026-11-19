@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-19T07:19:15.728835+00:00",
+  "finalized_utc": "2026-11-19T07:25:22.002751+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -1431,13 +1431,35 @@
     }
   ],
   "publication": {
-    "status": "prepared local release; remote publication not yet claimed"
+    "status": "published with byte-for-byte Drive readback",
+    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
+    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44479083475",
+    "workflow_success": true,
+    "scope": "assignment10",
+    "global_publisher_skipped": true,
+    "overleaf_skipped": true,
+    "files": [
+      {
+        "name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+        "drive_id": "1BwwuGzM7ifh_eP9qnLdw4RuaacQ82-zq",
+        "size": 74027,
+        "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_id": "1aLJz2tNEIY1blaV0PuC8NKMUa6YPfaO0",
+        "size": 177709,
+        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+        "raw_readback_matches_local_bytes": true
+      }
+    ]
   },
   "files": [
     {
       "file": "scripts/build_handoff.py",
-      "bytes": 3389,
-      "sha256": "abbb32cff1f6ad22f63dc867a60cd3e61ef02284b2b4e0a851bf7d0a2727fee6"
+      "bytes": 3378,
+      "sha256": "5ec8d9265d7fecba0d54c862fbbb2de5cfbb2738675b08ecdbffde221852968f"
     },
     {
       "file": "scripts/build_handoff_workbook.mjs",
@@ -1551,13 +1573,18 @@
     },
     {
       "file": "data/handoff_metadata.json",
-      "bytes": 736,
-      "sha256": "684024161cb098534a217ac77b17ae2d27b49d4092625a1c71d62b57656250a6"
+      "bytes": 725,
+      "sha256": "d9a563e5a1a0daa5eaa9a99fd789003a732d8b44218686084a262083444a590c"
     },
     {
       "file": "data/independent_verification.json",
       "bytes": 27022,
       "sha256": "16b46317befff54c29de4b3888bbda2857eb055e740dea63a2b4cbac08799648"
+    },
+    {
+      "file": "data/publication_readback.json",
+      "bytes": 908,
+      "sha256": "2b4e23397c8b4a6004fef267e8beedbb304381acd74191bbeb8c321a0b18765c"
     },
     {
       "file": "data/raw/F-F_Research_Data_Factors.csv",
@@ -1831,8 +1858,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 10750,
-      "sha256": "4adf340184e04af91894fb1375c76492db509b762b23421c44962c8991e27ef2"
+      "bytes": 11089,
+      "sha256": "d8152826b45c69873cf3d0ba2eab031cc41070c59a8e80ae20fa693eb864c25f"
     },
     {
       "file": ".gitignore",

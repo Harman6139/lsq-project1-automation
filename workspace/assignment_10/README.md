@@ -5,6 +5,11 @@ The professor-facing handoff is the one-page
 and supporting `.xlsx`. The draft email is
 `Email_to_Professor_Boyle_Frontier_Handoff.txt`. No email was sent.
 The correspondence draft and local Downloads inventory are excluded from Git.
+The checked PDF and workbook are published in the existing Drive workspace's
+Assignment 10 folder. Raw download readback matches the local files byte for byte.
+The analysis release is pinned at commit
+`ffbc7598df5feb6fc9de40e200521727db2c89e0`; evidence is in
+`data/publication_readback.json`. Only the scoped Assignment 10 publisher ran.
 
 ## Economic question and findings
 

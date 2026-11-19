@@ -1,0 +1,24 @@
+{
+  "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
+  "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44479083475",
+  "workflow_success": true,
+  "scope": "assignment10",
+  "global_publisher_skipped": true,
+  "overleaf_skipped": true,
+  "files": [
+    {
+      "name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "drive_id": "1BwwuGzM7ifh_eP9qnLdw4RuaacQ82-zq",
+      "size": 74027,
+      "sha256": "29e4f690e4756fd17f9d1fe50cac4566a592cbddb2d2fb2b5eb37754671b4b06",
+      "raw_readback_matches_local_bytes": true
+    },
+    {
+      "name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "drive_id": "1aLJz2tNEIY1blaV0PuC8NKMUa6YPfaO0",
+      "size": 177709,
+      "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+      "raw_readback_matches_local_bytes": true
+    }
+  ]
+}
