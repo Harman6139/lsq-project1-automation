@@ -1,0 +1,90 @@
+{
+  "review_date": "2026-11-19",
+  "scope": "Independent design review before inspecting Assignment 10 screening outcomes",
+  "objective": "Compare the incremental response to specified reporting changes at a fixed prior-reference warning budget, and determine whether a small rule set remains preferable across the declared settings.",
+  "scientific_status": "A frontier is an established diagnostic. Originality would require a consequential reproducible finding about rule complementarity, robustness or loss of performance in the supported exceptional-return range.",
+  "primary_metrics": [
+    {
+      "name": "bias_ratio",
+      "definition": "B = count(0 <= R <= sampleSD) / [1 + count(-sampleSD <= R < 0)]",
+      "direction": "larger is more suspicious",
+      "purpose": "Excess of small gains relative to small losses; the zero convention must match A9."
+    },
+    {
+      "name": "normal_loss_deficit",
+      "definition": "D = T * Phi(-mean(R)/sampleSD(R)) - count(R < 0)",
+      "direction": "larger is more suspicious",
+      "purpose": "Few losses relative to a fitted Gaussian count; it is a score rather than a valid distribution-free p-value."
+    },
+    {
+      "name": "positive_serial_dependence",
+      "definition": "ACF1 = sum((R_t-mean(R))*(R_(t-1)-mean(R))) / sum((R_t-mean(R))^2)",
+      "direction": "larger is more suspicious",
+      "purpose": "Positive dependence associated with causal reporting filters, while recognising persistent economic returns also have this feature."
+    },
+    {
+      "name": "local_zero_score",
+      "recommended_definition": "Freeze b=0.25*sampleSD. Count L2 in [-2b,-b), L1 in [-b,0), G1 in (0,b], and G2 in (b,2b]. Use [3*(G1-L1)-(G2-L2)] / sqrt(9*(G1+L1)+(G2+L2)), with score zero when the denominator is zero. Count exact zeros separately.",
+      "rationale": "The contrast cancels a locally linear density slope. Under a density jump the weighted inner and outer gain-loss differences retain a jump component. Its calibration remains empirical.",
+      "acceptable_simpler_definition": "(G1-L1)/sqrt(G1+L1), zero if both counts vanish, labelled local sign imbalance.",
+      "warning": "An exact conditional binomial tail using probability one half is a possible score transformation, but that probability is not generally correct under nonzero mean or skewness. Do not present it as a calibrated p-value or the original Bollen-Pool test.",
+      "bandwidth_sensitivity": "One predeclared alternative b=0.5*sampleSD is sufficient for the pilot. Bandwidth must be fixed before its results are inspected."
+    }
+  ],
+  "combinations": {
+    "primitive_scale": "Freeze one right-inclusive historical percentile transformation per primitive score using development data only.",
+    "or": "Maximum percentile among the selected primitive rules.",
+    "strict_majority": "For q primitive rules require floor(q/2)+1 exceedances, equivalently that order statistic from the descending percentile scores exceeds its common cutoff.",
+    "distinct_rule_count": 26,
+    "count_explanation": "Fifteen nonempty subsets give fifteen OR rules; strict-majority rules add eleven distinct rules because the four singleton rules duplicate OR.",
+    "calibration": "Calibrate every complete combination score separately on the joint unmodified reference. Single-rule nominal thresholds cannot simply be reused for an OR or majority combination."
+  },
+  "budgets_and_frontier": {
+    "grid": "Use the declared full 0 to 20 percent reference-budget grid, with 1, 5 and 10 percent as predeclared report points.",
+    "zero_budget": "Use an infinite cutoff to represent the operational investigate-none origin.",
+    "discrete_ties": "For positive budgets use an observed non-interpolated weighted quantile and strict exceedance. Report nominal and achieved reference warning rates, retaining conservative unused budget when ties prevent equality.",
+    "assessment": "Report achieved held-out unmodified warning rates as well as historical calibration budgets. Drift can make the held-out rates differ from their targets.",
+    "envelopes": "A pointwise best envelope over evaluated rules is descriptive. Select a rule or subset using calibration data and a declared objective, then assess the selected procedure on evaluation data.",
+    "economic_count": "Report additional altered histories alerted per additional reference warning. Actual detections per investor investigation also depend on the unknown prevalence and seriousness of reporting problems."
+  },
+  "data_and_selection": {
+    "calendar_split": "Retain A9 development 1980-2004, calibration 2005-2016, and evaluation 2017-2025.",
+    "prior_outcome_visibility": "The evaluation data were already inspected in A9. Describe A10 as a pre-specified extension conditional on that knowledge, rather than a virgin confirmatory holdout.",
+    "cohort": "Keep the fixed 194 complete-record strategies and account separately for original and forced-value-weighted spread and funded conventions.",
+    "candidate_pools": "Use K=1,5,20,50,100,194 with the established exact without-replacement winner weights, calibrated and assessed using the same definition.",
+    "high_performance": "Use clearly labelled relative-high-Sharpe strata based on a declared unaltered-record or prior-formation ranking. Report the absolute Sharpe range and support near Fund X separately. A relative top quintile is not automatically Fund X-like or genuinely skilled.",
+    "selection_order": "When an altered candidate can change its selection probability, re-rank using its reported excess-return history and retain a separate denominator for a changed candidate that is selected."
+  },
+  "reporting_alternatives": {
+    "accounting": "Retain the audited additive P&L ledger for raw spreads and the audited log-NAV ledger for explicitly funded returns. Keep opening and closing gaps, existing warm-up months and future scheduled repayments.",
+    "mechanism_test": "Specify training mechanisms and held-out mechanisms before comparison. A new delay within an already trained delay family is weaker evidence of mechanism generalisation than a genuinely different reporting change.",
+    "smoothing": "A symmetric causal filter is a useful sensitivity, but accurate stale valuation and economic persistence can produce similar patterns. Its response is a reporting-pattern result.",
+    "outcomes": "For each policy report baseline alerts, altered alerts, newly alerted paths and cleared paths, with all-path and changed-path denominators."
+  },
+  "uncertainty": {
+    "resampling": "Resample whole monthly cross-sectional vectors in calendar blocks, sharing indices across strategies, representations, weighting variants, rules and reporting mechanisms.",
+    "paired_comparisons": "Use paired bootstrap differences between rules and between the selected combination and its component rules.",
+    "dependence": "Neither 194 factor records nor overlapping windows provide independent Bernoulli trials. Conditional bootstrap repetitions also do not create new independently observed strategies.",
+    "multiple_comparisons": "Separate a predeclared selected rule's assessment from exploratory pairwise rankings. If simultaneous frontier dominance is claimed, uncertainty must cover the full declared budget and mechanism comparison rather than isolated pointwise intervals.",
+    "subset_validation": "If strategy-family robustness is added, define groups using development information or an existing economic taxonomy before evaluating held-out groups."
+  },
+  "minimal_runtime_plan": {
+    "cache": "Compute the four primitive scores once per unmodified or altered panel, then derive all combination order statistics and threshold indicators from the cached scores.",
+    "pilot": "Time a bounded calibration and evaluation pilot, including every representation and mechanism, and extrapolate the full workload.",
+    "execution_location": "If the projected full local run exceeds ten minutes, use the documented CPU26 environment before launching production.",
+    "avoid": "Do not recompute return metrics separately for every budget, candidate-pool size or combination."
+  },
+  "falsifiable_outcomes": [
+    "A small fixed rule set selected in calibration improves held-out altered-path response at comparable reference warning rates across several economic settings.",
+    "Different mechanisms require different primitive rules, with little stable universal complementarity.",
+    "Selecting exceptional historical records changes the achievable warning-response relation, with the direction and supported performance range reported.",
+    "No stable improvement survives weighting, calendar, bandwidth or mechanism checks, leaving a carefully delimited empirical comparison."
+  ],
+  "remaining_limits": [
+    "The CZ catalogue consists of retrospectively reconstructed stock strategies and has no independently observed fraud labels.",
+    "Source returns omit execution, borrowing and investment-management costs. Gross exceptional backtests cannot establish comparable net live-fund performance.",
+    "The ideal type and quantity of rules are conditional on the four available families, budget, calibration regime and specified reporting alternatives.",
+    "A broad real-fund fraud-accuracy claim remains unsupported by this design."
+  ],
+  "independent_verification_plan": "Once the engine exists, verify the primitive metrics against scalar formulas, bin endpoint conventions, empty bands, score orientation, percentile ties, OR/majority order statistics, strict weighted budget quantiles and exact selection weights. Reconstruct a small deterministic example with independent loops before checking stored empirical outputs."
+}

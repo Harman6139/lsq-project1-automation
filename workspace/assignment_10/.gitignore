@@ -1,0 +1,16 @@
+/data/cache/
+/data/external/
+/source/
+/research/download_inventory.json
+/scripts/build_email_draft.py
+/Email_to_Professor_Boyle_Frontier_Handoff.txt
+*.private.json
+__pycache__/
+.qa*/
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.inspect.ndjson

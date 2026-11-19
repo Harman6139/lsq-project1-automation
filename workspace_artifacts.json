@@ -314,6 +314,20 @@
       "drive_name": "Assignment_9_Chen_Zimmermann_Screening.xlsx",
       "folder_path": "Assignment 9",
       "description": "Supporting counts, statistics, selection probabilities and reporting-policy sensitivities."
+    },
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "folder_path": "Assignment 10",
+      "description": "One-page economic handoff contrasting the initial threshold exercise and the return-screening frontier comparison."
+    },
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "folder_path": "Assignment 10",
+      "description": "Supporting frontier, rule-quantity and external-history comparisons."
     }
   ]
 }

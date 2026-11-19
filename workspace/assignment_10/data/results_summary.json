@@ -1,0 +1,244 @@
+{
+  "initial_unmodified_count": 195,
+  "initial_unmodified_alerts": 1,
+  "initial_cutoff_comparison": [
+    {
+      "approach": "Original conventional rules",
+      "n": 194,
+      "unchanged_warnings": 1,
+      "altered_warnings": 120,
+      "new_warnings": 119
+    },
+    {
+      "approach": "Ordinary historical cutoff",
+      "n": 194,
+      "unchanged_warnings": 1,
+      "altered_warnings": 111,
+      "new_warnings": 110
+    },
+    {
+      "approach": "Higher selection cutoff",
+      "n": 194,
+      "unchanged_warnings": 0,
+      "altered_warnings": 66,
+      "new_warnings": 66
+    }
+  ],
+  "frontier_comparison": [
+    {
+      "source": "US factor portfolios",
+      "case": "Unchanged records",
+      "mechanism": "unmodified",
+      "n": 194,
+      "old_pair_warnings": 1,
+      "local_serial_pair_warnings": 3,
+      "old_pair_baseline": 1,
+      "local_serial_pair_baseline": 3,
+      "old_pair_new": 0,
+      "local_serial_pair_new": 0,
+      "reference_budget": 0.05
+    },
+    {
+      "source": "US factor portfolios",
+      "case": "Small losses recognised 3 months later",
+      "mechanism": "relative_delay3",
+      "n": 194,
+      "old_pair_warnings": 104,
+      "local_serial_pair_warnings": 192,
+      "old_pair_baseline": 1,
+      "local_serial_pair_baseline": 3,
+      "old_pair_new": 103,
+      "local_serial_pair_new": 189,
+      "reference_budget": 0.05
+    },
+    {
+      "source": "US factor portfolios",
+      "case": "Returns averaged across adjacent months",
+      "mechanism": "smooth50",
+      "n": 194,
+      "old_pair_warnings": 3,
+      "local_serial_pair_warnings": 189,
+      "old_pair_baseline": 1,
+      "local_serial_pair_baseline": 3,
+      "old_pair_new": 3,
+      "local_serial_pair_new": 186,
+      "reference_budget": 0.05
+    },
+    {
+      "source": "World factor portfolios",
+      "case": "Unchanged records",
+      "mechanism": "unmodified",
+      "n": 153,
+      "old_pair_warnings": 6,
+      "local_serial_pair_warnings": 3,
+      "old_pair_baseline": 6,
+      "local_serial_pair_baseline": 3,
+      "old_pair_new": 0,
+      "local_serial_pair_new": 0,
+      "reference_budget": 0.05
+    },
+    {
+      "source": "World factor portfolios",
+      "case": "Small losses recognised 3 months later",
+      "mechanism": "relative_delay3",
+      "n": 153,
+      "old_pair_warnings": 79,
+      "local_serial_pair_warnings": 152,
+      "old_pair_baseline": 6,
+      "local_serial_pair_baseline": 3,
+      "old_pair_new": 73,
+      "local_serial_pair_new": 149,
+      "reference_budget": 0.05
+    },
+    {
+      "source": "World factor portfolios",
+      "case": "Returns averaged across adjacent months",
+      "mechanism": "smooth50",
+      "n": 153,
+      "old_pair_warnings": 5,
+      "local_serial_pair_warnings": 153,
+      "old_pair_baseline": 6,
+      "local_serial_pair_baseline": 3,
+      "old_pair_new": 2,
+      "local_serial_pair_new": 150,
+      "reference_budget": 0.05
+    }
+  ],
+  "selected_choices": [
+    {
+      "scope": "all",
+      "policy": "OR:B+A+Z",
+      "families": 3,
+      "training_new_warning_rate": 0.9141237113402051
+    },
+    {
+      "scope": "primary",
+      "policy": "OR:B+A+Z",
+      "families": 3,
+      "training_new_warning_rate": 0.9141237113402051
+    },
+    {
+      "scope": "1",
+      "policy": "Z",
+      "families": 1,
+      "training_new_warning_rate": 0.6331658075601357
+    },
+    {
+      "scope": "2",
+      "policy": "OR:A+Z",
+      "families": 2,
+      "training_new_warning_rate": 0.913848797250858
+    },
+    {
+      "scope": "3",
+      "policy": "OR:B+A+Z",
+      "families": 3,
+      "training_new_warning_rate": 0.9141237113402051
+    },
+    {
+      "scope": "4",
+      "policy": "OR:B+D+A+Z",
+      "families": 4,
+      "training_new_warning_rate": 0.9085481099656345
+    }
+  ],
+  "exceptional_history": [
+    {
+      "sample": "first108",
+      "start": "1992-01",
+      "end": "2000-12",
+      "n": 108,
+      "mean": 0.01193350560035333,
+      "sd": 0.007824034115656834,
+      "excess_sharpe": 1.525236907706339,
+      "losing_months": 9,
+      "small_losses_eligible": 4,
+      "old_pair_original": 0,
+      "old_pair_delay3": 1,
+      "old_pair_smoothed": 0,
+      "local_serial_pair_original": 0,
+      "local_serial_pair_delay3": 0,
+      "local_serial_pair_smoothed": 1,
+      "three_rules_original": 0,
+      "three_rules_delay3": 1,
+      "three_rules_smoothed": 1
+    },
+    {
+      "sample": "second108",
+      "start": "2001-01",
+      "end": "2009-12",
+      "n": 108,
+      "mean": 0.006220377385432553,
+      "sd": 0.0130990508462064,
+      "excess_sharpe": 0.47487237498845414,
+      "losing_months": 23,
+      "small_losses_eligible": 12,
+      "old_pair_original": 1,
+      "old_pair_delay3": 1,
+      "old_pair_smoothed": 1,
+      "local_serial_pair_original": 0,
+      "local_serial_pair_delay3": 1,
+      "local_serial_pair_smoothed": 1,
+      "three_rules_original": 0,
+      "three_rules_delay3": 1,
+      "three_rules_smoothed": 1
+    },
+    {
+      "sample": "final108_overlap",
+      "start": "2008-01",
+      "end": "2016-12",
+      "n": 108,
+      "mean": 0.003982711348542856,
+      "sd": 0.010470848843917777,
+      "excess_sharpe": 0.3803618415193054,
+      "losing_months": 30,
+      "small_losses_eligible": 16,
+      "old_pair_original": 0,
+      "old_pair_delay3": 1,
+      "old_pair_smoothed": 1,
+      "local_serial_pair_original": 0,
+      "local_serial_pair_delay3": 1,
+      "local_serial_pair_smoothed": 1,
+      "three_rules_original": 0,
+      "three_rules_delay3": 1,
+      "three_rules_smoothed": 1
+    },
+    {
+      "sample": "published_test300",
+      "start": "1992-01",
+      "end": "2016-12",
+      "n": 300,
+      "mean": 0.007808261577848402,
+      "sd": 0.010429521563431418,
+      "excess_sharpe": 0.748669201205372,
+      "losing_months": 53,
+      "small_losses_eligible": 27,
+      "old_pair_original": 1,
+      "old_pair_delay3": 1,
+      "old_pair_smoothed": 1,
+      "local_serial_pair_original": 0,
+      "local_serial_pair_delay3": 1,
+      "local_serial_pair_smoothed": 1,
+      "three_rules_original": 0,
+      "three_rules_delay3": 1,
+      "three_rules_smoothed": 1
+    }
+  ],
+  "interpretive_takeaways": [
+    "The initial experiment showed sparse unchanged warnings and the familiar cost of a higher cutoff.",
+    "The frontier exercise compares different types and quantities, not only thresholds.",
+    "A local zero-bin score and positive serial dependence cover different imposed reporting changes.",
+    "Adding third/fourth checks gave little extra coverage on the later factor panel, but the high-Sharpe first GAN test block needed the bias check for its imposed loss delay.",
+    "Same older-reference warning budget; actual later investigation counts are shown separately.",
+    "Highest reported GAN Sharpe is an author-backtest segment, not a live fund NAV; later performance weakened.",
+    "Existing papers already combine alerts and compare costs; no new frontier method is claimed."
+  ],
+  "execution_seconds": {
+    "execution_external": 44.03099999999995,
+    "execution_folds": 17.65599999999995,
+    "execution_original": 108.63999999999987,
+    "execution_sensitivity": 17.265000000000327,
+    "execution_uncertainty": 7.985000000000127,
+    "execution_value_weighted": 119.42099999999982
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "pilot_draws": 200,
+  "strategies": 194,
+  "months": 108,
+  "score_seconds": 0.3370540999999321,
+  "frontier_seconds": 0.0777791000000434,
+  "policies": 26,
+  "conservative_projected_seconds": 441.12914999995155,
+  "projected_minutes": 7.3521524999991925,
+  "cpu26_required_under_ten_minute_rule": false,
+  "screening_outcomes": "discarded; timing only, no outcome inspection",
+  "sink_shape": [
+    200,
+    194,
+    4
+  ]
+}

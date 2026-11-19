@@ -1,0 +1,25 @@
+External return-data search, 19 November 2026
+
+Available now
+Chen, Pelger and Zhu: the author-released GAN SDF-factor file has 600 monthly observations, 1967-2016. Its published test period is 1992-2016 (300 months), after 1967-1986 training and 1987-1991 validation. Monthly excess Sharpe is 0.749 for that test period, 0.380 for 2008-2016 and 0.588 for 2012-2016. This is a gross research backtest with no 2017-2025 overlap.
+The SDF column is a portfolio excess payoff, not the discount-factor level. The authors normalize absolute stock weights to sum to 1 each month. Do not subtract cash again. Use SD-relative reporting policies for a fair comparison with gross 2 long-short factors.
+JKP: 153 world capped-value-weighted factor records cover all 108 months in 2017-2025. All 16,524 returns were checked against an independent CSV parser. Returns are already signed, in decimal USD excess units. No further sign change or cash subtraction is needed. Maximum individual monthly excess Sharpe is 0.336.
+Live records: BH Macro USD, Parus I USD and Winton Alma I1C-U each supply 108 net USD NAV-performance returns. Their monthly excess Sharpes are 0.198, 0.163 and 0.079. Two PDF readers agree on every number, and all 27 annual returns reconcile within rounding bounds. Actual July-December 2016 returns provide a separate six-month warm-up for each fund. All three 2016 annual totals also reconcile. These records add live fund comparisons but do not reach Fund X's performance.
+
+What still looks useful
+The official JKP Common Task Framework leaderboard has 97 completed models with 1990-2023 hindcasts. The highest advertised annual Sharpe is 5.15. Code and summary metrics are public, but inspected pages and the public JSON endpoint do not expose monthly return arrays. The site scales performance to 10% annual volatility. These are retrospective submitted backtests, not live fund records.
+The institutional route uses WRDS tables contrib_global_factor.ctff_features, ctff_chars and ctff_daily_ret. Access to these tables has not been confirmed in this session. No licensed stock rows were fetched and no model was retrained.
+Sina Seyfi: the local July 2026 paper has a 1980-2022 sample, annualized Sharpe 1.71 before trading costs and 0.64 after costs. Those are roughly 0.494 and 0.185 monthly. His public page does not link a return file. The professor could still obtain the exact version directly.
+Bloomberg remains a useful route to a larger live panel. Request full-precision monthly net distribution-adjusted returns, identifiers, currency, fees, dates and share-class changes, including closed funds where available. Public factsheets verify Parus IE00BCBHZC00 (RPARIU1 ID) and Winton LU0462954479 (DBSI1CU LX).
+
+Scope
+No returns were fabricated, shifted or rescaled to imitate Fund X. No screen outcomes were calculated during this search. None of these sources supplies verified fraud labels or representative honest controls. Keep raw restricted-distribution factsheets local; exact source URLs and hashes are recorded separately.
+
+Files
+data/external/cpz_published_monthly_1967_2016.csv
+data/external/jkp_world_monthly_2017_2025.csv
+data/external/public_nav_monthly_2017_2025.csv
+data/external/public_nav_warmup_2016.csv
+research/external_provenance.json
+research/download_inventory.json
+research/external_support_summary.json

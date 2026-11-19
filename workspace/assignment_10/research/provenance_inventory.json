@@ -1,0 +1,173 @@
+{
+  "created_utc": "2026-11-19T06:41:45.588676+00:00",
+  "files": [
+    {
+      "file": "data/external/alma_funds.html",
+      "bytes": 96092,
+      "sha256": "91513a1b2a62876d4a3669287190f3c96aa95973a5004262631306df6741410a",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/bhmacro_202601.pdf",
+      "bytes": 481703,
+      "sha256": "f3eb96993124b5d3b7378641e9b8ff9994e947952b1fc15862488e3327c7553a",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_code_config_config.json",
+      "bytes": 954,
+      "sha256": "02beaa94c78ec1824db702fd1b1767c171c59b7409c7c2eb204529b0bb88d49c",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_code_model_GAN.ipynb",
+      "bytes": 613504,
+      "sha256": "321c8ef01670c32cf7db1d20cdf3405e75fefcc82e26365b0597e5b0fa76f7dc",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_code_src_data_data_layer.py",
+      "bytes": 5223,
+      "sha256": "808f9d01adfa757f28f4a116c2ef48048c9af19db62549c62caf80e65aea5602",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_code_src_model_model_GAN.py",
+      "bytes": 62745,
+      "sha256": "7b8519a2e9c3a1481179a08598dd989849ccdfb610904157561df019e0e2e90a",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_code_src_model_model_utils.py",
+      "bytes": 3298,
+      "sha256": "a04dec22181c33bc4a6b82bfd3a45002e3a7e214cb845510d3019c43266ace26",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_code_src_utils.py",
+      "bytes": 26733,
+      "sha256": "9dc9d5041284c2360ef55c233beb50ce928638cd6bf7ba7ebef05afa8b7b4f44",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_paper.pdf",
+      "bytes": 4787433,
+      "sha256": "6a58f8e540b33cbd6ef1d4579e8a9664ef5129524ad83c2aac2e9ee95cc796f9",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/cpz_published_monthly_1967_2016.csv",
+      "bytes": 273314,
+      "sha256": "608a2a1b3b00ea72e6808d3a988a2014b11ecc633b52438acb7316cd24728577",
+      "role": "monthly returns"
+    },
+    {
+      "file": "data/external/cpz_sdf_timeseries.xlsx",
+      "bytes": 240633,
+      "sha256": "e273ff5951b2949dee4aff0cb2b639b28b852335db0b2ed41d49b101c1fb4548",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/gkx_home.html",
+      "bytes": 72217,
+      "sha256": "5812ea5502f4805aab3db079922f1fd59e8f5c2fdf9d2e77c6db6c9cb34f774e",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/gkx_paper.pdf",
+      "bytes": 1146229,
+      "sha256": "05e4ef8a1c830c9f33a0f461f07c145f6e6be30fbd7996a09d0672de1413bd61",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_availability.json",
+      "bytes": 287565,
+      "sha256": "3a5647ad2c053c88410b4cdcddd0377405bb2cb30c3e3932905064d7ba322ca2",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_ctf_leaderboard.html",
+      "bytes": 529616,
+      "sha256": "80c5efebd9d08e9a5fa43c055af2e396b3985d5479b658113bbc27ec1c26efdd",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_ctf_public_metrics.json",
+      "bytes": 70220,
+      "sha256": "4a1f0c474652cbd4971dbcec33aa8432bf077f075b970d927c306e396cb7867d",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_ctf_rules.json",
+      "bytes": 56006,
+      "sha256": "deb238b3db208f704b3dfc084fa0e2b70e181d7780357b48067ebeb5efeb346d",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_documentation.pdf",
+      "bytes": 644240,
+      "sha256": "141c9571f00445937356328e22fd030e69dea4b68dea986f85dda6859ca3cc7d",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_world_all_factors_monthly_vwcap.csv",
+      "bytes": 10050370,
+      "sha256": "af41c99bfb485a09c071a0a97a6a50ac2f5e75f6a94abd2a8955865eef5ec3a5",
+      "role": "monthly returns"
+    },
+    {
+      "file": "data/external/jkp_world_all_factors_monthly_vwcap.zip",
+      "bytes": 2063724,
+      "sha256": "b8d6ae7b24b39838597fc2a2a41954087e3d4f734ae73b5538eb91725068ec72",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/jkp_world_monthly_2017_2025.csv",
+      "bytes": 680285,
+      "sha256": "57630c38516db7e5db9663a6e485812d129464cf5b25e437af65d7245120c02e",
+      "role": "monthly returns"
+    },
+    {
+      "file": "data/external/parus_202609.pdf",
+      "bytes": 543007,
+      "sha256": "bc162b9d30c26ec949f9578d709e23621a27ea8705e6b73bf1e80dc058844b33",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/pelger_data_code.html",
+      "bytes": 23582,
+      "sha256": "e9ac7f0748267f2a45485bc3a5c239c16401a5217dcc4705c67dfef5a6863ec2",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/public_nav_monthly_2017_2025.csv",
+      "bytes": 27388,
+      "sha256": "cbc29995b2a550a8f76f6c7a2d10993f66f5bb93bfe96bf14a8da0c525a875b7",
+      "role": "monthly returns"
+    },
+    {
+      "file": "data/external/public_nav_warmup_2016.csv",
+      "bytes": 1748,
+      "sha256": "48dd2fe6778e0f358ba98837085e568cc909cc5217de8779a0a264e2d8b44d3b",
+      "role": "monthly returns"
+    },
+    {
+      "file": "data/external/sina_home.html",
+      "bytes": 159474,
+      "sha256": "bd3beec26e78ff0f5212f5c379ce70b5cf2eaa82a964dc5cc8e8e90a05265c2c",
+      "role": "local source/evidence snapshot"
+    },
+    {
+      "file": "data/external/usd_rf_2017_2025.csv",
+      "bytes": 2606,
+      "sha256": "feec3a130ae5f3ba5ae2e2364dc92e909e746e81cdc6cc0ffc952ad4b6208034",
+      "role": "monthly returns"
+    },
+    {
+      "file": "data/external/winton_202609.pdf",
+      "bytes": 158415,
+      "sha256": "190fdb685236be40df12dee35ff6a3eb146d1c67139d0760f87afb1c47b0b6ba",
+      "role": "local source/evidence snapshot"
+    }
+  ]
+}

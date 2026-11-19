@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "seconds": 17.65599999999995,
+  "dependencies": {
+    "data/frozen_design.json": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
+    "scripts/frontier_metrics.py": "17cb1cf22fb6b34448ed39e5e5f8f725d4bf59877498e338321b221b9c58d071",
+    "scripts/frontier_engine.py": "c9b8ae3f709b5ce618a98376442cf0b3cc2a4e5c30e9345991eac08e63e3d187",
+    "data/raw/PredictorLSretWide.parquet": "fc01df25d4383153cb3ae9e0dd730cc34b6d15a5207abeff09f34beda45bca58",
+    "data/raw/PredictorVWforce.parquet": "e64df0fc189f1a4f4ce3ba39fdbba2ee83dfce871c6bf60f5660cbc9222158db",
+    "data/raw/F-F_Research_Data_Factors.csv": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb",
+    "data/raw/SignalDoc.csv": "0ceb11020c2138c2477b732948beaac2e67ccaad8428753e3a79af2bb5ea0178"
+  }
+}

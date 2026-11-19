@@ -1,0 +1,2 @@
+# Preserve frozen source/code hashes across checkout platforms.
+* -text

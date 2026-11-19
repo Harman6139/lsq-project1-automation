@@ -69,6 +69,15 @@ Do not update or publish from an archive when a corresponding file exists in thi
 - The October 2026 data release ends in December 2025. The descriptive cohort has 195 complete strategies; the calibration/evaluation core has 194. Exploratory fixed-weight combinations are separately declared and do not share individual-factor calibration cutoffs.
 - Entry points: `workspace/assignment_9/README.md` and `assignment9_manifest.json`. Preserve pinned source data, frozen designs, full-precision cutoffs and execution history. Read cutoff CSVs with round-trip float precision; score ties use strict exceedance.
 
+### Assignment 10: Return-Screening Frontiers
+
+- Location: `workspace/assignment_10`.
+- Purpose: compare four return-warning families and 38 fixed single/combined configurations across historical warning budgets, later calendar periods, strategy-family folds and separately sourced return histories.
+- The professor-facing handoff is one page, with a compact workbook and unsent email draft. Separate the initial Assignment 9 threshold exercise from the types-and-quantities frontier question.
+- The shared 5% allowance is fitted in older reference data; report actual later unchanged warnings and total/new altered-record warnings separately. Do not call a final-data envelope a rule selected beforehand.
+- External evidence includes 153 global factor portfolios, three published net NAV histories, and an author-released model portfolio with a high early Sharpe ratio. The local/serial pair's miss on one strong backtest is not proof that every two-check approach fails or that performance determines the optimal count.
+- Entry points: `workspace/assignment_10/README.md`, `data/frozen_design.json`, `assignment10_manifest.json`. Original external files and restricted PDFs remain local; source URLs and hashes permit verification. No real-fund fraud labels or optimal operational-investigation ranking were obtained.
+
 ## Efficient Linkage Check
 
 For a new document or professor concern, do not reread every prior PDF.

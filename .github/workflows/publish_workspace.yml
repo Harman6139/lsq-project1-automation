@@ -4,13 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       scope:
-        description: "Publish the full workspace or only Assignment 9"
+        description: "Publish the full workspace or one assignment"
         required: true
         default: workspace
         type: choice
         options:
           - workspace
           - assignment9
+          - assignment10
   push:
     branches:
       - main
@@ -44,11 +45,11 @@ jobs:
           python-version: "3.11"
 
       - name: Build live LaTeX workspace
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope != 'assignment9' }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope == 'workspace' }}
         run: python scripts/build_latex_workspace.py --project-dir . --output-dir _latex_workspace
 
       - name: Push live LaTeX workspace to Overleaf
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope != 'assignment9' }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope == 'workspace' }}
         env:
           OVERLEAF_GIT_URL: ${{ secrets.OVERLEAF_GIT_URL }}
           OVERLEAF_GIT_TOKEN: ${{ secrets.OVERLEAF_GIT_TOKEN }}
@@ -60,7 +61,7 @@ jobs:
           python scripts/push_to_overleaf.py --workspace-dir _latex_workspace
 
       - name: Publish workspace to Google Drive
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope != 'assignment9' }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.scope == 'workspace' }}
         env:
           APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
           APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
@@ -72,3 +73,10 @@ jobs:
           APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
           APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
         run: python scripts/publish_workspace.py --project-dir . --config workspace_artifacts_assignment9.json
+
+      - name: Publish Assignment 10 to Google Drive
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.scope == 'assignment10' }}
+        env:
+          APPS_SCRIPT_WEB_APP_URL: ${{ secrets.APPS_SCRIPT_WEB_APP_URL }}
+          APPS_SCRIPT_UPLOAD_SECRET: ${{ secrets.APPS_SCRIPT_UPLOAD_SECRET }}
+        run: python scripts/publish_workspace.py --project-dir . --config workspace_artifacts_assignment10.json

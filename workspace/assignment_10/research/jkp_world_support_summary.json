@@ -1,0 +1,15 @@
+{
+  "source": "jkp_world_factors",
+  "period": [
+    "2017-01",
+    "2025-12"
+  ],
+  "months": 108,
+  "all_names": 153,
+  "complete_names": 153,
+  "highest_h_signal": "niq_su",
+  "highest_monthly_excess_sharpe": 0.3363016708336703,
+  "same_as_zero_h": true,
+  "do_not_subtract_rf": true,
+  "screen_outcomes_computed": false
+}

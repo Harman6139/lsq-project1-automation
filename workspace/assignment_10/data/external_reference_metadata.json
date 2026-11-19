@@ -1,0 +1,354 @@
+[
+  {
+    "months": 108,
+    "strategies": 179,
+    "periods": {
+      "development": [
+        "1926-01",
+        "1979-12"
+      ],
+      "calibration": [
+        "1980-01",
+        "1991-12"
+      ],
+      "evaluation": [
+        "1992-01",
+        "2016-12"
+      ]
+    },
+    "development": {
+      "records": 3817,
+      "endpoints": [
+        {
+          "end": "1934-12",
+          "paths": 3
+        },
+        {
+          "end": "1935-12",
+          "paths": 29
+        },
+        {
+          "end": "1936-12",
+          "paths": 44
+        },
+        {
+          "end": "1937-12",
+          "paths": 50
+        },
+        {
+          "end": "1938-12",
+          "paths": 49
+        },
+        {
+          "end": "1939-12",
+          "paths": 50
+        },
+        {
+          "end": "1940-12",
+          "paths": 55
+        },
+        {
+          "end": "1941-12",
+          "paths": 55
+        },
+        {
+          "end": "1942-12",
+          "paths": 54
+        },
+        {
+          "end": "1943-12",
+          "paths": 54
+        },
+        {
+          "end": "1944-12",
+          "paths": 55
+        },
+        {
+          "end": "1945-12",
+          "paths": 57
+        },
+        {
+          "end": "1946-12",
+          "paths": 57
+        },
+        {
+          "end": "1947-12",
+          "paths": 57
+        },
+        {
+          "end": "1948-12",
+          "paths": 58
+        },
+        {
+          "end": "1949-12",
+          "paths": 58
+        },
+        {
+          "end": "1950-12",
+          "paths": 60
+        },
+        {
+          "end": "1951-12",
+          "paths": 60
+        },
+        {
+          "end": "1952-12",
+          "paths": 60
+        },
+        {
+          "end": "1953-12",
+          "paths": 60
+        },
+        {
+          "end": "1954-12",
+          "paths": 60
+        },
+        {
+          "end": "1955-12",
+          "paths": 60
+        },
+        {
+          "end": "1956-12",
+          "paths": 61
+        },
+        {
+          "end": "1957-12",
+          "paths": 61
+        },
+        {
+          "end": "1958-12",
+          "paths": 61
+        },
+        {
+          "end": "1959-12",
+          "paths": 65
+        },
+        {
+          "end": "1960-12",
+          "paths": 81
+        },
+        {
+          "end": "1961-12",
+          "paths": 98
+        },
+        {
+          "end": "1962-12",
+          "paths": 105
+        },
+        {
+          "end": "1963-12",
+          "paths": 105
+        },
+        {
+          "end": "1964-12",
+          "paths": 106
+        },
+        {
+          "end": "1965-12",
+          "paths": 109
+        },
+        {
+          "end": "1966-12",
+          "paths": 111
+        },
+        {
+          "end": "1967-12",
+          "paths": 112
+        },
+        {
+          "end": "1968-12",
+          "paths": 112
+        },
+        {
+          "end": "1969-12",
+          "paths": 112
+        },
+        {
+          "end": "1970-12",
+          "paths": 113
+        },
+        {
+          "end": "1971-12",
+          "paths": 123
+        },
+        {
+          "end": "1972-12",
+          "paths": 134
+        },
+        {
+          "end": "1973-12",
+          "paths": 138
+        },
+        {
+          "end": "1974-12",
+          "paths": 142
+        },
+        {
+          "end": "1975-12",
+          "paths": 144
+        },
+        {
+          "end": "1976-12",
+          "paths": 144
+        },
+        {
+          "end": "1977-12",
+          "paths": 144
+        },
+        {
+          "end": "1978-12",
+          "paths": 144
+        },
+        {
+          "end": "1979-12",
+          "paths": 147
+        }
+      ]
+    },
+    "caveat": "300-month reference draws resample144 historical calibration months; historical conditional extrapolation, not300new observed months"
+  },
+  {
+    "months": 300,
+    "strategies": 179,
+    "periods": {
+      "development": [
+        "1926-01",
+        "1979-12"
+      ],
+      "calibration": [
+        "1980-01",
+        "1991-12"
+      ],
+      "evaluation": [
+        "1992-01",
+        "2016-12"
+      ]
+    },
+    "development": {
+      "records": 1740,
+      "endpoints": [
+        {
+          "end": "1950-12",
+          "paths": 3
+        },
+        {
+          "end": "1951-12",
+          "paths": 26
+        },
+        {
+          "end": "1952-12",
+          "paths": 41
+        },
+        {
+          "end": "1953-12",
+          "paths": 47
+        },
+        {
+          "end": "1954-12",
+          "paths": 47
+        },
+        {
+          "end": "1955-12",
+          "paths": 48
+        },
+        {
+          "end": "1956-12",
+          "paths": 53
+        },
+        {
+          "end": "1957-12",
+          "paths": 53
+        },
+        {
+          "end": "1958-12",
+          "paths": 53
+        },
+        {
+          "end": "1959-12",
+          "paths": 53
+        },
+        {
+          "end": "1960-12",
+          "paths": 54
+        },
+        {
+          "end": "1961-12",
+          "paths": 56
+        },
+        {
+          "end": "1962-12",
+          "paths": 56
+        },
+        {
+          "end": "1963-12",
+          "paths": 55
+        },
+        {
+          "end": "1964-12",
+          "paths": 56
+        },
+        {
+          "end": "1965-12",
+          "paths": 56
+        },
+        {
+          "end": "1966-12",
+          "paths": 58
+        },
+        {
+          "end": "1967-12",
+          "paths": 59
+        },
+        {
+          "end": "1968-12",
+          "paths": 59
+        },
+        {
+          "end": "1969-12",
+          "paths": 59
+        },
+        {
+          "end": "1970-12",
+          "paths": 59
+        },
+        {
+          "end": "1971-12",
+          "paths": 59
+        },
+        {
+          "end": "1972-12",
+          "paths": 60
+        },
+        {
+          "end": "1973-12",
+          "paths": 60
+        },
+        {
+          "end": "1974-12",
+          "paths": 60
+        },
+        {
+          "end": "1975-12",
+          "paths": 64
+        },
+        {
+          "end": "1976-12",
+          "paths": 80
+        },
+        {
+          "end": "1977-12",
+          "paths": 97
+        },
+        {
+          "end": "1978-12",
+          "paths": 104
+        },
+        {
+          "end": "1979-12",
+          "paths": 105
+        }
+      ]
+    },
+    "caveat": "300-month reference draws resample144 historical calibration months; historical conditional extrapolation, not300new observed months"
+  }
+]

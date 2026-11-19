@@ -1,0 +1,126 @@
+{
+  "status": "passed",
+  "file": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+  "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+  "worksheets": [
+    "Comparison",
+    "Frontiers",
+    "Other histories",
+    "Sources"
+  ],
+  "mapped_saved_cells": 9531,
+  "source_count_cells": 4906,
+  "independently_recalculated_ratios": 1965,
+  "formula_errors": 0,
+  "scientific_figure": {
+    "path": "C:\\Users\\HP\\Prof Boyle\\codex_project1a_context\\project1_may2026_deliverables\\workspace\\assignment_10\\figures\\frontier_types_and_quantity.png",
+    "sha256": "0a33f1487dc2118d963c178af60ab029bf1d37c56d85ba0d98d342974f51c774",
+    "embedded_path": "xl/media/image.png",
+    "embedded_bytes_match": true
+  },
+  "all_used_cell_fonts": "Times New Roman, black",
+  "selected_external_rows": 164,
+  "zero_changed_altered_cases_retained": 0,
+  "count_perturbation_and_restoration": [
+    {
+      "sheet": "Comparison",
+      "input": "D15",
+      "output": "E15",
+      "original_count": 1,
+      "perturbed_count": 2,
+      "denominator": 194,
+      "perturbed_rate": 0.010309278350515464,
+      "restored_rate": 0.005154639175257732
+    }
+  ],
+  "renders": [
+    [
+      "Comparison",
+      "A1:K24",
+      "comparison_main"
+    ],
+    [
+      "Comparison",
+      "A26:J43",
+      "comparison_quantity"
+    ],
+    [
+      "Comparison",
+      "A44:J57",
+      "comparison_quantity_tail"
+    ],
+    [
+      "Comparison",
+      "A60:G76",
+      "comparison_folds"
+    ],
+    [
+      "Frontiers",
+      "A1:K30",
+      "frontiers_charts"
+    ],
+    [
+      "Frontiers",
+      "A31:J44",
+      "frontiers_data"
+    ],
+    [
+      "Frontiers",
+      "A696:J704",
+      "frontiers_tail"
+    ],
+    [
+      "Other histories",
+      "A1:K30",
+      "other_performance"
+    ],
+    [
+      "Other histories",
+      "A32:L48",
+      "other_screening"
+    ],
+    [
+      "Other histories",
+      "A188:L200",
+      "other_tail"
+    ],
+    [
+      "Sources",
+      "A1:B24",
+      "sources_definitions"
+    ],
+    [
+      "Sources",
+      "A26:B33",
+      "sources_primitives"
+    ],
+    [
+      "Sources",
+      "A35:E53",
+      "sources_candidates"
+    ],
+    [
+      "Sources",
+      "A54:E74",
+      "sources_candidates_tail"
+    ],
+    [
+      "Sources",
+      "A77:C86",
+      "sources_data"
+    ],
+    [
+      "Sources",
+      "A88:C97",
+      "sources_literature"
+    ]
+  ],
+  "authoring_event": {
+    "operation": "create",
+    "count": 1,
+    "format": "xlsx",
+    "marker_script": "Not present in installed 26.1118.11504 package; this single local event records the authoring start."
+  },
+  "rendering_review": "All 16 regions inspected; revised labels, alignment and return-basis column rechecked.",
+  "limitation": "Native Excel application was not opened. Recalculation was checked in the bundled engine and saved OOXML was independently reconciled. The approved fixed scientific figure is embedded because both documented native-scatter routes exported empty point sources in this runtime. All 672 frontier rows remain in the visible formula-backed table."
+}

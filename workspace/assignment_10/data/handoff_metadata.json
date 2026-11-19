@@ -1,0 +1,29 @@
+{
+  "report_title": "Which return checks justify an investigation?",
+  "email_words": 128,
+  "numeric_basis": "data/results_summary.json; tables/handoff_comparison.csv",
+  "initial_counts": [
+    {
+      "approach": "Original conventional rules",
+      "n": 194,
+      "unchanged_warnings": 1,
+      "altered_warnings": 120,
+      "new_warnings": 119
+    },
+    {
+      "approach": "Ordinary historical cutoff",
+      "n": 194,
+      "unchanged_warnings": 1,
+      "altered_warnings": 111,
+      "new_warnings": 110
+    },
+    {
+      "approach": "Higher selection cutoff",
+      "n": 194,
+      "unchanged_warnings": 0,
+      "altered_warnings": 66,
+      "new_warnings": 66
+    }
+  ],
+  "table_rows": 6
+}

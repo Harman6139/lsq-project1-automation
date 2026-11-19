@@ -1,0 +1,498 @@
+{
+  "checked_utc": "2026-11-19T06:39:17.913242+00:00",
+  "screen_outcomes_computed": false,
+  "cpz": {
+    "source_page": "https://mpelger.people.stanford.edu/data-and-code",
+    "stable_download_url": "https://www.dropbox.com/s/ntw62pf9e4gbh4i/SDF%20Time-Series.xlsx?dl=1",
+    "author_release": "SDF Time-Series.xlsx; workbook created April 2019, internally modified 3 June 2019",
+    "source_file": "data/external/cpz_sdf_timeseries.xlsx",
+    "source_sha256": "e273ff5951b2949dee4aff0cb2b639b28b852335db0b2ed41d49b101c1fb4548",
+    "curated_file": "data/external/cpz_published_monthly_1967_2016.csv",
+    "curated_sha256": "608a2a1b3b00ea72e6808d3a988a2014b11ecc633b52438acb7316cd24728577",
+    "schema": [
+      "month",
+      "SDF",
+      "EW_beta_decile_01",
+      "EW_beta_decile_02",
+      "EW_beta_decile_03",
+      "EW_beta_decile_04",
+      "EW_beta_decile_05",
+      "EW_beta_decile_06",
+      "EW_beta_decile_07",
+      "EW_beta_decile_08",
+      "EW_beta_decile_09",
+      "EW_beta_decile_10",
+      "VW_beta_decile_01",
+      "VW_beta_decile_02",
+      "VW_beta_decile_03",
+      "VW_beta_decile_04",
+      "VW_beta_decile_05",
+      "VW_beta_decile_06",
+      "VW_beta_decile_07",
+      "VW_beta_decile_08",
+      "VW_beta_decile_09",
+      "VW_beta_decile_10"
+    ],
+    "observations": 600,
+    "first_month": "1967-01",
+    "last_month": "2016-12",
+    "train": [
+      "1967-01",
+      "1986-12"
+    ],
+    "validation": [
+      "1987-01",
+      "1991-12"
+    ],
+    "published_test": [
+      "1992-01",
+      "2016-12"
+    ],
+    "test_observations": 300,
+    "currency": "USD",
+    "units": "decimal simple excess payoffs; 0.01 means 1%",
+    "meaning": "SDF column is the GAN model SDF-factor portfolio F, not the pricing kernel M=1-F. The remaining 20 columns are equally/value-weighted beta-sorted stock-portfolio excess returns.",
+    "cash_rule": "Use F directly as an excess payoff; do not subtract RF again. RF+F is an explicit hypothetical funded version, not a published net fund NAV.",
+    "gross_normalization": "Published main construction uses monthly L1 normalization: sum(abs(stock weights))=1. This is gross stock notional 1 per unit payoff, unlike gross2 for a one-unit long/one-unit short factor spread. Code factor weights have opposite sign to its learned SDF weights; absolute normalization is unchanged.",
+    "normalization_evidence": {
+      "commit": "bb11e6dcf435a8585bbaa7c443b948c3378f7b40",
+      "code": "src/model/model_GAN.py",
+      "weight_normalization_lines": [
+        40,
+        51
+      ],
+      "factor_construction_lines": [
+        64,
+        76
+      ],
+      "notebook": "model_GAN.ipynb; calls getNormalizedSDFFactor and saves sdf_normalized_ensemble.npy",
+      "paper": "data/external/cpz_paper.pdf; printed p26 Table III, printed p51 turnover definition; appendix Table IA.I has unnormalized monthly test Sharpe0.72 versus normalized0.75",
+      "qualification": "Code and normalized paper performance support this interpretation. Underlying dated holdings were not supplied in the return workbook and were not independently reconstructed."
+    },
+    "fees_costs": "Research backtest gross of transaction, borrowing and management costs; turnover is reported, not deducted in this published return file.",
+    "formation_dates": "The workbook labels 1992-2016 as test data after 1967-1986 training and 1987-1991 validation. Publication, feature catalogue and model design are retrospective; this is not a live post-publication fund record.",
+    "screening_policy": "Prefer SD-relative loss bounds and target gains for cross-source comparisons. A fixed 1% loss bound also depends on payoff scale and should be a separate sensitivity.",
+    "support": {
+      "paper_test": {
+        "start": "1992-01",
+        "end": "2016-12",
+        "SDF": {
+          "months": 300,
+          "mean": 0.007808261577848402,
+          "sample_sd": 0.010429521563431418,
+          "zero_h": 0.748669201205372,
+          "minimum_return": -0.06001400543906454,
+          "maximum_return": 0.04761844164184503,
+          "monthly_excess_sharpe": 0.748669201205372
+        },
+        "portfolio_count": 21,
+        "no_overlap_2017_2025": true
+      },
+      "last_108": {
+        "start": "2008-01",
+        "end": "2016-12",
+        "SDF": {
+          "months": 108,
+          "mean": 0.003982711348542856,
+          "sample_sd": 0.010470848843917777,
+          "zero_h": 0.3803618415193054,
+          "minimum_return": -0.06001400543906454,
+          "maximum_return": 0.02612458285182928,
+          "monthly_excess_sharpe": 0.3803618415193054
+        },
+        "portfolio_count": 21,
+        "no_overlap_2017_2025": true
+      },
+      "last_60": {
+        "start": "2012-01",
+        "end": "2016-12",
+        "SDF": {
+          "months": 60,
+          "mean": 0.004502494804353067,
+          "sample_sd": 0.007663332563416098,
+          "zero_h": 0.5875374410667598,
+          "minimum_return": -0.02156525770751716,
+          "maximum_return": 0.02612458285182928,
+          "monthly_excess_sharpe": 0.5875374410667598
+        },
+        "portfolio_count": 21,
+        "no_overlap_2017_2025": true
+      },
+      "independent_OOXML_SDF_values_exact_match": 600
+    },
+    "verification": "All600 SDF cells exactly match an independent standard-library OOXML parse. Source date sequence, missing values and sample counts checked; mean/SD ratios independently matched NumPy and statistics.",
+    "rights": "Publicly author-released research output with a citation request; no explicit open-data licence was found in the workbook. Preserve attribution and stable source URL."
+  },
+  "jkp_world": {
+    "source_page": "https://jkpfactors.com/data",
+    "source_url": "https://data.jkpfactors.com/public/%5Bworld%5D_%5Ball_factors%5D_%5Bmonthly%5D_%5Bvw_cap%5D.zip",
+    "source_raw_csv": "data/external/jkp_world_all_factors_monthly_vwcap.csv",
+    "source_raw_schema": [
+      "location",
+      "name",
+      "freq",
+      "weighting",
+      "direction",
+      "n_countries",
+      "date",
+      "ret"
+    ],
+    "source_rows": 146430,
+    "first_date": "1926-01-31",
+    "last_date": "2025-12-31",
+    "source_names": 153,
+    "curated_file": "data/external/jkp_world_monthly_2017_2025.csv",
+    "curated_schema": [
+      "month",
+      "factor",
+      "ret"
+    ],
+    "curated_months": 108,
+    "curated_factors": 153,
+    "curated_rows": 16524,
+    "curated_sha256": "57630c38516db7e5db9663a6e485812d129464cf5b25e437af65d7245120c02e",
+    "units": "decimal simple excess returns; 0.01 means 1%",
+    "currency": "USD",
+    "weighting": "Capped-value-weighted stock legs: stocks weighted by market equity capped at the NYSE80th percentile, using the source country tercile construction and published regional aggregation.",
+    "gross_normalization": "A source factor is a weighted regional average of one fully invested long tercile minus one fully invested short tercile. Under that convention, stock gross notional is2 per unit long-short payoff. Underlying holdings were not reconstructed.",
+    "sign_rule": "ret is already signed to the literature direction; direction records the applied sign. Use ret unchanged. Do not multiply by direction again.",
+    "cash_rule": "Already an excess long-short payoff; do not subtract RF.",
+    "fees_costs": "Reconstructed stock strategies gross of trading, borrowing and fund-management costs; not live net fund NAVs.",
+    "source_dates": "Source archive Last-Modified 4 August2026; current source site says aggregate data extend through December2025. Exact downloaded bytes are frozen by hash; the live URL can be revised.",
+    "code_evidence": {
+      "commit": "8477adf3071e5e79bcae18d0c11e2cf2fd1f84be",
+      "signing": "src/jkp/data/aux_functions.py:_sign_factors, lines10132 onward; src/jkp/data/portfolio.py, lines210-220 applies signing before country/regional export",
+      "regional": "src/jkp/data/aux_functions.py:regional_data, lines11019 onward computes weighted country means",
+      "documentation": "data/external/jkp_documentation.pdf p8"
+    },
+    "formation_limit": "The current153-factor catalogue and reconstructed data are retrospective. No claim that all153 strategies were pre-2017 published or available in real time.",
+    "rights": "Data CC BY-NC4.0; cite Jensen, Kelly and Pedersen(2023), Journal of Finance78(5),2465-2518.",
+    "support": {
+      "source": "jkp_world_factors",
+      "period": [
+        "2017-01",
+        "2025-12"
+      ],
+      "months": 108,
+      "all_names": 153,
+      "complete_names": 153,
+      "highest_h_signal": "niq_su",
+      "highest_monthly_excess_sharpe": 0.3363016708336703,
+      "same_as_zero_h": true,
+      "do_not_subtract_rf": true,
+      "screen_outcomes_computed": false
+    },
+    "verification": "All16524 selected rawCSV values exactly match an independent csv.DictReader parse; no transformations beyond date labels/name labels; no duplicates or missing data."
+  },
+  "public_nav": {
+    "curated_file": "data/external/public_nav_monthly_2017_2025.csv",
+    "schema": [
+      "series",
+      "month",
+      "reported_total_return",
+      "usd_rf",
+      "excess_return",
+      "currency",
+      "source_rounding_percent"
+    ],
+    "months_per_series": 108,
+    "rows": 324,
+    "return_units": "decimal; source tables are percentages divided by100 once",
+    "currency": "USD",
+    "basis": "Manager-published net NAV-performance records. Published performance is used directly; underlying cash distributions were not independently reconstructed. The column reported_total_return names that published return record.",
+    "sources": [
+      {
+        "id": "BH_Macro_USD",
+        "source": "bhmacro_202601",
+        "source_page": 5,
+        "type": "Listed closed-end feeder NAV; not the exchange-traded share-price return",
+        "fees": "Source says net of BH Macro/BHMF management and all other fees/expenses",
+        "rounding": "0.01 percentage point",
+        "administrator": "Northern Trust; source describes data as unaudited; January2026 estimated and excluded"
+      },
+      {
+        "id": "Parus_I_USD",
+        "source": "parus_202609",
+        "source_page": 1,
+        "type": "Live UCITS I USD share class",
+        "isin": "IE00BCBHZC00",
+        "bloomberg_ticker_from_source": "RPARIU1 ID",
+        "fees": "Source says net of all fund fees",
+        "rounding": "0.01 percentage point",
+        "splicing": "The earlier factsheet combines pre-2013 Parus PLC and pre-October2015 EUR-H data. Neither splice enters the selected2017-2025 window."
+      },
+      {
+        "id": "Winton_Alma_I1C_U",
+        "source": "winton_202609",
+        "source_page": 3,
+        "type": "Live UCITS I1C-U USD accumulating class",
+        "isin": "LU0462954479",
+        "bloomberg_ticker_from_source": "DBSI1CU LX",
+        "inception_from_source": "2010-06-30",
+        "fees": "Source says net of all fees",
+        "rounding": "0.01 percentage point"
+      }
+    ],
+    "verification": "Two independent PDF libraries agree on all324 monthly returns; all27 annual published returns fall within compounding bounds implied by rounding. Original table images inspected.",
+    "cash": "Existing frozen French one-month cash vintage from Assignment9; source SHA recorded in external_support_summary.json.",
+    "selection_limit": "Three publicly surviving selected funds, not a representative panel or a verified honest-control sample.",
+    "rights": "Source PDFs contain copyright and professional/institutional-distribution restrictions. Keep raw PDF audit copies local; no permission for public redistribution was inferred.",
+    "support": {
+      "BH_Macro_USD": {
+        "start": "2017-01",
+        "end": "2025-12",
+        "months": 108,
+        "mean": 0.007138888888888889,
+        "sample_sd": 0.02617745635434812,
+        "zero_h": 0.27271132810820664,
+        "minimum_return": -0.041100000000000005,
+        "maximum_return": 0.184,
+        "monthly_excess_sharpe": 0.19795172680734796,
+        "annual_reconciliations": [
+          {
+            "year": 2017,
+            "published_annual_percent": -0.3,
+            "compounded_rounded_monthly_percent": -0.3018103015512086,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2018,
+            "published_annual_percent": 14.16,
+            "compounded_rounded_monthly_percent": 14.161710085907586,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2019,
+            "published_annual_percent": 9.38,
+            "compounded_rounded_monthly_percent": 9.37013740467021,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2020,
+            "published_annual_percent": 28.89,
+            "compounded_rounded_monthly_percent": 28.887841346662626,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2021,
+            "published_annual_percent": 2.67,
+            "compounded_rounded_monthly_percent": 2.665046747122579,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2022,
+            "published_annual_percent": 21.17,
+            "compounded_rounded_monthly_percent": 21.171940343402305,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2023,
+            "published_annual_percent": -1.33,
+            "compounded_rounded_monthly_percent": -1.3414280031348258,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2024,
+            "published_annual_percent": 4.92,
+            "compounded_rounded_monthly_percent": 4.918331673028953,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2025,
+            "published_annual_percent": 0.83,
+            "compounded_rounded_monthly_percent": 0.8329213646948164,
+            "annual_within_rounding_bounds": true
+          }
+        ],
+        "two_independent_pdf_extractions_agree": true,
+        "source_file": "data/external/bhmacro_202601.pdf",
+        "source_page": 5
+      },
+      "Winton_Alma_I1C_U": {
+        "start": "2017-01",
+        "end": "2025-12",
+        "months": 108,
+        "mean": 0.0037425925925925925,
+        "sample_sd": 0.023011168372143984,
+        "zero_h": 0.16264244092547525,
+        "minimum_return": -0.049,
+        "maximum_return": 0.0762,
+        "monthly_excess_sharpe": 0.07935098644766256,
+        "annual_reconciliations": [
+          {
+            "year": 2017,
+            "published_annual_percent": 7.72,
+            "compounded_rounded_monthly_percent": 7.705875167396625,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2018,
+            "published_annual_percent": -0.25,
+            "compounded_rounded_monthly_percent": -0.2600934789769416,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2019,
+            "published_annual_percent": 3.9,
+            "compounded_rounded_monthly_percent": 3.8808570399976317,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2020,
+            "published_annual_percent": -16.5,
+            "compounded_rounded_monthly_percent": -16.504159255910245,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2021,
+            "published_annual_percent": 7.16,
+            "compounded_rounded_monthly_percent": 7.16281933893157,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2022,
+            "published_annual_percent": 18.69,
+            "compounded_rounded_monthly_percent": 18.683209720949854,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2023,
+            "published_annual_percent": 10.09,
+            "compounded_rounded_monthly_percent": 10.09780165964369,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2024,
+            "published_annual_percent": 7.0,
+            "compounded_rounded_monthly_percent": 7.021010859363197,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2025,
+            "published_annual_percent": 4.23,
+            "compounded_rounded_monthly_percent": 4.234211643580221,
+            "annual_within_rounding_bounds": true
+          }
+        ],
+        "two_independent_pdf_extractions_agree": true,
+        "source_file": "data/external/winton_202609.pdf",
+        "source_page": 3
+      },
+      "Parus_I_USD": {
+        "start": "2017-01",
+        "end": "2025-12",
+        "months": 108,
+        "mean": 0.0059388888888888885,
+        "sample_sd": 0.024555460147449068,
+        "zero_h": 0.24185614332728547,
+        "minimum_return": -0.0433,
+        "maximum_return": 0.10529999999999999,
+        "monthly_excess_sharpe": 0.1628725303228964,
+        "annual_reconciliations": [
+          {
+            "year": 2017,
+            "published_annual_percent": 5.44,
+            "compounded_rounded_monthly_percent": 5.4397470145814975,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2018,
+            "published_annual_percent": 1.14,
+            "compounded_rounded_monthly_percent": 1.1359115006692955,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2019,
+            "published_annual_percent": 0.71,
+            "compounded_rounded_monthly_percent": 0.6984567277789955,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2020,
+            "published_annual_percent": 15.74,
+            "compounded_rounded_monthly_percent": 15.732803558693265,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2021,
+            "published_annual_percent": 17.69,
+            "compounded_rounded_monthly_percent": 17.700846610528043,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2022,
+            "published_annual_percent": 3.79,
+            "compounded_rounded_monthly_percent": 3.797956715545836,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2023,
+            "published_annual_percent": -6.6,
+            "compounded_rounded_monthly_percent": -6.610775232366417,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2024,
+            "published_annual_percent": 9.16,
+            "compounded_rounded_monthly_percent": 9.166546967265464,
+            "annual_within_rounding_bounds": true
+          },
+          {
+            "year": 2025,
+            "published_annual_percent": 18.63,
+            "compounded_rounded_monthly_percent": 18.642454623960703,
+            "annual_within_rounding_bounds": true
+          }
+        ],
+        "two_independent_pdf_extractions_agree": true,
+        "source_file": "data/external/parus_202609.pdf",
+        "source_page": 1
+      }
+    },
+    "warmup": {
+      "file": "data/external/public_nav_warmup_2016.csv",
+      "rows": 18,
+      "source_is_actual_2016_reported_returns": true,
+      "no_imputation": true,
+      "series": {
+        "BH_Macro_USD": {
+          "start": "2016-07",
+          "end": "2016-12",
+          "months": 6,
+          "independent_pdf_extraction_match": true,
+          "annual_2016_reconciliation": {
+            "year": 2016,
+            "published_annual_percent": 6.63,
+            "compounded_rounded_monthly_percent": 6.620700744183283,
+            "annual_within_rounding_bounds": true
+          }
+        },
+        "Winton_Alma_I1C_U": {
+          "start": "2016-07",
+          "end": "2016-12",
+          "months": 6,
+          "independent_pdf_extraction_match": true,
+          "annual_2016_reconciliation": {
+            "year": 2016,
+            "published_annual_percent": -3.62,
+            "compounded_rounded_monthly_percent": -3.6280983670821887,
+            "annual_within_rounding_bounds": true
+          }
+        },
+        "Parus_I_USD": {
+          "start": "2016-07",
+          "end": "2016-12",
+          "months": 6,
+          "independent_pdf_extraction_match": true,
+          "annual_2016_reconciliation": {
+            "year": 2016,
+            "published_annual_percent": -18.53,
+            "compounded_rounded_monthly_percent": -18.525162349711046,
+            "annual_within_rounding_bounds": true
+          }
+        }
+      }
+    },
+    "warmup_sha256": "48dd2fe6778e0f358ba98837085e568cc909cc5217de8779a0a264e2d8b44d3b"
+  }
+}

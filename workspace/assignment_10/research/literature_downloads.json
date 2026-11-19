@@ -1,0 +1,146 @@
+[
+  {
+    "id": "beneish_vorst_2022_accepted",
+    "requested_url": "https://cris.maastrichtuniversity.nl/ws/files/92114908/Vorst_2021_The_cost_of_fraud_prediction.pdf",
+    "status": 200,
+    "final_url": "https://cris.maastrichtuniversity.nl/ws/files/92114908/Vorst_2021_The_cost_of_fraud_prediction.pdf",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/beneish_vorst_2022_accepted.pdf",
+    "sha256": "cc108f9e005718ce29ce418107b8ed2c7e801c3fc9e096cdf80d4c82babbccba",
+    "bytes": 765708
+  },
+  {
+    "id": "joenvaara_kosowski_2015_working",
+    "requested_url": "https://spiral.imperial.ac.uk/server/api/core/bitstreams/99bb3bc7-51f4-4870-a378-e86b3123350a/content",
+    "status": 200,
+    "final_url": "https://spiral.imperial.ac.uk/server/api/core/bitstreams/99bb3bc7-51f4-4870-a378-e86b3123350a/content",
+    "content_type": "application/pdf;charset=UTF-8",
+    "file": "workspace/assignment_10/source/literature/joenvaara_kosowski_2015_working.pdf",
+    "sha256": "701b012ef72da4db0c89f8cb5cd2b904bd2bced2299ce0366e4e7346b6bb4c50",
+    "bytes": 1304166
+  },
+  {
+    "id": "bailey_lopezdeprado_2014_author",
+    "requested_url": "https://davidhbailey.com/dhbpapers/deflated-sharpe.pdf",
+    "status": 200,
+    "final_url": "https://davidhbailey.com/dhbpapers/deflated-sharpe.pdf",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/bailey_lopezdeprado_2014_author.pdf",
+    "sha256": "ca4a1e834a2954b84eb560776e903329cd9cef318d458aadf6d67bc8166d10b5",
+    "bytes": 1048118
+  },
+  {
+    "id": "davis_goadrich_2006_author",
+    "requested_url": "https://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf",
+    "status": 200,
+    "final_url": "https://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/davis_goadrich_2006_author.pdf",
+    "sha256": "94b4a112df164ef28f70a862198c7a7b3c85b1c87c799a51394d3631fa7f3908",
+    "bytes": 141525
+  },
+  {
+    "id": "boudt_delmarcelle_ringoot_2025_published",
+    "requested_url": "https://backoffice.biblio.ugent.be/download/01JTAXNNXBTPXGAJ13VG8V6QJM/01JTAXQVF3H3QNZEGPXM98DAYT",
+    "status": 200,
+    "final_url": "https://backoffice.biblio.ugent.be/download/01JTAXNNXBTPXGAJ13VG8V6QJM/01JTAXQVF3H3QNZEGPXM98DAYT",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/boudt_delmarcelle_ringoot_2025_published.pdf",
+    "sha256": "db49d3c4c410a03f8df5d33eb45fb449376625b7714aa7fbcd3dabc5d81bac32",
+    "bytes": 4380474
+  },
+  {
+    "id": "eling_jung_2025_published",
+    "requested_url": "https://www.newswise.com/pdf_docs/172474437476144_1-s2.0-S2950629824000018-main.pdf",
+    "status": 200,
+    "final_url": "https://www.newswise.com/pdf_docs/172474437476144_1-s2.0-S2950629824000018-main.pdf",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/eling_jung_2025_published.pdf",
+    "sha256": "89929fe00cf0c0cfb3651eb35ee00de15278f110064e51cb285ca15374a5d7b1",
+    "bytes": 2388541
+  },
+  {
+    "id": "bollen_pool_2012_author_2011",
+    "requested_url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID1968958_code27840.pdf?abstractid=1569626&mirid=1&type=2",
+    "status": 403,
+    "final_url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID1968958_code27840.pdf?abstractid=1569626&mirid=1&type=2",
+    "content_type": "text/html; charset=UTF-8",
+    "saved": false
+  },
+  {
+    "id": "bollen_pool_2009_published",
+    "requested_url": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1540-6261.2009.01500.x",
+    "status": 403,
+    "final_url": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1540-6261.2009.01500.x",
+    "content_type": "text/html; charset=UTF-8",
+    "saved": false
+  },
+  {
+    "id": "abdulali_2006_original",
+    "requested_url": "https://www.protegepartners.com/www5/files/whitepapers/BiasRatioMeasuringShapeOfFraud.pdf",
+    "error": "HTTPSConnectionPool(host='www.protegepartners.com', port=443): Max retries exceeded with url: /www5/files/whitepapers/BiasRatioMeasuringShapeOfFraud.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002B9DB4A8810>, 'Connection to www.protegepartners.com timed out. (connect timeout=35)'))"
+  },
+  {
+    "id": "vanvuuren_2022_published",
+    "requested_url": "https://journals.sagepub.com/doi/pdf/10.1177/21582440221097925",
+    "status": 403,
+    "final_url": "https://journals.sagepub.com/doi/pdf/10.1177/21582440221097925",
+    "content_type": "text/html; charset=UTF-8",
+    "saved": false
+  },
+  {
+    "id": "dimmock_gerken_2011_author",
+    "requested_url": "https://www.ou.edu/dam/price/Finance/Oklahoma_conference/2011/William%20Gerken%20-%20Finding%20Bernie%20Madoff%20Detecting%20Fraud%20by%20Investment%20Managers.pdf",
+    "status": 200,
+    "final_url": "https://www.ou.edu/dam/price/Finance/Oklahoma_conference/2011/William%20Gerken%20-%20Finding%20Bernie%20Madoff%20Detecting%20Fraud%20by%20Investment%20Managers.pdf",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/dimmock_gerken_2011_author.pdf",
+    "sha256": "87b23878da15d0a50466aa0519d8b4b6e0accc8b31d39db6a8cc7b4dac5319c7",
+    "bytes": 587234
+  },
+  {
+    "id": "getmansky_lo_makarov_2004_published",
+    "requested_url": "https://web.mit.edu/Alo/www/Papers/JFE2004Pub.pdf",
+    "status": 200,
+    "final_url": "https://web.mit.edu/Alo/www/Papers/JFE2004Pub.pdf",
+    "content_type": "application/pdf",
+    "file": "workspace/assignment_10/source/literature/getmansky_lo_makarov_2004_published.pdf",
+    "sha256": "61e1d35a41151bec7425ca7187e0dc215fba849aef686e3578af5efe7cda096b",
+    "bytes": 727325
+  },
+  {
+    "id": "cassar_gerakos_2011_author",
+    "requested_url": "https://faculty.tuck.dartmouth.edu/images/uploads/faculty/joseph-gerakos/CassarGerakos_HedgeFundSmoothing.pdf",
+    "status": 404,
+    "final_url": "https://faculty.tuck.dartmouth.edu/images/uploads/faculty/joseph-gerakos/CassarGerakos_HedgeFundSmoothing.pdf",
+    "content_type": "text/html; charset=UTF-8",
+    "saved": false
+  },
+  {
+    "id": "bollen_pool_2006_author_precursor",
+    "requested_url": "https://www.atlantafed.org/-/media/Documents/news/conferences/2006/06fmc/06fmcBollen.pdf",
+    "status": 404,
+    "final_url": "https://www.atlantafed.org/error",
+    "content_type": "text/html; charset=utf-8",
+    "saved": false
+  },
+  {
+    "id": "chowdhry_saxena_2026_ssrn",
+    "requested_url": "https://papers.ssrn.com/sol3/Delivery.cfm/6445461.pdf?abstractid=6445461&mirid=1",
+    "status": 403,
+    "final_url": "https://papers.ssrn.com/sol3/Delivery.cfm/6445461.pdf?abstractid=6445461&mirid=1",
+    "content_type": "text/html; charset=UTF-8",
+    "saved": false
+  },
+  {
+    "id": "chowdhry_saxena_2026_author_embedded",
+    "requested_url": "https://drive.google.com/uc?id=1QGd-FAfF3uRd8mJvNGMAu8eLVbCp2xgT&export=download",
+    "discovered_at": "https://sites.google.com/site/bhagwanucla/research-publications",
+    "status": 200,
+    "final_url": "https://drive.usercontent.google.com/download?id=1QGd-FAfF3uRd8mJvNGMAu8eLVbCp2xgT&export=download",
+    "content_type": "application/octet-stream",
+    "file": "workspace/assignment_10/source/literature/chowdhry_saxena_2026_author_embedded.pdf",
+    "sha256": "0818339df1beebb9aa76b6e1a5bbad8f63535b90b3b18af2009ed68f5ef5ca87",
+    "bytes": 691695
+  }
+]

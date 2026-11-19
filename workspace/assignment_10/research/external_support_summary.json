@@ -1,0 +1,323 @@
+{
+  "BH_Macro_USD": {
+    "start": "2017-01",
+    "end": "2025-12",
+    "months": 108,
+    "mean": 0.007138888888888889,
+    "sample_sd": 0.02617745635434812,
+    "zero_h": 0.27271132810820664,
+    "minimum_return": -0.041100000000000005,
+    "maximum_return": 0.184,
+    "monthly_excess_sharpe": 0.19795172680734796,
+    "annual_reconciliations": [
+      {
+        "year": 2017,
+        "published_annual_percent": -0.3,
+        "compounded_rounded_monthly_percent": -0.3018103015512086,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2018,
+        "published_annual_percent": 14.16,
+        "compounded_rounded_monthly_percent": 14.161710085907586,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2019,
+        "published_annual_percent": 9.38,
+        "compounded_rounded_monthly_percent": 9.37013740467021,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2020,
+        "published_annual_percent": 28.89,
+        "compounded_rounded_monthly_percent": 28.887841346662626,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2021,
+        "published_annual_percent": 2.67,
+        "compounded_rounded_monthly_percent": 2.665046747122579,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2022,
+        "published_annual_percent": 21.17,
+        "compounded_rounded_monthly_percent": 21.171940343402305,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2023,
+        "published_annual_percent": -1.33,
+        "compounded_rounded_monthly_percent": -1.3414280031348258,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2024,
+        "published_annual_percent": 4.92,
+        "compounded_rounded_monthly_percent": 4.918331673028953,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2025,
+        "published_annual_percent": 0.83,
+        "compounded_rounded_monthly_percent": 0.8329213646948164,
+        "annual_within_rounding_bounds": true
+      }
+    ],
+    "two_independent_pdf_extractions_agree": true,
+    "source_file": "data/external/bhmacro_202601.pdf",
+    "source_page": 5
+  },
+  "Winton_Alma_I1C_U": {
+    "start": "2017-01",
+    "end": "2025-12",
+    "months": 108,
+    "mean": 0.0037425925925925925,
+    "sample_sd": 0.023011168372143984,
+    "zero_h": 0.16264244092547525,
+    "minimum_return": -0.049,
+    "maximum_return": 0.0762,
+    "monthly_excess_sharpe": 0.07935098644766256,
+    "annual_reconciliations": [
+      {
+        "year": 2017,
+        "published_annual_percent": 7.72,
+        "compounded_rounded_monthly_percent": 7.705875167396625,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2018,
+        "published_annual_percent": -0.25,
+        "compounded_rounded_monthly_percent": -0.2600934789769416,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2019,
+        "published_annual_percent": 3.9,
+        "compounded_rounded_monthly_percent": 3.8808570399976317,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2020,
+        "published_annual_percent": -16.5,
+        "compounded_rounded_monthly_percent": -16.504159255910245,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2021,
+        "published_annual_percent": 7.16,
+        "compounded_rounded_monthly_percent": 7.16281933893157,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2022,
+        "published_annual_percent": 18.69,
+        "compounded_rounded_monthly_percent": 18.683209720949854,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2023,
+        "published_annual_percent": 10.09,
+        "compounded_rounded_monthly_percent": 10.09780165964369,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2024,
+        "published_annual_percent": 7.0,
+        "compounded_rounded_monthly_percent": 7.021010859363197,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2025,
+        "published_annual_percent": 4.23,
+        "compounded_rounded_monthly_percent": 4.234211643580221,
+        "annual_within_rounding_bounds": true
+      }
+    ],
+    "two_independent_pdf_extractions_agree": true,
+    "source_file": "data/external/winton_202609.pdf",
+    "source_page": 3
+  },
+  "Parus_I_USD": {
+    "start": "2017-01",
+    "end": "2025-12",
+    "months": 108,
+    "mean": 0.0059388888888888885,
+    "sample_sd": 0.024555460147449068,
+    "zero_h": 0.24185614332728547,
+    "minimum_return": -0.0433,
+    "maximum_return": 0.10529999999999999,
+    "monthly_excess_sharpe": 0.1628725303228964,
+    "annual_reconciliations": [
+      {
+        "year": 2017,
+        "published_annual_percent": 5.44,
+        "compounded_rounded_monthly_percent": 5.4397470145814975,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2018,
+        "published_annual_percent": 1.14,
+        "compounded_rounded_monthly_percent": 1.1359115006692955,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2019,
+        "published_annual_percent": 0.71,
+        "compounded_rounded_monthly_percent": 0.6984567277789955,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2020,
+        "published_annual_percent": 15.74,
+        "compounded_rounded_monthly_percent": 15.732803558693265,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2021,
+        "published_annual_percent": 17.69,
+        "compounded_rounded_monthly_percent": 17.700846610528043,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2022,
+        "published_annual_percent": 3.79,
+        "compounded_rounded_monthly_percent": 3.797956715545836,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2023,
+        "published_annual_percent": -6.6,
+        "compounded_rounded_monthly_percent": -6.610775232366417,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2024,
+        "published_annual_percent": 9.16,
+        "compounded_rounded_monthly_percent": 9.166546967265464,
+        "annual_within_rounding_bounds": true
+      },
+      {
+        "year": 2025,
+        "published_annual_percent": 18.63,
+        "compounded_rounded_monthly_percent": 18.642454623960703,
+        "annual_within_rounding_bounds": true
+      }
+    ],
+    "two_independent_pdf_extractions_agree": true,
+    "source_file": "data/external/parus_202609.pdf",
+    "source_page": 1
+  },
+  "public_nav_warmup": {
+    "file": "data/external/public_nav_warmup_2016.csv",
+    "rows": 18,
+    "source_is_actual_2016_reported_returns": true,
+    "no_imputation": true,
+    "series": {
+      "BH_Macro_USD": {
+        "start": "2016-07",
+        "end": "2016-12",
+        "months": 6,
+        "independent_pdf_extraction_match": true,
+        "annual_2016_reconciliation": {
+          "year": 2016,
+          "published_annual_percent": 6.63,
+          "compounded_rounded_monthly_percent": 6.620700744183283,
+          "annual_within_rounding_bounds": true
+        }
+      },
+      "Winton_Alma_I1C_U": {
+        "start": "2016-07",
+        "end": "2016-12",
+        "months": 6,
+        "independent_pdf_extraction_match": true,
+        "annual_2016_reconciliation": {
+          "year": 2016,
+          "published_annual_percent": -3.62,
+          "compounded_rounded_monthly_percent": -3.6280983670821887,
+          "annual_within_rounding_bounds": true
+        }
+      },
+      "Parus_I_USD": {
+        "start": "2016-07",
+        "end": "2016-12",
+        "months": 6,
+        "independent_pdf_extraction_match": true,
+        "annual_2016_reconciliation": {
+          "year": 2016,
+          "published_annual_percent": -18.53,
+          "compounded_rounded_monthly_percent": -18.525162349711046,
+          "annual_within_rounding_bounds": true
+        }
+      }
+    }
+  },
+  "CPZ_GAN_SDF": {
+    "paper_test": {
+      "start": "1992-01",
+      "end": "2016-12",
+      "SDF": {
+        "months": 300,
+        "mean": 0.007808261577848402,
+        "sample_sd": 0.010429521563431418,
+        "zero_h": 0.748669201205372,
+        "minimum_return": -0.06001400543906454,
+        "maximum_return": 0.04761844164184503,
+        "monthly_excess_sharpe": 0.748669201205372
+      },
+      "portfolio_count": 21,
+      "no_overlap_2017_2025": true
+    },
+    "last_108": {
+      "start": "2008-01",
+      "end": "2016-12",
+      "SDF": {
+        "months": 108,
+        "mean": 0.003982711348542856,
+        "sample_sd": 0.010470848843917777,
+        "zero_h": 0.3803618415193054,
+        "minimum_return": -0.06001400543906454,
+        "maximum_return": 0.02612458285182928,
+        "monthly_excess_sharpe": 0.3803618415193054
+      },
+      "portfolio_count": 21,
+      "no_overlap_2017_2025": true
+    },
+    "last_60": {
+      "start": "2012-01",
+      "end": "2016-12",
+      "SDF": {
+        "months": 60,
+        "mean": 0.004502494804353067,
+        "sample_sd": 0.007663332563416098,
+        "zero_h": 0.5875374410667598,
+        "minimum_return": -0.02156525770751716,
+        "maximum_return": 0.02612458285182928,
+        "monthly_excess_sharpe": 0.5875374410667598
+      },
+      "portfolio_count": 21,
+      "no_overlap_2017_2025": true
+    },
+    "independent_OOXML_SDF_values_exact_match": 600
+  },
+  "JKP_world": {
+    "months": 108,
+    "start": "2017-01",
+    "end": "2025-12",
+    "strategies": 153,
+    "source_rows_checked_independently": 16524,
+    "no_missing_returns": true,
+    "no_duplicate_factor_months": true,
+    "no_sign_change_no_scaling_no_RF_subtraction": true,
+    "curated_file": "data/external/jkp_world_monthly_2017_2025.csv",
+    "raw_file": "data/external/jkp_world_all_factors_monthly_vwcap.csv"
+  },
+  "cash_source": {
+    "file": "data\\raw\\F-F_Research_Data_Factors.csv",
+    "sha256": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb",
+    "percent_to_decimal": 100,
+    "same_vintage_as_assignment9": true
+  },
+  "no_screen_scores_computed": true
+}

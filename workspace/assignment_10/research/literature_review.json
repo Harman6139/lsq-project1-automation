@@ -1,0 +1,535 @@
+{
+  "assignment": 10,
+  "review_date": "2026-11-19",
+  "status": "Design-stage literature assessment; no Assignment 10 numerical outcomes inspected.",
+  "primary_source_policy": "Substantive claims rely on original articles, author manuscripts or primary publisher/institution records. Access and version limits are explicit; no finding that no identical study exists is proof of novelty.",
+  "research_standard": "Candid significance; explicit problem, reason it matters, nearest results, exact supported increment and limitations; standard defined terminology for a mature nonspecialist; no inflated novelty, generality or publication prospects. Finance/econometrics does not use the mathematics production workflow.",
+  "source_urls": [
+    "https://academic.oup.com/rfs/article-abstract/24/5/1698/1612557",
+    "https://backoffice.biblio.ugent.be/download/01JTAXNNXBTPXGAJ13VG8V6QJM/01JTAXQVF3H3QNZEGPXM98DAYT",
+    "https://cepr.org/publications/dp10577",
+    "https://cris.maastrichtuniversity.nl/ws/files/92114908/Vorst_2021_The_cost_of_fraud_prediction.pdf",
+    "https://davidhbailey.com/dhbpapers/deflated-sharpe.pdf",
+    "https://doi.org/10.1016/j.jfineco.2004.04.001",
+    "https://doi.org/10.1016/j.jfineco.2012.01.002",
+    "https://doi.org/10.1016/j.jfineco.2013.10.001",
+    "https://doi.org/10.1016/j.risk.2024.100001",
+    "https://doi.org/10.1016/j.risk.2025.100018",
+    "https://doi.org/10.1093/rfs/hhq139",
+    "https://doi.org/10.1093/rfs/hhs085",
+    "https://doi.org/10.1111/1475-679X.12292",
+    "https://doi.org/10.1111/1475-679X.12454",
+    "https://doi.org/10.1111/eufm.12070",
+    "https://doi.org/10.1111/j.1540-6261.2009.01500.x",
+    "https://doi.org/10.1145/1143844.1143874",
+    "https://doi.org/10.1177/21582440221097925",
+    "https://doi.org/10.2139/ssrn.6445461",
+    "https://doi.org/10.2308/TAR-2020-0068",
+    "https://doi.org/10.3905/jpm.2014.40.5.094",
+    "https://drive.google.com/uc?id=1QGd-FAfF3uRd8mJvNGMAu8eLVbCp2xgT&export=download",
+    "https://faculty.tuck.dartmouth.edu/images/uploads/faculty/joseph-gerakos/CassarGerakos_HedgeFundSmoothing.pdf",
+    "https://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf",
+    "https://github.com/JarFraud/FraudDetection",
+    "https://journals.sagepub.com/doi/10.1177/21582440221097925",
+    "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.2009.01500.x",
+    "https://onlinelibrary.wiley.com/doi/full/10.1111/eufm.12070",
+    "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6445461",
+    "https://patents.google.com/patent/US8364572B2/en",
+    "https://scholars.uky.edu/en/publications/predicting-fraud-by-investment-managers/",
+    "https://sites.google.com/site/bhagwanucla/research-publications",
+    "https://spiral.imperial.ac.uk/server/api/core/bitstreams/99bb3bc7-51f4-4870-a378-e86b3123350a/content",
+    "https://ssrn.com/abstract=1566978",
+    "https://ssrn.com/abstract=1569626",
+    "https://web.mit.edu/Alo/www/Papers/JFE2004Pub.pdf",
+    "https://www.atlantafed.org/-/media/Documents/news/conferences/2006/06fmc/06fmcBollen.pdf",
+    "https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/conditional-return-smoothing-in-the-hedge-fund-industry/242F5FBBC32FCA77BBDD1FB2F0F1FA94",
+    "https://www.newswise.com/pdf_docs/172474437476144_1-s2.0-S2950629824000018-main.pdf",
+    "https://www.ou.edu/dam/price/Finance/Oklahoma_conference/2011/William%20Gerken%20-%20Finding%20Bernie%20Madoff%20Detecting%20Fraud%20by%20Investment%20Managers.pdf",
+    "https://www.protegepartners.com/www5/files/whitepapers/BiasRatioMeasuringShapeOfFraud.pdf",
+    "https://www.sciencedirect.com/science/article/pii/S0304405X1300250X"
+  ],
+  "comparison_table": [
+    {
+      "id": "bollen_pool_2009",
+      "citation": "Bollen and Pool (2009), Do Hedge Fund Managers Misreport Returns? Evidence from the Pooled Distribution, Journal of Finance 64(5), 2257–2288.",
+      "source_urls": [
+        "https://doi.org/10.1111/j.1540-6261.2009.01500.x",
+        "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.2009.01500.x"
+      ],
+      "version": "Published article; 2007 SSRN version is earlier, not interchangeable.",
+      "inspection": "Publisher abstract and article metadata inspected; published PDF request returned 403.",
+      "what_previous_work_shows": "Documents a pooled monthly-return discontinuity near zero, absent around audits and disappearing in two-month returns; interprets this as evidence consistent with temporary overstatement.",
+      "overlap_with_proposed_study": "Loss deferral and return patterns near zero are established subjects.",
+      "what_we_would_have_to_add": "Compare declared screening choices at common warning budgets, with economically reconciled temporary recognition and genuinely separate validation.",
+      "limits": "Our fitted-normal negative-month count is not their pooled local density test. The paper does not establish that every individual kink proves fraud."
+    },
+    {
+      "id": "bollen_pool_2008",
+      "citation": "Bollen and Pool (2008), Conditional Return Smoothing in the Hedge Fund Industry, Journal of Financial and Quantitative Analysis 43(2), 267–298.",
+      "source_urls": [
+        "https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/conditional-return-smoothing-in-the-hedge-fund-industry/242F5FBBC32FCA77BBDD1FB2F0F1FA94",
+        "https://www.atlantafed.org/-/media/Documents/news/conferences/2006/06fmc/06fmcBollen.pdf"
+      ],
+      "version": "Published metadata plus January 2006 author precursor, A screen for fraudulent return smoothing in the hedge fund industry.",
+      "inspection": "Publisher page and precursor introduction/model motivation and error/power discussion inspected through primary-site web text; old PDF URL currently 404 for local download.",
+      "what_previous_work_shows": "Models fully reporting gains while delaying losses; conditional serial correlation can screen this behavior. The precursor already studies false alarms, missed deferral, record length and scarce audit resources.",
+      "overlap_with_proposed_study": "Mechanism-based power and prioritizing investigations are not new.",
+      "what_we_would_have_to_add": "Show whether competing declared screens or combinations transfer across reporting mechanisms and strategy/date groups.",
+      "limits": "Conditional serial correlation differs from simple lag 1 ACF; the precursor simulates risk-factor returns and distinguishes known from inferred exposures. Do not attribute precursor numerical rates to final 2008 without checking."
+    },
+    {
+      "id": "bollen_pool_2012",
+      "citation": "Bollen and Pool (2012), Suspicious Patterns in Hedge Fund Returns and the Risk of Fraud, Review of Financial Studies 25(9), 2673–2702.",
+      "source_urls": [
+        "https://doi.org/10.1093/rfs/hhs085",
+        "https://ssrn.com/abstract=1569626"
+      ],
+      "version": "Published article and November 21, 2011 author-version bibliographic record.",
+      "inspection": "Primary author abstract inspected. Published Table 8 definition and warning-budget structure checked in indexed original-paper excerpt; publisher/SSRN full PDFs denied, so exact regression specifications not verified.",
+      "what_previous_work_shows": "Combines suspicious-return flags in probit violation probabilities; an f-score divides conditional by unconditional violation probability. Table 8 compares reporting/trading violation detection at thresholds corresponding to 5%/10% comparison-fund warnings.",
+      "overlap_with_proposed_study": "The closest direct prior work already joins return flags and compares detection against warning frequency.",
+      "what_we_would_have_to_add": "Provide a reproducible controlled reporting-mechanism comparison and credible transfer evidence, rather than claim to invent a combined return screen.",
+      "limits": "Violations are observed enforcement/legal outcomes, not a complete set of all frauds; comparison funds are not certified honest. Exact published coefficients were not retrieved and must not be claimed replicated."
+    },
+    {
+      "id": "abdulali_2006",
+      "citation": "Abdulali (2006), The Bias Ratio: Measuring the Shape of Fraud, Protégé Partners Quarterly Letter, Q 3.",
+      "source_urls": [
+        "https://www.protegepartners.com/www5/files/whitepapers/BiasRatioMeasuringShapeOfFraud.pdf",
+        "https://patents.google.com/patent/US8364572B2/en"
+      ],
+      "version": "Original quarterly letter not retrieved; same-inventor patent with 2006 priority inspected separately.",
+      "inspection": "Original URL timed out. Patent description inspected as a primary account of the statistic, not as a substitute for the letter.",
+      "what_previous_work_shows": "The inventor patent defines a near-zero positive/negative histogram-count ratio, comparison benchmarks and flags.",
+      "overlap_with_proposed_study": "The score and benchmark idea are existing practitioner work.",
+      "what_we_would_have_to_add": "Measure how useful the declared bias score is relative to other families across specific held-out economic settings.",
+      "limits": "Do not attribute a universally validated cutoff 2, or exact original-letter empirical results, to Abdulali without the original. Patent is not peer-reviewed validation."
+    },
+    {
+      "id": "jorion_schwarz_2014",
+      "citation": "Jorion and Schwarz (2014), Are Hedge Fund Managers Systematically Misreporting? Or Not?, Journal of Financial Economics 111(2), 311–327.",
+      "source_urls": [
+        "https://doi.org/10.1016/j.jfineco.2013.10.001",
+        "https://www.sciencedirect.com/science/article/pii/S0304405X1300250X",
+        "https://ssrn.com/abstract=1566978"
+      ],
+      "version": "Published abstract and publisher-indexed substantive text; earlier SSRN revision 2013.",
+      "inspection": "Publisher abstract and indexed sections on fees and pooled return distributions inspected; direct full-text requests 403.",
+      "what_previous_work_shows": "Shows incentive fees can mechanically produce a zero-return kink, substantially explaining that pattern in liquid long–short equity; illiquidity and bounded yields provide further alternatives.",
+      "overlap_with_proposed_study": "A warning need not identify manipulation; return definition and legitimate economics already matter.",
+      "what_we_would_have_to_add": "Quantify the declared rules under explicit gross/spread/funded conventions and distinguish practical investigation triggers from attribution.",
+      "limits": "Does not show that all reporting distortions are unidentifiable or every screen is useless."
+    },
+    {
+      "id": "van_vuuren_2022",
+      "citation": "Joshua van Vuuren and Gary van Vuuren (2022), Detecting Investment Fraud Using the Bias Ratio, SAGE Open 12(2).",
+      "source_urls": [
+        "https://doi.org/10.1177/21582440221097925",
+        "https://journals.sagepub.com/doi/10.1177/21582440221097925"
+      ],
+      "version": "Published article.",
+      "inspection": "Publisher full article text inspected, including index data, return-moment comparisons, known cases and limitations; PDF 403.",
+      "what_previous_work_shows": "Applies bias ratios with statistical moments to strategy indices and known fraud cases; discusses good performance and illiquidity as reasons to investigate carefully.",
+      "overlap_with_proposed_study": "Bias-plus-moments interpretation and high-performance caution are already present.",
+      "what_we_would_have_to_add": "A common-budget, held-out comparison with imposed mechanisms would be more disciplined than illustrative cases, if it yields stable and useful differences.",
+      "limits": "Strategy-index analysis and retrospective cases do not establish a validated universal classifier."
+    },
+    {
+      "id": "joenvaara_kosowski_2015",
+      "citation": "Joenväärä and Kosowski (2015), Effect of Regulatory Constraints on Fund Performance: New Evidence from UCITS Hedge Funds, working paper/CEPRDP 10577.",
+      "source_urls": [
+        "https://cepr.org/publications/dp10577",
+        "https://spiral.imperial.ac.uk/server/api/core/bitstreams/99bb3bc7-51f4-4870-a378-e86b3123350a/content"
+      ],
+      "version": "September 15, 2015 author paper downloaded; CEPR entry revised 2019, which was not treated as this same version.",
+      "inspection": "Introduction, suspicious-return section, Table 3, operational-risk comparison and AppendixB.2.1 inspected.",
+      "what_previous_work_shows": "Uses existing return diagnostics, mentions their sum and reports a first-principal-component measure; UCITS have fewer suspicious return patterns while operational-risk measures need not be lower.",
+      "overlap_with_proposed_study": "UCITS screening comparisons and score aggregation already exist.",
+      "what_we_would_have_to_add": "Test frozen combinations for transfer, rather than equate a regulated wrapper with verified honesty.",
+      "limits": "The paper mostly uses test statistics instead of indicators. It gives suspicion directions but no explicit PCA normalization/loadings/sign formula, so standardized train-only PCA is an inspired comparator, not exact replication."
+    },
+    {
+      "id": "getmansky_lo_makarov_2004",
+      "citation": "Getmansky, Lo and Makarov (2004), An Econometric Model of Serial Correlation and Illiquidity in Hedge Fund Returns, Journal of Financial Economics 74, 529–609.",
+      "source_urls": [
+        "https://doi.org/10.1016/j.jfineco.2004.04.001",
+        "https://web.mit.edu/Alo/www/Papers/JFE2004Pub.pdf"
+      ],
+      "version": "Published article downloaded from coauthor institution.",
+      "inspection": "Abstract, economic explanation and smoothing-model sections inspected.",
+      "what_previous_work_shows": "Develops a lagged-return smoothing model, smoothing-adjusted Sharpe ratios and evidence varying by hedge-fund style. Illiquidity and discretionary marking can generate dependence.",
+      "overlap_with_proposed_study": "ACF and moving-average smoothing are established diagnostics/mechanisms.",
+      "what_we_would_have_to_add": "Separate what a screen detects under declared filters from what can be attributed to deliberate manipulation.",
+      "limits": "A positive ACF is not a fraud label, and liquid reconstructed stock portfolios do not represent all valuation processes."
+    },
+    {
+      "id": "cassar_gerakos_2011",
+      "citation": "Cassar and Gerakos (2011), Hedge Funds: Pricing Controls and the Smoothing of Self-reported Returns, Review of Financial Studies 24(5), 1698–1734.",
+      "source_urls": [
+        "https://doi.org/10.1093/rfs/hhq139",
+        "https://academic.oup.com/rfs/article-abstract/24/5/1698/1612557",
+        "https://faculty.tuck.dartmouth.edu/images/uploads/faculty/joseph-gerakos/CassarGerakos_HedgeFundSmoothing.pdf"
+      ],
+      "version": "Published abstract; old author PDF URL now 404.",
+      "inspection": "Publisher abstract and indexed first page inspected; full PDF not retrieved.",
+      "what_previous_work_shows": "Uses observed pricing processes to distinguish asset-illiquidity explanations from greater managerial discretion; investment style/holdings characteristics explain more smoothing variation than pricing controls.",
+      "overlap_with_proposed_study": "The distinction between a return symptom and its economic cause is already central.",
+      "what_we_would_have_to_add": "Our controlled alterations can map symptoms to known imposed mechanisms, but cannot identify those mechanisms in Fund X without external information.",
+      "limits": "The additional valuation evidence in this paper is richer than our return-only data."
+    },
+    {
+      "id": "dimmock_gerken_2012",
+      "citation": "Dimmock and Gerken (2012), Predicting Fraud by Investment Managers, Journal of Financial Economics 105(1), 153–173.",
+      "source_urls": [
+        "https://doi.org/10.1016/j.jfineco.2012.01.002",
+        "https://scholars.uky.edu/en/publications/predicting-fraud-by-investment-managers/",
+        "https://www.ou.edu/dam/price/Finance/Oklahoma_conference/2011/William%20Gerken%20-%20Finding%20Bernie%20Madoff%20Detecting%20Fraud%20by%20Investment%20Managers.pdf"
+      ],
+      "version": "Published abstract plus March 1, 2011 author version downloaded.",
+      "inspection": "Published abstract; precursor prediction, false-positive-budget, temporal holdout and cross-validation sections inspected.",
+      "what_previous_work_shows": "Predicts subsequent fraud using mandatory disclosures; published abstract reports that avoiding the riskiest 5% of firms would avoid 29% of fraud cases and over 40% of dollar losses. Precursor explicitly evaluates fixed false-warning budgets and out-of-sample predictions.",
+      "overlap_with_proposed_study": "Prioritization, cost implications and validation are established, although using non-return information.",
+      "what_we_would_have_to_add": "Show the incremental decisions supportable by returns alone, recognizing that we lack their fraud outcomes and disclosure data.",
+      "limits": "Do not transfer their real-loss benefits to our imposed reporting alterations or call chronological validation alone novel."
+    },
+    {
+      "id": "beneish_vorst_2022",
+      "citation": "Beneish and Vorst (2022), The Cost of Fraud Prediction Errors, The Accounting Review 97(6), 91–121.",
+      "source_urls": [
+        "https://doi.org/10.2308/TAR-2020-0068",
+        "https://cris.maastrichtuniversity.nl/ws/files/92114908/Vorst_2021_The_cost_of_fraud_prediction.pdf"
+      ],
+      "version": "Accepted author manuscript downloaded from author institution.",
+      "inspection": "Abstract, introduction, model-comparison metrics and auditor/investor/regulator cost sections inspected.",
+      "what_previous_work_shows": "Compares seven fraud models by net benefits, error costs and limited investigation capacity. Better detection can be economically unattractive because false warnings are numerous; conclusions differ by decision maker.",
+      "overlap_with_proposed_study": "A detection/false-warning frontier or cost tradeoff is not a new method.",
+      "what_we_would_have_to_add": "Offer new fund-return evidence at stated budgets and show how conclusions change across reporting mechanisms; use cost/prevalence scenarios when actual costs are unknown.",
+      "limits": "Corporate financial-statement setting and observed misconduct differ from our reconstructed portfolios. Our data cannot estimate real fraud prevalence or monetary losses avoided."
+    },
+    {
+      "id": "bao_2020_2022",
+      "citation": "Bao, Ke, Li, Yu and Zhang (2020), Detecting Accounting Fraud in Publicly Traded U.S. Firms Using a Machine Learning Approach, Journal of Accounting Research 58(1), 199–235; Erratum(2022), 60(4), 1635–1646.",
+      "source_urls": [
+        "https://doi.org/10.1111/1475-679X.12292",
+        "https://doi.org/10.1111/1475-679X.12454",
+        "https://github.com/JarFraud/FraudDetection"
+      ],
+      "version": "Published article abstract and full 2022 correction.",
+      "inspection": "Publisher abstract and correction sections 1–3, including corrected top-k and AUC comparisons, inspected.",
+      "what_previous_work_shows": "An ensemble fraud model is compared with alternatives; the correction documents how fraud firms spanning training and test can inflate performance and changes some top-k comparisons.",
+      "overlap_with_proposed_study": "Score ensembles, chronological evaluation and ranking within small investigation budgets are established.",
+      "what_we_would_have_to_add": "Keep strategy identities and all altered versions together in strategy validation; assess low-budget detection rather than rely only on overall AUC.",
+      "limits": "Accounting inputs and observed fraud labels differ from returns. Cite corrected results; do not claim all model advantages disappeared."
+    },
+    {
+      "id": "gonzalez_papageorgiou_skinner_2016",
+      "citation": "González, Papageorgiou and Skinner (2016), Persistent Doubt: An Examination of Hedge Fund Performance, European Financial Management 22(4), 613–639.",
+      "source_urls": [
+        "https://doi.org/10.1111/eufm.12070",
+        "https://onlinelibrary.wiley.com/doi/full/10.1111/eufm.12070"
+      ],
+      "version": "Published full article, first online 2015.",
+      "inspection": "Publisher introduction, performance-sorted portfolio methods, strategy results, later-period comparisons and diagnostic interpretation inspected.",
+      "what_previous_work_shows": "Studies top-quintile funds chosen by Sharpe and other performance measures, subsequent persistence and the doubt ratio. It acknowledges legitimate carry/arbitrage can produce suspicious-looking histories.",
+      "overlap_with_proposed_study": "Selection among strong performers, strategy stratification and later diagnostic behavior are not new topics.",
+      "what_we_would_have_to_add": "Show different operating tradeoffs for the declared tests and specified reporting policies under credible validation and adequate high-performance support.",
+      "limits": "A doubt ratio is not proof of misconduct; our four chosen families do not exhaust return-only diagnostics."
+    },
+    {
+      "id": "bailey_lopezdeprado_2014",
+      "citation": "Bailey and López de Prado (2014), The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality, Journal of Portfolio Management 40(5), 94–107.",
+      "source_urls": [
+        "https://doi.org/10.3905/jpm.2014.40.5.094",
+        "https://davidhbailey.com/dhbpapers/deflated-sharpe.pdf"
+      ],
+      "version": "July 31, 2014 author version downloaded.",
+      "inspection": "Abstract, winner-selection argument and deflated-Sharpe construction inspected.",
+      "what_previous_work_shows": "Adjusts performance inference for searching across candidate strategies and non-normal return distributions.",
+      "overlap_with_proposed_study": "Selection and skewness-aware performance inference are established.",
+      "what_we_would_have_to_add": "Our object is reporting-screen behavior after selection, which differs from testing investment skill, and that distinction must be explicit.",
+      "limits": "DSR is not a fraud detector and cannot supply fraud labels or authenticate Fund X."
+    },
+    {
+      "id": "davis_goadrich_2006",
+      "citation": "Davis and Goadrich (2006), The Relationship Between Precision-Recall and ROC Curves, ICML, 233–240.",
+      "source_urls": [
+        "https://doi.org/10.1145/1143844.1143874",
+        "https://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf"
+      ],
+      "version": "Author-hosted published conference paper downloaded.",
+      "inspection": "Introduction, definitions and dominance/interpolation results inspected.",
+      "what_previous_work_shows": "Detection/false-positive curves and precision-recall comparisons are established tools; rare-class prevalence matters for the practical interpretation of warnings.",
+      "overlap_with_proposed_study": "A frontier itself is standard classifier evaluation.",
+      "what_we_would_have_to_add": "Report declared operating budgets, detection and warning burden; make any precision/net-benefit calculation explicitly conditional on assumed prevalence.",
+      "limits": "Our paired baseline/altered dataset artificially determines class frequency; its apparent precision is not real-world fraud precision."
+    },
+    {
+      "id": "chowdhry_saxena_2026",
+      "citation": "Chowdhry and Saxena (2026), Detecting Lies When Truth is Unobservable, working paper, SSRN 6445461.",
+      "source_urls": [
+        "https://doi.org/10.2139/ssrn.6445461",
+        "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6445461",
+        "https://sites.google.com/site/bhagwanucla/research-publications",
+        "https://drive.google.com/uc?id=1QGd-FAfF3uRd8mJvNGMAu8eLVbCp2xgT&export=download"
+      ],
+      "version": "March 18 author PDF 39-pages downloaded; SSRN entry last revised July 29 is 111-pages and is a different version.",
+      "inspection": "March introduction, assumptions, Section 5.10 skewness sensitivity and conclusion inspected; July abstract only.",
+      "what_previous_work_shows": "Proposes downside-variation diagnostics for one-sided reporting. March version shows symmetry is needed for its simple null and skewness can cause false warnings; July abstract adds Madoff/Berkshire and earnings examples.",
+      "overlap_with_proposed_study": "Distribution-sensitive reporting diagnostics and their identification limits have current direct overlap.",
+      "what_we_would_have_to_add": "A cross-mechanism comparison on observed strategy returns could add evidence, but must not claim the four existing families exhaust methods.",
+      "limits": "Not peer-reviewed. Do not criticize July revision as simulation-only based on March PDF or treat author claims as verified theorems."
+    },
+    {
+      "id": "boudt_delmarcelle_ringoot_2025",
+      "citation": "Boudt, Delmarcelle and Ringoot (2025), A News Monitoring System to Detect Relevant News for the Anti-Money Laundering Supervision of Financial Institutions, Risk Sciences 1, 100018.",
+      "source_urls": [
+        "https://doi.org/10.1016/j.risk.2025.100018",
+        "https://backoffice.biblio.ugent.be/download/01JTAXNNXBTPXGAJ13VG8V6QJM/01JTAXQVF3H3QNZEGPXM98DAYT"
+      ],
+      "version": "Published open-access PDF downloaded from author institution.",
+      "inspection": "Introduction, analyst workflow, score/threshold construction, event analysis, robustness and conclusion inspected.",
+      "what_previous_work_shows": "Builds a news-alert system tied to supervisory workflow, demonstrates relevance around eight offshore leaks and examines translation/other robustness.",
+      "overlap_with_proposed_study": "Venue example of a clear applied risk decision and supporting evidence.",
+      "what_we_would_have_to_add": "Explain who investigates, what fixed warning budget means and what additional reconciliation a warning should trigger.",
+      "limits": "Alerts identify relevant news, not established wrongdoing. One venue example does not set a universal acceptance threshold."
+    },
+    {
+      "id": "eling_jung_2025",
+      "citation": "Eling and Jung (2025 issue; online 2024), Optimism Bias and Its Impact on Cyber Risk Management Decisions, Risk Sciences 1, 100001.",
+      "source_urls": [
+        "https://doi.org/10.1016/j.risk.2024.100001",
+        "https://www.newswise.com/pdf_docs/172474437476144_1-s2.0-S2950629824000018-main.pdf"
+      ],
+      "version": "Publisher-listed 2025 article; early published PDF displays 2024.",
+      "inspection": "Published abstract, model framing and conclusion inspected.",
+      "what_previous_work_shows": "Models how reference points and loss aversion change choices among self-protection, insurance and other risk controls.",
+      "overlap_with_proposed_study": "Venue example ties a specified economic mechanism to an identifiable decision.",
+      "what_we_would_have_to_add": "Connect screen performance to a concrete investor choice and quantify where that choice changes.",
+      "limits": "Different subject and theoretical design; not evidence that our empirical extension meets the research-article contribution requirement."
+    }
+  ],
+  "download_records": [
+    {
+      "id": "beneish_vorst_2022_accepted",
+      "requested_url": "https://cris.maastrichtuniversity.nl/ws/files/92114908/Vorst_2021_The_cost_of_fraud_prediction.pdf",
+      "status": 200,
+      "final_url": "https://cris.maastrichtuniversity.nl/ws/files/92114908/Vorst_2021_The_cost_of_fraud_prediction.pdf",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/beneish_vorst_2022_accepted.pdf",
+      "sha256": "cc108f9e005718ce29ce418107b8ed2c7e801c3fc9e096cdf80d4c82babbccba",
+      "bytes": 765708,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "joenvaara_kosowski_2015_working",
+      "requested_url": "https://spiral.imperial.ac.uk/server/api/core/bitstreams/99bb3bc7-51f4-4870-a378-e86b3123350a/content",
+      "status": 200,
+      "final_url": "https://spiral.imperial.ac.uk/server/api/core/bitstreams/99bb3bc7-51f4-4870-a378-e86b3123350a/content",
+      "content_type": "application/pdf;charset=UTF-8",
+      "file": "workspace/assignment_10/source/literature/joenvaara_kosowski_2015_working.pdf",
+      "sha256": "701b012ef72da4db0c89f8cb5cd2b904bd2bced2299ce0366e4e7346b6bb4c50",
+      "bytes": 1304166,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "bailey_lopezdeprado_2014_author",
+      "requested_url": "https://davidhbailey.com/dhbpapers/deflated-sharpe.pdf",
+      "status": 200,
+      "final_url": "https://davidhbailey.com/dhbpapers/deflated-sharpe.pdf",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/bailey_lopezdeprado_2014_author.pdf",
+      "sha256": "ca4a1e834a2954b84eb560776e903329cd9cef318d458aadf6d67bc8166d10b5",
+      "bytes": 1048118,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "davis_goadrich_2006_author",
+      "requested_url": "https://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf",
+      "status": 200,
+      "final_url": "https://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/davis_goadrich_2006_author.pdf",
+      "sha256": "94b4a112df164ef28f70a862198c7a7b3c85b1c87c799a51394d3631fa7f3908",
+      "bytes": 141525,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "boudt_delmarcelle_ringoot_2025_published",
+      "requested_url": "https://backoffice.biblio.ugent.be/download/01JTAXNNXBTPXGAJ13VG8V6QJM/01JTAXQVF3H3QNZEGPXM98DAYT",
+      "status": 200,
+      "final_url": "https://backoffice.biblio.ugent.be/download/01JTAXNNXBTPXGAJ13VG8V6QJM/01JTAXQVF3H3QNZEGPXM98DAYT",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/boudt_delmarcelle_ringoot_2025_published.pdf",
+      "sha256": "db49d3c4c410a03f8df5d33eb45fb449376625b7714aa7fbcd3dabc5d81bac32",
+      "bytes": 4380474,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "eling_jung_2025_published",
+      "requested_url": "https://www.newswise.com/pdf_docs/172474437476144_1-s2.0-S2950629824000018-main.pdf",
+      "status": 200,
+      "final_url": "https://www.newswise.com/pdf_docs/172474437476144_1-s2.0-S2950629824000018-main.pdf",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/eling_jung_2025_published.pdf",
+      "sha256": "89929fe00cf0c0cfb3651eb35ee00de15278f110064e51cb285ca15374a5d7b1",
+      "bytes": 2388541,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "bollen_pool_2012_author_2011",
+      "requested_url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID1968958_code27840.pdf?abstractid=1569626&mirid=1&type=2",
+      "status": 403,
+      "final_url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID1968958_code27840.pdf?abstractid=1569626&mirid=1&type=2",
+      "content_type": "text/html; charset=UTF-8",
+      "saved": false
+    },
+    {
+      "id": "bollen_pool_2009_published",
+      "requested_url": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1540-6261.2009.01500.x",
+      "status": 403,
+      "final_url": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1540-6261.2009.01500.x",
+      "content_type": "text/html; charset=UTF-8",
+      "saved": false
+    },
+    {
+      "id": "abdulali_2006_original",
+      "requested_url": "https://www.protegepartners.com/www5/files/whitepapers/BiasRatioMeasuringShapeOfFraud.pdf",
+      "error": "HTTPSConnectionPool(host='www.protegepartners.com', port=443): Max retries exceeded with url: /www 5/files/whitepapers/BiasRatioMeasuringShapeOfFraud.pdf (Caused by ConnectTimeoutError(<urllib 3.connection.HTTPSConnection object at 0 x 000002 B 9 DB 4 A 8810>, 'Connection to www.protegepartners.com timed out. (connect timeout=35)'))"
+    },
+    {
+      "id": "vanvuuren_2022_published",
+      "requested_url": "https://journals.sagepub.com/doi/pdf/10.1177/21582440221097925",
+      "status": 403,
+      "final_url": "https://journals.sagepub.com/doi/pdf/10.1177/21582440221097925",
+      "content_type": "text/html; charset=UTF-8",
+      "saved": false
+    },
+    {
+      "id": "dimmock_gerken_2011_author",
+      "requested_url": "https://www.ou.edu/dam/price/Finance/Oklahoma_conference/2011/William%20Gerken%20-%20Finding%20Bernie%20Madoff%20Detecting%20Fraud%20by%20Investment%20Managers.pdf",
+      "status": 200,
+      "final_url": "https://www.ou.edu/dam/price/Finance/Oklahoma_conference/2011/William%20Gerken%20-%20Finding%20Bernie%20Madoff%20Detecting%20Fraud%20by%20Investment%20Managers.pdf",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/dimmock_gerken_2011_author.pdf",
+      "sha256": "87b23878da15d0a50466aa0519d8b4b6e0accc8b31d39db6a8cc7b4dac5319c7",
+      "bytes": 587234,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "getmansky_lo_makarov_2004_published",
+      "requested_url": "https://web.mit.edu/Alo/www/Papers/JFE2004Pub.pdf",
+      "status": 200,
+      "final_url": "https://web.mit.edu/Alo/www/Papers/JFE2004Pub.pdf",
+      "content_type": "application/pdf",
+      "file": "workspace/assignment_10/source/literature/getmansky_lo_makarov_2004_published.pdf",
+      "sha256": "61e1d35a41151bec7425ca7187e0dc215fba849aef686e3578af5efe7cda096b",
+      "bytes": 727325,
+      "sha256_verified_now": true
+    },
+    {
+      "id": "cassar_gerakos_2011_author",
+      "requested_url": "https://faculty.tuck.dartmouth.edu/images/uploads/faculty/joseph-gerakos/CassarGerakos_HedgeFundSmoothing.pdf",
+      "status": 404,
+      "final_url": "https://faculty.tuck.dartmouth.edu/images/uploads/faculty/joseph-gerakos/CassarGerakos_HedgeFundSmoothing.pdf",
+      "content_type": "text/html; charset=UTF-8",
+      "saved": false
+    },
+    {
+      "id": "bollen_pool_2006_author_precursor",
+      "requested_url": "https://www.atlantafed.org/-/media/Documents/news/conferences/2006/06fmc/06fmcBollen.pdf",
+      "status": 404,
+      "final_url": "https://www.atlantafed.org/error",
+      "content_type": "text/html; charset=utf-8",
+      "saved": false
+    },
+    {
+      "id": "chowdhry_saxena_2026_ssrn",
+      "requested_url": "https://papers.ssrn.com/sol3/Delivery.cfm/6445461.pdf?abstractid=6445461&mirid=1",
+      "status": 403,
+      "final_url": "https://papers.ssrn.com/sol3/Delivery.cfm/6445461.pdf?abstractid=6445461&mirid=1",
+      "content_type": "text/html; charset=UTF-8",
+      "saved": false
+    },
+    {
+      "id": "chowdhry_saxena_2026_author_embedded",
+      "requested_url": "https://drive.google.com/uc?id=1QGd-FAfF3uRd8mJvNGMAu8eLVbCp2xgT&export=download",
+      "discovered_at": "https://sites.google.com/site/bhagwanucla/research-publications",
+      "status": 200,
+      "final_url": "https://drive.usercontent.google.com/download?id=1QGd-FAfF3uRd8mJvNGMAu8eLVbCp2xgT&export=download",
+      "content_type": "application/octet-stream",
+      "file": "workspace/assignment_10/source/literature/chowdhry_saxena_2026_author_embedded.pdf",
+      "sha256": "0818339df1beebb9aa76b6e1a5bbad8f63535b90b3b18af2009ed68f5ef5ca87",
+      "bytes": 691695,
+      "sha256_verified_now": true
+    }
+  ],
+  "novelty_assessment": {
+    "verdict": "A useful empirical validation extension is possible; a substantial advance is not established by the design alone.",
+    "already_standard": [
+      "ROC/detection-versus-warning frontiers",
+      "Combining diagnostic scores by OR, counts, averages, PCA or learned models",
+      "False-warning and missed-detection tradeoffs",
+      "Using warnings to prioritize limited investigations",
+      "Chronological validation and identity-separated validation",
+      "Caution about selection, skewness and innocent economic explanations"
+    ],
+    "potential_supported_increment": "A transparent, reproducible comparison of specified fund-return screens and fixed combinations that demonstrates whether a choice learned from earlier strategies and reporting mechanisms survives new dates, new strategy groups and different reporting mechanisms, particularly where performance is genuinely high.",
+    "must_show": [
+      "Economically material held-out differences at the same investigation or baseline-warning budget, compared with strong predeclared single-score and aggregation benchmarks.",
+      "Whether the rule survives strategy separation as well as calendar separation, with same-strategy altered versions kept together and shared shocks respected.",
+      "Whether good detection of one policy transfers to another, rather than merely recognizing the transformation used in training.",
+      "Adequate observed support for the declared high-performance subgroup, with its financial return convention and costs clear.",
+      "A concrete investigation decision that changes, plus its missed-problem cost; threshold selection must precede final evaluation."
+    ],
+    "if_results_disappoint": "Report that the declared rules have mechanism-dependent strengths or fail to transfer. This is evidence about these rules and scenarios, not a universal impossibility result.",
+    "not_supported": [
+      "A new statistical frontier or ensemble method merely from combining the four families.",
+      "Verified false-positive rates among honest managers, real fraud classification, actual fraud prevalence or actual monetary losses avoided.",
+      "Authentication of Fund X, proof of misconduct, or an explanation of its performance from unmatched factor histories.",
+      "An exhaustive evaluation of all return-based methods, or a first-ever claim without a fuller review."
+    ]
+  },
+  "methodological_implications": [
+    "Separate a frozen implementable rule from an envelope chosen after observing final test results; the latter is exploratory.",
+    "Report baseline warnings and imposed-policy detection as separate quantities. Artificial 50/50 pairing cannot estimate real precision.",
+    "For investigation costs, use stated prevalence/cost scenarios or break-even ratios; do not estimate unknown fraud prevalence from reconstructed portfolios.",
+    "Describe the fitted-normal count as the paper adaptation, not the original pooled Bollen–Pool local test.",
+    "SimpleACF does not replicate conditional serial correlation; state the chosen four-family scope.",
+    "Use all-strategy and high-performance analyses separately; a high ratio created by cash interest or rescaling is not matched economic performance.",
+    "If a method fails to reject an altered record, that establishes a miss under this policy, not a general immunity to fraud detection."
+  ],
+  "risk_sciences": {
+    "scope_url": "https://www.keaipublishing.com/en/journals/risk-sciences/",
+    "author_guide_url": "https://www.keaipublishing.com/en/journals/risk-sciences/guide-for-authors/",
+    "verified_scope": "General-interest risk research and industry practice includes finance, statistics and risk governance; welcomes research, industrial case studies and perspectives.",
+    "verified_research_article_standard": "Guide describes research articles as original reports of substantial advances concerning an important scientific problem.",
+    "examples": [
+      "boudt_delmarcelle_ringoot_2025",
+      "eling_jung_2025"
+    ],
+    "implication": "Subject is within scope. A careful applied empirical paper needs a precise practical contribution beyond familiar diagnostic caveats; the examples do not establish that this study is sufficient or imply acceptance prospects."
+  },
+  "access_gaps": [
+    "Original Abdulali 2006 letter not retrieved.",
+    "Bollen–Pool 2009/2012 full primary PDFs not retrieved locally; exact 2012 regression coefficients not claimed verified.",
+    "Jorion–Schwarz 2014 full PDF not retrieved; assessment uses published abstract and indexed publisher text.",
+    "Joenväärä–Kosowski 2015 PDF is an author version;2019 revision not inspected.",
+    "Chowdhry–Saxena latest 111-page revision not retrieved; author 39-pageMarch version and latest abstract clearly distinguished."
+  ],
+  "search_coverage": {
+    "date": "2026-11-19",
+    "themes": [
+      "hedge-fund return flags, fraud risk and combined scores",
+      "bias-ratio limitations and individual/strategy-index applications",
+      "UCITS return warnings versus operational risk",
+      "fraud model error costs and investigation capacity",
+      "chronological and entity-separated fraud prediction; ensemble corrections",
+      "selection of high-Sharpe funds and doubt diagnostics",
+      "return smoothing, delayed loss reporting and identification",
+      "ROC/precision-recall methods and rare-event interpretation",
+      "current 2026 downside-variation reporting diagnostics",
+      "Risk Sciences scope, research-article guidance and applied decision papers"
+    ],
+    "qualification": "Targeted broad search, not a systematic review or proof of absence of prior work."
+  }
+}

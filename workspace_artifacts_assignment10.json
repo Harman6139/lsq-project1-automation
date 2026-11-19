@@ -1,0 +1,23 @@
+{
+  "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
+  "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
+  "overleaf_workspace_url": "",
+  "delete_names": [],
+  "delete_folders": [],
+  "artifacts": [
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "folder_path": "Assignment 10",
+      "description": "One-page economic handoff contrasting the initial threshold exercise and the return-screening frontier comparison."
+    },
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "folder_path": "Assignment 10",
+      "description": "Supporting frontier, rule-quantity and external-history comparisons."
+    }
+  ]
+}

@@ -1,0 +1,998 @@
+{
+  "scalar_checks": {
+    "status": "passed",
+    "dependencies": {
+      "scripts\\frontier_metrics.py": "17cb1cf22fb6b34448ed39e5e5f8f725d4bf59877498e338321b221b9c58d071",
+      "scripts\\frontier_engine.py": "c9b8ae3f709b5ce618a98376442cf0b3cc2a4e5c30e9345991eac08e63e3d187",
+      "data\\frozen_design.json": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e"
+    },
+    "metrics": {
+      "scalar_metric_paths": 24,
+      "scalar_detail_counts_match": true,
+      "local_band_endpoints_match": true,
+      "zero_and_empty_band_conventions_match": true,
+      "positive_scale_invariance": true,
+      "invalid_metric_inputs_rejected": true
+    },
+    "combinations": {
+      "total_policies": 38,
+      "primary_policies": 26,
+      "boolean_vote_comparisons": 81250,
+      "or_and_strict_majority_equivalence": true
+    },
+    "reporting": {
+      "policy_batch_cases": 40,
+      "scalar_scheduler_matches": true,
+      "relative_and_fixed_eligibility_match": true,
+      "probability_half_matches": true,
+      "additive_and_funded_log_ledgers_match": true,
+      "supplied_tail_settlement_matches": true,
+      "relative_payoff_policy_scale_invariance": true,
+      "funded_nav_support_guard_matches": true,
+      "pending_after_window_balances_match": true,
+      "supplied_future_payoffs_do_not_change_observed_window": true,
+      "maximum_ledger_identity_error": 6.938893903907228e-17
+    },
+    "maps_pca_cutoffs": {
+      "scalar_percentile_ties_match": true,
+      "pca_matches_independent_svd": true,
+      "mean_rank_comparators_match": true,
+      "weighted_budget_cases": 36,
+      "strict_warning_budgets_respected": true,
+      "budget_boundary_and_all_tie_cases_match": true
+    },
+    "calendar_indices": {
+      "circular_blocks_match_scalar_indices": true,
+      "actual_six_month_pre_history_indexing_matches": true
+    }
+  },
+  "primary_output_checks": {
+    "status": "passed",
+    "scope": "Original spread,108 actual months January2017 throughDecember2025;strict5percent old-reference budget",
+    "rows_independently_recomputed": 570,
+    "paths": 194,
+    "all_policy_count": 38,
+    "primary_policy_count": 26,
+    "fixed_subgroups": {
+      "all": 194,
+      "top_quintile": 39,
+      "remaining": 155
+    },
+    "all_count_fields_rates_and_metadata_match": true,
+    "scalar_metrics_and_scalar_reporting_only": true,
+    "strict_cutoffs_read_from_binary_npz": true,
+    "decision_mask_hashes": {
+      "unmodified": {
+        "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+        "after": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+        "changed": "5c08fc84db4979cd21082805804057992dbf14f586880ce86270ad51d9195626"
+      },
+      "relative_permanent": {
+        "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+        "after": "cb52fe780bb5bb6deb2337af79ea5a18bea9b35be3800e74a40d2fc695ba587f",
+        "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+      },
+      "relative_delay3": {
+        "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+        "after": "9ceba33d66c6367b686f23ddb11646fb87eeef82957e147c6d9c2b0af779a961",
+        "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+      },
+      "smooth50": {
+        "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+        "after": "375d2b0b24a4bbec487d7ab3f2ce1cdbd96da028fcb0f22f18be401b0f0c3948",
+        "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+      },
+      "fixed_delay3": {
+        "before": "7ea6fbf55df384e1a0a9e053e25b8d105d13258110c5ddae61dc2a05a93e8946",
+        "after": "355ea581c84b605a1a5e0c8ab298454918fadc322e6b2b4591034a98c905a60d",
+        "changed": "ff74476ad236245928d1e9b3963a10a99587cd4848e98c5ede5f37350ddf723a"
+      }
+    },
+    "top_quintile_names": [
+      "MomVol",
+      "EarningsStreak",
+      "OrderBacklogChg",
+      "XFIN",
+      "Coskewness",
+      "Mom6m",
+      "Mom12mOffSeason",
+      "roaq",
+      "ShareIss5Y",
+      "ShareIss1Y",
+      "Mom12m",
+      "VolumeTrend",
+      "GP",
+      "RDIPO",
+      "IO_ShortInterest",
+      "ShortInterest",
+      "AnnouncementReturn",
+      "EarnSupBig",
+      "FirmAgeMom",
+      "ChTax",
+      "REV6",
+      "EarningsConsistency",
+      "IndRetBig",
+      "BetaTailRisk",
+      "cfp",
+      "NetEquityFinance",
+      "Mom6mJunk",
+      "RIO_Volatility",
+      "OScore",
+      "NetPayoutYield",
+      "DelBreadth",
+      "RevenueSurprise",
+      "ShareRepurchase",
+      "ChNWC",
+      "PctTotAcc",
+      "ExchSwitch",
+      "ChEQ",
+      "ResidualMomentum",
+      "NumEarnIncrease"
+    ],
+    "calibration_dates": [
+      "2005-01",
+      "2016-12"
+    ],
+    "choice_scope_and_family_counts_match": true,
+    "choice_calibration_only_dataflow_source_audited": true,
+    "choice_optimality_numerically_recomputed": false,
+    "choice_at_5percent": [
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "months": 108,
+        "scope": "all",
+        "left_out": "none",
+        "budget": 0.05,
+        "policy": "OR:B+A+Z",
+        "policy_index": 28,
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "months": 108,
+        "scope": "primary",
+        "left_out": "none",
+        "budget": 0.05,
+        "policy": "OR:B+A+Z",
+        "policy_index": 28,
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "months": 108,
+        "scope": "1",
+        "left_out": "none",
+        "budget": 0.05,
+        "policy": "Z",
+        "policy_index": 3,
+        "families": 1,
+        "training_new_warning_rate": 0.6331658075601357
+      },
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "months": 108,
+        "scope": "2",
+        "left_out": "none",
+        "budget": 0.05,
+        "policy": "OR:A+Z",
+        "policy_index": 19,
+        "families": 2,
+        "training_new_warning_rate": 0.913848797250858
+      },
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "months": 108,
+        "scope": "3",
+        "left_out": "none",
+        "budget": 0.05,
+        "policy": "OR:B+A+Z",
+        "policy_index": 28,
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "weighting": "original",
+        "representation": "spread",
+        "months": 108,
+        "scope": "4",
+        "left_out": "none",
+        "budget": 0.05,
+        "policy": "OR:B+D+A+Z",
+        "policy_index": 34,
+        "families": 4,
+        "training_new_warning_rate": 0.9085481099656345
+      }
+    ],
+    "selected_rule_counts": [
+      {
+        "mechanism": "unmodified",
+        "policy": "B",
+        "n": 194,
+        "changed": 0,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "D",
+        "n": 194,
+        "changed": 0,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "A",
+        "n": 194,
+        "changed": 0,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "Z",
+        "n": 194,
+        "changed": 0,
+        "baseline": 3,
+        "altered": 3,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "OR:B+D",
+        "n": 194,
+        "changed": 0,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "OR:A+Z",
+        "n": 194,
+        "changed": 0,
+        "baseline": 3,
+        "altered": 3,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "OR:B+A+Z",
+        "n": 194,
+        "changed": 0,
+        "baseline": 3,
+        "altered": 3,
+        "new": 0,
+        "cleared": 0,
+        "families": 3
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "B",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 85,
+        "new": 84,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 138,
+        "new": 137,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "A",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 194,
+        "new": 191,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "OR:B+D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 134,
+        "new": 133,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "OR:A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 194,
+        "new": 191,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "OR:B+A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 194,
+        "new": 191,
+        "cleared": 0,
+        "families": 3
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "B",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 59,
+        "new": 58,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 106,
+        "new": 105,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "A",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 192,
+        "new": 189,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 104,
+        "new": 103,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "OR:A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 192,
+        "new": 189,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 192,
+        "new": 189,
+        "cleared": 0,
+        "families": 3
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "B",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 4,
+        "new": 3,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 3,
+        "new": 3,
+        "cleared": 1,
+        "families": 1
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "A",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 193,
+        "new": 192,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 5,
+        "new": 5,
+        "cleared": 3,
+        "families": 1
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "OR:B+D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 3,
+        "new": 3,
+        "cleared": 1,
+        "families": 2
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "OR:A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 189,
+        "new": 186,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "OR:B+A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 189,
+        "new": 186,
+        "cleared": 0,
+        "families": 3
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "B",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 80,
+        "new": 79,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 117,
+        "new": 116,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "A",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 177,
+        "new": 174,
+        "cleared": 0,
+        "families": 1
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "OR:B+D",
+        "n": 194,
+        "changed": 194,
+        "baseline": 1,
+        "altered": 111,
+        "new": 110,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "OR:A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 164,
+        "new": 162,
+        "cleared": 1,
+        "families": 2
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "OR:B+A+Z",
+        "n": 194,
+        "changed": 194,
+        "baseline": 3,
+        "altered": 164,
+        "new": 162,
+        "cleared": 1,
+        "families": 3
+      }
+    ],
+    "calibration_warning_rates_at_5percent": {
+      "B": 0.04779896907216495,
+      "D": 0.049923711340206185,
+      "A": 0.04998041237113402,
+      "Z": 0.049035051546391754,
+      "OR:B+D": 0.04978865979381443,
+      "MAJ:B+D": 0.049858762886597935,
+      "MEAN:B+D": 0.04995051546391752,
+      "OR:B+A": 0.049889690721649484,
+      "MAJ:B+A": 0.04985670103092783,
+      "MEAN:B+A": 0.049939175257731956,
+      "OR:B+Z": 0.049908247422680414,
+      "MAJ:B+Z": 0.049983505154639174,
+      "MEAN:B+Z": 0.049984536082474225,
+      "OR:D+A": 0.048423711340206184,
+      "MAJ:D+A": 0.04996701030927835,
+      "MEAN:D+A": 0.04999587628865979,
+      "OR:D+Z": 0.049583505154639176,
+      "MAJ:D+Z": 0.049843298969072164,
+      "MEAN:D+Z": 0.049922680412371134,
+      "OR:A+Z": 0.04968659793814433,
+      "MAJ:A+Z": 0.049890721649484535,
+      "MEAN:A+Z": 0.04998144329896907,
+      "OR:B+D+A": 0.049811340206185564,
+      "MAJ:B+D+A": 0.049955670103092785,
+      "MEAN:B+D+A": 0.04997628865979382,
+      "OR:B+D+Z": 0.04955773195876289,
+      "MAJ:B+D+Z": 0.04987113402061856,
+      "MEAN:B+D+Z": 0.049983505154639174,
+      "OR:B+A+Z": 0.049783505154639175,
+      "MAJ:B+A+Z": 0.049997938144329894,
+      "MEAN:B+A+Z": 0.04999381443298969,
+      "OR:D+A+Z": 0.04988247422680413,
+      "MAJ:D+A+Z": 0.04992164948453608,
+      "MEAN:D+A+Z": 0.049997938144329894,
+      "OR:B+D+A+Z": 0.04773092783505155,
+      "MAJ:B+D+A+Z": 0.049956701030927836,
+      "MEAN:B+D+A+Z": 0.05,
+      "PCA:B+D+A+Z": 0.05
+    },
+    "dependencies": {
+      "scripts\\run_frontier.py": "e8b270d4faeeb6ef1214cf03c1c915a22b79eddeae1ec143e86cc39a18096185",
+      "data\\cache\\original_spread_108_b12.npz": "b6d58bd3e309480a8f7036dabfd4958d9c309e739a890365da2f0dfda68bfd72",
+      "tables\\point_rates_original.csv": "306e538d492bb3b94782fdd40c0a4f7a5e9db5f8623f7908f0c54b4897db7e99",
+      "tables\\policy_choices_original.csv": "1f9245fa4722db868c645afd0a575d93e510322ce1c43f4712390627851bbb46"
+    }
+  },
+  "external_source_audit": {
+    "status": "source_review_complete_no_external_outcomes_interpreted",
+    "source_sha256": "eb99764385a917025e9ab5851a8fd590116d2a07599e89592b0e13315f4aa842",
+    "fund_x_uses_actual108_months_with_warmup0_and_no_artificial_distortions": true,
+    "fund_x_authenticity_not_assumed_and_omitted_from_unmodified_reference_population": true,
+    "cpz_old_development_ends1979_and_calibration_ends1991_before_all_1992plus_test_months": true,
+    "cpz_first_column_verified_SDF": true,
+    "cpz300_month_calibration_draws_reuse144_actual_months_caveat_saved": true,
+    "cpz_final108_months_overlap_second108_months_not_independent_replications": true,
+    "public_nav_uses_funded_reference_with_actual_six_month_prehistory": true,
+    "jkp_world_uses_frozen_cz_spread_reference_without_recalibration": true,
+    "limits": [
+      "JKP is a separate data source with global coverage, but stock universes and factor definitions can overlap CZ.",
+      "The three NAV records were chosen for history and performance support, not as a random sample for a population false-warning estimate.",
+      "The 300-month CPZ reference is a conditional historical block-resampling extrapolation, not a 300-month observed calibration record.",
+      "Unmodified published records do not establish authenticity labels.",
+      "Old historical CZ backdrop warnings diagnose reference drift but are not a fully independent economic-universe control."
+    ]
+  },
+  "external_output_checks": {
+    "status": "passed",
+    "independent_external_rows": 12,
+    "scalar_metrics_and_scalar_ledger": true,
+    "thresholds_read_from_binary_cached_reference": true,
+    "rows": [
+      {
+        "source": "JKP_world",
+        "sample": "2017_2025",
+        "mechanism": "unmodified",
+        "policy": "OR:B+D",
+        "n": 153,
+        "changed": 0,
+        "baseline": 6,
+        "altered": 6,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "JKP_world",
+        "sample": "2017_2025",
+        "mechanism": "unmodified",
+        "policy": "OR:A+Z",
+        "n": 153,
+        "changed": 0,
+        "baseline": 3,
+        "altered": 3,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "JKP_world",
+        "sample": "2017_2025",
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+D",
+        "n": 153,
+        "changed": 153,
+        "baseline": 6,
+        "altered": 79,
+        "new": 73,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "JKP_world",
+        "sample": "2017_2025",
+        "mechanism": "relative_delay3",
+        "policy": "OR:A+Z",
+        "n": 153,
+        "changed": 153,
+        "baseline": 3,
+        "altered": 152,
+        "new": 149,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "JKP_world",
+        "sample": "2017_2025",
+        "mechanism": "smooth50",
+        "policy": "OR:B+D",
+        "n": 153,
+        "changed": 153,
+        "baseline": 6,
+        "altered": 5,
+        "new": 2,
+        "cleared": 3,
+        "families": 2
+      },
+      {
+        "source": "JKP_world",
+        "sample": "2017_2025",
+        "mechanism": "smooth50",
+        "policy": "OR:A+Z",
+        "n": 153,
+        "changed": 153,
+        "baseline": 3,
+        "altered": 153,
+        "new": 150,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "CPZ_author",
+        "sample": "first108",
+        "mechanism": "unmodified",
+        "policy": "OR:B+D",
+        "n": 1,
+        "changed": 0,
+        "baseline": 0,
+        "altered": 0,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "CPZ_author",
+        "sample": "first108",
+        "mechanism": "unmodified",
+        "policy": "OR:A+Z",
+        "n": 1,
+        "changed": 0,
+        "baseline": 0,
+        "altered": 0,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "CPZ_author",
+        "sample": "first108",
+        "mechanism": "unmodified",
+        "policy": "OR:B+A+Z",
+        "n": 1,
+        "changed": 0,
+        "baseline": 0,
+        "altered": 0,
+        "new": 0,
+        "cleared": 0,
+        "families": 3
+      },
+      {
+        "source": "CPZ_author",
+        "sample": "first108",
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+D",
+        "n": 1,
+        "changed": 1,
+        "baseline": 0,
+        "altered": 1,
+        "new": 1,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "CPZ_author",
+        "sample": "first108",
+        "mechanism": "relative_delay3",
+        "policy": "OR:A+Z",
+        "n": 1,
+        "changed": 1,
+        "baseline": 0,
+        "altered": 0,
+        "new": 0,
+        "cleared": 0,
+        "families": 2
+      },
+      {
+        "source": "CPZ_author",
+        "sample": "first108",
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+A+Z",
+        "n": 1,
+        "changed": 1,
+        "baseline": 0,
+        "altered": 1,
+        "new": 1,
+        "cleared": 0,
+        "families": 3
+      }
+    ],
+    "cpz_eligible_observed_loss_count": 4,
+    "cpz_eligible_observed_months": [
+      "1996-03",
+      "1996-04",
+      "2000-04",
+      "2000-05"
+    ],
+    "cpz_all38_baseline_flags": [],
+    "cpz_all38_delay3_flags": [
+      "B",
+      "OR:B+D",
+      "OR:B+A",
+      "OR:B+Z",
+      "MAJ:B+Z",
+      "MEAN:B+Z",
+      "OR:B+D+A",
+      "OR:B+D+Z",
+      "MAJ:B+D+Z",
+      "OR:B+A+Z",
+      "MAJ:B+A+Z",
+      "OR:B+D+A+Z"
+    ],
+    "main_2_3_4_families_choices_at5percent": [
+      {
+        "scope": "2",
+        "policy": "OR:A+Z",
+        "families": 2,
+        "training_new_warning_rate": 0.913848797250858
+      },
+      {
+        "scope": "3",
+        "policy": "OR:B+A+Z",
+        "families": 3,
+        "training_new_warning_rate": 0.9141237113402051
+      },
+      {
+        "scope": "4",
+        "policy": "OR:B+D+A+Z",
+        "families": 4,
+        "training_new_warning_rate": 0.9085481099656345
+      }
+    ],
+    "main_2_3_4_families_point_rows_already_scalar_verified": [
+      {
+        "mechanism": "unmodified",
+        "policy": "OR:A+Z",
+        "baseline": 3,
+        "altered": 3,
+        "new": 0,
+        "cleared": 0
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "OR:B+A+Z",
+        "baseline": 3,
+        "altered": 3,
+        "new": 0,
+        "cleared": 0
+      },
+      {
+        "mechanism": "unmodified",
+        "policy": "OR:B+D+A+Z",
+        "baseline": 1,
+        "altered": 1,
+        "new": 0,
+        "cleared": 0
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "OR:A+Z",
+        "baseline": 3,
+        "altered": 194,
+        "new": 191,
+        "cleared": 0
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "OR:B+A+Z",
+        "baseline": 3,
+        "altered": 194,
+        "new": 191,
+        "cleared": 0
+      },
+      {
+        "mechanism": "relative_permanent",
+        "policy": "OR:B+D+A+Z",
+        "baseline": 1,
+        "altered": 194,
+        "new": 193,
+        "cleared": 0
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "OR:A+Z",
+        "baseline": 3,
+        "altered": 192,
+        "new": 189,
+        "cleared": 0
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+A+Z",
+        "baseline": 3,
+        "altered": 192,
+        "new": 189,
+        "cleared": 0
+      },
+      {
+        "mechanism": "relative_delay3",
+        "policy": "OR:B+D+A+Z",
+        "baseline": 1,
+        "altered": 191,
+        "new": 190,
+        "cleared": 0
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "OR:A+Z",
+        "baseline": 3,
+        "altered": 164,
+        "new": 162,
+        "cleared": 1
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "OR:B+A+Z",
+        "baseline": 3,
+        "altered": 164,
+        "new": 162,
+        "cleared": 1
+      },
+      {
+        "mechanism": "fixed_delay3",
+        "policy": "OR:B+D+A+Z",
+        "baseline": 1,
+        "altered": 163,
+        "new": 162,
+        "cleared": 0
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "OR:A+Z",
+        "baseline": 3,
+        "altered": 189,
+        "new": 186,
+        "cleared": 0
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "OR:B+A+Z",
+        "baseline": 3,
+        "altered": 189,
+        "new": 186,
+        "cleared": 0
+      },
+      {
+        "mechanism": "smooth50",
+        "policy": "OR:B+D+A+Z",
+        "baseline": 1,
+        "altered": 188,
+        "new": 187,
+        "cleared": 0
+      }
+    ],
+    "dependencies": {
+      "tables\\external_rates.csv": "54d13c5038a7b52a581370cad86ade42362ff10d86bcaffa52daa9cd46651af9",
+      "data\\cache\\external_old_spread_108.npz": "752947d9002e976a0d135df46f057728a9f41398899bd4cc9ee806951d457612"
+    }
+  }
+}

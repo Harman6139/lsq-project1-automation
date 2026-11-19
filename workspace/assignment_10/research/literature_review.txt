@@ -1,0 +1,26 @@
+Assignment 10: closest literature and contribution, 19 November 2026
+
+The method alone is not new. Return-screen combinations, detection-versus-warning curves, investigation budgets and validation already have close precedents. The possible increment is evidence that a fixed rule remains useful across different dates, strategies and reporting mechanisms, including genuinely high-performing histories.
+
+Closest comparison | What exists already | What we must add
+Bollen–Pool 2008 | Loss-delay model; false warnings, missed detection and history length | Transfer beyond a single reporting mechanism.
+Bollen–Pool 2012 | Multiple return flags, probit fraud-risk score and warning-budget comparisons | New controlled evidence; no claim to invent combined screens.
+Joenväärä–Kosowski 2015 | UCITS comparison; aggregated warnings and principal component | Frozen, separately validated choices. Exact PCA normalization is unspecified.
+Jorion–Schwarz 2014 | Fees and legitimate economics can create zero-return discontinuities | Explicit return definitions and restrained attribution.
+van Vuuren and van Vuuren 2022 | Bias ratio alongside return moments, indices and known cases | A disciplined common-budget comparison.
+González–Papageorgiou–Skinner 2016 | Top-performing fund selection, strategy groups, later diagnostic persistence | New operating tradeoffs, not the first strong-performer analysis.
+Dimmock–Gerken 2012 | Fraud prediction and investigation budgets with out-of-sample checks | Evidence on what returns alone can support.
+Beneish–Vorst 2022 | Seven-model error-cost and investigation-capacity comparison | Fund-return evidence with clearly assumed costs/prevalence.
+Bao et al.2020/2022 | Ensemble comparison; correction for training/test overlap | Keep strategy identities and altered versions together.
+Chowdhry–Saxena 2026 | Downside-variation diagnostics; skewness-sensitive null | Delimit the four chosen families. Latest revision differs from downloaded version.
+
+What would make the contribution convincing
+At a fixed investigation budget, a rule chosen beforehand should find materially more imposed reporting problems on genuinely separate test data. Show whether that advantage survives a new strategy family and a different reporting policy. A higher average hit rate on familiar transformations is insufficient. If no rule transfers reliably, report the particular failures rather than claim returns cannot help.
+
+Economic limits
+These are reconstructed portfolios and controlled reporting alterations, not verified honest/fraudulent manager histories. They cannot estimate fraud prevalence, real classification precision or monetary losses avoided. A high diagnostic ratio caused by cash interest is not the same as Fund X-like investment performance. The final-data frontier is exploratory if it selects the best rule after seeing those data.
+
+Risk Sciences
+The subject is within the journal’s published scope. Its research-article guide asks for substantial advances. Boudt, Delmarcelle and Ringoot’s 2025 AML alert paper connects a system to supervisors’ actual workflow and examines real events; Eling and Jung’s cyber-risk paper links a stated economic mechanism to a decision. Our study needs an equally clear decision and supported increment. This comparison does not establish acceptance prospects.
+
+Primary links, precise comparisons, inspection coverage, version gaps and source SHA-256 hashes are in literature_review.json. Eight initial primary PDFs and one March 2026 author PDF were downloaded for private research. Original Abdulali 2006 and several journal full texts were unavailable; exact uninspected implementations are not claimed replicated.

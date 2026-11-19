@@ -1,0 +1,112 @@
+{
+  "checked_utc": "2026-11-19T06:39:17.913242+00:00",
+  "purpose": "Find genuinely observed investment/strategy return histories for separately labelled external screening comparisons; no synthetic histories or mean shifts.",
+  "criteria": {
+    "preferred_months": [
+      "2017-01",
+      "2025-12"
+    ],
+    "preferred_length": 108,
+    "performance_comparator": "FundX common-period monthly excess Sharpe0.795553 and zero-rate mean/SD0.847024",
+    "requirements": [
+      "monthly record",
+      "source-date and formation-date distinction",
+      "currency and cash treatment",
+      "fee and gross-notional definitions",
+      "independent numeric extraction",
+      "no selection on screen outcomes"
+    ]
+  },
+  "available_files": [
+    {
+      "id": "cpz",
+      "file": "data/external/cpz_published_monthly_1967_2016.csv",
+      "sha256": "608a2a1b3b00ea72e6808d3a988a2014b11ecc633b52438acb7316cd24728577"
+    },
+    {
+      "id": "jkp_world",
+      "file": "data/external/jkp_world_monthly_2017_2025.csv",
+      "sha256": "57630c38516db7e5db9663a6e485812d129464cf5b25e437af65d7245120c02e"
+    },
+    {
+      "id": "public_nav",
+      "file": "data/external/public_nav_monthly_2017_2025.csv",
+      "sha256": "cbc29995b2a550a8f76f6c7a2d10993f66f5bb93bfe96bf14a8da0c525a875b7"
+    },
+    {
+      "id": "public_nav_warmup",
+      "file": "data/external/public_nav_warmup_2016.csv",
+      "sha256": "48dd2fe6778e0f358ba98837085e568cc909cc5217de8779a0a264e2d8b44d3b"
+    }
+  ],
+  "main_findings": [
+    "CPZ published historical test sample reaches monthly excess Sharpe0.749 over300months, but its last108 is0.380 and last60 is0.588. The file has no2017-2025 overlap.",
+    "The153 JKP world factors have full2017-2025 overlap but their highest individual monthly excess Sharpe is0.336.",
+    "The three net USD fund records have monthly excess Sharpes0.198,0.163,0.079. They broaden source type but do not close the exceptional-performance gap.",
+    "Source-fixed retrospective backtests are useful challenge records, but are not verified honest controls or fraud labels."
+  ],
+  "other_routes": [
+    {
+      "name": "Gu,Kelly,Xiu(2020)",
+      "urls": [
+        "https://dachxiu.chicagobooth.edu/",
+        "https://github.com/xiubooth/ML_Codes"
+      ],
+      "checked_repo_commit": "927c93ca7e4e452525a989f5a8cc22b73bb1b3d4",
+      "finding": "Official page links simulation code and a June2021 stock-characteristics data archive. No current aggregate model-return file was linked; the empirical paper sample ends2016. The large stock-level archive was not downloaded."
+    },
+    {
+      "name": "SinaSeyfi BasisPortfolios",
+      "local_input": "Downloads/ssrn-4687058.pdf",
+      "source_date": "July2026",
+      "input_sha256": "7972dc7458dcf3a06f99d50b88b93cf5f60c02993a152509eb680f4c680200cd",
+      "website": "https://sinaseyfi.com/",
+      "finding": "Local97-page version reports annualized Sharpe1.71, about0.494 monthly; transaction-cost adjusted annualized0.64, about0.185 monthly; sample1980-2022. The website advertises a different revision and its Data and Code text is not a linked file. No author was contacted."
+    },
+    {
+      "name": "DeepLearningStatisticalArbitrage",
+      "urls": [
+        "https://mpelger.people.stanford.edu/data-and-code",
+        "https://github.com/gregzanotti/dlsa-public"
+      ],
+      "repo_commit": "ea8cc2958943eb1fe914aa4fad6998994a678323",
+      "finding": "Official repo supplies code but no portfolio return file, and cites licensing limits on original input data. The author page now links public Dropbox code/data folders; no aggregate return file was exposed in the static listing inspected. No bulk stock data were downloaded."
+    },
+    {
+      "name": "JKP CommonTaskFramework",
+      "public_metrics_url": "https://jkpfactors.com/api/ctf/leaderboard/data",
+      "leaderboard_url": "https://jkpfactors.com/ctf/leaderboard",
+      "dataset_guide": "https://jkpfactors.com/ctf/dataset-access",
+      "finding": "97 completed models,1990-2023hindcast, code/metrics public. Top advertised annual Sharpe5.1475. Inspected public endpoint and model page expose summary metrics, not monthly return arrays. Model metrics are scaled to10% annual volatility. Repeated submissions and retrospective model design remain.",
+      "specific_institutional_tables": [
+        "contrib_global_factor.ctff_features",
+        "contrib_global_factor.ctff_chars",
+        "contrib_global_factor.ctff_daily_ret"
+      ],
+      "institutional_requirements": "Official guide specifies WRDS with CRSP monthly/daily and Compustat NorthAmerica rights; this is distinct from denied TASS/CISDM/HFR access.",
+      "access_status": "Current institutional entitlement not confirmed: the established remote connection was unavailable. No licensed observations retrieved. Separate private access note retained.",
+      "practical_next_step": "Request/export only already-computed model-level monthly excess returns and model definitions if the provider exposes them. Otherwise reproducing models needs licensed stock-level inputs and materially more work; no heavy backtest was launched."
+    },
+    {
+      "name": "Bloomberg",
+      "finding": "User reports terminal access; no terminal export was available in this session. Public factsheets confirm ParusRPARIU1ID and WintonDBSI1CULX. The older pasted research note had a different Winton ticker and inception; the actual current factsheet controls.",
+      "specific_export_needed": "Full-precision monthly net distribution-adjusted fund/share-class returns, January2017-December2025, with ISIN,ticker,currency,fee basis,inception/closure dates, share-class changes and field definitions. Include closed funds when licensed. Verify the Bloomberg field definition at the terminal rather than treating a price series as a total return."
+    },
+    {
+      "name": "Other public fund sites",
+      "finding": "PershingSquare NAV page returned403; Prescient download attempts failed certificate verification. No bypass or disabled certificate check was used. Existing prior source notes remain leads, not newly acquired observations."
+    }
+  ],
+  "independent_checks": {
+    "CPZ_SDF_OOXML_values": 600,
+    "NAV_two_library_monthly_matches": 324,
+    "NAV_annual_rounding_reconciliations": 27,
+    "JKP_selected_source_values": 16524,
+    "screen_scores_computed": 0,
+    "NAV_actual_warmup_two_library_matches": 18,
+    "NAV_warmup_year_annual_reconciliations": 3
+  },
+  "provenance_file": "research/external_provenance.json",
+  "download_inventory": "research/download_inventory.json",
+  "support_file": "research/external_support_summary.json"
+}

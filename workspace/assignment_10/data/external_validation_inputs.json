@@ -1,0 +1,22 @@
+{
+  "status": "accepted before new screening outcomes inspected",
+  "support_search": "Sharpe ratios inspected to establish coverage, not to select screen outcomes",
+  "files": [
+    {
+      "file": "data/external/cpz_published_monthly_1967_2016.csv",
+      "sha256": "608a2a1b3b00ea72e6808d3a988a2014b11ecc633b52438acb7316cd24728577"
+    },
+    {
+      "file": "data/external/jkp_world_all_factors_monthly_vwcap.csv",
+      "sha256": "af41c99bfb485a09c071a0a97a6a50ac2f5e75f6a94abd2a8955865eef5ec3a5"
+    },
+    {
+      "file": "data/external/public_nav_monthly_2017_2025.csv",
+      "sha256": "cbc29995b2a550a8f76f6c7a2d10993f66f5bb93bfe96bf14a8da0c525a875b7"
+    },
+    {
+      "file": "data/external/public_nav_warmup_2016.csv",
+      "sha256": "48dd2fe6778e0f358ba98837085e568cc909cc5217de8779a0a264e2d8b44d3b"
+    }
+  ]
+}
