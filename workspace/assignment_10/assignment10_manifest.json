@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-19T16:34:17.250977+00:00",
+  "finalized_utc": "2026-11-19T16:35:50.122737+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -1441,7 +1441,33 @@
     }
   ],
   "publication": {
-    "status": "prepared local release; remote publication not yet claimed"
+    "status": "published with byte-for-byte Drive readback",
+    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
+    "presentation_revision_commit": "100b0b7409d70a1e6e0a12c2e832981ba1a3cddd",
+    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44567655429",
+    "workflow_success": true,
+    "scope": "assignment10",
+    "global_publisher_skipped": true,
+    "overleaf_skipped": true,
+    "drive_replacement": "Publisher recreated stored artifacts under stable automation filenames; PDF title and local filename carry no assignment label.",
+    "files": [
+      {
+        "local_name": "Return_Screening_Frontier.pdf",
+        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+        "drive_id": "1TQMnl6W0-Hr9_FE-4eWUIXcB0laziOJp",
+        "size": 209913,
+        "sha256": "348d44ed3e47e9527c098c5c1cfb8b809c2b95cb93253471c6b45bfb5c644e1c",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_id": "1-m8USvUBRwtQ4LZt4pMUwwUHxGpyhRCb",
+        "size": 177709,
+        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+        "raw_readback_matches_local_bytes": true
+      }
+    ]
   },
   "files": [
     {
@@ -1586,8 +1612,8 @@
     },
     {
       "file": "data/publication_readback.json",
-      "bytes": 1341,
-      "sha256": "bd1d5826368dd28d6761f5fd033afdc8103d6b7517156fe3adb98a15410a06d5"
+      "bytes": 1286,
+      "sha256": "3166ae7787dcd421bf329e405925bca215bbc0b394360cb51cf3858673e202ed"
     },
     {
       "file": "data/raw/F-F_Research_Data_Factors.csv",

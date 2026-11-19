@@ -1,25 +1,25 @@
 {
   "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
-  "presentation_revision_commit": "444f65e376c09cd5d341caaac41dfd38589510be",
-  "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44566037907",
+  "presentation_revision_commit": "100b0b7409d70a1e6e0a12c2e832981ba1a3cddd",
+  "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44567655429",
   "workflow_success": true,
   "scope": "assignment10",
   "global_publisher_skipped": true,
   "overleaf_skipped": true,
-  "drive_replacement": "Publisher recreated both stored artifacts; current IDs recorded below. Stable Drive filenames retain the automation names; the PDF title and local filename carry no assignment label.",
+  "drive_replacement": "Publisher recreated stored artifacts under stable automation filenames; PDF title and local filename carry no assignment label.",
   "files": [
     {
       "local_name": "Return_Screening_Frontier.pdf",
       "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-      "drive_id": "19Vp6ijLZ_XRIyhMdFgipE9epikSCjZQr",
-      "size": 209915,
-      "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744",
+      "drive_id": "1TQMnl6W0-Hr9_FE-4eWUIXcB0laziOJp",
+      "size": 209913,
+      "sha256": "348d44ed3e47e9527c098c5c1cfb8b809c2b95cb93253471c6b45bfb5c644e1c",
       "raw_readback_matches_local_bytes": true
     },
     {
       "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
       "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-      "drive_id": "1n6A1ILjZYmcMuxHHm_NyCUyARnfk1Vxf",
+      "drive_id": "1-m8USvUBRwtQ4LZt4pMUwwUHxGpyhRCb",
       "size": 177709,
       "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
       "raw_readback_matches_local_bytes": true
