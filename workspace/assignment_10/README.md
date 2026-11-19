@@ -11,7 +11,8 @@ Correspondence, personal download inventories and restricted originals stay loca
 
 The original analysis release is pinned at
 `ffbc7598df5feb6fc9de40e200521727db2c89e0`. The current PDF replaces the existing
-Drive report in place through the scoped publisher. Publication evidence is in
+Drive report through the scoped publisher. The publisher recreates stored artifacts;
+current IDs and byte-for-byte raw readback are recorded in the evidence file. Publication evidence is in
 `data/publication_readback.json`; archived evidence describes the one-page release.
 
 ## Economic question and findings

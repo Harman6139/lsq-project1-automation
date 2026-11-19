@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-19T16:25:12.204307+00:00",
+  "finalized_utc": "2026-11-19T16:27:37.091298+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -1441,7 +1441,33 @@
     }
   ],
   "publication": {
-    "status": "prepared local release; remote publication not yet claimed"
+    "status": "published with byte-for-byte Drive readback",
+    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
+    "presentation_revision_commit": "444f65e376c09cd5d341caaac41dfd38589510be",
+    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44566037907",
+    "workflow_success": true,
+    "scope": "assignment10",
+    "global_publisher_skipped": true,
+    "overleaf_skipped": true,
+    "drive_replacement": "Publisher recreated both stored artifacts; current IDs recorded below. Stable Drive filenames retain the automation names; the PDF title and local filename carry no assignment label.",
+    "files": [
+      {
+        "local_name": "Return_Screening_Frontier.pdf",
+        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+        "drive_id": "19Vp6ijLZ_XRIyhMdFgipE9epikSCjZQr",
+        "size": 209915,
+        "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_id": "1n6A1ILjZYmcMuxHHm_NyCUyARnfk1Vxf",
+        "size": 177709,
+        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+        "raw_readback_matches_local_bytes": true
+      }
+    ]
   },
   "files": [
     {
@@ -1586,8 +1612,8 @@
     },
     {
       "file": "data/publication_readback.json",
-      "bytes": 908,
-      "sha256": "2b4e23397c8b4a6004fef267e8beedbb304381acd74191bbeb8c321a0b18765c"
+      "bytes": 1341,
+      "sha256": "bd1d5826368dd28d6761f5fd033afdc8103d6b7517156fe3adb98a15410a06d5"
     },
     {
       "file": "data/raw/F-F_Research_Data_Factors.csv",
@@ -1896,8 +1922,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 11601,
-      "sha256": "a4004616be8232818db5a1136b95bbb0d4f9e15ea8d468549f7e0fd1a890be81"
+      "bytes": 11712,
+      "sha256": "0abef82a79739c1ebfc831304310665fa7dae5e114ba8d67db76967fbe07378f"
     },
     {
       "file": ".gitignore",
