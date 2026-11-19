@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-19T16:27:37.091298+00:00",
+  "finalized_utc": "2026-11-19T16:34:17.250977+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -1393,10 +1393,10 @@
   },
   "full_table_arithmetic_rows_checked": 108072,
   "cache_settings_and_budget_checks": 24,
-  "presentation_revision": "Expanded to three pages with exact main-method formulas and two frozen-results graphs; no numerical experiment changed",
+  "presentation_revision": "Three-page note with exact main-method formulas and two frozen-results graphs; flowing colleague prose, minimal first person and no direct address; numerical experiments unchanged",
   "pdf_checks": {
     "pages": 3,
-    "words": 1199,
+    "words": 1243,
     "graphs": 2,
     "every_page_rendered_and_visually_inspected": true,
     "overfull_boxes": 0,
@@ -1417,11 +1417,11 @@
   "university_copies": [
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.pdf",
-      "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744"
+      "sha256": "348d44ed3e47e9527c098c5c1cfb8b809c2b95cb93253471c6b45bfb5c644e1c"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.tex",
-      "sha256": "8f0a5e328fc653619ccd89eab370ed092768071638024850c9383bda2030f210"
+      "sha256": "2c2440e4b5b4a572b842aefe644dac5886a15e017b3f62f39784643d3394da29"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
@@ -1441,33 +1441,7 @@
     }
   ],
   "publication": {
-    "status": "published with byte-for-byte Drive readback",
-    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
-    "presentation_revision_commit": "444f65e376c09cd5d341caaac41dfd38589510be",
-    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44566037907",
-    "workflow_success": true,
-    "scope": "assignment10",
-    "global_publisher_skipped": true,
-    "overleaf_skipped": true,
-    "drive_replacement": "Publisher recreated both stored artifacts; current IDs recorded below. Stable Drive filenames retain the automation names; the PDF title and local filename carry no assignment label.",
-    "files": [
-      {
-        "local_name": "Return_Screening_Frontier.pdf",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-        "drive_id": "19Vp6ijLZ_XRIyhMdFgipE9epikSCjZQr",
-        "size": 209915,
-        "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_id": "1n6A1ILjZYmcMuxHHm_NyCUyARnfk1Vxf",
-        "size": 177709,
-        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
-        "raw_readback_matches_local_bytes": true
-      }
-    ]
+    "status": "prepared local release; remote publication not yet claimed"
   },
   "files": [
     {
@@ -1487,8 +1461,8 @@
     },
     {
       "file": "scripts/finalize_assignment10.py",
-      "bytes": 8143,
-      "sha256": "87c5907b5bd29285bae7b91a092b849db09c33f420e5388a79af528449d2bce0"
+      "bytes": 8204,
+      "sha256": "3bbf746982cd7fcbc280d8c8a7dde2bb483171ed89084bda996f44e3aa633d23"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -1507,8 +1481,8 @@
     },
     {
       "file": "scripts/methods_note_body.tex",
-      "bytes": 8795,
-      "sha256": "433555b7cc6a3a1bd3dfe196f4526d5e33501c927925ee16b3acca2f6d7d7808"
+      "bytes": 9158,
+      "sha256": "318c7df6c852be0ce70bcb4d8fd99de5130792f2ce2fbbf9ace61ede1180265e"
     },
     {
       "file": "scripts/plot_frontiers.py",
@@ -1907,13 +1881,13 @@
     },
     {
       "file": "Return_Screening_Frontier.pdf",
-      "bytes": 209915,
-      "sha256": "09462757213f8be5a5bc1032f8b9424f9c6fed2a352a7e356c74e8da915f3744"
+      "bytes": 209913,
+      "sha256": "348d44ed3e47e9527c098c5c1cfb8b809c2b95cb93253471c6b45bfb5c644e1c"
     },
     {
       "file": "Return_Screening_Frontier.tex",
-      "bytes": 9159,
-      "sha256": "8f0a5e328fc653619ccd89eab370ed092768071638024850c9383bda2030f210"
+      "bytes": 9522,
+      "sha256": "2c2440e4b5b4a572b842aefe644dac5886a15e017b3f62f39784643d3394da29"
     },
     {
       "file": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",

@@ -137,7 +137,7 @@ workspace/assignment_N/
 
 - Match the original paper's restrained LaTeX style for paper-facing tables and reports.
 - Keep headings with their tables or figures on the same page.
-- Use concise human prose addressed to Professor Phelim Boyle.
+- Use flowing colleague-to-colleague prose with varied sentence lengths, little first-person wording and no direct first-name address. Avoid caveat-led paragraphs and formulaic "X, not Y" framing; express scope through precise descriptions of the data, methods and findings.
 - Do not use em dashes.
 - Do not add AI references, process narration, or unsupported certainty to professor-facing files.
 - Compile every final `.tex` file and visually inspect every PDF page for clipping, overlap, bad page breaks, and missing assets.

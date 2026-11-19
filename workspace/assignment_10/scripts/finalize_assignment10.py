@@ -106,7 +106,7 @@ def main():
         private_email=dict(file=email.name,sha256=digest(email),words=len(email.read_text().split()),sent=False),
         key_results=summary,verification=verification,workbook_checks=bookcheck,
         full_table_arithmetic_rows_checked=checked_rows,cache_settings_and_budget_checks=cache_checks,
-        presentation_revision='Expanded to three pages with exact main-method formulas and two frozen-results graphs; no numerical experiment changed',
+        presentation_revision='Three-page note with exact main-method formulas and two frozen-results graphs; flowing colleague prose, minimal first person and no direct address; numerical experiments unchanged',
         pdf_checks=dict(pages=len(document),words=words,graphs=2,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
         numerical_execution=dict(seconds_by_job={k:v['seconds'] for k,v in executions.items()},
             total_seconds=sum(v['seconds'] for v in executions.values()),cpu26_used=False),
