@@ -6,12 +6,11 @@ with a conversational explanation of the data, reporting changes, four checks,
 and a count-axis frontier graph. Its matching
 LaTeX source and graphs are alongside the existing supporting workbook,
 `Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft explains the initial exercise and why the frontier comparison
-was proposed, in 239 words. The old one-page note is preserved with path/hash inventories under
+was proposed, in 242 words. The old one-page note is preserved with path/hash inventories under
 `History/20261119_One_Page_Handoff`, both here and in the stable University folder.
-The 20 November presentation revision keeps the numerical experiments and workbook
-fixed. It explains the overall older-data choice (checks1+3+4) and best pair
+The 20 November note opens with a worked loss-delay example and compares the original and edited histories side by side. It explains the overall older-data choice (checks1+3+4) and best pair
 (checks3+4), and shows their identical main later-US counts.
-`data/conversational_report_checks.json` records the twelve table cells and
+`data/conversational_report_checks.json` records the fifteen table cells and
 older-data selection checks; `data/conversational_graph_metadata.json` records
 the graph source and marked points.
 Correspondence, personal download inventories and restricted originals stay local.

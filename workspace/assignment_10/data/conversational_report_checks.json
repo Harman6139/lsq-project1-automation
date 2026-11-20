@@ -1,13 +1,18 @@
 {
   "date": "2026-11-20",
   "pages": 3,
-  "report_sha256": "8ad8855745bb98f91e23797d1fe6de4b59e40c84cd3e8b3e6a721203f353bdd8",
-  "numbers_verified_from_frozen_csv": 12,
+  "report_sha256": "19515288a779e1f66f401b4893ccc9c818fd7d063b0fdd34dc8832e945585a83",
+  "numbers_verified_from_frozen_csv": 15,
   "table": {
     "OR:B+D": [
       1,
       104,
       3
+    ],
+    "Z": [
+      3,
+      192,
+      5
     ],
     "OR:A+Z": [
       3,

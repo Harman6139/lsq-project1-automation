@@ -25,11 +25,11 @@
   "files": [
     {
       "file": "figures/conversational_frontier.png",
-      "sha256": "a786aed575eac8d7b3fb86bd82435a4fad032f5344625397765ebde4f5f96bdd"
+      "sha256": "2f3b7f7d081eb17ed76f0dd2f12b11e009c7af21107e0533fee3e3fd644697c7"
     },
     {
       "file": "figures/conversational_frontier.svg",
-      "sha256": "d03b1dbdbcbd6216ac3e239dcd85828861bbf65b81cfe740bc640e3ed1f96628"
+      "sha256": "f63626eb7c3ffe8235c9c0847077edc9cd004699a801b102a6f725f03c4ddb74"
     }
   ]
 }

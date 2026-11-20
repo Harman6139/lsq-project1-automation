@@ -62,7 +62,7 @@ def conversational_graph():
                          'axes.spines.top':False,'axes.spines.right':False,'svg.fonttype':'none'})
     fig,ax=plt.subplots(figsize=(7.1,3.2))
     fig.subplots_adjust(left=.10,right=.985,top=.88,bottom=.27)
-    for policy,label,color,style in [('OR:A+Z','Checks 3+4','black','-'),('OR:B+D','Checks 1+2','0.48','--')]:
+    for policy,label,color,style in [('OR:A+Z','Checks 3 and 4','black','-'),('OR:B+D','Checks 1 and 2','0.48','--')]:
         rows=data[data.policy==policy].sort_values('budget')
         assert len(rows)==101
         ax.step(rows.baseline,rows.altered,where='post',label=label,color=color,linestyle=style,linewidth=1.7)
@@ -73,8 +73,8 @@ def conversational_graph():
                     bbox=dict(fc='white',ec='none',pad=1),arrowprops=dict(arrowstyle='-',color='0.5',lw=.7))
     ax.set(xlim=(-.15,20.3),ylim=(-2,202),xticks=[0,5,10,15,20],yticks=[0,50,100,150,194])
     ax.set_title('Small losses recognised three months later',fontsize=11,pad=8)
-    ax.set_xlabel('Untouched portfolios raising warnings',fontsize=10,labelpad=5)
-    ax.set_ylabel('Changed copies raising warnings',fontsize=10,labelpad=6)
+    ax.set_xlabel('Warnings on original histories',fontsize=10,labelpad=5)
+    ax.set_ylabel('Warnings on edited copies',fontsize=10,labelpad=6)
     ax.grid(axis='y',alpha=.16)
     fig.legend(*ax.get_legend_handles_labels(),loc='lower center',ncol=2,frameon=False,fontsize=10,bbox_to_anchor=(.55,.005))
     files=[]
@@ -91,7 +91,7 @@ def main():
     counts=pd.read_csv(ROOT/'tables/point_rates_original.csv',float_precision='round_trip')
     counts=counts[(counts.representation=='spread')&(counts.months==108)&(counts.end=='2025-12')&(counts.group=='all')&(counts.budget==.05)]
     lines=[]
-    policies=[('OR:B+D','1+2 (original)'),('OR:A+Z','3+4'),('OR:B+A+Z','1+3+4'),('OR:B+D+A+Z','1+2+3+4')]
+    policies=[('OR:B+D','1 and 2 (original)'),('Z','4 alone'),('OR:A+Z','3 and 4'),('OR:B+A+Z','1, 3 and 4'),('OR:B+D+A+Z','All four')]
     for policy,label in policies:
         cells=[]
         for mechanism in ['unmodified','relative_delay3','smooth50']:

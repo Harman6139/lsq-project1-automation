@@ -89,7 +89,7 @@ def main():
         copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
     copies.append(copy_checked(email,UNIVERSITY/email.name))
     (UNIVERSITY/'Current_version.txt').write_text(
-        f'Return screening: the experiment and its results, 20 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and one count-axis graph. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has {len(email.read_text().split())} words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff; superseded three-page versions are preserved by hash under History.\n'
+        f'What can monthly returns tell an investor? 20 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and one count-axis graph. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has {len(email.read_text().split())} words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff; superseded three-page versions are preserved by hash under History.\n'
         'Sources and reproduction: C:/Users/HP/Prof Boyle/codex_project1a_context/project1_may2026_deliverables/workspace/assignment_10/README.md\n',encoding='utf-8')
     files=[]
     for folder in ['scripts','data','tables','figures','research','History']:

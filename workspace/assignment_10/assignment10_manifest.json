@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-20",
-  "finalized_utc": "2026-11-20T05:34:09.075199+00:00",
+  "finalized_utc": "2026-11-20T06:05:35.744111+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -19,8 +19,8 @@
   "data_rights": "External originals/restricted PDFs, personal Downloads inventory and correspondence stay local and excluded from public Git",
   "private_email": {
     "file": "Email_to_Professor_Boyle_Frontier_Handoff.txt",
-    "sha256": "603894f2b412803a7359690d1b0f8e0a507e1defd255740db337ed13606c0f10",
-    "words": 239,
+    "sha256": "87477d946c62df50b508a6a140dfc69da8c5d2b10d70327a9abb75155fedd63f",
+    "words": 242,
     "sent": false
   },
   "key_results": {
@@ -1396,7 +1396,7 @@
   "presentation_revision": "Conversational three-page explanation of fund/research counts, ten reporting changes, four checks,38 arrangements,5% target,selected three-check and two-check results, and supported contribution; essential formulas retained; numerical experiments unchanged",
   "pdf_checks": {
     "pages": 3,
-    "words": 1403,
+    "words": 1579,
     "graphs": 1,
     "every_page_rendered_and_visually_inspected": true,
     "overfull_boxes": 0,
@@ -1422,11 +1422,11 @@
   "university_copies": [
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.pdf",
-      "sha256": "8ad8855745bb98f91e23797d1fe6de4b59e40c84cd3e8b3e6a721203f353bdd8"
+      "sha256": "19515288a779e1f66f401b4893ccc9c818fd7d063b0fdd34dc8832e945585a83"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.tex",
-      "sha256": "191efa2dc4774c76a5ef5af66fa39229cb3b312d682a8160afb6beedc8546aa6"
+      "sha256": "098b6bbfec4f44b75899d5cb1c5feb8bcb47bb7af44e81d164a1db79e36b47d1"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
@@ -1442,11 +1442,11 @@
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\conversational_frontier.png",
-      "sha256": "a786aed575eac8d7b3fb86bd82435a4fad032f5344625397765ebde4f5f96bdd"
+      "sha256": "2f3b7f7d081eb17ed76f0dd2f12b11e009c7af21107e0533fee3e3fd644697c7"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\conversational_frontier.svg",
-      "sha256": "d03b1dbdbcbd6216ac3e239dcd85828861bbf65b81cfe740bc640e3ed1f96628"
+      "sha256": "f63626eb7c3ffe8235c9c0847077edc9cd004699a801b102a6f725f03c4ddb74"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\Return_Screening_Frontier_Explained.png",
@@ -1462,44 +1462,11 @@
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
-      "sha256": "603894f2b412803a7359690d1b0f8e0a507e1defd255740db337ed13606c0f10"
+      "sha256": "87477d946c62df50b508a6a140dfc69da8c5d2b10d70327a9abb75155fedd63f"
     }
   ],
   "publication": {
-    "status": "published with byte-for-byte Drive readback",
-    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
-    "presentation_revision_commit": "dffebfcd05b58d2984fbf5788d7c45ca7264a6ec",
-    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44681553500",
-    "workflow_success": true,
-    "scope": "assignment10",
-    "global_publisher_skipped": true,
-    "overleaf_skipped": true,
-    "files": [
-      {
-        "local_name": "Return_Screening_Frontier.pdf",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-        "drive_id": "1W-VpbQKDaG5waFKWEj3XqiBmUQDFpGoU",
-        "size": 170891,
-        "sha256": "8ad8855745bb98f91e23797d1fe6de4b59e40c84cd3e8b3e6a721203f353bdd8",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_id": "1LswcQ70w_nmR9C-mlKXAC7U9cSLVg-QI",
-        "size": 177709,
-        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "local_name": "figures/Return_Screening_Frontier_Explained.pdf",
-        "drive_name": "Return_Screening_Frontier_Explained.pdf",
-        "drive_id": "18Ez4h-WL0AW-aQwQJDmz3udE2vB9d5Sz",
-        "size": 58270,
-        "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089",
-        "raw_readback_matches_local_bytes": true
-      }
-    ]
+    "status": "prepared local release; remote publication not yet claimed"
   },
   "files": [
     {
@@ -1514,13 +1481,13 @@
     },
     {
       "file": "scripts/build_methods_report.py",
-      "bytes": 7354,
-      "sha256": "7f7083a932c490e1fad7dd1639fbd8ce6f4d338e6cab7d5d8b863539ef9c564a"
+      "bytes": 7379,
+      "sha256": "9a37f7f16ec2420fd40059a2d5c99324ae535c3b089b6c6262d7fc3cb2238bcd"
     },
     {
       "file": "scripts/finalize_assignment10.py",
-      "bytes": 9368,
-      "sha256": "a31bc344b96a3209dca221c4d3fb01dd9c74296535f5b0209764bc04911c4e45"
+      "bytes": 9492,
+      "sha256": "840fde5f761e869a70585ec82a5c113e7f08baaafea0e77fa4e08ee0a4d45bdc"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -1539,8 +1506,8 @@
     },
     {
       "file": "scripts/methods_note_body.tex",
-      "bytes": 10637,
-      "sha256": "9e0a2ca3217d5c62d35e535cee9fc4040c7ec74a9027a52e932bec22e39b611b"
+      "bytes": 10084,
+      "sha256": "6234841f619d9296d30a7859f1b161c8cf7266d502e6cfbfbc7cb50fdb659a4b"
     },
     {
       "file": "scripts/plot_frontiers.py",
@@ -1590,12 +1557,12 @@
     {
       "file": "data/conversational_graph_metadata.json",
       "bytes": 738,
-      "sha256": "af910ad3f56e516358621bd796320ea5fde26c3be52aea50a3e6a491c3f60c4f"
+      "sha256": "508d74dbea02f2079ea733ce28feaf6d2bba4a8087c60720e3d5ca98d2594e9a"
     },
     {
       "file": "data/conversational_report_checks.json",
-      "bytes": 1225,
-      "sha256": "eacd6137213c5b3470e8c809e10720ddd8b87c354d9302f3d4f6bafd32701ed6"
+      "bytes": 1276,
+      "sha256": "56487bef0a22d6adb12c1a93d2f43812ebbc0c320946743affc3248b8290e00e"
     },
     {
       "file": "data/execution_external.json",
@@ -1859,13 +1826,13 @@
     },
     {
       "file": "figures/conversational_frontier.png",
-      "bytes": 71533,
-      "sha256": "a786aed575eac8d7b3fb86bd82435a4fad032f5344625397765ebde4f5f96bdd"
+      "bytes": 67102,
+      "sha256": "2f3b7f7d081eb17ed76f0dd2f12b11e009c7af21107e0533fee3e3fd644697c7"
     },
     {
       "file": "figures/conversational_frontier.svg",
-      "bytes": 35537,
-      "sha256": "d03b1dbdbcbd6216ac3e239dcd85828861bbf65b81cfe740bc640e3ed1f96628"
+      "bytes": 35532,
+      "sha256": "f63626eb7c3ffe8235c9c0847077edc9cd004699a801b102a6f725f03c4ddb74"
     },
     {
       "file": "figures/frontier_types_and_quantity.png",
@@ -1989,13 +1956,13 @@
     },
     {
       "file": "Return_Screening_Frontier.pdf",
-      "bytes": 170891,
-      "sha256": "8ad8855745bb98f91e23797d1fe6de4b59e40c84cd3e8b3e6a721203f353bdd8"
+      "bytes": 174913,
+      "sha256": "19515288a779e1f66f401b4893ccc9c818fd7d063b0fdd34dc8832e945585a83"
     },
     {
       "file": "Return_Screening_Frontier.tex",
-      "bytes": 10733,
-      "sha256": "191efa2dc4774c76a5ef5af66fa39229cb3b312d682a8160afb6beedc8546aa6"
+      "bytes": 10219,
+      "sha256": "098b6bbfec4f44b75899d5cb1c5feb8bcb47bb7af44e81d164a1db79e36b47d1"
     },
     {
       "file": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
@@ -2004,8 +1971,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 13471,
-      "sha256": "887a2962f682687da314ef7075ceb77c3c13141b256e56a7f0b7b82dd493c80e"
+      "bytes": 13503,
+      "sha256": "f363b39727f9adf8ff71a198c919e2fdba15a8fe91a8ec71ba87bc62d2327910"
     },
     {
       "file": ".gitignore",
