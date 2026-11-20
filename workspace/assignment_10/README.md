@@ -1,12 +1,19 @@
 # Assignment 10: return-screening frontiers
 
 The current professor-facing note is `Return_Screening_Frontier.pdf`: three pages
-with exact main-method formulas, two graphs and the economic findings. Its matching
+with a conversational explanation of the data, reporting changes, four checks,
+38 arrangements,5% rule, results and contribution, plus exact score formulas
+and a count-axis frontier graph. Its matching
 LaTeX source and graphs are alongside the existing supporting workbook,
 `Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft explains the initial exercise and why the frontier comparison
-was proposed, in 250 words. The old one-page note is preserved with path/hash inventories under
+was proposed, in 237 words. The old one-page note is preserved with path/hash inventories under
 `History/20261119_One_Page_Handoff`, both here and in the stable University folder.
-The presentation revision does not change the numerical experiments or workbook.
+The 20 November presentation revision keeps the numerical experiments and workbook
+fixed. It explains the overall older-data choice (checks1+3+4) and best pair
+(checks3+4), and shows their identical main later-US counts.
+`data/conversational_report_checks.json` records the twelve table cells and
+older-data selection checks; `data/conversational_graph_metadata.json` records
+the graph source and marked points.
 Correspondence, personal download inventories and restricted originals stay local.
 
 `figures/Return_Screening_Frontier_Explained.png` (with matching SVG and standalone PDF) gives a
@@ -52,7 +59,8 @@ On the world-factor source the corresponding counts are 79 and 5, with six
 baseline warnings, versus 152 and 153, with three. These are total alerts on
 altered records; newly triggered alerts are stored separately.
 
-The best two- and three-family choices on older calibration data perform similarly
+The overall older-data winner is OR:B+A+Z (checks1+3+4); the best pair is
+OR:A+Z (checks3+4), with an almost identical training score. These choices perform similarly
 on ordinary later factor histories. However, in the first published-test block
 of the author-released Chenâ€“Pelgerâ€“Zhu portfolio, the local/serial pair misses a
 four-loss reporting change that adding the bias check catches. The original

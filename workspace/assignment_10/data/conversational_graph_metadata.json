@@ -1,0 +1,35 @@
+{
+  "source": "tables/frontier_curves_original.csv",
+  "source_sha256": "2ce2cbae3cd4016e57dab3528a1de2bb89105942a1063ec2a65eab5bf4cdd197",
+  "cohort": 194,
+  "mechanism": "relative_delay3",
+  "all_101_points_retained": true,
+  "shown_x_range": [
+    0,
+    20
+  ],
+  "marked_points": [
+    [
+      1,
+      104
+    ],
+    [
+      3,
+      192
+    ],
+    [
+      3,
+      120
+    ]
+  ],
+  "files": [
+    {
+      "file": "figures/conversational_frontier.png",
+      "sha256": "a786aed575eac8d7b3fb86bd82435a4fad032f5344625397765ebde4f5f96bdd"
+    },
+    {
+      "file": "figures/conversational_frontier.svg",
+      "sha256": "d03b1dbdbcbd6216ac3e239dcd85828861bbf65b81cfe740bc640e3ed1f96628"
+    }
+  ]
+}

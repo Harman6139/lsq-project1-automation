@@ -1,107 +1,112 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[margin=0.7in]{geometry}
 \usepackage{fontspec}\setmainfont{Times New Roman}
-\usepackage{amsmath,amssymb,booktabs,graphicx,fancyhdr}
+\usepackage{amsmath,amssymb,booktabs,array,graphicx,fancyhdr}
 \usepackage[hidelinks]{hyperref}
-\pagestyle{fancy}\fancyhf{}\lhead{Return screening: methods and results}\rhead{19 November 2026}\cfoot{\thepage}
+\pagestyle{fancy}\fancyhf{}\lhead{Return screening: the experiment and its results}\rhead{20 November 2026}\cfoot{\thepage}
 \setlength{\headheight}{14pt}\renewcommand{\headrulewidth}{0.3pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
 \setlength{\abovedisplayskip}{5pt}\setlength{\belowdisplayskip}{5pt}
-\setlength{\tabcolsep}{7pt}\renewcommand{\arraystretch}{1.06}
+\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{1.08}
 \newcommand{\subhead}[1]{\vspace{3pt}{\large\bfseries #1}\par}
 \newcommand{\ind}{\mathbf 1}
 \begin{document}
-\begin{center}{\LARGE\bfseries Return screening: methods and results}\end{center}
+\begin{center}{\LARGE\bfseries Return screening: the experiment and its results}\end{center}
 
-A useful return screen should pick up reporting problems while keeping the volume of follow-up work manageable. This comparison asks how that balance depends on the checks used, whether extra checks earn their place, and how well choices made on older data carry into later histories.
+The practical question is which return checks help an investor decide where to spend investigation time. Three checks ranked highest using older data; a two-check version gave the same main results in the later US sample. The experiment makes that comparison concrete by keeping the original returns and introducing known reporting changes into separate copies.
 
-\subhead{Data and the starting point}
-The main sample comprises 194 Chen--Zimmermann long--short stock portfolios, with 1980--2004 used to develop the score scales and 2005--2016 to set cutoffs and choose combinations. Evaluation then covers January 2017--December 2025 ($T=108$ months). The published payoffs are gross of implementation costs and already measured above the risk-free return.
+\subhead{What data we have}
+There are \textbf{four actual fund-return series}: Fund X, BH Macro, Parus and Winton. The main experiment uses \textbf{194 Chen--Zimmermann research portfolios}, each representing a published stock-investment strategy, over January 2017--December 2025: 108 monthly returns per portfolio. The broader comparison adds 153 Jensen--Kelly--Pedersen global stock portfolios and one Chen--Pelger--Zhu strategy backtest with exceptionally strong early performance.
 
-The first exercise found one conventional warning among 195 complete histories. In the 194-name core, raising the cutoff on the same score reduced three-month delayed-loss warnings from 111 to 66, while unchanged warnings fell from one to zero. That experiment, using a fixed 1\% loss bound, established the cost of raising the warning threshold; the present comparison extends the question to the types and number of checks.
+Fund X receives screening only. The comparison funds, global portfolios and strong backtest receive four versions: permanent concealment, three-month recognition, delaying each loss with 50\% probability, and half-weight averaging. The three comparison funds have net returns; the stock-strategy payoffs are gross of costs and already measured above cash. The earlier descriptive panel contained 195 complete research portfolios, of which 194 met the older-data requirements for the main comparison.
 
-\subhead{What each check measures}
-For each complete, nonconstant record $x_1,\ldots,x_T$, calculate its mean $\bar x$, sample standard deviation $s>0$ and mean/SD ratio $h=\bar x/s$. The four scores are:
-\[
- B=\frac{\#\{0\leq x_t\leq s\}}{1+\#\{-s\leq x_t<0\}},\qquad
- D=T\Phi(-h)-\#\{x_t<0\},\qquad
- A=\frac{\sum_{t=2}^{T}(x_t-\bar x)(x_{t-1}-\bar x)}{\sum_{t=1}^{T}(x_t-\bar x)^2}.
-\]
-$B$ compares small gains with small losses, while $D$ measures the shortage of losses relative to a fitted normal distribution ($\Phi$ is its standard CDF). Serial dependence enters through $A$, which measures the signed relationship between consecutive months. Local bunching is measured using $b=s/4$ and observation counts in four bins:
-\[
- L_2:[-2b,-b),\quad L_1:[-b,0),\quad G_1:(0,b],\quad G_2:(b,2b],\qquad
- Z=\frac{3(G_1-L_1)-(G_2-L_2)}{\sqrt{9(G_1+L_1)+G_2+L_2}}.
-\]
-The contrast cancels the expected contribution of a locally linear density slope, with $Z=0$ when its denominator is zero. Exact zeros enter $B$'s numerator and are excluded from the $Z$ bins. Historical upper-tail cutoffs calibrate all four scores; $D$ implements the paper's Gaussian loss-count adaptation.
+\subhead{How we change the reported returns}
+Each original record is kept intact while separate copies show losses differently. In the main loss experiment, eligible losses lie within one-quarter of that strategy's monthly standard deviation $s_0$, and each is initially shown as a gain of $0.0125s_0$. With $s_0=4\%$, negative returns of up to $1\%$ in magnitude become $+0.05\%$.
 
-\subhead{Combining the checks}
-Development supplies $M_{\rm dev}=3{,}148$ complete, overlapping, December-ending 108-month records. Score $S_j(x)$ becomes a historical rank
-\[
- u_j(x)=\frac{\#\{k:S_{kj}\leq S_j(x)\}}{M_{\rm dev}+1}.
-\]
-For any subset $J$, order its ranks $u_{(1)}\geq\cdots\geq u_{(|J|)}$ and use
-\[
- C_J^{\rm OR}=\max_{j\in J}u_j,\qquad
- C_J^{\rm maj}=u_{(\lfloor |J|/2\rfloor+1)},\qquad
- C_J^{\rm mean}=|J|^{-1}\sum_{j\in J}u_j.
-\]
-OR and strict majority give 26 distinct arrangements, counting each singleton once. Eleven nonsingleton mean-rank combinations and one principal-component comparator give 38. The latter is $C^{\rm PC}=w^\top((u_j-\mu_j)/\sigma_j)_{j=1}^4$: calibration data set the means, standard deviations and leading covariance eigenvector $w$, oriented to have nonnegative component sum (a tie makes its largest absolute component positive).
-
-\newpage
-\subhead{The reporting changes}
-Observed histories provide a common starting point for controlled reporting changes, allowing each screen's response to be measured against the same underlying returns. With $s_0$ denoting the original record's standard deviation, eligible losses satisfy $I_t=\ind\{-0.25s_0\leq x_t<0\}$ and are initially replaced by $g=0.0125s_0$:
-\[
- q_t=[v(g)-v(x_t)]I_t,\qquad v(y_t)=v(x_t)+q_t-q_{t-L},\qquad
- v(x)=\begin{cases}x,&\text{long--short payoff},\\\log(1+x),&\text{funded NAV return}.\end{cases}
-\]
-Recognition is delayed by $L=1,3,6$ months, with permanent concealment represented by omitting $q_{t-L}$. Eligibility follows the original losses, keeping repayments outside the selection step. Six actual preceding months initialise the ledger, whose opening and closing balances reconcile the change. The funded sensitivity uses $x_t=r_{f,t}+LS_t>-1$, with long and short books each equal to equity. Smoothing is represented separately by
-\[
- y_t=(1-\lambda)x_t+\lambda x_{t-1},\qquad \lambda\in\{0.25,0.50,0.75\}.
-\]
-Each altered record gets its own recomputed diagnostic mean and standard deviation. The reporting bound and positive target retain the original $s_0$.
-
-\subhead{A common allowance and choices made on older data}
-Joint resampling of the 2005--2016 calibration panel in circular 12-month calendar blocks preserves cross-strategy dependence, producing 5,000 draws with 194 histories in each. For sorted calibration scores $c_{(1)}\leq\cdots\leq c_{(M)}$, each full rule $r$ receives its own cutoff:
-\[
- \tau_{r,\alpha}=c_{(\lceil(1-\alpha)M\rceil)},\qquad
- \text{warn when }C_r(x)>\tau_{r,\alpha}.
-\]
-The grid is $\alpha=0,0.01,\ldots,1$, with endpoints $+\infty,-\infty$ and tied scores kept together. The allowance therefore acts as an upper bound on the realised calibration warning rate.
-
-Four hundred additional old-data resamples select arrangements overall and within each number of checks, giving equal weight to permanent concealment, three-month delay and half-weight smoothing. For $N_{\rm tr}$ training records and altered versions $y_i^m$, the objective is the average share of newly warned records:
-\[
- \widehat G_r=\frac1{3N_{\rm tr}}\sum_{m=1}^3\sum_{i=1}^{N_{\rm tr}}
- \ind\{C_r(y_i^m)>\tau_{r,\alpha},\ C_r(x_i)\leq\tau_{r,\alpha}\}.
-\]
-Selection maximises $\widehat G_r$, resolving ties through fewer checks and then the rule ID. Equal weights give the three reporting changes the same influence on the selected arrangement.
-
-\subhead{Reading the frontier and checking transfer}
-In later data, the horizontal coordinate is the share of unchanged records warned; the vertical coordinate is the share of altered records warned:
-\[
- \widehat W_r=\frac1N\sum_i\ind\{C_r(x_i)>\tau_{r,\alpha}\},\qquad
- \widehat H_{r,m}=\frac1N\sum_i\ind\{C_r(y_i^m)>\tau_{r,\alpha}\}.
-\]
-The graphs hold the older-data 5\% choice for each check count fixed while varying its cutoff, with $B+D$ serving as the prespecified comparator. Changes in the mix of checks and changes in the warning threshold can therefore be read separately, using the actual warning burden in the later sample.
-
-The analysis extends the earlier 2017--2025 exercise through five folds holding whole economic strategy categories out of all fitting (1,000 calibration and 200 selection draws), plus 500 paired joint-calendar resamples with choices fixed. Sensitivities cover 60-month histories, six-month blocks, wider local bins, fixed 1\% loss bounds, half-application and historical-winner weighting; the workbook supplies the full results and source definitions.
-
-\newpage
-\subhead{What we learn}
-For the 194 US histories, higher means more changes noticed; further right means more follow-up work. Dots mark the 5\% older-reference allowance. Both graphs show the 0--12\% realised-warning region.
+For example, January's actual $-0.80\%$ becomes $+0.05\%$. The hidden 0.85 percentage points are deducted three months later, so an actual April return of $+2\%$ becomes $+1.15\%$ in the main stock-portfolio example. The main portfolio experiment has ten reporting-change versions:
 \begin{center}
-\includegraphics[width=0.98\linewidth]{figures/report_loss_delay.png}\\[-2pt]
-\includegraphics[width=0.98\linewidth]{figures/report_smoothing.png}
+\begin{tabular}{p{0.83\linewidth}r}\toprule
+Change & Versions\\\midrule
+Hide eligible losses permanently & 1\\
+Recognise them after one, three or six months & 3\\
+Delay each eligible loss with 50\% probability, recognising it three months later & 1\\
+Use a fixed 1\% loss bound and 0.05\% gain, permanently or with three-month recognition & 2\\
+Average current and previous returns with three different weights & 3\\\bottomrule
+\end{tabular}
 \end{center}
-At that 5\% allowance, total warning counts are (World: Jensen--Kelly--Pedersen factors):
+For averaging, $y_t=(1-\lambda)x_t+\lambda x_{t-1}$ with $\lambda=0.25,0.50,0.75$. At half weight, a $+4\%$ month followed by an actual $-2\%$ month makes the latter appear as $+1\%$.
+
+\subhead{The four checks}
+Each check reads the whole 108-month record and gives one score:
+\begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}
+\item \textbf{Small gains versus small losses:} whether modest gains greatly outnumber similarly sized losses.
+\item \textbf{Number of losing months:} whether losses occur less often than a bell curve fitted to the record's average and variation predicts.
+\item \textbf{Connection between consecutive months:} whether above-average months follow above-average months, and below-average months follow below-average months.
+\item \textbf{Concentration immediately above zero:} whether tiny gains pile up just above zero, assessed against nearby gains and losses.
+\end{enumerate}
+The original pair uses checks 1+2; the newer pair uses 3+4. Check 1 measures a broader gain/loss balance, while check 4 examines the shape immediately around zero.
+
+\newpage
+\subhead{What the 38 arrangements are}
+Rank each score against older records, then combine every pair, triple and four-check group in three ways: \textbf{any one} high rank, a \textbf{strict majority} of high ranks, or a high \textbf{average rank}. A majority requires both of two, two of three, or three of four.
 \begin{center}
-\begin{tabular}{llrrr}\toprule
-Data & Record & $N$ & Original $B+D$ & Local/serial $A+Z$\\\midrule
+\begin{tabular}{lrrr}\toprule
+Included checks & Groups & Methods per group & Arrangements\\\midrule
+One check & 4 & 1 & 4\\
+Two checks & 6 & 3 & 18\\
+Three checks & 4 & 3 & 12\\
+All four & 1 & 3 & 3\\
+Additional statistically weighted four-check blend & 1 & 1 & 1\\\midrule
+Total & & & 38\\\bottomrule
+\end{tabular}
+\end{center}
+The extra blend uses the strongest shared pattern in older scores (the first principal component). Of these, 26 use any check or a majority; 12 use averages or weights.
+
+\subhead{What the 5\% rule means}
+\textbf{Set the warning level so that about five out of 100 unchanged older return records raise a warning.} Each complete arrangement gets its own cutoff for this allowance; actual later warnings are counted separately.
+
+The dates have separate jobs: 1980--2004 supplies score rankings; 2005--2016 sets warning levels and combinations; 2017--2025 evaluates them. Resampling the middle period in 12-month calendar blocks gives 5,000 sets of 194 reference records: 970,000 evaluations. All portfolios move through the same blocks together.
+
+A further 400 older-data repetitions introduce permanent concealment, three-month recognition and half-weight averaging, giving each equal weight. Select the arrangement creating the most new warnings after alteration, counting a new warning when the original copy was quiet. Choices are made overall and within each check count; ties prefer fewer checks, then the identifier. This uses the historical evaluation period already examined in the initial exercise.
+
+\subhead{The calculations behind those descriptions}
+Let $x_t$ denote a screened record, $T=108$, $\bar x$ its mean and $s>0$ its sample standard deviation. The first three scores are
+\[
+ S_1=\frac{\#\{0\leq x_t\leq s\}}{1+\#\{-s\leq x_t<0\}},\quad
+ S_2=T\Phi(-\bar x/s)-\#\{x_t<0\},\quad
+ S_3=\frac{\sum_{t=2}^{T}(x_t-\bar x)(x_{t-1}-\bar x)}{\sum_{t=1}^{T}(x_t-\bar x)^2}.
+\]
+Here $\Phi$ is the standard normal cumulative distribution. For check 4, put $b=s/4$ and count $L_2:[-2b,-b)$, $L_1:[-b,0)$, $G_1:(0,b]$, $G_2:(b,2b]$:
+\[
+ S_4=\frac{3(G_1-L_1)-(G_2-L_2)}{\sqrt{9(G_1+L_1)+G_2+L_2}}.
+\]
+Set $S_4=0$ when its denominator is zero; exact zeros enter check 1 and are excluded from these four bins. Each score becomes $u_j=\#\{k:S_{kj}\leq S_j\}/(M_{\rm dev}+1)$ using $M_{\rm dev}=3{,}148$ older records. For a group of $q$ checks with descending ranks, the combined scores are $\max u_j$, $u_{(\lfloor q/2\rfloor+1)}$, and $q^{-1}\sum u_j$. The weighted blend is $w^\top((u_j-\mu_j)/\sigma_j)$, using older calibration means, scales and leading covariance eigenvector, oriented to have nonnegative component sum.
+
+For sorted older combined scores $c_{(1)},\ldots,c_{(M)}$, the allowance $\alpha$ sets
+\[
+ \tau_\alpha=c_{(\lceil(1-\alpha)M\rceil)},\qquad \text{warn when the combined score exceeds }\tau_\alpha.
+\]
+Ties stay together. The 101 targets run from 0\% to 100\%; endpoints warn on none or all. For the loss ledger, $I_t=\ind\{-0.25s_0\leq x_t<0\}$, $g=0.0125s_0$, $q_t=[v(g)-v(x_t)]I_t$ and $v(y_t)=v(x_t)+q_t-q_{t-L}$. Use $v(x)=x$ for stock payoffs and $v(x)=\log(1+x)$ for funded returns, with six actual preceding months to initialise recognition. Permanent concealment omits repayment. Each altered record gets its own recomputed diagnostic mean and standard deviation.
+
+\newpage
+\subhead{Which combination did better?}
+Using the declared 5\% older-data objective, \textbf{checks 1+3+4 ranked first overall}. Checks \textbf{3+4 were the best pair}, with an almost identical older-data score. Both warn when any included check crosses the combination's cutoff. Their main later US results are identical:
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+Checks used & Untouched warned & Three-month delay & Half-weight averaging\\\midrule
 @@TABLE@@
 \bottomrule\end{tabular}
 \end{center}
-Local bunching and serial dependence together capture most of the gain, with two- and three-check choices performing almost identically across these factor histories. A fourth adds little, and the world factors show similar improvements in coverage.
+All columns count warnings among 194 records. On the 153 global portfolios, checks 3+4 flagged 152 delayed-loss copies and 153 averaged-return copies, against 79 and 5 for checks 1+2; untouched warnings were three versus six.
 
-Chen--Pelger--Zhu's gross model portfolio earns a monthly excess Sharpe of 1.53 in 1992--2000, using a screening reference ending in 1991. All 38 rules are initially quiet at the 5\% allowance; deferring four small losses by three months leaves $A+Z$ quiet and triggers $B+A+Z$ and $B+D$, illustrating the value of complementary checks.
+\begin{center}
+\includegraphics[width=0.98\linewidth]{figures/conversational_frontier.png}
+\end{center}
 
-These results give the paper an empirical direction: which checks deserve limited follow-up capacity, and how their usefulness changes across return histories. The comparison draws on \href{https://doi.org/10.1093/rfs/hhs085}{Bollen--Pool (2012)} for combined flags and \href{https://doi.org/10.2308/TAR-2020-0068}{Beneish--Vorst (2022)} for investigation costs.
+At three untouched warnings, checks 1+2 catch 120 altered copies and checks 3+4 catch 192. The highlighted 104-versus-192 points use the same older 5\% target, producing one and three later untouched warnings.
+
+\subhead{What this adds to the paper}
+The initial threshold exercise used a fixed 1\% loss bound and reduced delayed-loss warnings from 111 to 66. The new comparison shows how choosing different checks can improve coverage. Chen--Pelger--Zhu's 1992--2000 backtest block, with monthly excess Sharpe 1.53 and screening reference data ending in 1991, gives a reason to retain complementary checks: all arrangements are initially quiet at the 5\% allowance; four deferred losses leave 3+4 quiet, while 1+3+4 and 1+2 warn.
+
+For the Fund X paper, we can develop this evidence into advice on allocating investigation time. Other pairs lead on individual changes; the older-data selection measures average coverage across three specified changes. \href{https://doi.org/10.1093/rfs/hhs085}{Bollen--Pool (2012)} and \href{https://doi.org/10.2308/TAR-2020-0068}{Beneish--Vorst (2022)} provide precedents for combined screens and review budgets. The large gains have a clear mechanism: the loss change creates a pile-up just above zero, while averaging links consecutive returns. Holding the checks fixed while varying replacement gains and spreading recognition across months, and adding more exceptional records, would show how broadly the choices remain useful. Costs for reviews and missed problems, with assumptions about how common problems are, would allow an economic comparison and make the practical decision explicit.
 \end{document}

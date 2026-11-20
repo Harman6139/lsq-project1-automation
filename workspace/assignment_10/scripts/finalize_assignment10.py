@@ -42,7 +42,7 @@ def main():
     assert (ROOT/'.qa_assignment10/methods/frontier_standalone.png').exists()
     log=(ROOT/f'{STEM}.log').read_text()
     assert 'Overfull' not in log and 'Missing character' not in log
-    assert all((ROOT/f'.qa_assignment10/methods/page_{n}.png').exists() for n in range(1,len(document)+1))
+    assert all((ROOT/f'.qa_assignment10/conversational_20261120/page_{n}.png').exists() for n in range(1,len(document)+1))
     email=ROOT/'Email_to_Professor_Boyle_Frontier_Handoff.txt'
     assert 200<=len(email.read_text().split())<=250
     verification=json.loads((ROOT/'data/independent_verification.json').read_text())
@@ -81,12 +81,15 @@ def main():
     copies.append(copy_checked(ROOT/f'{BOOK_STEM}.xlsx',UNIVERSITY/f'{BOOK_STEM}.xlsx'))
     for figure in ['report_loss_delay.png','report_smoothing.png']:
         copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
+    for ext in ['png','svg']:
+        figure=f'conversational_frontier.{ext}'
+        copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
     for ext in ['png','svg','pdf']:
         figure=f'Return_Screening_Frontier_Explained.{ext}'
         copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
     copies.append(copy_checked(email,UNIVERSITY/email.name))
     (UNIVERSITY/'Current_version.txt').write_text(
-        'Return screening: methods and results, 19 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and two report figures. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has 250 words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff.\n'
+        f'Return screening: the experiment and its results, 20 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and one count-axis graph. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has {len(email.read_text().split())} words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff; superseded three-page versions are preserved by hash under History.\n'
         'Sources and reproduction: C:/Users/HP/Prof Boyle/codex_project1a_context/project1_may2026_deliverables/workspace/assignment_10/README.md\n',encoding='utf-8')
     files=[]
     for folder in ['scripts','data','tables','figures','research','History']:
@@ -106,7 +109,7 @@ def main():
         if required<=verified:
             publication=dict(status='published with byte-for-byte Drive readback',**readback)
     summary=json.loads((ROOT/'data/results_summary.json').read_text())
-    manifest=dict(assignment=10,release_date='2026-11-19',finalized_utc=datetime.now(timezone.utc).isoformat(),
+    manifest=dict(assignment=10,release_date='2026-11-20',finalized_utc=datetime.now(timezone.utc).isoformat(),
         objective='Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories',
         frozen_design_sha256=digest(ROOT/'data/frozen_design.json'),policies=dict(primary=26,total=38),
         primary_cohort=194,external_world_cohort=153,score_families=['bias ratio','fitted-normal loss deficit','positive serial dependence','local four-bin zero contrast'],
@@ -114,8 +117,8 @@ def main():
         private_email=dict(file=email.name,sha256=digest(email),words=len(email.read_text().split()),sent=False),
         key_results=summary,verification=verification,workbook_checks=bookcheck,
         full_table_arithmetic_rows_checked=checked_rows,cache_settings_and_budget_checks=cache_checks,
-        presentation_revision='Three-page note with exact main-method formulas and two frozen-results graphs; flowing colleague prose, minimal first person and no direct address; numerical experiments unchanged',
-        pdf_checks=dict(pages=len(document),words=words,graphs=2,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
+        presentation_revision='Conversational three-page explanation of fund/research counts, ten reporting changes, four checks,38 arrangements,5% target,selected three-check and two-check results, and supported contribution; essential formulas retained; numerical experiments unchanged',
+        pdf_checks=dict(pages=len(document),words=words,graphs=1,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
         companion_graph_checks=dict(pages=1,annotated_points_verified_against_frozen_source=3,every_page_rendered_and_visually_inspected=True),
         numerical_execution=dict(seconds_by_job={k:v['seconds'] for k,v in executions.items()},
             total_seconds=sum(v['seconds'] for v in executions.values()),cpu26_used=False),
