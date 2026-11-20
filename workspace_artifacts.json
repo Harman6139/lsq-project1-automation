@@ -320,7 +320,7 @@
       "local_path": "workspace/assignment_10/Return_Screening_Frontier.pdf",
       "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
       "folder_path": "Assignment 10",
-      "description": "Conversational three-page explanation of the data, reporting changes, four checks,38 arrangements,5% target, results and contribution, with score formulas and a count-axis frontier graph."
+      "description": "Three-page note explaining all 38 screening arrangements, ten reporting changes and the investigation tradeoff."
     },
     {
       "group": "assignment10",
@@ -335,6 +335,20 @@
       "drive_name": "Return_Screening_Frontier_Explained.pdf",
       "folder_path": "Assignment 10",
       "description": "Plain-English frontier graph comparing delayed-loss detection and warnings on untouched portfolios."
+    },
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/figures/reporting_matrix_appendix.pdf",
+      "drive_name": "reporting_matrix_appendix.pdf",
+      "folder_path": "Assignment 10",
+      "description": "Full 38 by 10 counts, differences from both benchmark pairs and ten warning frontiers."
+    },
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/figures/reporting_matrix_top_quintile.pdf",
+      "drive_name": "reporting_matrix_top_quintile.pdf",
+      "folder_path": "Assignment 10",
+      "description": "Full comparison for the 39 highest-Sharpe research portfolios at the same historical cutoffs."
     }
   ]
 }

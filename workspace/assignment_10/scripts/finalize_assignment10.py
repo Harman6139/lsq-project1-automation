@@ -40,6 +40,9 @@ def main():
     graph=fitz.open(ROOT/'figures/Return_Screening_Frontier_Explained.pdf')
     assert len(graph)==1
     assert (ROOT/'.qa_assignment10/methods/frontier_standalone.png').exists()
+    for name, pages in [('reporting_matrix_appendix.pdf', 4), ('reporting_matrix_top_quintile.pdf', 1)]:
+        with fitz.open(ROOT/'figures'/name) as matrix:
+            assert len(matrix)==pages
     log=(ROOT/f'{STEM}.log').read_text()
     assert 'Overfull' not in log and 'Missing character' not in log
     assert all((ROOT/f'.qa_assignment10/conversational_20261120/page_{n}.png').exists() for n in range(1,len(document)+1))
@@ -87,9 +90,15 @@ def main():
     for ext in ['png','svg','pdf']:
         figure=f'Return_Screening_Frontier_Explained.{ext}'
         copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
+    for name in ['reporting_matrix_appendix.pdf','reporting_matrix_top_quintile.pdf','reporting_joint_tradeoff.png','reporting_matrix_frontiers.png']:
+        figure=ROOT/'figures'/name
+        copies.append(copy_checked(figure,UNIVERSITY/'figures'/name))
+    for name in ['all_reporting_comparison.csv','all_reporting_matched_counts.csv','all_reporting_joint_curves.csv','all_reporting_frontiers.csv','all_reporting_summary.csv']:
+        table=ROOT/'tables'/name
+        copies.append(copy_checked(table,UNIVERSITY/'tables'/name))
     copies.append(copy_checked(email,UNIVERSITY/email.name))
     (UNIVERSITY/'Current_version.txt').write_text(
-        f'What can monthly returns tell an investor? 20 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and one count-axis graph. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has {len(email.read_text().split())} words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff; superseded three-page versions are preserved by hash under History.\n'
+        f'Which return checks work for which reporting changes? 20 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and a common-cutoff tradeoff graph. See the four-page matrix appendix and top-quintile matrix under figures/ and the full results under tables/. The supporting workbook is unchanged. The current unsent email draft has {len(email.read_text().split())} words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff; superseded three-page versions are preserved by hash under History.\n'
         'Sources and reproduction: C:/Users/HP/Prof Boyle/codex_project1a_context/project1_may2026_deliverables/workspace/assignment_10/README.md\n',encoding='utf-8')
     files=[]
     for folder in ['scripts','data','tables','figures','research','History']:
@@ -105,6 +114,7 @@ def main():
     if (ROOT/'data/publication_readback.json').exists():
         readback=json.loads((ROOT/'data/publication_readback.json').read_text())
         required={digest(ROOT/f'{STEM}.pdf'),digest(ROOT/f'{BOOK_STEM}.xlsx'),digest(ROOT/'figures/Return_Screening_Frontier_Explained.pdf')}
+        required.update(digest(ROOT/'figures'/name) for name in ['reporting_matrix_appendix.pdf','reporting_matrix_top_quintile.pdf'])
         verified={record['sha256'] for record in readback['files']}
         if required<=verified:
             publication=dict(status='published with byte-for-byte Drive readback',**readback)
@@ -117,8 +127,9 @@ def main():
         private_email=dict(file=email.name,sha256=digest(email),words=len(email.read_text().split()),sent=False),
         key_results=summary,verification=verification,workbook_checks=bookcheck,
         full_table_arithmetic_rows_checked=checked_rows,cache_settings_and_budget_checks=cache_checks,
-        presentation_revision='Conversational three-page explanation of fund/research counts, ten reporting changes, four checks,38 arrangements,5% target,selected three-check and two-check results, and supported contribution; essential formulas retained; numerical experiments unchanged',
+        presentation_revision='Three-page note and full 38-by-10 comparison with differences against both pairs, separate edit frontiers and joint average/worst frontiers, using saved cutoffs and reporting edits',
         pdf_checks=dict(pages=len(document),words=words,graphs=1,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
+        matrix_pdf_checks=dict(full_matrix_pages=4, top_quintile_pages=1, all_pages_rendered_and_inspected=True),
         companion_graph_checks=dict(pages=1,annotated_points_verified_against_frozen_source=3,every_page_rendered_and_visually_inspected=True),
         numerical_execution=dict(seconds_by_job={k:v['seconds'] for k,v in executions.items()},
             total_seconds=sum(v['seconds'] for v in executions.values()),cpu26_used=False),

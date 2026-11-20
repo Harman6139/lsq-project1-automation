@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-20",
-  "finalized_utc": "2026-11-20T06:06:46.735495+00:00",
+  "finalized_utc": "2026-11-20T06:26:30.542091+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -19,8 +19,8 @@
   "data_rights": "External originals/restricted PDFs, personal Downloads inventory and correspondence stay local and excluded from public Git",
   "private_email": {
     "file": "Email_to_Professor_Boyle_Frontier_Handoff.txt",
-    "sha256": "87477d946c62df50b508a6a140dfc69da8c5d2b10d70327a9abb75155fedd63f",
-    "words": 242,
+    "sha256": "42f3363995f0cd7384a5fc532c94b7310229ba6b80ecf2d4d5d1aa732fa8e08e",
+    "words": 248,
     "sent": false
   },
   "key_results": {
@@ -1393,14 +1393,19 @@
   },
   "full_table_arithmetic_rows_checked": 108072,
   "cache_settings_and_budget_checks": 24,
-  "presentation_revision": "Conversational three-page explanation of fund/research counts, ten reporting changes, four checks,38 arrangements,5% target,selected three-check and two-check results, and supported contribution; essential formulas retained; numerical experiments unchanged",
+  "presentation_revision": "Three-page note and full 38-by-10 comparison with differences against both pairs, separate edit frontiers and joint average/worst frontiers, using saved cutoffs and reporting edits",
   "pdf_checks": {
     "pages": 3,
-    "words": 1579,
+    "words": 1816,
     "graphs": 1,
     "every_page_rendered_and_visually_inspected": true,
     "overfull_boxes": 0,
     "cold_read_complete": true
+  },
+  "matrix_pdf_checks": {
+    "full_matrix_pages": 4,
+    "top_quintile_pages": 1,
+    "all_pages_rendered_and_inspected": true
   },
   "companion_graph_checks": {
     "pages": 1,
@@ -1422,11 +1427,11 @@
   "university_copies": [
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.pdf",
-      "sha256": "19515288a779e1f66f401b4893ccc9c818fd7d063b0fdd34dc8832e945585a83"
+      "sha256": "c71ec1061be7d9e186632e30261269204b0e4ce959df7dcd8c0d257156cec25a"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Return_Screening_Frontier.tex",
-      "sha256": "098b6bbfec4f44b75899d5cb1c5feb8bcb47bb7af44e81d164a1db79e36b47d1"
+      "sha256": "20a3cc8c35201f72aa7f006eef5f452f36c18323dd8708c9d8138c85a2cb68ad"
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
@@ -1461,45 +1466,48 @@
       "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089"
     },
     {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\reporting_matrix_appendix.pdf",
+      "sha256": "553d07dbb732ae96826e747ce0594dc0357b3431413a38b1539c47e7a0dc19fb"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\reporting_matrix_top_quintile.pdf",
+      "sha256": "835b4a494eca63f6784cb0964928c6ea746df2097a974d7269d9adbbc9ea0d98"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\reporting_joint_tradeoff.png",
+      "sha256": "faf68d1bd79af86e145cc1414383052fc58d5e8f64e94462b526057349ea74f9"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\reporting_matrix_frontiers.png",
+      "sha256": "14dab20a4fee404a434e5979e111ba559ad7db1a2cc979d7cb729305fc9f2d27"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\tables\\all_reporting_comparison.csv",
+      "sha256": "ac6ff27f59f951bb87f163968d13c2bd77421fdeb094b611e362ac86990ae3a1"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\tables\\all_reporting_matched_counts.csv",
+      "sha256": "3bb2b610972eb0ff1a4b76561a047f6cc13bfe8c86926f7ef9c323becd534bc0"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\tables\\all_reporting_joint_curves.csv",
+      "sha256": "da597b9cbab1ece3ee7a4402fc2debe47c091fac38d74f4e912b2f34d5532ecd"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\tables\\all_reporting_frontiers.csv",
+      "sha256": "af57bfd4b6d9cd75b22f90e1ea99b1d1c62c96968c3890c01b1b0a422dac1f2e"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\tables\\all_reporting_summary.csv",
+      "sha256": "cee6711a9b510a32a55b7eedc522c5a25b8f4897d19e14f9f265c9847c712d94"
+    },
+    {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
-      "sha256": "87477d946c62df50b508a6a140dfc69da8c5d2b10d70327a9abb75155fedd63f"
+      "sha256": "42f3363995f0cd7384a5fc532c94b7310229ba6b80ecf2d4d5d1aa732fa8e08e"
     }
   ],
   "publication": {
-    "status": "published with byte-for-byte Drive readback",
-    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
-    "presentation_revision_commit": "34e49c3258c411c9dd1135fb8b65d3d58847f109",
-    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44685368526",
-    "workflow_success": true,
-    "scope": "assignment10",
-    "global_publisher_skipped": true,
-    "overleaf_skipped": true,
-    "files": [
-      {
-        "local_name": "Return_Screening_Frontier.pdf",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-        "drive_id": "1BtlBpLWceUaYYkZvWDRHGiG-VMlMYAay",
-        "size": 174913,
-        "sha256": "19515288a779e1f66f401b4893ccc9c818fd7d063b0fdd34dc8832e945585a83",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_id": "1rasB3iaUdoAU5NsaUB6gGm2j9va6RB9h",
-        "size": 177709,
-        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "local_name": "figures/Return_Screening_Frontier_Explained.pdf",
-        "drive_name": "Return_Screening_Frontier_Explained.pdf",
-        "drive_id": "11HMoy7NUQJWWh3EJZ9VE3U1lqX5GVWFh",
-        "size": 58270,
-        "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089",
-        "raw_readback_matches_local_bytes": true
-      }
-    ]
+    "status": "prepared local release; remote publication not yet claimed"
   },
   "files": [
     {
@@ -1514,13 +1522,18 @@
     },
     {
       "file": "scripts/build_methods_report.py",
-      "bytes": 7379,
-      "sha256": "9a37f7f16ec2420fd40059a2d5c99324ae535c3b089b6c6262d7fc3cb2238bcd"
+      "bytes": 3227,
+      "sha256": "8b45d2068be720b9f724717c39dff91b72be497127bb4364498cdeec92d77399"
+    },
+    {
+      "file": "scripts/compare_all_reporting.py",
+      "bytes": 10416,
+      "sha256": "4b2be6c88ece2eb1b018e695d65f75ababe35a09f37ba5fce042ce3afeccb656"
     },
     {
       "file": "scripts/finalize_assignment10.py",
-      "bytes": 9492,
-      "sha256": "840fde5f761e869a70585ec82a5c113e7f08baaafea0e77fa4e08ee0a4d45bdc"
+      "bytes": 10459,
+      "sha256": "b2a331598da4442a3fea29b72e96cb2a789e60a68b41ffe9b04c544ab1bfbe7e"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -1539,8 +1552,8 @@
     },
     {
       "file": "scripts/methods_note_body.tex",
-      "bytes": 10084,
-      "sha256": "6234841f619d9296d30a7859f1b161c8cf7266d502e6cfbfbc7cb50fdb659a4b"
+      "bytes": 11042,
+      "sha256": "c3539333ed4080e0371f2219c82bb62fd599389492aa941c64268afc0bf7ff79"
     },
     {
       "file": "scripts/plot_frontiers.py",
@@ -1551,6 +1564,11 @@
       "file": "scripts/plot_plain_english_frontier.py",
       "bytes": 6600,
       "sha256": "5c24eefdd4375f83b2719f5cb3cf190659e41f628892c8fc2c32fe8bb1e7186c"
+    },
+    {
+      "file": "scripts/plot_reporting_matrix.py",
+      "bytes": 13763,
+      "sha256": "49845af4ae38b79ab0441535bf7a36b377b4eb8b203f76b8186fbc2408d568e4"
     },
     {
       "file": "scripts/run_external_validation.py",
@@ -1586,6 +1604,11 @@
       "file": "scripts/verify_handoff_workbook.py",
       "bytes": 9497,
       "sha256": "701afa0d9ffce1682f7c165fafcd86971adbba89f942ec9363f4e6c761b251f6"
+    },
+    {
+      "file": "data/all_reporting_comparison.json",
+      "bytes": 12042,
+      "sha256": "f5d45f1ee41e5cc734c0db68be342cbbac585b71bd6866a846b726fe247fdf81"
     },
     {
       "file": "data/conversational_graph_metadata.json",
@@ -1641,6 +1664,11 @@
       "file": "data/frozen_design.json",
       "bytes": 28652,
       "sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e"
+    },
+    {
+      "file": "data/frozen_primary_pca.json",
+      "bytes": 1188,
+      "sha256": "42ca811db0b95f106744f1f812213bb6d2faeee00a5940abc904613a98b54895"
     },
     {
       "file": "data/handoff_metadata.json",
@@ -1716,6 +1744,31 @@
       "file": "data/workbook_verification.json",
       "bytes": 3329,
       "sha256": "d969cc2fb65c4b72793831de90cf557eb8a17d2b031b0f06287b7ed5c98f6ffb"
+    },
+    {
+      "file": "tables/all_reporting_comparison.csv",
+      "bytes": 800330,
+      "sha256": "ac6ff27f59f951bb87f163968d13c2bd77421fdeb094b611e362ac86990ae3a1"
+    },
+    {
+      "file": "tables/all_reporting_frontiers.csv",
+      "bytes": 146695,
+      "sha256": "af57bfd4b6d9cd75b22f90e1ea99b1d1c62c96968c3890c01b1b0a422dac1f2e"
+    },
+    {
+      "file": "tables/all_reporting_joint_curves.csv",
+      "bytes": 476963,
+      "sha256": "da597b9cbab1ece3ee7a4402fc2debe47c091fac38d74f4e912b2f34d5532ecd"
+    },
+    {
+      "file": "tables/all_reporting_matched_counts.csv",
+      "bytes": 563344,
+      "sha256": "3bb2b610972eb0ff1a4b76561a047f6cc13bfe8c86926f7ef9c323becd534bc0"
+    },
+    {
+      "file": "tables/all_reporting_summary.csv",
+      "bytes": 1232,
+      "sha256": "cee6711a9b510a32a55b7eedc522c5a25b8f4897d19e14f9f265c9847c712d94"
     },
     {
       "file": "tables/block_bandwidth_sensitivity.csv",
@@ -1883,6 +1936,46 @@
       "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
     },
     {
+      "file": "figures/reporting_joint_tradeoff.png",
+      "bytes": 54877,
+      "sha256": "faf68d1bd79af86e145cc1414383052fc58d5e8f64e94462b526057349ea74f9"
+    },
+    {
+      "file": "figures/reporting_matrix_appendix.pdf",
+      "bytes": 102571,
+      "sha256": "553d07dbb732ae96826e747ce0594dc0357b3431413a38b1539c47e7a0dc19fb"
+    },
+    {
+      "file": "figures/reporting_matrix_counts.png",
+      "bytes": 405210,
+      "sha256": "4ea7dfedfa0797d071e63207cbc81a4be97c626d2d44973f2f10277df51653dc"
+    },
+    {
+      "file": "figures/reporting_matrix_delta_local_serial.png",
+      "bytes": 424438,
+      "sha256": "db13df2c8c1f0d41a79f1dba98505206ced50687b13e7f2d10bebaf28a423263"
+    },
+    {
+      "file": "figures/reporting_matrix_delta_original.png",
+      "bytes": 422415,
+      "sha256": "19847d2260cf51856da903e820dd584e7569a97e67fcef35c9830d44d86dc658"
+    },
+    {
+      "file": "figures/reporting_matrix_frontiers.png",
+      "bytes": 167066,
+      "sha256": "14dab20a4fee404a434e5979e111ba559ad7db1a2cc979d7cb729305fc9f2d27"
+    },
+    {
+      "file": "figures/reporting_matrix_top_quintile.pdf",
+      "bytes": 72674,
+      "sha256": "835b4a494eca63f6784cb0964928c6ea746df2097a974d7269d9adbbc9ea0d98"
+    },
+    {
+      "file": "figures/reporting_matrix_top_quintile.png",
+      "bytes": 384160,
+      "sha256": "8c099c2b0b21069ac1f8af4d331eee0c4e5bc7c639d997ae3e9443f18c73ff24"
+    },
+    {
       "file": "figures/Return_Screening_Frontier_Explained.pdf",
       "bytes": 58270,
       "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089"
@@ -1989,13 +2082,13 @@
     },
     {
       "file": "Return_Screening_Frontier.pdf",
-      "bytes": 174913,
-      "sha256": "19515288a779e1f66f401b4893ccc9c818fd7d063b0fdd34dc8832e945585a83"
+      "bytes": 148284,
+      "sha256": "c71ec1061be7d9e186632e30261269204b0e4ce959df7dcd8c0d257156cec25a"
     },
     {
       "file": "Return_Screening_Frontier.tex",
-      "bytes": 10219,
-      "sha256": "098b6bbfec4f44b75899d5cb1c5feb8bcb47bb7af44e81d164a1db79e36b47d1"
+      "bytes": 11635,
+      "sha256": "20a3cc8c35201f72aa7f006eef5f452f36c18323dd8708c9d8138c85a2cb68ad"
     },
     {
       "file": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
@@ -2004,8 +2097,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 13503,
-      "sha256": "f363b39727f9adf8ff71a198c919e2fdba15a8fe91a8ec71ba87bc62d2327910"
+      "bytes": 13898,
+      "sha256": "e45e93586782f012bc8bbe28ca2106f9ec94bc777eb09c7dc5dd9a4f585ba83e"
     },
     {
       "file": ".gitignore",

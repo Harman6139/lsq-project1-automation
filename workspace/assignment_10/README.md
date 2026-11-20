@@ -1,30 +1,42 @@
 # Assignment 10: return-screening frontiers
 
-The current professor-facing note is `Return_Screening_Frontier.pdf`: three pages
-with a conversational explanation of the data, reporting changes, four checks,
-38 arrangements,5% rule, results and contribution, plus exact score formulas
-and a count-axis frontier graph. Its matching
-LaTeX source and graphs are alongside the existing supporting workbook,
-`Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft explains the initial exercise and why the frontier comparison
-was proposed, in 242 words. The old one-page note is preserved with path/hash inventories under
-`History/20261119_One_Page_Handoff`, both here and in the stable University folder.
-The 20 November note opens with a worked loss-delay example and compares the original and edited histories side by side. It explains the overall older-data choice (checks1+3+4) and best pair
-(checks3+4), and shows their identical main later-US counts.
-`data/conversational_report_checks.json` records the fifteen table cells and
-older-data selection checks; `data/conversational_graph_metadata.json` records
-the graph source and marked points.
-Correspondence, personal download inventories and restricted originals stay local.
+The current note, `Return_Screening_Frontier.pdf`, explains the full comparison of
+38 ways of combining four checks across ten reporting changes. The unsent email
+draft has 248 words. The one-page note is archived in
+`History/20261119_One_Page_Handoff`. Earlier three-page versions are in Git
+history and the University History folder.
 
-`figures/Return_Screening_Frontier_Explained.png` (with matching SVG and standalone PDF) gives a
-plain-English count-axis view of the original and local/serial pairs for the
-three-month loss-delay experiment. Its annotated points are (1,104), (3,192)
-and the original pair's (3,120), so the last comparison holds the observed
-unchanged-warning count fixed. Reproduce it with
-`python scripts/plot_plain_english_frontier.py`; all 101 frozen cutoff points
-are retained, and `data/plain_english_frontier_metadata.json` records the source
-hash. This companion figure is saved in the existing University folder for chat
-discussion and attachment; the main three-page report and workbook are unchanged.
-The standalone graph PDF is included in the scoped publication package.
+`figures/reporting_matrix_appendix.pdf` contains the 38-by-10 counts, differences
+against the original and newer pairs, and a separate frontier for every edit.
+`figures/reporting_matrix_top_quintile.pdf` keeps the same pooled cutoffs for the
+39 highest-Sharpe portfolios. The underlying CSVs are:
+
+- `tables/all_reporting_comparison.csv`: 38 arrangements by ten edits, with
+  original, edited and new warning counts and differences from both pairs.
+  Includes the 1%, 5% and 10% older-data cutoffs and all three groups.
+- `tables/all_reporting_matched_counts.csv`: comparisons holding the observed
+  warning cap fixed, with achieved original warnings and the cutoff used.
+- `tables/all_reporting_frontiers.csv`: best observed coverage by edit over
+  all 38 arrangements and over each of the two benchmark pairs.
+- `tables/all_reporting_joint_curves.csv`: average and worst coverage with one
+  arrangement and one cutoff across all ten edits.
+- `tables/all_reporting_summary.csv`: average coverage, worst coverage and
+  edit-by-edit wins or ties at the pooled older 5% target.
+
+Reproduce with `python scripts/compare_all_reporting.py`,
+`python scripts/build_methods_report.py`, `python scripts/plot_reporting_matrix.py`
+and XeLaTeX for the note. The expanded curves use the original 101 historical
+cutoffs and the same observed histories and saved design, including the
+identical seeded mask for the half-loss edit. They require no new simulations
+or calibration. The replay matches 3,420 existing point rows and 30,704
+existing curve rows in all count fields. `data/all_reporting_comparison.json`
+records the checks, source hashes and results.
+
+The later-sample envelopes show which arrangement and cutoff were best on a
+given edit or under the stated summary and cap. They are descriptive. The
+earlier choice among arrangements was based on three edits and older data.
+The original two-curve figure and workbook remain available as earlier views.
+Correspondence, personal download inventories and restricted originals stay local.
 
 The supplied portfolio appendix's implementation is mapped in
 `research/proposal_implementation_audit.json`. Its core empirical exercises were
