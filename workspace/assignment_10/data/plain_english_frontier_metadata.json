@@ -1,0 +1,48 @@
+{
+  "source": "tables/frontier_curves_original.csv",
+  "source_sha256": "2ce2cbae3cd4016e57dab3528a1de2bb89105942a1063ec2a65eab5bf4cdd197",
+  "cohort": 194,
+  "window": "2017-01 to 2025-12",
+  "reporting_change": "Small losses replaced by small gains, with recognition three months later; quarter-SD eligibility bound",
+  "policies": [
+    "OR:B+D",
+    "OR:A+Z"
+  ],
+  "points_in_each_curve": 101,
+  "axes": {
+    "x": "Untouched portfolios raising warnings",
+    "y": "Changed copies raising warnings"
+  },
+  "plotted_cutoff_order": "Older-calibration allowance increasing; every observed coordinate retained",
+  "highlighted_points": [
+    {
+      "policy": "OR:B+D",
+      "older_allowance": 0.05,
+      "x": 1,
+      "y": 104
+    },
+    {
+      "policy": "OR:A+Z",
+      "older_allowance": 0.05,
+      "x": 3,
+      "y": 192
+    },
+    {
+      "policy": "OR:B+D",
+      "older_allowance": 0.07,
+      "x": 3,
+      "y": 120
+    }
+  ],
+  "interpretation": "The matched later warning count is a descriptive comparison on this observed panel.",
+  "files": [
+    {
+      "file": "figures/Return_Screening_Frontier_Explained.png",
+      "sha256": "42668c295afb2d420b38619ae615c046184f568baad7a654a25404b1e958ba4f"
+    },
+    {
+      "file": "figures/Return_Screening_Frontier_Explained.svg",
+      "sha256": "45cd84eb7e88053f3a75232eeb045aa4cad6116c1d23c174c7838d3f7199970a"
+    }
+  ]
+}

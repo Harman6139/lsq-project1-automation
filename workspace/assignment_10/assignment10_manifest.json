@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-19T16:35:50.122737+00:00",
+  "finalized_utc": "2026-11-20T01:48:48.652443+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -1516,6 +1516,11 @@
       "sha256": "030bca983ae63d9b8798098cf54eda12f826f55054413e3091ddd168111d0cd1"
     },
     {
+      "file": "scripts/plot_plain_english_frontier.py",
+      "bytes": 6576,
+      "sha256": "579dc40b2c90b1e69a1212578ffe4bb6c610f65152c7e3bc758c5f49b09d6c9c"
+    },
+    {
       "file": "scripts/run_external_validation.py",
       "bytes": 10233,
       "sha256": "eb99764385a917025e9ab5851a8fd590116d2a07599e89592b0e13315f4aa842"
@@ -1609,6 +1614,11 @@
       "file": "data/methods_graph_metadata.json",
       "bytes": 878,
       "sha256": "b326ef4186f8c0881ec8639ca9dbb2de299026ed363dbba9e835663fbb9960cc"
+    },
+    {
+      "file": "data/plain_english_frontier_metadata.json",
+      "bytes": 1435,
+      "sha256": "4e8467821390c32e8359e7c7b5673a88fe0b5aedfac864355ce9b7067c42dc78"
     },
     {
       "file": "data/publication_readback.json",
@@ -1821,6 +1831,16 @@
       "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
     },
     {
+      "file": "figures/Return_Screening_Frontier_Explained.png",
+      "bytes": 208668,
+      "sha256": "42668c295afb2d420b38619ae615c046184f568baad7a654a25404b1e958ba4f"
+    },
+    {
+      "file": "figures/Return_Screening_Frontier_Explained.svg",
+      "bytes": 66959,
+      "sha256": "45cd84eb7e88053f3a75232eeb045aa4cad6116c1d23c174c7838d3f7199970a"
+    },
+    {
       "file": "research/data_search.json",
       "bytes": 6764,
       "sha256": "4d540139109a5d6455c90e4ebc09acff84171dd075e794858725d68e79c99c81"
@@ -1922,8 +1942,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 11712,
-      "sha256": "0abef82a79739c1ebfc831304310665fa7dae5e114ba8d67db76967fbe07378f"
+      "bytes": 12384,
+      "sha256": "e198df0da47caa07380591d0ccf7d7d280438c169adeae0d250f8164ecfd4d61"
     },
     {
       "file": ".gitignore",

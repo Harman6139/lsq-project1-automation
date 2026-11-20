@@ -9,6 +9,16 @@ unchanged. The old one-page note is preserved with path/hash inventories under
 The presentation revision does not change the numerical experiments or workbook.
 Correspondence, personal download inventories and restricted originals stay local.
 
+`figures/Return_Screening_Frontier_Explained.png` (with matching SVG) gives a
+plain-English count-axis view of the original and local/serial pairs for the
+three-month loss-delay experiment. Its annotated points are (1,104), (3,192)
+and the original pair's (3,120), so the last comparison holds the observed
+unchanged-warning count fixed. Reproduce it with
+`python scripts/plot_plain_english_frontier.py`; all 101 frozen cutoff points
+are retained, and `data/plain_english_frontier_metadata.json` records the source
+hash. This companion figure is saved in the existing University folder for chat
+discussion; the current professor PDF and published workbook are unchanged.
+
 The original analysis release is pinned at
 `ffbc7598df5feb6fc9de40e200521727db2c89e0`. The current PDF replaces the existing
 Drive report through the scoped publisher. The publisher recreates stored artifacts;
