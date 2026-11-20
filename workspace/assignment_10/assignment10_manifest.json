@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-20",
-  "finalized_utc": "2026-11-20T05:32:57.166947+00:00",
+  "finalized_utc": "2026-11-20T05:34:09.075199+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -19,8 +19,8 @@
   "data_rights": "External originals/restricted PDFs, personal Downloads inventory and correspondence stay local and excluded from public Git",
   "private_email": {
     "file": "Email_to_Professor_Boyle_Frontier_Handoff.txt",
-    "sha256": "735a40a757ef97d20a939818f56e5f9dc01dfcb4037ebf40721c34dafc982832",
-    "words": 237,
+    "sha256": "603894f2b412803a7359690d1b0f8e0a507e1defd255740db337ed13606c0f10",
+    "words": 239,
     "sent": false
   },
   "key_results": {
@@ -1462,7 +1462,7 @@
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
-      "sha256": "735a40a757ef97d20a939818f56e5f9dc01dfcb4037ebf40721c34dafc982832"
+      "sha256": "603894f2b412803a7359690d1b0f8e0a507e1defd255740db337ed13606c0f10"
     }
   ],
   "publication": {
@@ -2005,7 +2005,7 @@
     {
       "file": "README.md",
       "bytes": 13471,
-      "sha256": "b4fd29cc0022462289418392269f8bd0097b136630df375c88d2cf08d65c8e85"
+      "sha256": "887a2962f682687da314ef7075ceb77c3c13141b256e56a7f0b7b82dd493c80e"
     },
     {
       "file": ".gitignore",

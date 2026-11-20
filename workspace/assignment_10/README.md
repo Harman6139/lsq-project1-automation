@@ -6,7 +6,7 @@ with a conversational explanation of the data, reporting changes, four checks,
 and a count-axis frontier graph. Its matching
 LaTeX source and graphs are alongside the existing supporting workbook,
 `Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft explains the initial exercise and why the frontier comparison
-was proposed, in 237 words. The old one-page note is preserved with path/hash inventories under
+was proposed, in 239 words. The old one-page note is preserved with path/hash inventories under
 `History/20261119_One_Page_Handoff`, both here and in the stable University folder.
 The 20 November presentation revision keeps the numerical experiments and workbook
 fixed. It explains the overall older-data choice (checks1+3+4) and best pair
