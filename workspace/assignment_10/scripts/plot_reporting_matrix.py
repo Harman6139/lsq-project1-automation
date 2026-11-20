@@ -27,15 +27,15 @@ HEADERS = [
     'Small losses\nleft out', 'Small losses\n1-month delay',
     'Small losses\n3-month delay', 'Small losses\n6-month delay',
     'Half small losses\n3-month delay', 'Losses up to 1%\nleft out',
-    'Losses up to 1%\n3-month delay', 'Averaging: 25%\nprevious month',
-    'Averaging: 50%\nprevious month', 'Averaging: 75%\nprevious month',
+    'Losses up to 1%\n3-month delay', 'Averaging, 25%\nprevious month',
+    'Averaging, 50%\nprevious month', 'Averaging, 75%\nprevious month',
 ]
 TITLES = [
     'Small losses left out', 'Small losses delayed\n1 month',
     'Small losses delayed\n3 months', 'Small losses delayed\n6 months',
     'Half the small losses\ndelayed 3 months', 'Losses up to 1% left out',
-    'Losses up to 1%\ndelayed 3 months', 'Averaging: 25%\nprevious month',
-    'Averaging: 50%\nprevious month', 'Averaging: 75%\nprevious month',
+    'Losses up to 1%\ndelayed 3 months', 'Averaging, 25%\nprevious month',
+    'Averaging, 50%\nprevious month', 'Averaging, 75%\nprevious month',
 ]
 
 def load(name):
@@ -54,13 +54,22 @@ def setup_fonts():
         'savefig.facecolor':'white',
     })
 
-def short_rule(policy, primary):
+def short_rule(policy):
     if ':' not in policy:
-        label = policy
+        label = {'B':'B (small gains versus losses)','D':'D (too few losing months)',
+                 'A':'A (consecutive months)','Z':'Z (tiny gains near zero)'}[policy]
     else:
         kind, fields = policy.split(':')
-        label = {'OR':'OR', 'MAJ':'Majority', 'MEAN':'Mean', 'PCA':'PC'}[kind]+' '+fields
-    return label+(' *' if not primary else '')
+        fields=fields.split('+')
+        if kind=='OR':
+            label=' or '.join(fields)
+        elif kind=='MAJ' and len(fields)==2:
+            label=' and '.join(fields)
+        elif kind=='MEAN' and len(fields)==2:
+            label='Mean of '+' and '.join(fields)
+        else:
+            label={'MAJ':'Majority of ','MEAN':'Mean of ','PCA':'PC of '}[kind]+', '.join(fields)
+    return label
 
 def matrix_figure(data, design, value_field, baseline_field, title, subtitle, page,
                   group='all', difference=False):
@@ -77,9 +86,9 @@ def matrix_figure(data, design, value_field, baseline_field, title, subtitle, pa
     fig.text(.035,.965,title,fontsize=22,fontweight='bold',va='top')
     fig.text(.035,.923,subtitle,fontsize=13,va='top')
     if difference:
-        detail='Positive numbers mean more warnings than the named pair; negative numbers mean fewer. The unchanged column shows the difference in background warnings.'
+        detail='Positive numbers mean more warnings than the named pair. Negative numbers mean fewer. The first column compares warnings on unchanged histories.'
     else:
-        detail=f'Each altered-data cell counts all histories flagged, including any flagged before the change. The unchanged column shows the background warning count out of {n}.'
+        detail=f'Each cell counts all histories flagged in that version. The first column shows warnings on the unchanged histories out of {n}.'
     fig.text(.035,.895,detail,fontsize=12.5,va='top')
     ax=fig.add_axes([.205,.205,.76,.62])
     backgrounds=np.ones((38,11,3))
@@ -92,7 +101,7 @@ def matrix_figure(data, design, value_field, baseline_field, title, subtitle, pa
     ax.imshow(backgrounds,aspect='auto',interpolation='nearest',origin='upper')
     ax.set_xticks(range(11),(['Unchanged\ndifference'] if difference else ['Unchanged\nhistories'])+HEADERS)
     ax.tick_params(axis='x',top=True,bottom=False,labeltop=True,labelbottom=False,length=0,pad=10,labelsize=11.1)
-    ax.set_yticks(range(38),[short_rule(s['id'],s['primary']) for s in specs])
+    ax.set_yticks(range(38),[short_rule(s['id']) for s in specs])
     ax.tick_params(axis='y',length=0,pad=11,labelsize=11.3)
     for tick,spec in zip(ax.get_yticklabels(),specs):
         if spec['id'] in ['OR:B+D','OR:A+Z']:
@@ -110,60 +119,76 @@ def matrix_figure(data, design, value_field, baseline_field, title, subtitle, pa
     for spine in ax.spines.values():
         spine.set_visible(False)
     footer=[
-        'Checks: B = bias ratio; D = fitted-normal loss-count deficit; A = positive serial dependence; Z = local contrast around zero.',
-        'Rules: OR flags a high score from any input; Majority requires more than half; Mean averages historical ranks; PC uses the first principal component. * Secondary comparator.',
-        'Small losses lie between -0.25 baseline monthly SD and zero, replaced by +0.0125 SD. Temporary cases return the full hidden amount after the stated lag.',
-        'Averaging combines the current and previous monthly return. Each rule has its own cutoff fitted to 2005-2016 reference data; the common 5% allowance does not equalize later warning counts.',
+        'B compares small gains and losses. D asks whether a bell curve would predict more losing months.',
+        'A measures links between consecutive months. Z looks for gains piling up just above zero.',
+        'Each rule gets one cutoff. Or means any check is high. And requires both. Majority requires more than half. Mean averages ranks. PC uses a weighted score.',
+        'We replace losses of up to a quarter of a monthly standard deviation with tiny gains. For delays we deduct the difference in a later month.',
+        'The 5% target uses original histories from 2005–2016. Warning counts in the later sample can differ.',
     ]
-    for y,line in zip([.166,.137,.108,.079],footer):
-        fig.text(.035,y,line,fontsize=11.8,va='top')
+    for y,line in zip([.17,.145,.12,.095,.07],footer):
+        fig.text(.035,y,line,fontsize=11.4,va='top')
     if group=='top_quintile':
-        fig.text(.035,.045,'The 39 strongest original-return Sharpe ratios define this group; membership stays fixed after the reporting change. The same pooled cutoffs are used.',fontsize=11.5,va='top')
+        fig.text(.035,.044,'January 2017–December 2025. The cutoffs and the 39 strategies stay the same across edits.',fontsize=11.4,va='top')
     else:
-        fig.text(.035,.045,'Source: saved original-weight monthly stock-strategy comparisons, January 2017-December 2025. Bold altered-data cells mark a column maximum; shaded rows are the two comparison pairs.',fontsize=11.5,va='top')
+        fig.text(.035,.044,'January 2017–December 2025. Bold numbers show the highest count for each edit. Shading marks the B or D and A or Z rows.',fontsize=11.4,va='top')
     fig.text(.967,.022,str(page),ha='right',fontsize=11)
     return fig,values
 
-def frontier_figure(frontiers,page):
-    data=frontiers[(frontiers.group=='all')&(frontiers.cap<=20)]
-    assert len(data)==210
+def frontier_figure(named,matched,design,page):
+    data=named[(named.group=='all')&(named.cap<=20)]
+    assert len(data)==7980
+    specs={x['id']:x for x in design['policies']}
+    rule_order={x['id']:i for i,x in enumerate(design['policies'])}
+    anchor=matched[(matched.group=='all')&(matched.cap==3)].copy()
+    assert len(anchor)==380
+    anchor['families']=anchor.policy.map(lambda p:specs[p]['count'])
+    anchor['rule_order']=anchor.policy.map(rule_order)
     fig,axes=plt.subplots(2,5,figsize=PAGE_SIZE,sharex=True,sharey=True)
-    fig.subplots_adjust(left=.07,right=.975,top=.835,bottom=.22,wspace=.15,hspace=.43)
-    fig.text(.035,.965,'Coverage at the same unchanged-warning allowance',fontsize=22,fontweight='bold',va='top')
-    fig.text(.035,.923,'All 38 rules versus the original pair B+D and the local/serial pair A+Z; 194 US strategy histories, January 2017-December 2025.',fontsize=13,va='top')
-    fig.text(.035,.895,'Horizontal axis: allowance of up to the stated number of unchanged warnings. Vertical axis: total altered histories flagged.',fontsize=12.5,va='top')
-    styles=[('all_rules_max','Best of all 38','black','-',2.15),('original_pair','Original pair: B+D','.45','--',1.8),('new_pair','Local + serial: A+Z','black',':',2.0)]
+    fig.subplots_adjust(left=.07,right=.975,top=.80,bottom=.245,wspace=.15,hspace=.75)
+    fig.text(.035,.965,'Three named rules for each reporting change',fontsize=22,fontweight='bold',va='top')
+    fig.text(.035,.923,'For each edit, we pick the three rules that catch the most edited histories with up to three warnings on unchanged histories.',fontsize=13,va='top')
+    fig.text(.035,.895,'194 US strategies, 2017–2025. Each plot follows the same three rules as we relax the warning limit. Lines overlap when counts match.',fontsize=12.5,va='top')
+    styles=[('black','-',2.15),('.45','--',1.9),('black',':',2.05)]
+    selections=[]
     for ax,mechanism,title in zip(axes.ravel(),MECHANISMS,TITLES):
-        r=data[data.mechanism==mechanism].sort_values('cap')
-        assert r.cap.tolist()==list(range(21))
-        assert (r.all_rules_max>=r.original_pair).all() and (r.all_rules_max>=r.new_pair).all()
-        for field,label,color,linestyle,width in styles:
-            assert r[field].is_monotonic_increasing
-            ax.step(r.cap,r[field],where='post',label=label,color=color,linestyle=linestyle,linewidth=width)
+        ranked=anchor[anchor.mechanism==mechanism].sort_values(['altered','baseline','families','rule_order'],ascending=[False,True,True,True])
+        assert len(ranked)==38 and ranked.policy.nunique()==38
+        chosen=ranked.head(3)
+        assert chosen.policy.nunique()==3
+        selections.append({'mechanism':mechanism,'rules':chosen[['policy','baseline','altered','families','rule_order']].to_dict('records')})
+        for (_,row),(color,linestyle,width) in zip(chosen.iterrows(),styles):
+            r=data[(data.mechanism==mechanism)&(data.policy==row.policy)].sort_values('cap')
+            assert r.cap.tolist()==list(range(21)) and r.altered.is_monotonic_increasing
+            at_three=r[r.cap==3].iloc[0]
+            assert int(at_three.baseline)==int(row.baseline) and int(at_three.altered)==int(row.altered)
+            label=short_rule(row.policy)
+            ax.step(r.cap,r.altered,where='post',label=label,color=color,linestyle=linestyle,linewidth=width)
+        ax.axvline(3,color='.7',linewidth=.8,linestyle='-.',zorder=0)
         ax.set_title(title,fontsize=14,pad=15)
         ax.set_xlim(0,20);ax.set_ylim(0,198)
-        ax.set_xticks([0,5,10,15,20]);ax.set_yticks([0,50,100,150,194])
+        ax.set_xticks([0,3,5,10,15,20]);ax.set_yticks([0,50,100,150,194])
         ax.tick_params(labelsize=11.5)
         ax.grid(axis='y',color='.9',linewidth=.65)
         ax.set_axisbelow(True)
+        ax.legend(loc='upper left',bbox_to_anchor=(0,-.125),frameon=False,fontsize=10.7,handlelength=2.7,borderaxespad=0,labelspacing=.35)
     fig.text(.025,.545,'Altered histories flagged',rotation=90,ha='center',va='center',fontsize=14)
-    fig.text(.52,.16,'Maximum unchanged histories flagged',ha='center',fontsize=14)
-    handles,labels=axes[0,0].get_legend_handles_labels()
-    fig.legend(handles,labels,loc='lower center',bbox_to_anchor=(.52,.105),ncol=3,frameon=False,fontsize=13,handlelength=3.4,columnspacing=3)
-    fig.text(.035,.072,'Each curve takes the best saved older-data cutoff within its warning allowance. The all-38 envelope also chooses the rule separately for each reporting change and allowance.',fontsize=11.8,va='top')
-    fig.text(.035,.043,'This is a descriptive envelope for the saved 101-cutoff grid. It is not one rule selected before evaluation, and an unchanged-warning allowance is not total workload when altered histories are prevalent.',fontsize=11.8,va='top')
+    fig.text(.52,.122,'Maximum unchanged histories flagged',ha='center',fontsize=14)
+    fig.text(.035,.087,'B compares small gains and losses. D checks for too few losing months. A checks whether consecutive months move together. Z looks for tiny gains near zero.',fontsize=11.5,va='top')
+    fig.text(.035,.06,"Each rule gets one cutoff. Or means any check can trigger a warning. The vertical line marks three warnings on unchanged histories.",fontsize=11.2,va='top')
+    fig.text(.035,.035,'If two rules flag the same number of edited histories, we prefer fewer warnings on unchanged histories, then fewer checks, then their order in the tables.',fontsize=11.4,va='top')
     fig.text(.967,.022,str(page),ha='right',fontsize=11)
-    return fig
+    return fig,selections
 
 def main():
     setup_fonts();FIGURES.mkdir(exist_ok=True)
     comparison=load('all_reporting_comparison.csv')
     frontier=load('all_reporting_frontiers.csv')
     matched=load('all_reporting_matched_counts.csv')
+    named=load('all_reporting_named_frontiers.csv')
     joint=load('all_reporting_joint_curves.csv')
     summary=json.loads((ROOT/'data/all_reporting_comparison.json').read_text(encoding='utf-8'))
     design=json.loads((ROOT/'data/frozen_design.json').read_text(encoding='utf-8'))
-    assert len(comparison)==3420 and len(frontier)==3910 and len(matched)==9120 and len(joint)==11514
+    assert len(comparison)==3420 and len(frontier)==3910 and len(matched)==9120 and len(joint)==11514 and len(named)==23940
     assert comparison.policy.nunique()==38 and comparison.mechanism.nunique()==10
     assert set(comparison.mechanism)==set(MECHANISMS)
     # The supplied deltas must reconcile to their named comparators before rendering.
@@ -178,9 +203,9 @@ def main():
     figures=[]
     with PdfPages(pdf,metadata=metadata) as pages:
         specs=[
-            ('altered','baseline','Warnings across ten reporting changes','All 38 rules at the same older 5% reference allowance; 194 US strategy histories. Counts are shown in every cell.',False),
-            ('altered_minus_original_pair','baseline_minus_original_pair','Difference from the original pair B+D','Same older 5% reference allowance. These are count differences; the actual unchanged warning burden can differ between rules.',True),
-            ('altered_minus_new_pair','baseline_minus_new_pair','Difference from the local/serial pair A+Z','Same older 5% reference allowance. These are count differences; the actual unchanged warning burden can differ between rules.',True),
+            ('altered','baseline','Warnings across ten reporting changes','All 38 rules use the older 5% warning target. The main sample has 194 US stock strategies.',False),
+            ('altered_minus_original_pair','baseline_minus_original_pair','How the warning counts compare with B or D','All rules use the older 5% warning target. The number of unchanged histories flagged later can differ between rules.',True),
+            ('altered_minus_new_pair','baseline_minus_new_pair','How the warning counts compare with A or Z','All rules use the older 5% warning target. The number of unchanged histories flagged later can differ between rules.',True),
         ]
         rendered=[]
         for page,(field,baseline,title,subtitle,diff) in enumerate(specs,1):
@@ -188,13 +213,13 @@ def main():
             assert np.isfinite(values).all()
             pages.savefig(fig);plt.close(fig)
             rendered.append({'page':page,'rows':38,'altered_columns':10,'baseline_column':True,'field':field})
-        fig=frontier_figure(frontier,4);pages.savefig(fig);plt.close(fig)
+        fig,selections=frontier_figure(named,matched,design,4);pages.savefig(fig);plt.close(fig)
         rendered.append({'page':4,'panels':10,'curve_points':630})
     assert len(PdfReader(pdf).pages)==4
     # One optional page preserves the same pooled cutoffs in the strongest quintile.
     top_pdf=FIGURES/'reporting_matrix_top_quintile.pdf'
     with PdfPages(top_pdf,metadata=metadata) as pages:
-        fig,_=matrix_figure(comparison,design,'altered','baseline','The strongest-return quintile: warnings across ten changes','All 38 rules, the same pooled older 5% reference cutoffs, and the fixed 39 strongest original-return Sharpe ratios.',1,group='top_quintile')
+        fig,_=matrix_figure(comparison,design,'altered','baseline','Warnings across ten changes in the strongest 39 strategies','All 38 rules use the 5% cutoffs set for the full group. The 39 strategies are ranked by their Sharpe ratios before any edits.',1,group='top_quintile')
         pages.savefig(fig);plt.close(fig)
     poppler=Path('C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1118-904-0_26.1118.904.0_x64__3k8sg7r9htsxt/dependencies/native/poppler/Library/bin/pdftoppm.exe')
     names=['counts','delta_original','delta_local_serial','frontiers']
@@ -207,7 +232,7 @@ def main():
     figures.append(stem.with_suffix('.png'))
     print(json.dumps({'main_pdf':str(pdf),'main_pages':4,'optional_pdf':str(top_pdf),'optional_pages':1,'pngs':[str(p) for p in figures],
                       'sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [pdf,top_pdf]+figures},'pages':rendered,
-                      'joint_cap3_saved':summary['joint_at_caps']['all']['3']},indent=2))
+                      'facet_selections':selections,'joint_cap3_saved':summary['joint_at_caps']['all']['3']},indent=2))
 
 if __name__=='__main__':
     main()

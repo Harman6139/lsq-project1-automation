@@ -30,63 +30,72 @@ Give the previous month 25\%, 50\% or 75\% of the reported return. At equal weig
 \end{center}
 In the first five versions, the loss limit is one-quarter of each strategy's monthly standard deviation. The replacement gain is 1.25\% of that standard deviation. In the January example the standard deviation is 4\%.
 
-\subhead{Apply 38 ways of using the same four checks}
-Each check scores a whole history. Check 1 asks whether small gains outnumber small losses. Check 2 asks whether there are unusually few losing months given the average and variation of returns. Check 3 looks for similar returns in adjacent months. Check 4 looks for a pile of tiny gains just above zero, compared with nearby gains and losses.
+\subhead{What the four letters mean}
+Each check reads the whole 108-month history and gives it a score.
 
-We score each check on its own. For every group of two, three or four checks, we try three ways to use them. We warn if any one score is high, if more than half are high, or if their average is high. That gives $4+3(6+4+1)=37$ arrangements. A weighted combination of all four brings the total to 38. The paper's pair uses checks 1 and 2. The newer pair uses 3 and 4. Both pairs warn if either score is high enough.
+\begin{tabular}{@{}lp{0.9\linewidth}@{}}
+\textbf{B} & \textbf{Small gains versus small losses.} The bias ratio counts months on either side of zero within one monthly standard deviation.\\
+\textbf{D} & \textbf{Too few losing months.} Count how many losses a bell curve with the same mean and variation would predict, then subtract the observed number.\\
+\textbf{A} & \textbf{Similar returns in consecutive months.} Autocorrelation measures whether above-average months tend to follow above-average months, and below-average months follow below-average months.\\
+\textbf{Z} & \textbf{Tiny gains just above zero.} Compare the number of returns immediately above and below zero and use two nearby ranges to allow for a gradual change in the shape of returns.
+\end{tabular}
+
+\textbf{B or D} uses the two checks discussed in the paper, with cutoffs set for this experiment. \textbf{A or Z} is the pair we added. Either score can trigger a warning. Each pair gets one cutoff for the whole rule, so we can compare both at the same older warning target.
+
+We tried the four checks alone, as well as every pair, every group of three, and all four together. A group can warn when any score is high, when a majority are high, or when the average score is high. For a pair, a majority means both. This gives $4+3(6+4+1)=37$ rules. A weighted combination of all four makes 38.
 
 \subhead{Set the warning levels on older returns and count later warnings}
 Returns from 1980--2004 put the four scores on the same historical rank scale. Returns from 2005--2016 set a separate cutoff for each arrangement, targeting about five warnings per 100 original 108-month histories. We form those older histories in 12-month blocks, using the same calendar blocks for all strategies and 5,000 draws. We then apply the cutoffs in 2017--2025 to all 38 arrangements across all ten edits. Ties put the older warning rates between 4.77\% and 5\%. Later warnings on originals range from zero to five of 194.
 
-We also chose arrangements using three edits on older data, giving equal weight to leaving losses out, delaying them three months and averaging months equally. Across 400 further older-data draws, the trio of checks 1, 3 and 4 produced the most new warnings on average. The later ten-edit comparison adds seven more ways of changing the returns.
-
 \newpage
 \subhead{What changes when we look at all ten edits?}
-These are counts of edited copies flagged out of 194. At the common 5\% setting on older data, the paper's pair flagged one original history and the newer pair flagged three. In the three right columns, we allow each arrangement up to three warnings on 2017--2025 originals and use its best point on the saved cutoff grid.
+These are counts of edited copies flagged out of 194. At the common 5\% setting on older data, B or D flagged one original history and A or Z flagged three. In the three right columns, we allow each arrangement up to three warnings on 2017--2025 originals and use its best point on the saved cutoff grid.
 
 \begin{center}
 \begin{tabular}{@{}lrrrrrr@{}}\toprule
  & \multicolumn{3}{c}{Same older-data 5\% target} & \multicolumn{3}{c}{At most three later original warnings}\\
 \cmidrule(lr){2-4}\cmidrule(lr){5-7}
-Edit & Paper & New & Best of 38 & Paper & New & Best of 38\\\midrule
+Edit & B or D & A or Z & Best of 38 & B or D & A or Z & Best of 38\\\midrule
 @@TABLE@@
 \bottomrule\end{tabular}
 \end{center}
 
-At the 5\% setting, the check for tiny gains alone leads or ties on six of seven loss edits. The check for links between months leads or ties on all three averaging edits. The newer pair flags more copies than the paper's pair in all ten cases. It has the highest equal-weight average, 157.4 versus 73.9 of 194 copies, but leads or ties in only two columns. It does well on average because its checks pick up different changes.
+At the older 5\% setting, Z alone leads or ties on six of the seven loss edits. A alone leads or ties on all three averaging edits. A or Z has the highest average across all ten, flagging 157.4 edited histories out of 194 versus 73.9 for B or D. It leads or ties in only two of the ten when we take them separately.
 
-\subhead{How to read the ten frontiers}
-Pick one edit. For each arrangement and each cutoff, count warnings on originals horizontally and warnings on edited copies vertically. At a cap of three original warnings, read the highest count any saved cutoff achieves within that cap. This gives one frontier per edit. Different combinations can sit at the top in different columns, as the full set of curves in the companion figures shows.
+\subhead{Which three lines are on each graph?}
+The appendix has one plot for each edit. We pick the three rules that flag the most edited histories when we allow up to three warnings on unchanged histories. For a tie we prefer fewer unchanged warnings, then fewer checks, then the order in the full table. Each line follows the same rule as we relax the cap, using the cutoffs set on older data. The curves can overlap when rules produce the same counts.
 
-To compare a screen we could keep in place without knowing which edit occurred, use \textbf{one arrangement and one cutoff across all ten edits}. At a cap of three original warnings, the trio using the loss count, links between months and tiny gains gives the highest average and flags the most copies in its hardest edit. Each edit has equal weight in the average. Each point keeps its cutoff fixed across all edits. The best arrangement can change as the cap changes.
+The graph below asks what happens if we keep \textbf{one rule and one cutoff across all ten edits}. We rank rules at the three-warning cap by the average number flagged, giving each edit equal weight. We also compare what each rule catches in its hardest edit. The same three rules lead both comparisons.
 
 \begin{center}
 \includegraphics[width=0.96\linewidth]{figures/reporting_joint_tradeoff.png}
 \end{center}
 
-At that cap, the paper's pair, newer pair and trio average 86.2, 157.4 and 160.3 warnings on edited copies. Their cutoffs were set on older data at 7\%, 5\% and 7\%, respectively. In their hardest edit, they flag 4, 91 and 96 copies. With a cap of one, that same trio averages 153.9. With a cap of five, all four checks lead on the average. These are choices seen in the later data. A new sample can test cutoffs chosen beforehand.
+At a cap of three, \textbf{D or A or Z} averages 160.3 warnings on edited histories and flags 96 in its hardest edit. \textbf{B or D or A or Z} gives 160.1 and 95. \textbf{A or Z} gives 157.4 and 91. For comparison, \textbf{B or D} gives 86.2 and 4. Each of the four rules uses all three unchanged warnings at its chosen cutoff. These rankings use the later outcomes. On 400 older-data draws with only three edits (omit losses, delay them three months, average months equally), B or A or Z ranked first by average new warnings.
 
 \newpage
 \subhead{What happens to the strongest strategies?}
-Among the 39 strategies with the highest returns relative to their variation, both pairs flag one unchanged history at the same pooled 5\% cutoff setting. The newer pair flags more edited copies in every column, averaging 30.4 of 39 against 18.1 for the paper's pair. For the version where small losses are delayed only half the time, the counts are 16 and 12. The group's best monthly excess Sharpe ratio is 0.406, against 0.796 for Fund X over the same months.
+Among the 39 strategies with the highest returns relative to their variation, B or D and A or Z each flag one unchanged history at the older 5\% setting. A or Z flags more edited copies in every column, averaging 30.4 of 39 against 18.1 for B or D. For the version where small losses are delayed only half the time, the counts are 16 and 12. The group's best monthly excess Sharpe ratio is 0.406, against 0.796 for Fund X over the same months.
 
-The four actual fund records are Fund X, BH Macro, Parus and Winton. We screen Fund X as reported and apply edits to the other three funds. We also examine 153 global stock strategies and an unusually strong published Chen--Pelger--Zhu backtest. In its 1992--2000 period, the newer pair stays quiet on the original and on the copy with four losses moved. The original pair and the trio using checks 1, 3 and 4 flag the changed copy. That is a concrete gap in the newer pair's coverage on a strong strategy.
+The four actual fund records are Fund X, BH Macro, Parus and Winton. We screen Fund X as reported and apply edits to the other three funds. We also examine 153 global stock strategies and an unusually strong published Chen--Pelger--Zhu backtest. In its 1992--2000 period, A or Z stays quiet on the original and on the copy with four losses moved. B or D and B or A or Z flag the changed copy.
 
-\subhead{What the Fund X paper can draw from this}
-How the checks vote matters too. At the older 5\% setting, the best single check averages 124.2, the best majority rule 107.8 and the best simple average of scores 113.0. The newer pair, which warns if either check is high, averages 157.4. The selected three-check and four-check rules average 157.2 and 152.6. Signs around zero help when small losses are turned into tiny gains. Links between months help when reports mix adjacent returns. Which check earns a place also depends on the number of original histories an investor can afford to review. Adding more checks can help at some warning levels, and the older-data cutoff of the whole combination changes when a check is added.
+\subhead{Why different checks win}
+\textbf{Moving losses leaves tiny gains.} All three leaders for every loss edit include Z. At the three-warning cap, B or Z flags 117 histories when only some losses are moved, against 91 for A or Z. Check B looks at a wider range of gains and losses. Check D can help when postponing losses leaves fewer months below zero. For the full three-month delay, D or Z flags 192 edited histories with just one warning on unchanged histories.
 
-We can report gains by kind of edit, warnings on originals and the strong backtest where one pair misses an edit. A useful next comparison would move losses without replacing them with identical tiny gains, then test the same checks on more exceptional funds. That can guide what an investor asks for next, such as dated valuations or records of when losses were booked. The experiments measure detection of specified edits and warnings on unchanged records. Documented reporting corrections would help us test whether these patterns carry over to real investigations.
+\textbf{Averaging gives adjacent months something in common.} Every leader in the averaging plots includes A. A alone flags 194 edited histories under equal weights and warns on two unchanged histories. At the 5\% setting it flags 124, 193 and 125 as the weight on the prior month goes from 25\% to 50\% to 75\%. Each actual return contributes most evenly to two consecutive reported months at 50\%.
+
+\textbf{Either signal can be enough.} At the older 5\% setting, A or Z flags 192 three-month-delay copies and 189 equal-weight-average copies. Averaging those same two scores flags 37 and 52, with the same three unchanged warnings. Requiring both signals is restrictive when the two edits leave different traces. An investor could use the warning to decide which dated valuations or loss records to request. Showing how far that advice carries to unusual live funds would require more fund histories with documented reporting corrections.
 
 \subhead{Exact calculations}
-For a record of $T=108$ monthly returns $x_t$ with mean $\bar x$ and sample standard deviation $s>0$, let $\Phi$ be the standard normal cumulative distribution. The first three check scores are
+For a record of $T=108$ monthly returns $x_t$ with mean $\bar x$ and sample standard deviation $s>0$, let $\Phi$ be the standard normal cumulative distribution. The first three scores are
 \[
- S_1=\frac{\#\{0\leq x_t\leq s\}}{1+\#\{-s\leq x_t<0\}},\quad
- S_2=T\Phi(-\bar x/s)-\#\{x_t<0\},\quad
- S_3=\frac{\sum_{t=2}^T(x_t-\bar x)(x_{t-1}-\bar x)}{\sum_{t=1}^T(x_t-\bar x)^2}.
+ B=\frac{\#\{0\leq x_t\leq s\}}{1+\#\{-s\leq x_t<0\}},\quad
+ D=T\Phi(-\bar x/s)-\#\{x_t<0\},\quad
+ A=\frac{\sum_{t=2}^T(x_t-\bar x)(x_{t-1}-\bar x)}{\sum_{t=1}^T(x_t-\bar x)^2}.
 \]
-Set $b=s/4$. In increasing order, let $L_2,L_1,G_1,G_2$ count returns in $[-2b,-b)$, $[-b,0)$, $(0,b]$, $(b,2b]$. Check 4 is
+Set $b=s/4$. In increasing order, let $L_2,L_1,G_1,G_2$ count returns in $[-2b,-b)$, $[-b,0)$, $(0,b]$, $(b,2b]$. The fourth score is
 \[
- S_4=\frac{3(G_1-L_1)-(G_2-L_2)}{\sqrt{9(G_1+L_1)+G_2+L_2}},
+ Z=\frac{3(G_1-L_1)-(G_2-L_2)}{\sqrt{9(G_1+L_1)+G_2+L_2}},
 \]
 with score zero when the denominator is zero. Rank each score against 3,148 reference records using $u_j=\#\{k:S_{kj}\leq S_j\}/3149$. Combine $q$ checks by the maximum rank, the $\lfloor q/2\rfloor+1$-th highest rank, or the mean rank. The weighted version uses the first principal component of four standardised ranks from 2005--2016, oriented to have a nonnegative sum of weights. For $M$ sorted reference scores, the cutoff for target $\alpha$ is the score in position $\lceil(1-\alpha)M\rceil$. We warn strictly above that score and vary targets from 0\% to 100\% in steps of one percentage point. The endpoints warn on none or all.
 

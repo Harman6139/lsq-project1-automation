@@ -93,7 +93,7 @@ def main():
     for name in ['reporting_matrix_appendix.pdf','reporting_matrix_top_quintile.pdf','reporting_joint_tradeoff.png','reporting_matrix_frontiers.png']:
         figure=ROOT/'figures'/name
         copies.append(copy_checked(figure,UNIVERSITY/'figures'/name))
-    for name in ['all_reporting_comparison.csv','all_reporting_matched_counts.csv','all_reporting_joint_curves.csv','all_reporting_frontiers.csv','all_reporting_summary.csv']:
+    for name in ['all_reporting_comparison.csv','all_reporting_matched_counts.csv','all_reporting_joint_curves.csv','all_reporting_frontiers.csv','all_reporting_summary.csv','all_reporting_named_frontiers.csv']:
         table=ROOT/'tables'/name
         copies.append(copy_checked(table,UNIVERSITY/'tables'/name))
     copies.append(copy_checked(email,UNIVERSITY/email.name))
@@ -127,7 +127,7 @@ def main():
         private_email=dict(file=email.name,sha256=digest(email),words=len(email.read_text().split()),sent=False),
         key_results=summary,verification=verification,workbook_checks=bookcheck,
         full_table_arithmetic_rows_checked=checked_rows,cache_settings_and_budget_checks=cache_checks,
-        presentation_revision='Three-page note and full 38-by-10 comparison with differences against both pairs, separate edit frontiers and joint average/worst frontiers, using saved cutoffs and reporting edits',
+        presentation_revision='Three-page note and full 38-by-10 comparison with differences against both pairs, three named curves per reporting edit and across edits, with the four checks defined in plain language',
         pdf_checks=dict(pages=len(document),words=words,graphs=1,every_page_rendered_and_visually_inspected=True,overfull_boxes=0,cold_read_complete=True),
         matrix_pdf_checks=dict(full_matrix_pages=4, top_quintile_pages=1, all_pages_rendered_and_inspected=True),
         companion_graph_checks=dict(pages=1,annotated_points_verified_against_frozen_source=3,every_page_rendered_and_visually_inspected=True),

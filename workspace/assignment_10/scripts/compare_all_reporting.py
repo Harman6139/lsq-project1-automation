@@ -124,6 +124,7 @@ def main():
 
     # Each line in this output is the best observed point for one rule, edit and cap.
     capped = matched(curves)
+    capped[capped.cap.le(20)].to_csv(ROOT/'tables/all_reporting_named_frontiers.csv', index=False)
     comparison = capped[capped.cap.isin([0,1,2,3,4,5,10,20])].copy()
     for benchmark, tag in [(ORIGINAL, 'original_pair'), (PAIR, 'new_pair')]:
         cols = ['group','mechanism','cap']

@@ -2,12 +2,15 @@
 
 The current note, `Return_Screening_Frontier.pdf`, explains the full comparison of
 38 ways of combining four checks across ten reporting changes. The unsent email
-draft has 248 words. The one-page note is archived in
+draft has 237 words. The one-page note is archived in
 `History/20261119_One_Page_Handoff`. Earlier three-page versions are in Git
 history and the University History folder.
 
 `figures/reporting_matrix_appendix.pdf` contains the 38-by-10 counts, differences
-against the original and newer pairs, and a separate frontier for every edit.
+against B or D and A or Z, and a separate graph for every edit. B compares small gains
+and losses, D measures the shortage of losing months, A relates consecutive months,
+and Z looks for a pile-up of tiny gains. Or means any of the named checks can
+raise a warning using the cutoff fitted for the whole rule.
 `figures/reporting_matrix_top_quintile.pdf` keeps the same pooled cutoffs for the
 39 highest-Sharpe portfolios. The underlying CSVs are:
 
@@ -18,13 +21,16 @@ against the original and newer pairs, and a separate frontier for every edit.
   warning cap fixed, with achieved original warnings and the cutoff used.
 - `tables/all_reporting_frontiers.csv`: best observed coverage by edit over
   all 38 arrangements and over each of the two benchmark pairs.
+- `tables/all_reporting_named_frontiers.csv`: each named rule at caps 0 through 20,
+  including the warning count attained and the saved cutoff used.
 - `tables/all_reporting_joint_curves.csv`: average and worst coverage with one
   arrangement and one cutoff across all ten edits.
 - `tables/all_reporting_summary.csv`: average coverage, worst coverage and
   edit-by-edit wins or ties at the pooled older 5% target.
 
 Reproduce with `python scripts/compare_all_reporting.py`,
-`python scripts/build_methods_report.py`, `python scripts/plot_reporting_matrix.py`
+`python scripts/build_methods_report.py`, `python scripts/plot_reporting_matrix.py`,
+`python scripts/plot_plain_english_frontier.py`
 and XeLaTeX for the note. The expanded curves use the original 101 historical
 cutoffs and the same observed histories and saved design, including the
 identical seeded mask for the half-loss edit. They require no new simulations
@@ -35,7 +41,12 @@ records the checks, source hashes and results.
 The later-sample envelopes show which arrangement and cutoff were best on a
 given edit or under the stated summary and cap. They are descriptive. The
 earlier choice among arrangements was based on three edits and older data.
-The original two-curve figure and workbook remain available as earlier views.
+The ten plots and the standalone delayed-loss figure show three named rules per edit.
+We rank at a cap of three warnings on unchanged histories. Ties prefer fewer
+actual warnings, then fewer checks, then the table order. The chosen rules stay
+the same as the cap changes. The note uses the same convention for the
+across-edit average and the hardest edit. The original workbook is available
+as an earlier view.
 Correspondence, personal download inventories and restricted originals stay local.
 
 The supplied portfolio appendix's implementation is mapped in

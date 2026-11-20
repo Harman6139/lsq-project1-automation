@@ -24,14 +24,14 @@
       "local_path": "workspace/assignment_10/figures/Return_Screening_Frontier_Explained.pdf",
       "drive_name": "Return_Screening_Frontier_Explained.pdf",
       "folder_path": "Assignment 10",
-      "description": "Plain-English frontier graph comparing delayed-loss detection and warnings on untouched portfolios."
+      "description": "The three leading rules for losses reported three months late, with a plain-language key."
     },
     {
       "group": "assignment10",
       "local_path": "workspace/assignment_10/figures/reporting_matrix_appendix.pdf",
       "drive_name": "reporting_matrix_appendix.pdf",
       "folder_path": "Assignment 10",
-      "description": "Full 38 by 10 counts, differences from both benchmark pairs and ten warning frontiers."
+      "description": "Full 38 by 10 counts, differences from either B or D and A or Z, and three named curves per reporting change."
     },
     {
       "group": "assignment10",

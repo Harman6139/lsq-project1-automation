@@ -1,52 +1,43 @@
 {
-  "source": "tables/frontier_curves_original.csv",
-  "source_sha256": "2ce2cbae3cd4016e57dab3528a1de2bb89105942a1063ec2a65eab5bf4cdd197",
-  "cohort": 194,
-  "window": "2017-01 to 2025-12",
-  "reporting_change": "Small losses replaced by small gains, with recognition three months later; quarter-SD eligibility bound",
-  "policies": [
-    "OR:B+D",
-    "OR:A+Z"
-  ],
-  "points_in_each_curve": 101,
-  "axes": {
-    "x": "Untouched portfolios raising warnings",
-    "y": "Changed copies raising warnings"
-  },
-  "plotted_cutoff_order": "Older-calibration allowance increasing; every observed coordinate retained",
-  "highlighted_points": [
+  "source": "tables\\all_reporting_named_frontiers.csv",
+  "source_sha256": "aaad226b0504afe3a3852088ab566259bd2d23ea6a16d5daf4cd184521e243b8",
+  "rules": [
     {
-      "policy": "OR:B+D",
-      "older_allowance": 0.05,
-      "x": 1,
-      "y": 104
+      "policy": "OR:D+Z",
+      "baseline": 1,
+      "altered": 192,
+      "budget": 0.04
     },
     {
-      "policy": "OR:A+Z",
-      "older_allowance": 0.05,
-      "x": 3,
-      "y": 192
+      "policy": "OR:B+D+Z",
+      "baseline": 1,
+      "altered": 192,
+      "budget": 0.04
     },
     {
-      "policy": "OR:B+D",
-      "older_allowance": 0.07,
-      "x": 3,
-      "y": 120
+      "policy": "OR:D+A+Z",
+      "baseline": 1,
+      "altered": 192,
+      "budget": 0.05
     }
   ],
-  "interpretation": "The matched later warning count is a descriptive comparison on this observed panel.",
+  "selection_cap": 3,
+  "cap_range": [
+    0,
+    20
+  ],
   "files": [
     {
-      "file": "figures/Return_Screening_Frontier_Explained.png",
-      "sha256": "42668c295afb2d420b38619ae615c046184f568baad7a654a25404b1e958ba4f"
+      "file": "figures/Return_Screening_Frontier_Explained.pdf",
+      "sha256": "ab8d5bd3d24a3f6f4ff80634734eaf34051b321d6b8077f058955ccebe6d419c"
     },
     {
       "file": "figures/Return_Screening_Frontier_Explained.svg",
-      "sha256": "29d1860403db818f942d1fed4243e9b14acd3f7d1699d6095449dce6f78cdd17"
+      "sha256": "859482a215f8aff8dec157b93155011b9cfa66816d98556841b7e8200fb5bbde"
     },
     {
-      "file": "figures/Return_Screening_Frontier_Explained.pdf",
-      "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089"
+      "file": "figures/Return_Screening_Frontier_Explained.png",
+      "sha256": "946227079c84c285e2c68df3a0acc8967a6c55c78ebc4fd66ec4e98435540bdd"
     }
   ]
 }
