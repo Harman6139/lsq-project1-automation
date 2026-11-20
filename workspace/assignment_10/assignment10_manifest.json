@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-20T03:17:19.514197+00:00",
+  "finalized_utc": "2026-11-20T03:22:05.352447+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -19,8 +19,8 @@
   "data_rights": "External originals/restricted PDFs, personal Downloads inventory and correspondence stay local and excluded from public Git",
   "private_email": {
     "file": "Email_to_Professor_Boyle_Frontier_Handoff.txt",
-    "sha256": "a1012885c47cc5732bee1c6855d319b23221ded85afd6c0e4e8a2e55e3ec6026",
-    "words": 241,
+    "sha256": "9fc11aa20bfc0e21f58f66de3a8e23a916e08160f9b003be52edc1890cf130e3",
+    "words": 250,
     "sent": false
   },
   "key_results": {
@@ -1454,11 +1454,45 @@
     },
     {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
-      "sha256": "a1012885c47cc5732bee1c6855d319b23221ded85afd6c0e4e8a2e55e3ec6026"
+      "sha256": "9fc11aa20bfc0e21f58f66de3a8e23a916e08160f9b003be52edc1890cf130e3"
     }
   ],
   "publication": {
-    "status": "prepared local release; remote publication not yet claimed"
+    "status": "published with byte-for-byte Drive readback",
+    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
+    "presentation_revision_commit": "100b0b7409d70a1e6e0a12c2e832981ba1a3cddd",
+    "graph_package_commit": "8cf9a9bc309f3288dfedb3a8ac357e60360dfd66",
+    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44666864362",
+    "workflow_success": true,
+    "scope": "assignment10",
+    "global_publisher_skipped": true,
+    "overleaf_skipped": true,
+    "files": [
+      {
+        "local_name": "Return_Screening_Frontier.pdf",
+        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+        "drive_id": "1hOnrA0nOZfOItzNAuvEDZdgi1Rne6hE1",
+        "size": 209913,
+        "sha256": "348d44ed3e47e9527c098c5c1cfb8b809c2b95cb93253471c6b45bfb5c644e1c",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+        "drive_id": "10i84MLnRuYYfE_1qWcm59s8Jjo9LviGO",
+        "size": 177709,
+        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
+        "raw_readback_matches_local_bytes": true
+      },
+      {
+        "local_name": "figures/Return_Screening_Frontier_Explained.pdf",
+        "drive_name": "Return_Screening_Frontier_Explained.pdf",
+        "drive_id": "1utU8EnNr0UzsLHLBJHIrqxjC87ajLGsm",
+        "size": 58270,
+        "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089",
+        "raw_readback_matches_local_bytes": true
+      }
+    ]
   },
   "files": [
     {
@@ -1479,7 +1513,7 @@
     {
       "file": "scripts/finalize_assignment10.py",
       "bytes": 8999,
-      "sha256": "c6cc9bf4c45cb56e28cae4aa7cafd3e65be3992b6438a82c33cf0f747d056eae"
+      "sha256": "f5089af06fc842fd78d49226d76ce61219614185b8996381230dc2cb29d8da89"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -1613,8 +1647,8 @@
     },
     {
       "file": "data/publication_readback.json",
-      "bytes": 1286,
-      "sha256": "3166ae7787dcd421bf329e405925bca215bbc0b394360cb51cf3858673e202ed"
+      "bytes": 1564,
+      "sha256": "8e440b421db45106c74ac48906ee3e3d6a0e5eb74841fc6b931e1125920b8a22"
     },
     {
       "file": "data/raw/F-F_Research_Data_Factors.csv",
@@ -1944,7 +1978,7 @@
     {
       "file": "README.md",
       "bytes": 12938,
-      "sha256": "38fd0c15c0ea084d8f1fd63292a81263491c54bd4f4efdd9a36c062923686a64"
+      "sha256": "06141e5abc75cf2722bf07d14028f1ce060bc9c10b68459e9ef510e4f69c0a6b"
     },
     {
       "file": ".gitignore",

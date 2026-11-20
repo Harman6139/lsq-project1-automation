@@ -86,7 +86,7 @@ def main():
         copies.append(copy_checked(ROOT/'figures'/figure,UNIVERSITY/'figures'/figure))
     copies.append(copy_checked(email,UNIVERSITY/email.name))
     (UNIVERSITY/'Current_version.txt').write_text(
-        'Return screening: methods and results, 19 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and two report figures. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has 241 words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff.\n'
+        'Return screening: methods and results, 19 November 2026.\nCurrent report: Return_Screening_Frontier.pdf (three pages), with matching LaTeX and two report figures. The standalone frontier graph is under figures/, in PDF, PNG and SVG formats. The supporting workbook is unchanged. The current unsent email draft has 250 words.\nThe prior one-page note is preserved in History/20261119_One_Page_Handoff.\n'
         'Sources and reproduction: C:/Users/HP/Prof Boyle/codex_project1a_context/project1_may2026_deliverables/workspace/assignment_10/README.md\n',encoding='utf-8')
     files=[]
     for folder in ['scripts','data','tables','figures','research','History']:

@@ -4,7 +4,7 @@ The current professor-facing note is `Return_Screening_Frontier.pdf`: three page
 with exact main-method formulas, two graphs and the economic findings. Its matching
 LaTeX source and graphs are alongside the existing supporting workbook,
 `Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft explains the initial exercise and why the frontier comparison
-was proposed, in 241 words. The old one-page note is preserved with path/hash inventories under
+was proposed, in 250 words. The old one-page note is preserved with path/hash inventories under
 `History/20261119_One_Page_Handoff`, both here and in the stable University folder.
 The presentation revision does not change the numerical experiments or workbook.
 Correspondence, personal download inventories and restricted originals stay local.
