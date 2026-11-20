@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-19",
+  "proposal_source": {
+    "file": "../assignment_9/source/FundX_Appendix_With_Equations_and_Hypotheses.docx",
+    "sha256": "3d2814424881178205c555cbbb2367337f3c43e1ca0ff7ace21fe4084344c576",
+    "correspondence_label": "Copilot note"
+  },
+  "overall": "Core real-portfolio extension implemented in Assignment 9 and expanded into rule-combination frontiers in Assignment 10; executed tests and supported hypotheses are separate.",
+  "completed": [
+    {
+      "item": "Published Chen-Zimmermann returns and common-date comparisons",
+      "evidence": "../assignment_9/data/source_provenance.json"
+    },
+    {
+      "item": "Performance moments, FF3 alpha and HAC t-statistics",
+      "evidence": "../assignment_9/tables/descriptive_statistics.csv"
+    },
+    {
+      "item": "Sharpe groups and descriptive warning regression",
+      "evidence": [
+        "../assignment_9/tables/descriptive_quintiles.csv",
+        "../assignment_9/tables/descriptive_logit.csv"
+      ]
+    },
+    {
+      "item": "Historical-winner selection, old-data cutoffs and later warning/detection comparison",
+      "evidence": "../assignment_9/tables/observed_selection_original.csv"
+    },
+    {
+      "item": "Loss concealment, recognition delays and smoothing",
+      "evidence": [
+        "../assignment_9/tables/reporting_point.csv",
+        "../assignment_9/tables/smoothing_sensitivity.csv"
+      ]
+    },
+    {
+      "item": "Types and quantities of checks across warning allowances",
+      "evidence": "tables/frontier_curves_original.csv"
+    }
+  ],
+  "conclusions": {
+    "high_performance_and_warnings": "Examined, but the primary panel has only one conventional warning; no strong general relation established.",
+    "calibration": "Same-score delayed-loss warning count falls from111 to66 while unchanged warnings fall1 to0, so the hoped-for small detection cost in H3 is not supported.",
+    "smoothing": "Checked at three strengths; serial dependence increases and conventional warning counts remain small; no monotone detection claim.",
+    "external_transfer": "Examined on later dates, strategy-family folds, world factors, three published fund NAV histories and a strong author backtest."
+  },
+  "remaining": [
+    {
+      "item": "Separate portfolio selection by alpha or t-statistic",
+      "status": "Not run; these statistics were computed and exported."
+    },
+    {
+      "item": "New matched Monte Carlo versus empirical-portfolio comparison (Test4/H4)",
+      "status": "Not run as a substantive matched experiment. Historical block resampling uses observed return months; Gaussian random unit checks are verification code."
+    }
+  ],
+  "distinct_claude_review": {
+    "file": "../paper_review_sep2026/source/Claude report on discrepancies November 03 2026.docx",
+    "topic": "Manuscript-number discrepancies and regime-residual reconciliation",
+    "evidence": "../../.qa_claude_feedback_20261103/feedback_assessment.json",
+    "recheck": "Independent November3 recheck reproduced prior residual figures using the printed formula; author routine/vector remained needed to reconcile the printed block. The frontier programme is a separate investigation."
+  }
+}

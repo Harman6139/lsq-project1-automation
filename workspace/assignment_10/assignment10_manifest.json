@@ -1,7 +1,7 @@
 {
   "assignment": 10,
   "release_date": "2026-11-19",
-  "finalized_utc": "2026-11-20T01:48:48.652443+00:00",
+  "finalized_utc": "2026-11-20T03:17:19.514197+00:00",
   "objective": "Compare types and quantities of return-warning checks at declared historical warning budgets; test controlled reporting changes in later dates and other histories",
   "frozen_design_sha256": "40ad85846192dbf0b555232cf07a961efcb6ddd66372a6dc5416ba51e1a2749e",
   "policies": {
@@ -19,8 +19,8 @@
   "data_rights": "External originals/restricted PDFs, personal Downloads inventory and correspondence stay local and excluded from public Git",
   "private_email": {
     "file": "Email_to_Professor_Boyle_Frontier_Handoff.txt",
-    "sha256": "9c32a40303a674b00b754efeabd6cdf93799c361825f7f9745fc33d6a31f026f",
-    "words": 128,
+    "sha256": "a1012885c47cc5732bee1c6855d319b23221ded85afd6c0e4e8a2e55e3ec6026",
+    "words": 241,
     "sent": false
   },
   "key_results": {
@@ -1402,6 +1402,11 @@
     "overfull_boxes": 0,
     "cold_read_complete": true
   },
+  "companion_graph_checks": {
+    "pages": 1,
+    "annotated_points_verified_against_frozen_source": 3,
+    "every_page_rendered_and_visually_inspected": true
+  },
   "numerical_execution": {
     "seconds_by_job": {
       "execution_external": 44.03099999999995,
@@ -1436,38 +1441,24 @@
       "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
     },
     {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\Return_Screening_Frontier_Explained.png",
+      "sha256": "42668c295afb2d420b38619ae615c046184f568baad7a654a25404b1e958ba4f"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\Return_Screening_Frontier_Explained.svg",
+      "sha256": "29d1860403db818f942d1fed4243e9b14acd3f7d1699d6095449dce6f78cdd17"
+    },
+    {
+      "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\figures\\Return_Screening_Frontier_Explained.pdf",
+      "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089"
+    },
+    {
       "file": "C:\\Users\\HP\\Desktop\\University\\Working Manuscripts\\Active Papers\\Fund X Paper Review\\Research\\Assignment 10\\Email_to_Professor_Boyle_Frontier_Handoff.txt",
-      "sha256": "9c32a40303a674b00b754efeabd6cdf93799c361825f7f9745fc33d6a31f026f"
+      "sha256": "a1012885c47cc5732bee1c6855d319b23221ded85afd6c0e4e8a2e55e3ec6026"
     }
   ],
   "publication": {
-    "status": "published with byte-for-byte Drive readback",
-    "analysis_commit": "ffbc7598df5feb6fc9de40e200521727db2c89e0",
-    "presentation_revision_commit": "100b0b7409d70a1e6e0a12c2e832981ba1a3cddd",
-    "workflow_run": "https://github.com/Harman6139/lsq-project1-automation/actions/runs/44567655429",
-    "workflow_success": true,
-    "scope": "assignment10",
-    "global_publisher_skipped": true,
-    "overleaf_skipped": true,
-    "drive_replacement": "Publisher recreated stored artifacts under stable automation filenames; PDF title and local filename carry no assignment label.",
-    "files": [
-      {
-        "local_name": "Return_Screening_Frontier.pdf",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
-        "drive_id": "1TQMnl6W0-Hr9_FE-4eWUIXcB0laziOJp",
-        "size": 209913,
-        "sha256": "348d44ed3e47e9527c098c5c1cfb8b809c2b95cb93253471c6b45bfb5c644e1c",
-        "raw_readback_matches_local_bytes": true
-      },
-      {
-        "local_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
-        "drive_id": "1-m8USvUBRwtQ4LZt4pMUwwUHxGpyhRCb",
-        "size": 177709,
-        "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d",
-        "raw_readback_matches_local_bytes": true
-      }
-    ]
+    "status": "prepared local release; remote publication not yet claimed"
   },
   "files": [
     {
@@ -1487,8 +1478,8 @@
     },
     {
       "file": "scripts/finalize_assignment10.py",
-      "bytes": 8204,
-      "sha256": "3bbf746982cd7fcbc280d8c8a7dde2bb483171ed89084bda996f44e3aa633d23"
+      "bytes": 8999,
+      "sha256": "c6cc9bf4c45cb56e28cae4aa7cafd3e65be3992b6438a82c33cf0f747d056eae"
     },
     {
       "file": "scripts/freeze_design.py",
@@ -1517,8 +1508,8 @@
     },
     {
       "file": "scripts/plot_plain_english_frontier.py",
-      "bytes": 6576,
-      "sha256": "579dc40b2c90b1e69a1212578ffe4bb6c610f65152c7e3bc758c5f49b09d6c9c"
+      "bytes": 6600,
+      "sha256": "5c24eefdd4375f83b2719f5cb3cf190659e41f628892c8fc2c32fe8bb1e7186c"
     },
     {
       "file": "scripts/run_external_validation.py",
@@ -1617,8 +1608,8 @@
     },
     {
       "file": "data/plain_english_frontier_metadata.json",
-      "bytes": 1435,
-      "sha256": "4e8467821390c32e8359e7c7b5673a88fe0b5aedfac864355ce9b7067c42dc78"
+      "bytes": 1600,
+      "sha256": "d828569aabfdefbd9084971b3b738de02604da57b8786464cacf5044a055bceb"
     },
     {
       "file": "data/publication_readback.json",
@@ -1831,6 +1822,11 @@
       "sha256": "20405de10cfa311e095f1c6cc091b729a924727a1a6f864c060def98b04aadef"
     },
     {
+      "file": "figures/Return_Screening_Frontier_Explained.pdf",
+      "bytes": 58270,
+      "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089"
+    },
+    {
       "file": "figures/Return_Screening_Frontier_Explained.png",
       "bytes": 208668,
       "sha256": "42668c295afb2d420b38619ae615c046184f568baad7a654a25404b1e958ba4f"
@@ -1838,7 +1834,7 @@
     {
       "file": "figures/Return_Screening_Frontier_Explained.svg",
       "bytes": 66959,
-      "sha256": "45cd84eb7e88053f3a75232eeb045aa4cad6116c1d23c174c7838d3f7199970a"
+      "sha256": "29d1860403db818f942d1fed4243e9b14acd3f7d1699d6095449dce6f78cdd17"
     },
     {
       "file": "research/data_search.json",
@@ -1896,6 +1892,11 @@
       "sha256": "64082ccace4ed40178b1d81eaaba057db519c68568f5016dd2b1dd5bcb77c765"
     },
     {
+      "file": "research/proposal_implementation_audit.json",
+      "bytes": 3258,
+      "sha256": "36e73b46f91d31521a9031f84215178bbb7cfc57ddc876b840b9ce51d18a887d"
+    },
+    {
       "file": "research/provenance_inventory.json",
       "bytes": 6377,
       "sha256": "aac0c0a571d0d4aefbfb1cc3e0621b00a366fdd7e8f07f6ebe23aca7e562945f"
@@ -1942,8 +1943,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 12384,
-      "sha256": "e198df0da47caa07380591d0ccf7d7d280438c169adeae0d250f8164ecfd4d61"
+      "bytes": 12938,
+      "sha256": "38fd0c15c0ea084d8f1fd63292a81263491c54bd4f4efdd9a36c062923686a64"
     },
     {
       "file": ".gitignore",

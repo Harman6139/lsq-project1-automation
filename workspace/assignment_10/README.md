@@ -3,13 +3,13 @@
 The current professor-facing note is `Return_Screening_Frontier.pdf`: three pages
 with exact main-method formulas, two graphs and the economic findings. Its matching
 LaTeX source and graphs are alongside the existing supporting workbook,
-`Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft is
-unchanged. The old one-page note is preserved with path/hash inventories under
+`Assignment_10_Return_Screening_Frontier_Handoff.xlsx`. The unsent email draft explains the initial exercise and why the frontier comparison
+was proposed, in 241 words. The old one-page note is preserved with path/hash inventories under
 `History/20261119_One_Page_Handoff`, both here and in the stable University folder.
 The presentation revision does not change the numerical experiments or workbook.
 Correspondence, personal download inventories and restricted originals stay local.
 
-`figures/Return_Screening_Frontier_Explained.png` (with matching SVG) gives a
+`figures/Return_Screening_Frontier_Explained.png` (with matching SVG and standalone PDF) gives a
 plain-English count-axis view of the original and local/serial pairs for the
 three-month loss-delay experiment. Its annotated points are (1,104), (3,192)
 and the original pair's (3,120), so the last comparison holds the observed
@@ -17,7 +17,14 @@ unchanged-warning count fixed. Reproduce it with
 `python scripts/plot_plain_english_frontier.py`; all 101 frozen cutoff points
 are retained, and `data/plain_english_frontier_metadata.json` records the source
 hash. This companion figure is saved in the existing University folder for chat
-discussion; the current professor PDF and published workbook are unchanged.
+discussion and attachment; the main three-page report and workbook are unchanged.
+The standalone graph PDF is included in the scoped publication package.
+
+The supplied portfolio appendix's implementation is mapped in
+`research/proposal_implementation_audit.json`. Its core empirical exercises were
+run in Assignment 9, and Assignment 10 extends the choice of checks. Alpha and
+t-statistics were calculated, while separate selection exercises ranked by those
+statistics and a new matched simulation-versus-empirical study remain unrun.
 
 The original analysis release is pinned at
 `ffbc7598df5feb6fc9de40e200521727db2c89e0`. The current PDF replaces the existing

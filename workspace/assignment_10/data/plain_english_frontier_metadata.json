@@ -42,7 +42,11 @@
     },
     {
       "file": "figures/Return_Screening_Frontier_Explained.svg",
-      "sha256": "45cd84eb7e88053f3a75232eeb045aa4cad6116c1d23c174c7838d3f7199970a"
+      "sha256": "29d1860403db818f942d1fed4243e9b14acd3f7d1699d6095449dce6f78cdd17"
+    },
+    {
+      "file": "figures/Return_Screening_Frontier_Explained.pdf",
+      "sha256": "615cc061ca7a8432fe1aedb3fe68364d125e2c11cf4f4a6a9edd2f527567f089"
     }
   ]
 }

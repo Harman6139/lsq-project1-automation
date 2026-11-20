@@ -35,7 +35,7 @@ def main():
 
     plt.rcParams.update({'font.family':'Times New Roman','font.size':13,
                          'axes.spines.top':False,'axes.spines.right':False,
-                         'axes.labelsize':14,'svg.fonttype':'none'})
+                         'axes.labelsize':14,'svg.fonttype':'none','pdf.fonttype':42})
     fig=plt.figure(figsize=(12,7.2),facecolor='white')
     gs=fig.add_gridspec(1,2,width_ratios=[2.25,1],left=.085,right=.975,
                         bottom=.30,top=.79,wspace=.20)
@@ -82,7 +82,7 @@ def main():
              'Smaller dots show the other warning levels. Every cutoff setting is retained.',
              fontsize=11,ha='left',linespacing=1.25)
     paths=[]
-    for ext in ['png','svg']:
+    for ext in ['png','svg','pdf']:
         destination=ROOT/'figures'/f'{STEM}.{ext}'
         fig.savefig(destination,dpi=180,facecolor='white')
         target=UNIVERSITY/'figures'/destination.name

@@ -328,6 +328,13 @@
       "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
       "folder_path": "Assignment 10",
       "description": "Supporting frontier, rule-quantity and external-history comparisons."
+    },
+    {
+      "group": "assignment10",
+      "local_path": "workspace/assignment_10/figures/Return_Screening_Frontier_Explained.pdf",
+      "drive_name": "Return_Screening_Frontier_Explained.pdf",
+      "folder_path": "Assignment 10",
+      "description": "Plain-English frontier graph comparing delayed-loss detection and warnings on untouched portfolios."
     }
   ]
 }
