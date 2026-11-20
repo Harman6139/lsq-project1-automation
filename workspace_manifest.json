@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T20:11:50.539217+00:00",
+  "generated_at": "2026-11-20T20:55:09.467367+00:00",
   "drive_folder_url": "https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link",
   "github_repo_url": "https://github.com/Harman6139/lsq-project1-automation",
   "overleaf_workspace_url": "",
@@ -11,7 +11,7 @@
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
       "bytes": 222181,
-      "sha256": "7b2688114e40fc3cd67f97e61709b94ba896ef16fb583ac17a6e8388f227993b"
+      "sha256": "d10f50813b4b9a87ab0fb82db41fff0be2dcb8a7a42f9de1e99293ef7d73795a"
     },
     {
       "local_path": "Project_1_May2026_Update.xlsx",
@@ -19,8 +19,8 @@
       "description": "Current Project 1 monthly update Excel workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update",
-      "bytes": 32648,
-      "sha256": "73e8c342e037b95109ffcc08c8855e8f4e6b79da8c385846eb3bf5d7fa6001a4"
+      "bytes": 32653,
+      "sha256": "f6aa5c97bbd36d8f18d5f65275de365a48388f3db680f47ed1f1fc9d539637a2"
     },
     {
       "local_path": "Project_1_May2026_Update.tex",
@@ -46,8 +46,8 @@
       "description": "Isolated updated Table 2 workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6887,
-      "sha256": "c9567eb3940af36fe7991fffad6dbb9c35f12bb80e7edfbc67c7349bf246615a"
+      "bytes": 6888,
+      "sha256": "6dcf32ea176876fcf9d3731dc27d6dcd8329dcdf45c5bc7d87efbb5714e1fd71"
     },
     {
       "local_path": "isolated_excel/Table 4 - Current Update.xlsx",
@@ -55,8 +55,8 @@
       "description": "Isolated updated Table 4 workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6819,
-      "sha256": "a76ea1a8f8b989d49bbd7ada6a4d74879421c2ec70ed7187c5b01ff6869bb7bb"
+      "bytes": 6821,
+      "sha256": "4a7b604766847d64504af8e6079bed2614313ceecc4c7d2958034e803281e460"
     },
     {
       "local_path": "isolated_excel/Table 2 - Paper vs Current.xlsx",
@@ -64,8 +64,8 @@
       "description": "Isolated Table 2 comparison workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6780,
-      "sha256": "b781928d300ada31d5d52c23c2f87d93575c84bc307480772b93cfcc6aa0843a"
+      "bytes": 6781,
+      "sha256": "cc7658eec8bab82fd055a3dec637e93a6b82269c80ed1fcbeecfd2ddcf2feae8"
     },
     {
       "local_path": "isolated_excel/Table 4 - Paper vs Current.xlsx",
@@ -73,8 +73,8 @@
       "description": "Isolated Table 4 comparison workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6682,
-      "sha256": "5a327cb51fe38454b6f7c619025de302b1f6f03a1a9fd80fcf24449e3e54d42b"
+      "bytes": 6683,
+      "sha256": "5f4c768de5fc1167020cee3cdd43640912219d3a73c6f7ddc688033b75f0eaa6"
     },
     {
       "local_path": "isolated_excel/Regression - Alpha and Beta.xlsx",
@@ -82,8 +82,8 @@
       "description": "Isolated regression workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6311,
-      "sha256": "b7ed6d39048d83c44b26eab1352c775516e82a775ce393b1c36e42541052f37b"
+      "bytes": 6312,
+      "sha256": "2abb4170b877312a01be1f1b0418507af168a6c46518b78dc9d30db22aa4f3c9"
     },
     {
       "local_path": "isolated_excel/Serial Correlation Diagnostics.xlsx",
@@ -91,8 +91,8 @@
       "description": "Isolated serial-correlation diagnostics workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6322,
-      "sha256": "9343dac075f57b6ae558b2825ec77733aa3c8496778d135c0f6919b751d119ff"
+      "bytes": 6323,
+      "sha256": "25a78cb8d6bd1de9e7fd2239588d18fcaffd7524ce200db834a024c4d3165487"
     },
     {
       "local_path": "isolated_excel/Newey-West Inference.xlsx",
@@ -100,8 +100,8 @@
       "description": "Isolated Newey-West inference workbook.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 6498,
-      "sha256": "60b8bc237adba515f7fbf7c5e33efbead573adf37d50aca27a992c77981042dc"
+      "bytes": 6499,
+      "sha256": "0c10a8cf8a0ceedeba530dbed4c8f73bfa7f55d0f4cfa6dd8a66c36fa367d5cd"
     },
     {
       "local_path": "isolated_excel/MPPM Recalculation.xlsx",
@@ -109,8 +109,8 @@
       "description": "Reproducible MPPM recalculation for Fund X, S&P 500 Total Return, and NVIDIA.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Excel Tables",
-      "bytes": 17092,
-      "sha256": "036a307dd943c7e23d67a8c1f6a7fbeb09747b7808b4e580dcf60a97f265d1a8"
+      "bytes": 17134,
+      "sha256": "bd7c81b025dddc41f2403c02dbc52680391d46e276ec812dd9e463f58dd19118"
     },
     {
       "local_path": "isolated_excel/LSQ Returns - Current.xlsx",
@@ -118,8 +118,8 @@
       "description": "Current LSQ monthly return series.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Return Series",
-      "bytes": 9910,
-      "sha256": "2c5841ad117e36309c0752de9d5cf882cc59076b57787ed49aff11fa6594d91c"
+      "bytes": 9911,
+      "sha256": "3a6ab8ff137f6950dfe1ae9bbd1ee1fcd78c674dae2088c6e5c553d7e5baf4cf"
     },
     {
       "local_path": "isolated_excel/S&P 500 Total Return - Current.xlsx",
@@ -127,8 +127,8 @@
       "description": "Current S&P 500 Total Return month-end adjusted-close series.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Return Series",
-      "bytes": 13603,
-      "sha256": "62211d1b4cea1529f8234d54568711f77b3d3b4a23eb9cd906af5b9fe0358792"
+      "bytes": 13604,
+      "sha256": "6da0f6979f0bd98eda7f4de9870f7894fe73aee9de084d099da7fdae50e71d36"
     },
     {
       "local_path": "isolated_excel/NVIDIA Returns - Current.xlsx",
@@ -136,8 +136,8 @@
       "description": "Current NVIDIA month-end adjusted-close return series.",
       "group": "project1_monthly",
       "folder_path": "Project Monthly Update/Return Series",
-      "bytes": 14276,
-      "sha256": "25a33bdc18083d828d7debf4d9fe04aac1a3ad8c6403f8a23e13670ff00fdefe"
+      "bytes": 14293,
+      "sha256": "8335c493377a1d6257b1c91e104f7b2440ee9a869b1a31ea68fe3ee6fa521ec0"
     },
     {
       "local_path": "isolated_excel/Market Data Reconciliation - May 2026.xlsx",
@@ -336,6 +336,69 @@
       "folder_path": "Assignment 7",
       "bytes": 25097,
       "sha256": "376c882b8cf59b7799117e65c805a45851627c224c8ccffa4dd0ad88e6329b37"
+    },
+    {
+      "local_path": "workspace/assignment_9/Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "drive_name": "Assignment_9_Chen_Zimmermann_Screening.pdf",
+      "description": "Chen-Zimmermann strategy returns, selection and controlled reporting-change experiments.",
+      "group": "assignment9",
+      "folder_path": "Assignment 9",
+      "bytes": 301643,
+      "sha256": "9e1fad1457ef33ea7297fa0c5d5830ad1f6fda7f46424a203a7c7fbec2235138"
+    },
+    {
+      "local_path": "workspace/assignment_9/Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "drive_name": "Assignment_9_Chen_Zimmermann_Screening.xlsx",
+      "description": "Supporting counts, statistics, selection probabilities and reporting-policy sensitivities.",
+      "group": "assignment9",
+      "folder_path": "Assignment 9",
+      "bytes": 657015,
+      "sha256": "0669e91fe8644527875a40efc50a001a306455eab448b255e100a776b0fdbc49"
+    },
+    {
+      "local_path": "workspace/assignment_10/Return_Screening_Frontier.pdf",
+      "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.pdf",
+      "description": "Three-page note explaining all 38 screening arrangements, ten reporting changes and the investigation tradeoff.",
+      "group": "assignment10",
+      "folder_path": "Assignment 10",
+      "bytes": 147352,
+      "sha256": "3a70b90b9ec90cd7f27511e629879c793f68e2bcc35ba349a0f8379be84bfed2"
+    },
+    {
+      "local_path": "workspace/assignment_10/Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "drive_name": "Assignment_10_Return_Screening_Frontier_Handoff.xlsx",
+      "description": "Supporting frontier, rule-quantity and external-history comparisons.",
+      "group": "assignment10",
+      "folder_path": "Assignment 10",
+      "bytes": 177709,
+      "sha256": "fd92ec5cc335b642a8f688b2a93022e8780f5c5c6e64c959d38f81bce8b8152d"
+    },
+    {
+      "local_path": "workspace/assignment_10/figures/Return_Screening_Frontier_Explained.pdf",
+      "drive_name": "Return_Screening_Frontier_Explained.pdf",
+      "description": "The three leading rules for losses reported three months late, with a plain-language key.",
+      "group": "assignment10",
+      "folder_path": "Assignment 10",
+      "bytes": 52153,
+      "sha256": "ab8d5bd3d24a3f6f4ff80634734eaf34051b321d6b8077f058955ccebe6d419c"
+    },
+    {
+      "local_path": "workspace/assignment_10/figures/reporting_matrix_appendix.pdf",
+      "drive_name": "reporting_matrix_appendix.pdf",
+      "description": "Full 38 by 10 counts, differences from either B or D and A or Z, and three named curves per reporting change.",
+      "group": "assignment10",
+      "folder_path": "Assignment 10",
+      "bytes": 101396,
+      "sha256": "7e2bf0e2b88d7e3ded8f448a50568fbd63775e51308dba9e6284547f7f1c02e6"
+    },
+    {
+      "local_path": "workspace/assignment_10/figures/reporting_matrix_top_quintile.pdf",
+      "drive_name": "reporting_matrix_top_quintile.pdf",
+      "description": "Full comparison for the 39 highest-Sharpe research portfolios at the same historical cutoffs.",
+      "group": "assignment10",
+      "folder_path": "Assignment 10",
+      "bytes": 69495,
+      "sha256": "06c3dd1a5b2c6efaeb8f21365c002fe43d662d54dd9fe1dd7cd8f4e99b2264ba"
     }
   ]
 }

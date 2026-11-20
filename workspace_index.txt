@@ -1,5 +1,5 @@
 Boyle LSQ Workspace
-Updated: 2026-11-10 20:11:50 UTC
+Updated: 2026-11-20 20:55:09 UTC
 
 Drive folder: https://drive.google.com/drive/folders/1MgFc1OMXcFoTzDgcfpae1n_cKhDuDOzq?usp=drive_link
 Live LaTeX workspace: https://github.com/Harman6139/lsq-project1-automation
@@ -61,6 +61,17 @@ Monthly Automation:
 Assignment 7:
 - Assignment_7_Fund_X_Two_Regime_Review.pdf: Fund X two-regime review with independent refitting, timing tests, predictive checks, and sensitivity.
 - Assignment_7_Fund_X_Two_Regime_Review.xlsx: Fund X two-regime review with independent refitting, timing tests, predictive checks, and sensitivity.
+
+Assignment 9:
+- Assignment_9_Chen_Zimmermann_Screening.pdf: Chen-Zimmermann strategy returns, selection and controlled reporting-change experiments.
+- Assignment_9_Chen_Zimmermann_Screening.xlsx: Supporting counts, statistics, selection probabilities and reporting-policy sensitivities.
+
+Assignment 10:
+- Assignment_10_Return_Screening_Frontier_Handoff.pdf: Three-page note explaining all 38 screening arrangements, ten reporting changes and the investigation tradeoff.
+- Assignment_10_Return_Screening_Frontier_Handoff.xlsx: Supporting frontier, rule-quantity and external-history comparisons.
+- Return_Screening_Frontier_Explained.pdf: The three leading rules for losses reported three months late, with a plain-language key.
+- reporting_matrix_appendix.pdf: Full 38 by 10 counts, differences from either B or D and A or Z, and three named curves per reporting change.
+- reporting_matrix_top_quintile.pdf: Full comparison for the 39 highest-Sharpe research portfolios at the same historical cutoffs.
 
 Monthly automation:
 Project 1 runs automatically through GitHub Actions on the 10th, 15th, 20th, and 25th of each month.

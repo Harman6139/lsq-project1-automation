@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-10T20:10:46",
+  "generated_at": "2026-11-20T20:54:07",
   "source": "spartan",
   "simulation": false,
   "source_file": "data/LSQ_latest_spartan.pdf",
   "spartan_url": "https://spartanfunds.ca/wp-content/uploads/2021/11/LSQ-Oct21.pdf",
   "spartan_pdf_sha256": "5a3c5653767302d90d7268304cdbfcbd4f950d129d2caa5a72f800a60514f172",
   "spartan_pdf_downloaded_this_run": true,
-  "spartan_pdf_fetched_at": "2026-11-10T20:10:44+00:00",
+  "spartan_pdf_fetched_at": "2026-11-20T20:54:06+00:00",
   "estimated_months": [],
   "latest_month_is_estimate": false,
   "workbook": "",
@@ -24,6 +24,6 @@
   "mppm_annualization": "(1 + monthly log certainty equivalent)^12 - 1",
   "lsq_mppm_annual_percent": 45.9296563864535,
   "sp500tr_mppm_annual_percent": 12.270546652735636,
-  "nvda_mppm_annual_percent": 25.773542505324087,
+  "nvda_mppm_annual_percent": 25.773569115557038,
   "compile_status": "Skipped PDF compilation."
 }
